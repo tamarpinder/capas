@@ -13,6 +13,7 @@ import {
   CogIcon,
   ArrowLeftIcon,
   AcademicCapIcon,
+  IdentificationIcon,
 } from '@heroicons/react/24/outline';
 
 const navigation = [
@@ -21,6 +22,7 @@ const navigation = [
   { name: 'Calendar', href: '/dashboard/calendar', icon: CalendarIcon },
   { name: 'Courses', href: '/dashboard/courses', icon: BookOpenIcon },
   { name: 'Progress', href: '/dashboard/progress', icon: ChartBarIcon },
+  { name: 'Student ID', href: '/dashboard/student-id', icon: IdentificationIcon },
   { name: 'Notices', href: '/dashboard/notices', icon: BellIcon },
   { name: 'Profile', href: '/dashboard/profile', icon: UserIcon },
   { name: 'Settings', href: '/dashboard/settings', icon: CogIcon },
@@ -87,7 +89,7 @@ export default function DashboardSidebar() {
       {/* Mobile Bottom Navigation */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-capas-ocean-light/20 shadow-lg z-50">
         <div className="grid grid-cols-4 gap-1 p-2">
-          {[navigation[0], navigation[1], navigation[2], navigation[4]].map((item) => {
+          {[navigation[0], navigation[1], navigation[2], navigation[5]].map((item) => {
             const isActive = pathname === item.href;
             return (
               <Link
