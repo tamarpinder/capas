@@ -29,21 +29,23 @@ interface NewsEvent {
   id: string;
   type: 'news' | 'event';
   title: string;
-  excerpt: string;
+  excerpt?: string;
+  description?: string;
   content: string;
   author?: string;
-  publishDate: string;
-  category: string;
-  tags: string[];
-  imageUrl: string;
-  featured: boolean;
-  
-  // Event-specific fields
+  publishDate?: string;
   date?: string;
-  endDate?: string;
   time?: string;
   endTime?: string;
   location?: string;
+  category: string;
+  tags?: string[];
+  imageUrl?: string;
+  featured: boolean;
+  views: number;
+  likes: number;
+  comments: number;
+  shares: number;
   venueDetails?: {
     name: string;
     address: string;
@@ -56,12 +58,8 @@ interface NewsEvent {
     bookingUrl?: string;
     contactInfo?: string;
   };
-  
-  // Engagement metrics (mock)
-  views: number;
-  likes: number;
-  comments: number;
-  shares: number;
+  registrationRequired?: boolean;
+  contactInfo?: string;
 }
 
 interface Comment {
@@ -104,11 +102,16 @@ export default function NewsEventPage({ params }: NewsEventPageProps) {
     // Add mock engagement data
     const enrichedItem: NewsEvent = {
       ...foundItem,
+      excerpt: (foundItem as any).excerpt || (foundItem as any).description || '',
+      publishDate: foundItem.publishDate || (foundItem as any).date || new Date().toISOString(),
+      imageUrl: foundItem.imageUrl || '/placeholders/default-event.jpg',
+      tags: foundItem.tags || [],
+      author: foundItem.author || 'CAPAS Staff',
       views: Math.floor(Math.random() * 2000) + 100,
       likes: Math.floor(Math.random() * 200) + 10,
       comments: Math.floor(Math.random() * 50) + 2,
       shares: Math.floor(Math.random() * 100) + 5,
-      content: generateMockContent(foundItem)
+      content: generateMockContent(foundItem as NewsEvent)
     };
 
     // Find related items (same category, different item)
@@ -117,6 +120,19 @@ export default function NewsEventPage({ params }: NewsEventPageProps) {
         relatedItem.category === foundItem.category && 
         relatedItem.id !== foundItem.id
       )
+      .map(item => ({
+        ...item,
+        excerpt: (item as any).excerpt || (item as any).description || '',
+        publishDate: item.publishDate || (item as any).date || '',
+        imageUrl: item.imageUrl || '/placeholders/default.jpg',
+        tags: item.tags || [],
+        author: item.author || '',
+        views: 0,
+        likes: 0,
+        comments: 0,
+        shares: 0,
+        content: ''
+      } as NewsEvent))
       .slice(0, 3);
 
     // Generate mock comments
@@ -535,7 +551,6 @@ export default function NewsEventPage({ params }: NewsEventPageProps) {
                 width={800}
                 height={500}
                 text={item.title}
-                variant="landscape"
                 colorScheme={isEvent ? 'palm' : 'turquoise'}
                 className="w-full h-full object-cover"
               />
@@ -649,7 +664,7 @@ export default function NewsEventPage({ params }: NewsEventPageProps) {
               Tags
             </h3>
             <div className="flex flex-wrap gap-2">
-              {item.tags.map((tag) => (
+              {item.tags?.map((tag) => (
                 <Link
                   key={tag}
                   href={`/news-events?tag=${encodeURIComponent(tag)}`}
@@ -754,11 +769,10 @@ export default function NewsEventPage({ params }: NewsEventPageProps) {
                         <div className="h-48 relative overflow-hidden">
                           <PlaceholderImage
                             width={400}
-                            height={192}
+                            height={250}
                             text={relatedItem.title}
-                            variant="landscape"
-                            colorScheme={relatedItem.type === 'event' ? 'palm' : 'coral'}
-                            className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                            colorScheme={relatedItem.type === 'event' ? 'palm' : 'turquoise'}
+                            className="w-full h-full object-cover"
                           />
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                           <div className="absolute top-4 left-4">
@@ -803,4 +817,12 @@ export default function NewsEventPage({ params }: NewsEventPageProps) {
       </div>
     </>
   );
+}
+
+export function generateStaticParams() {
+  const allItems = [
+    ...newsEventsData.newsArticles.map(article => ({ id: article.id })),
+    ...newsEventsData.upcomingEvents.map(event => ({ id: event.id }))
+  ];
+  return allItems;
 }
