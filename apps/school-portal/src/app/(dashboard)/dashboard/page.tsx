@@ -14,6 +14,7 @@ import {
   ClockIcon,
   BellIcon,
 } from '@heroicons/react/24/outline';
+import { type ExtendedUser } from '@/lib/auth';
 
 interface QuickStat {
   title: string;
@@ -47,7 +48,7 @@ export default function Dashboard() {
     }
   }, [session]);
 
-  const studentData = session?.user as any;
+  const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   const quickStats: QuickStat[] = [
@@ -82,7 +83,7 @@ export default function Dashboard() {
   ];
 
   // Use real data from mock student profiles
-  const upcomingEvents = mockStudent?.upcomingEvents.slice(0, 4).map(event => ({
+  const upcomingEvents = mockStudent?.upcomingEvents?.slice(0, 4).map(event => ({
     id: event.id,
     title: event.title,
     date: new Date(event.date + 'T' + event.time).toLocaleDateString('en-US', {
@@ -119,7 +120,7 @@ export default function Dashboard() {
             {greeting || `Hello, ${studentData?.firstName || 'Student'}! 👋`}
           </h1>
           <p className="text-white/90 text-lg mb-4">
-            Welcome back to your CAPAS portal. Here's what's happening today.
+            Welcome back to your CAPAS portal. Here&apos;s what&apos;s happening today.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-white/80">
             <div className="flex items-center space-x-2">
@@ -145,11 +146,11 @@ export default function Dashboard() {
               <AcademicCapIcon className="h-5 w-5" />
               <span>{studentData?.program || 'Program'} • Year {studentData?.year || 2}</span>
             </div>
-            {mockStudent?.notifications.filter(n => !n.read).length > 0 && (
+            {(mockStudent?.notifications?.filter(n => !n.read).length ?? 0) > 0 && (
               <div className="flex items-center space-x-2 bg-white/20 px-3 py-1 rounded-full">
                 <BellIcon className="h-4 w-4" />
                 <span className="text-sm font-medium">
-                  {mockStudent.notifications.filter(n => !n.read).length} unread
+                  {mockStudent?.notifications?.filter(n => !n.read).length ?? 0} unread
                 </span>
               </div>
             )}

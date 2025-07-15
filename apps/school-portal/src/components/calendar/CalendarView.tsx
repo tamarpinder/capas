@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronLeftIcon, 
@@ -9,7 +9,7 @@ import {
   MapPinIcon 
 } from '@heroicons/react/24/outline';
 
-interface CalendarEvent {
+export interface CalendarEvent {
   id: string;
   title: string;
   date: string;
@@ -18,6 +18,7 @@ interface CalendarEvent {
   location?: string;
   color?: string;
   bgColor?: string;
+  borderColor?: string;
 }
 
 interface CalendarViewProps {
@@ -48,7 +49,7 @@ export default function CalendarView({
   // Get events for a specific date
   const getEventsForDate = (date: Date) => {
     const dateStr = date.toISOString().split('T')[0];
-    return events.filter(event => event.date === dateStr);
+    return events.filter((event: CalendarEvent) => event.date === dateStr);
   };
 
   // Navigate between periods
@@ -97,7 +98,6 @@ export default function CalendarView({
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
     const startDate = new Date(firstDay);
     startDate.setDate(startDate.getDate() - firstDay.getDay());
 
@@ -282,7 +282,6 @@ export default function CalendarView({
 
   const renderDayView = () => {
     const dayEvents = getEventsForDate(currentDate);
-    const hours = Array.from({ length: 24 }, (_, i) => i);
 
     return (
       <div className="space-y-4">

@@ -13,12 +13,19 @@ import {
   ArrowDownTrayIcon
 } from '@heroicons/react/24/outline';
 
-interface AccessHistoryProps {
-  history: any[];
-  student: any;
+interface Access {
+  id: string;
+  location: string;
+  time: string;
+  status: string;
 }
 
-export default function AccessHistory({ history, student }: AccessHistoryProps) {
+interface AccessHistoryProps {
+  accessData: Access[];
+  onRefresh: () => void;
+}
+
+export default function AccessHistory({ accessData, onRefresh }: AccessHistoryProps) {
   const [filterType, setFilterType] = useState('all');
   const [sortBy, setSortBy] = useState('recent');
   const [showFilters, setShowFilters] = useState(false);
@@ -36,7 +43,7 @@ export default function AccessHistory({ history, student }: AccessHistoryProps) 
     { value: 'status', label: 'By Status' }
   ];
 
-  const filteredHistory = history.filter(item => {
+  const filteredHistory = accessData.filter(item => {
     if (filterType === 'all') return true;
     return item.status === filterType || item.type === filterType;
   });
@@ -75,9 +82,9 @@ export default function AccessHistory({ history, student }: AccessHistoryProps) 
   };
 
   const generateMockStats = () => {
-    const totalEntries = history.length;
-    const grantedEntries = history.filter(h => h.status === 'granted').length;
-    const restrictedEntries = history.filter(h => h.status === 'restricted').length;
+    const totalEntries = accessData.length;
+    const grantedEntries = accessData.filter(h => h.status === 'granted').length;
+    const restrictedEntries = accessData.filter(h => h.status === 'restricted').length;
     const mostVisited = 'Main Library';
     
     return {
@@ -174,12 +181,12 @@ export default function AccessHistory({ history, student }: AccessHistoryProps) 
 
       {/* Access History List */}
       <div className="space-y-3">
-        {sortedHistory.map((item, index) => (
+        {sortedHistory.map((item) => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
+            transition={{ duration: 0.3, delay: 0 }}
             className="card-capas p-4 hover:shadow-md transition-shadow"
           >
             <div className="flex items-start justify-between">

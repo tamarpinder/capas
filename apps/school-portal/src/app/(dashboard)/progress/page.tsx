@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import { getStudentByEmail } from '@/lib/mock-data';
@@ -18,13 +18,14 @@ import {
   CheckCircleIcon,
   ExclamationTriangleIcon
 } from '@heroicons/react/24/outline';
+import { type ExtendedUser } from '@/lib/auth';
 
 export default function ProgressPage() {
   const { data: session } = useSession();
   const [selectedSemester, setSelectedSemester] = useState('Fall 2024');
   const [viewType, setViewType] = useState<'overview' | 'courses' | 'grades' | 'achievements'>('overview');
 
-  const studentData = session?.user as any;
+  const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   // Generate mock academic data

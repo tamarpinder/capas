@@ -11,7 +11,7 @@ export interface MockStudent extends ExtendedUser {
     phone: string;
   };
   notifications: Notification[];
-  upcomingEvents: Event[];
+  upcomingEvents: StudentEvent[];
   recentActivity: Activity[];
   courses: Course[];
   grades: Grade[];
@@ -32,7 +32,7 @@ export interface Notification {
   category: 'academic' | 'administrative' | 'event' | 'weather' | 'emergency';
 }
 
-export interface Event {
+export interface StudentEvent {
   id: string;
   title: string;
   description: string;
@@ -178,7 +178,7 @@ export const mockStudents: Record<string, MockStudent> = {
         type: 'class',
         color: 'text-capas-palm'
       }
-    ],
+    ] as StudentEvent[],
     recentActivity: [
       {
         id: '1',
@@ -324,7 +324,7 @@ export const mockStudents: Record<string, MockStudent> = {
         type: 'class',
         color: 'text-capas-turquoise'
       }
-    ],
+    ] as StudentEvent[],
     recentActivity: [
       {
         id: '1',
@@ -425,7 +425,7 @@ export const mockStudents: Record<string, MockStudent> = {
         type: 'event',
         color: 'text-capas-gold'
       }
-    ],
+    ] as StudentEvent[],
     recentActivity: [
       {
         id: '1',
@@ -499,7 +499,7 @@ export const weatherMessages = {
 };
 
 // Time-aware greetings with Caribbean context
-export const generateGreeting = (hour: number, userName: string, upcomingEvents: Event[] = []) => {
+export const generateGreeting = (hour: number, userName: string, upcomingEvents: StudentEvent[] = []) => {
   const hasExam = upcomingEvents.some(event => event.type === 'exam');
   const hasAssignment = upcomingEvents.some(event => event.type === 'assignment');
   const isJunkanoo = new Date().getMonth() === 11 && (new Date().getDate() === 26 || new Date().getDate() === 1);

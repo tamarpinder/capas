@@ -2,23 +2,9 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  TrophyIcon,
-  StarIcon,
-  SparklesIcon,
-  AcademicCapIcon,
-  UserGroupIcon,
-  MusicalNoteIcon,
-  PaintBrushIcon,
-  GlobeAltIcon,
-  HeartIcon,
-  LightBulbIcon,
-  FireIcon,
-  ChevronRightIcon
-} from '@heroicons/react/24/outline';
 
 interface AchievementBadgesProps {
-  achievements: any[];
+  achievements: string[];
 }
 
 export default function AchievementBadges({ achievements }: AchievementBadgesProps) {

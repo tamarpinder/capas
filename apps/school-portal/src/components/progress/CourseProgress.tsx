@@ -11,7 +11,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface CourseProgressProps {
-  courses: any[];
+  courses: Course[];
   getGradeColor: (grade: string) => string;
 }
 

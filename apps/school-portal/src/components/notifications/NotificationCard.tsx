@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   CheckIcon,
-  XMarkIcon,
   ClockIcon,
   ExclamationTriangleIcon,
   InformationCircleIcon,
@@ -14,7 +13,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface NotificationCardProps {
-  notification: any;
+  notification: Notification;
   isSelected: boolean;
   onToggleSelection: () => void;
   onMarkAsRead: () => void;

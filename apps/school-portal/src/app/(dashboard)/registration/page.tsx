@@ -13,12 +13,13 @@ import {
   BookOpenIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline';
+import { type ExtendedUser } from '@/lib/auth';
 
 export default function RegistrationPage() {
   const { data: session } = useSession();
   const [activeTab, setActiveTab] = useState('courses');
 
-  const studentData = session?.user as any;
+  const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   const tabs = [

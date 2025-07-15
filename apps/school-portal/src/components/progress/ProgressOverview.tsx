@@ -12,12 +12,13 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface ProgressOverviewProps {
-  data: any;
-  getGradeColor: (grade: string) => string;
-  getStatusIcon: (status: string) => React.ReactNode;
+  gpa: number;
+  credits: number;
+  completedCourses: number;
+  totalCourses: number;
 }
 
-export default function ProgressOverview({ data, getGradeColor, getStatusIcon }: ProgressOverviewProps) {
+export default function ProgressOverview({ gpa, credits, completedCourses, totalCourses }: ProgressOverviewProps) {
   const calculateTrend = () => {
     const recent = data.semesterGrades.slice(-2);
     if (recent.length < 2) return null;

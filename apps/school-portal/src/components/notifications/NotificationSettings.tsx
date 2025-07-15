@@ -7,8 +7,6 @@ import {
   BellIcon,
   DevicePhoneMobileIcon,
   EnvelopeIcon,
-  ComputerDesktopIcon,
-  SpeakerWaveIcon,
   ClockIcon,
   CheckIcon
 } from '@heroicons/react/24/outline';

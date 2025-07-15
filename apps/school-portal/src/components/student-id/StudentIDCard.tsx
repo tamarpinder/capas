@@ -11,6 +11,9 @@ import {
   CreditCardIcon
 } from '@heroicons/react/24/outline';
 
+import Image from 'next/image';
+import { type ExtendedUser } from '@/lib/auth';
+
 interface StudentIDCardProps {
   student: any;
   session: any;
@@ -21,12 +24,12 @@ export default function StudentIDCard({ student, session }: StudentIDCardProps) 
   const [showMobileWallet, setShowMobileWallet] = useState(false);
 
   const studentData = {
-    id: student?.studentId || 'STU-2024-001',
-    name: student?.name || session?.user?.name || 'Student Name',
-    email: student?.email || session?.user?.email || 'student@capas.edu.bs',
-    program: student?.program || 'Arts Program',
-    year: student?.year || 2,
-    island: student?.island || 'New Providence',
+    id: (session?.user as ExtendedUser)?.id || 'STU001',
+    name: session?.user?.name || 'Student Name',
+    email: session?.user?.email || 'student@capas.edu.bs',
+    program: (session?.user as ExtendedUser)?.program || 'Program',
+    year: (session?.user as ExtendedUser)?.year || 1,
+    island: (session?.user as ExtendedUser)?.island || 'Nassau',
     bloodType: 'O+',
     emergencyContact: '+1 (242) 555-0123',
     validUntil: '05/2026'
@@ -78,7 +81,7 @@ export default function StudentIDCard({ student, session }: StudentIDCardProps) 
                 <div className="relative">
                   <div className="w-28 h-28 bg-white/20 backdrop-blur rounded-lg flex items-center justify-center border-2 border-white/30">
                     {student?.avatar ? (
-                      <img src={student.avatar} alt={studentData.name} className="w-full h-full rounded-lg object-cover" />
+                      <Image src={student.avatar} alt={studentData.name} width={100} height={100} className="rounded-full" />
                     ) : (
                       <div className="text-3xl font-bold">{getInitials(studentData.name)}</div>
                     )}

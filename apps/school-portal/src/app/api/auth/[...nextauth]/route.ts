@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { type ExtendedUser } from '@/lib/auth';
 
 // Mock student data
 const mockStudents = [
@@ -94,7 +95,7 @@ const handler = NextAuth({
     },
     async session({ session, token }) {
       if (token.studentData) {
-        session.user = token.studentData as any;
+        session.user = token.studentData as ExtendedUser;
       }
       return session;
     }

@@ -16,10 +16,9 @@ import {
   Cog6ToothIcon,
   ExclamationTriangleIcon,
   InformationCircleIcon,
-  AcademicCapIcon,
-  CalendarIcon,
   UserGroupIcon
 } from '@heroicons/react/24/outline';
+import { type ExtendedUser } from '@/lib/auth';
 
 export default function NoticesPage() {
   const { data: session } = useSession();
@@ -29,7 +28,7 @@ export default function NoticesPage() {
   const [showSettings, setShowSettings] = useState(false);
   const [selectedNotifications, setSelectedNotifications] = useState<string[]>([]);
 
-  const studentData = session?.user as any;
+  const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   useEffect(() => {

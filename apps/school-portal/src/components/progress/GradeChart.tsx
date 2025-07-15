@@ -6,12 +6,17 @@ import {
   ChartBarIcon,
   CalendarIcon,
   AcademicCapIcon,
-  TrendingUpIcon,
   ChevronDownIcon
 } from '@heroicons/react/24/outline';
 
+interface SemesterData {
+  semester: string;
+  gpa: number;
+  credits: number;
+}
+
 interface GradeChartProps {
-  semesterData: any[];
+  semesterData: SemesterData[];
   selectedSemester: string;
   onSemesterChange: (semester: string) => void;
 }
@@ -226,13 +231,13 @@ export default function GradeChart({ semesterData, selectedSemester, onSemesterC
         className="bg-gradient-to-r from-capas-turquoise/10 to-capas-ocean/10 rounded-lg p-6"
       >
         <h4 className="font-display text-lg font-semibold text-capas-turquoise mb-4 flex items-center space-x-2">
-          <TrendingUpIcon className="h-5 w-5" />
+          <AcademicCapIcon className="h-5 w-5" />
           <span>Academic Insights</span>
         </h4>
         
         <div className="space-y-3 text-sm text-capas-ocean-dark/80">
           <p>• Your strongest performance was in <span className="font-medium text-capas-ocean-dark">Creative Writing (A)</span></p>
-          <p>• You've maintained consistent performance across {semesterData.length} semesters</p>
+          <p>• You&apos;ve maintained consistent performance across {semesterData.length} semesters</p>
           <p>• Consider taking more advanced courses in your strong subjects</p>
           <p>• Your GPA trend shows steady improvement in recent semesters</p>
         </div>

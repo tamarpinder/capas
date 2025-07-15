@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { 
   CheckIcon, 
   ChevronLeftIcon, 
@@ -9,7 +9,6 @@ import {
   ClockIcon,
   StarIcon,
   UserIcon,
-  MapPinIcon,
   CalendarIcon,
   BookOpenIcon,
   DocumentTextIcon,
@@ -32,7 +31,6 @@ interface WizardStep {
 export default function RegistrationWizard({ type, student }: RegistrationWizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(new Set());
-  const [formData, setFormData] = useState<Record<string, any>>({});
 
   const stepConfigs = {
     courses: [
@@ -61,7 +59,7 @@ export default function RegistrationWizard({ type, student }: RegistrationWizard
     ]
   };
 
-  const steps = stepConfigs[type].map((step, index) => ({
+  const steps = stepConfigs[type].map((step) => ({
     ...step,
     completed: completedSteps.has(step.id)
   }));
@@ -316,40 +314,40 @@ export default function RegistrationWizard({ type, student }: RegistrationWizard
     <div className="space-y-8">
       {/* Progress Steps */}
       <div className="flex items-center justify-between">
-        {steps.map((step, index) => (
+        {steps.map((step) => (
           <div key={step.id} className="flex items-center flex-1">
             <button
-              onClick={() => handleStepClick(index)}
+              onClick={() => handleStepClick(steps.indexOf(step))}
               className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-colors ${
-                index <= currentStep
+                steps.indexOf(step) <= currentStep
                   ? 'bg-capas-turquoise border-capas-turquoise text-white'
                   : 'border-capas-sand-light text-capas-ocean-dark/40'
-              } ${index <= currentStep ? 'cursor-pointer hover:bg-capas-turquoise/90' : 'cursor-not-allowed'}`}
-              disabled={index > currentStep}
+              } ${steps.indexOf(step) <= currentStep ? 'cursor-pointer hover:bg-capas-turquoise/90' : 'cursor-not-allowed'}`}
+              disabled={steps.indexOf(step) > currentStep}
             >
               {step.completed ? (
                 <CheckIcon className="h-5 w-5" />
               ) : (
-                <span className="text-sm font-medium">{index + 1}</span>
+                <span className="text-sm font-medium">{steps.indexOf(step) + 1}</span>
               )}
             </button>
             
             <div className="ml-3 flex-1">
               <div className={`text-sm font-medium ${
-                index <= currentStep ? 'text-capas-ocean-dark' : 'text-capas-ocean-dark/40'
+                steps.indexOf(step) <= currentStep ? 'text-capas-ocean-dark' : 'text-capas-ocean-dark/40'
               }`}>
                 {step.title}
               </div>
               <div className={`text-xs ${
-                index <= currentStep ? 'text-capas-ocean-dark/70' : 'text-capas-ocean-dark/40'
+                steps.indexOf(step) <= currentStep ? 'text-capas-ocean-dark/70' : 'text-capas-ocean-dark/40'
               }`}>
                 {step.description}
               </div>
             </div>
 
-            {index < steps.length - 1 && (
+            {steps.indexOf(step) < steps.length - 1 && (
               <div className={`h-0.5 w-full mx-4 ${
-                index < currentStep ? 'bg-capas-turquoise' : 'bg-capas-sand-light'
+                steps.indexOf(step) < currentStep ? 'bg-capas-turquoise' : 'bg-capas-sand-light'
               }`} />
             )}
           </div>

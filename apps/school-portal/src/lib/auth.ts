@@ -72,7 +72,7 @@ export const authOptions: NextAuthOptions = {
           enrolledCourses: token.enrolledCourses,
           achievements: token.achievements,
           role: token.role
-        } as any;
+        } as ExtendedUser;
       }
       return session;
     }

@@ -7,6 +7,7 @@ import { BellIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import moment from 'moment-timezone';
 import Link from 'next/link';
 import { Fragment } from 'react';
+import { type ExtendedUser } from '@/lib/auth';
 
 export default function DashboardHeader() {
   const { data: session } = useSession();
@@ -146,7 +147,7 @@ export default function DashboardHeader() {
                   {session?.user?.name || 'User'}
                 </div>
                 <div className="text-xs text-capas-ocean-dark/70">
-                  {(session?.user as any)?.program || 'Student'}
+                  {(session?.user as ExtendedUser)?.program || 'Student'}
                 </div>
               </div>
             </Menu.Button>

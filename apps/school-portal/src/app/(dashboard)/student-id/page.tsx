@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import { getStudentByEmail } from '@/lib/mock-data';
@@ -18,13 +18,14 @@ import {
   ClockIcon,
   MapPinIcon
 } from '@heroicons/react/24/outline';
+import { type ExtendedUser } from '@/lib/auth';
 
 export default function StudentIDPage() {
   const { data: session } = useSession();
   const [activeTab, setActiveTab] = useState('id-card');
   const [accessGranted, setAccessGranted] = useState(false);
 
-  const studentData = session?.user as any;
+  const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   // Mock access history

@@ -3,29 +3,35 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
-import { getStudentByEmail } from '@/lib/mock-data';
+import { getStudentByEmail, type MockStudent, type StudentEvent } from '@/lib/mock-data';
 import CalendarView from '@/components/calendar/CalendarView';
 import EventDetails from '@/components/calendar/EventDetails';
+import { CalendarEvent } from '@/components/calendar/CalendarView';
 import {
   CalendarIcon,
   SparklesIcon,
   SunIcon,
-  MoonIcon,
   ClockIcon,
   MapPinIcon,
   UserGroupIcon,
-  TagIcon
 } from '@heroicons/react/24/outline';
+
+type ExtendedUser = {
+  email: string;
+  name: string;
+  firstName: string;
+  // add other properties as needed
+};
 
 export default function CalendarPage() {
   const { data: session } = useSession();
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedEvent, setSelectedEvent] = useState<any>(null);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
   const [viewMode, setViewMode] = useState<'month' | 'week' | 'day'>('month');
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  const studentData = session?.user as any;
-  const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
+  const studentData = session?.user as ExtendedUser | undefined;
+  const mockStudent: MockStudent | null = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -87,13 +93,13 @@ export default function CalendarPage() {
     }
   ];
 
-  const todaysEvents = mockStudent?.upcomingEvents.filter(event => {
+  const todaysEvents = mockStudent?.upcomingEvents.filter((event: StudentEvent) => {
     const eventDate = new Date(event.date);
     const today = new Date();
     return eventDate.toDateString() === today.toDateString();
   }) || [];
 
-  const upcomingEvents = [...(mockStudent?.upcomingEvents || []), ...culturalEvents]
+  const upcomingEventsFiltered = [...(mockStudent?.upcomingEvents || []), ...culturalEvents as CalendarEvent[]]
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .slice(0, 5);
 
@@ -313,8 +319,8 @@ export default function CalendarPage() {
           viewMode={viewMode}
           selectedDate={selectedDate}
           onDateSelect={setSelectedDate}
-          events={[...(mockStudent?.upcomingEvents || []), ...culturalEvents]}
-          onEventClick={setSelectedEvent}
+          events={upcomingEventsFiltered}
+          onEventClick={(event: CalendarEvent) => setSelectedEvent(event)}
         />
       </motion.div>
 

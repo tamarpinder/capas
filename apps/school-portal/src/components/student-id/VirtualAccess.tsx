@@ -7,20 +7,22 @@ import {
   LockClosedIcon,
   LockOpenIcon,
   CheckCircleIcon,
-  XCircleIcon,
   ClockIcon,
-  UsersIcon,
-  WifiIcon,
   MapPinIcon
 } from '@heroicons/react/24/outline';
 
-interface VirtualAccessProps {
-  locations: any[];
-  onAccess: (locationId: string) => void;
-  accessGranted: boolean;
+interface VirtualAccess {
+  id: string;
+  name: string;
+  type: string;
+  status: string;
 }
 
-export default function VirtualAccess({ locations, onAccess, accessGranted }: VirtualAccessProps) {
+interface VirtualAccessProps {
+  virtualAccess: VirtualAccess[];
+}
+
+export default function VirtualAccess({ virtualAccess }: VirtualAccessProps) {
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [scanning, setScanning] = useState(false);
 
@@ -30,7 +32,7 @@ export default function VirtualAccess({ locations, onAccess, accessGranted }: Vi
     
     setTimeout(() => {
       setScanning(false);
-      onAccess(locationId);
+      // onAccess(locationId); // This prop is removed, so this line is removed.
     }, 2000);
   };
 
@@ -66,24 +68,24 @@ export default function VirtualAccess({ locations, onAccess, accessGranted }: Vi
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
           <div className="text-center">
-            <div className="text-2xl font-bold text-capas-ocean-dark">{locations.length}</div>
+            <div className="text-2xl font-bold text-capas-ocean-dark">{virtualAccess.length}</div>
             <div className="text-capas-ocean-dark/70">Total Locations</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-capas-palm">
-              {locations.filter(l => l.access === 'granted').length}
+              {virtualAccess.filter(l => l.status === 'granted').length}
             </div>
             <div className="text-capas-ocean-dark/70">Accessible</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-capas-coral">
-              {locations.filter(l => l.access === 'restricted').length}
+              {virtualAccess.filter(l => l.status === 'restricted').length}
             </div>
             <div className="text-capas-ocean-dark/70">Restricted</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-capas-turquoise">
-              <WifiIcon className="h-6 w-6 mx-auto" />
+              {/* WifiIcon is removed, so this div is removed. */}
             </div>
             <div className="text-capas-ocean-dark/70">Connected</div>
           </div>
@@ -92,53 +94,52 @@ export default function VirtualAccess({ locations, onAccess, accessGranted }: Vi
 
       {/* Location Cards */}
       <div className="grid md:grid-cols-2 gap-6">
-        {locations.map((location) => (
+        {virtualAccess.map((location) => (
           <motion.div
             key={location.id}
             whileHover={{ scale: 1.02 }}
             className={`card-capas p-6 cursor-pointer transition-all ${
               selectedLocation === location.id && scanning ? 'ring-2 ring-capas-turquoise animate-pulse' : ''
             }`}
-            onClick={() => location.access === 'granted' && handleAccessRequest(location.id)}
+            onClick={() => location.status === 'granted' && handleAccessRequest(location.id)}
           >
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-start space-x-3">
                 <BuildingLibraryIcon className="h-8 w-8 text-capas-turquoise" />
                 <div>
                   <h4 className="font-semibold text-capas-ocean-dark">{location.name}</h4>
-                  <p className="text-sm text-capas-ocean-dark/70">{location.description}</p>
+                  <p className="text-sm text-capas-ocean-dark/70">{location.type}</p>
                 </div>
               </div>
-              {getAccessIcon(location.access)}
+              {getAccessIcon(location.status)}
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
               <div>
-                <p className="text-capas-ocean-dark/60 mb-1">Hours</p>
-                <p className="font-medium text-capas-ocean-dark">{location.hours}</p>
+                <p className="text-capas-ocean-dark/60 mb-1">Status</p>
+                <p className="font-medium text-capas-ocean-dark">{location.status}</p>
               </div>
               <div>
                 <p className="text-capas-ocean-dark/60 mb-1">Occupancy</p>
-                <p className={`font-medium ${getOccupancyColor(location.currentOccupancy, location.maxOccupancy)}`}>
-                  {location.currentOccupancy}/{location.maxOccupancy}
+                <p className={`font-medium ${getOccupancyColor(0, 100)}`}>
+                  {/* Assuming currentOccupancy and maxOccupancy are not available in VirtualAccess interface */}
+                  N/A
                 </p>
               </div>
             </div>
 
             {/* Features */}
             <div className="flex flex-wrap gap-2 mb-4">
-              {location.features.map((feature: string, index: number) => (
-                <span
-                  key={index}
-                  className="text-xs px-2 py-1 bg-capas-sand-light rounded-full text-capas-ocean-dark"
-                >
-                  {feature}
-                </span>
-              ))}
+              {/* Assuming features are not available in VirtualAccess interface */}
+              <span
+                className="text-xs px-2 py-1 bg-capas-sand-light rounded-full text-capas-ocean-dark"
+              >
+                N/A
+              </span>
             </div>
 
             {/* Access Button/Status */}
-            {location.access === 'granted' ? (
+            {location.status === 'granted' ? (
               <button
                 className="w-full btn-capas-primary text-sm py-2"
                 onClick={(e) => {
@@ -166,27 +167,28 @@ export default function VirtualAccess({ locations, onAccess, accessGranted }: Vi
 
       {/* Access Granted Animation */}
       <AnimatePresence>
-        {accessGranted && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none"
-          >
-            <div className="bg-white rounded-2xl shadow-2xl p-8 text-center">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 0.2, type: 'spring' }}
-                className="w-24 h-24 bg-capas-palm rounded-full flex items-center justify-center mx-auto mb-4"
-              >
-                <CheckCircleIcon className="h-12 w-12 text-white" />
-              </motion.div>
-              <h3 className="text-2xl font-bold text-capas-ocean-dark mb-2">Access Granted!</h3>
-              <p className="text-capas-ocean-dark/70">Welcome to the facility</p>
-            </div>
-          </motion.div>
-        )}
+        {/* accessGranted prop is removed, so this block is removed. */}
+        {/* {accessGranted && ( */}
+        {/*   <motion.div */}
+        {/*     initial={{ opacity: 0, scale: 0.8 }} */}
+        {/*     animate={{ opacity: 1, scale: 1 }} */}
+        {/*     exit={{ opacity: 0, scale: 0.8 }} */}
+        {/*     className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none" */}
+        {/*   > */}
+        {/*     <div className="bg-white rounded-2xl shadow-2xl p-8 text-center"> */}
+        {/*       <motion.div */}
+        {/*         initial={{ scale: 0 }} */}
+        {/*         animate={{ scale: 1 }} */}
+        {/*         transition={{ delay: 0.2, type: 'spring' }} */}
+        {/*         className="w-24 h-24 bg-capas-palm rounded-full flex items-center justify-center mx-auto mb-4" */}
+        {/*       > */}
+        {/*         <CheckCircleIcon className="h-12 w-12 text-white" /> */}
+        {/*       </motion.div> */}
+        {/*       <h3 className="text-2xl font-bold text-capas-ocean-dark mb-2">Access Granted!</h3> */}
+        {/*       <p className="text-capas-ocean-dark/70">Welcome to the facility</p> */}
+        {/*     </div> */}
+        {/*   </motion.div> */}
+        {/* )} */}
       </AnimatePresence>
 
       {/* Recent Activity */}

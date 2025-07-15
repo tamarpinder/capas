@@ -3,18 +3,19 @@
 import { useState } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import { useSession } from 'next-auth/react';
+import { type ExtendedUser } from '@/lib/auth';
 
 export default function StudentQRCode() {
   const { data: session } = useSession();
   const [showQR, setShowQR] = useState(false);
 
   const studentData = {
-    id: (session?.user as any)?.id || 'STU001',
+    id: (session?.user as ExtendedUser)?.id || 'STU001',
     name: session?.user?.name || 'Student Name',
     email: session?.user?.email || 'student@capas.edu.bs',
-    program: (session?.user as any)?.program || 'Program',
-    year: (session?.user as any)?.year || 1,
-    island: (session?.user as any)?.island || 'Nassau',
+    program: (session?.user as ExtendedUser)?.program || 'Program',
+    year: (session?.user as ExtendedUser)?.year || 1,
+    island: (session?.user as ExtendedUser)?.island || 'Nassau',
   };
 
   const qrData = JSON.stringify({
