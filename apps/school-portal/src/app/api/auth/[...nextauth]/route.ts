@@ -1,55 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { type ExtendedUser } from '@/lib/auth';
-
-// Mock student data
-const mockStudents = [
-  {
-    id: "STU001",
-    email: "kiana.johnson@capas.edu.bs",
-    name: "Kiana Johnson",
-    firstName: "Kiana",
-    lastName: "Johnson",
-    program: "Digital Arts",
-    year: 2,
-    gpa: 3.7,
-    avatar: "/avatars/student1.jpg",
-    enrolledCourses: ["art201", "mus301", "eng201"],
-    achievements: ["Dean's List 2023", "Creative Arts Award"],
-    island: "New Providence",
-    role: "student"
-  },
-  {
-    id: "STU002",
-    email: "marcus.thompson@capas.edu.bs",
-    name: "Marcus Thompson",
-    firstName: "Marcus",
-    lastName: "Thompson",
-    program: "Computer Science",
-    year: 1,
-    gpa: 3.5,
-    avatar: "/avatars/student2.jpg",
-    enrolledCourses: ["cs101", "mar102"],
-    achievements: ["Programming Competition Winner"],
-    island: "Grand Bahama",
-    role: "student"
-  },
-  {
-    id: "ADMIN001",
-    email: "admin@capas.edu.bs",
-    name: "Dr. Patricia Glinton-Meicholas",
-    firstName: "Patricia",
-    lastName: "Glinton-Meicholas",
-    program: "Administration",
-    year: null,
-    gpa: null,
-    avatar: "/avatars/admin1.jpg",
-    enrolledCourses: [],
-    achievements: ["Founder", "Educational Leader"],
-    island: "New Providence",
-    role: "admin"
-  }
-];
+import { getStudentByEmail } from '@/lib/mock-data';
 
 const handler = NextAuth({
   providers: [
@@ -65,21 +17,26 @@ const handler = NextAuth({
         }
 
         // Mock authentication - in production, verify against database
-        const user = mockStudents.find(student => 
-          student.email === credentials.email
-        );
-
-        if (user && credentials.password === "capas123") {
-          return {
-            id: user.id,
-            email: user.email,
-            name: user.name,
-            image: user.avatar,
-            program: user.program,
-            year: user.year,
-            gpa: user.gpa,
-            island: user.island
-          };
+        if (credentials.password === "capas123") {
+          const user = getStudentByEmail(credentials.email);
+          if (user) {
+            return {
+              id: user.id,
+              email: user.email,
+              name: user.name,
+              firstName: user.firstName,
+              lastName: user.lastName,
+              program: user.program,
+              year: user.year,
+              gpa: user.gpa,
+              avatar: user.avatar,
+              studentId: user.studentId,
+              island: user.island,
+              enrolledCourses: user.enrolledCourses,
+              achievements: user.achievements,
+              role: user.role
+            };
+          }
         }
 
         return null;
@@ -89,13 +46,36 @@ const handler = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.studentData = user;
+        token.firstName = user.firstName;
+        token.lastName = user.lastName;
+        token.program = user.program;
+        token.year = user.year;
+        token.gpa = user.gpa;
+        token.avatar = user.avatar;
+        token.studentId = user.studentId;
+        token.island = user.island;
+        token.enrolledCourses = user.enrolledCourses;
+        token.achievements = user.achievements;
+        token.role = user.role;
       }
       return token;
     },
     async session({ session, token }) {
-      if (token.studentData) {
-        session.user = token.studentData as ExtendedUser;
+      if (token) {
+        session.user = {
+          ...session.user,
+          firstName: token.firstName,
+          lastName: token.lastName,
+          program: token.program,
+          year: token.year,
+          gpa: token.gpa,
+          avatar: token.avatar,
+          studentId: token.studentId,
+          island: token.island,
+          enrolledCourses: token.enrolledCourses,
+          achievements: token.achievements,
+          role: token.role
+        } as ExtendedUser;
       }
       return session;
     }

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import {
   HomeIcon,
   CalendarIcon,
@@ -14,9 +15,14 @@ import {
   ArrowLeftIcon,
   AcademicCapIcon,
   IdentificationIcon,
+  UserGroupIcon,
+  DocumentTextIcon,
+  ClipboardDocumentListIcon,
+  PencilSquareIcon,
+  ChatBubbleLeftRightIcon,
 } from '@heroicons/react/24/outline';
 
-const navigation = [
+const studentNavigation = [
   { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
   { name: 'Registration', href: '/dashboard/registration', icon: AcademicCapIcon },
   { name: 'Calendar', href: '/dashboard/calendar', icon: CalendarIcon },
@@ -28,9 +34,50 @@ const navigation = [
   { name: 'Settings', href: '/dashboard/settings', icon: CogIcon },
 ];
 
+const instructorNavigation = [
+  { name: 'Dashboard', href: '/dashboard/instructor', icon: HomeIcon },
+  { name: 'My Courses', href: '/dashboard/instructor/courses', icon: AcademicCapIcon },
+  { name: 'Students', href: '/dashboard/instructor/students', icon: UserGroupIcon },
+  { name: 'Grading', href: '/dashboard/instructor/grading', icon: PencilSquareIcon },
+  { name: 'Calendar', href: '/dashboard/calendar', icon: CalendarIcon },
+  { name: 'Messages', href: '/dashboard/instructor/messages', icon: ChatBubbleLeftRightIcon },
+  { name: 'Reports', href: '/dashboard/instructor/reports', icon: ChartBarIcon },
+  { name: 'Profile', href: '/dashboard/profile', icon: UserIcon },
+  { name: 'Settings', href: '/dashboard/settings', icon: CogIcon },
+];
+
+const adminNavigation = [
+  { name: 'Dashboard', href: '/dashboard/admin', icon: HomeIcon },
+  { name: 'User Management', href: '/dashboard/admin/users', icon: UserGroupIcon },
+  { name: 'Form Approvals', href: '/dashboard/admin/forms', icon: ClipboardDocumentListIcon },
+  { name: 'Reports', href: '/dashboard/admin/reports', icon: ChartBarIcon },
+  { name: 'System Settings', href: '/dashboard/admin/settings', icon: CogIcon },
+  { name: 'Calendar', href: '/dashboard/calendar', icon: CalendarIcon },
+  { name: 'Notices', href: '/dashboard/notices', icon: BellIcon },
+  { name: 'Policies', href: '/dashboard/admin/policies', icon: DocumentTextIcon },
+  { name: 'Profile', href: '/dashboard/profile', icon: UserIcon },
+];
+
 export default function DashboardSidebar() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const { data: session } = useSession();
+
+  // Get navigation based on user role
+  const getNavigation = () => {
+    const userRole = session?.user?.role;
+    switch (userRole) {
+      case 'admin':
+        return adminNavigation;
+      case 'instructor':
+        return instructorNavigation;
+      case 'student':
+      default:
+        return studentNavigation;
+    }
+  };
+
+  const navigation = getNavigation();
 
   return (
     <>

@@ -72,8 +72,21 @@ export default function DashboardHeader() {
           </div>
         </div>
 
-        {/* Right side - Notifications and Profile */}
+        {/* Right side - Portal Links, Notifications and Profile */}
         <div className="flex items-center space-x-4">
+          {/* Portal Navigation */}
+          <div className="hidden lg:flex items-center space-x-2 border-r border-capas-ocean-light/20 pr-4">
+            <Link
+              href="http://localhost:4001"
+              target="_blank"
+              className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-capas-turquoise/10 text-capas-turquoise hover:bg-capas-turquoise hover:text-white transition-all duration-200"
+            >
+              <span className="text-sm font-medium">Creatives Hub</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </Link>
+          </div>
           {/* Notifications */}
           <Menu as="div" className="relative">
             <Menu.Button className="relative p-2 rounded-full text-capas-ocean-dark hover:text-capas-turquoise transition-colors">
@@ -146,8 +159,17 @@ export default function DashboardHeader() {
                 <div className="text-sm font-medium text-capas-ocean-dark">
                   {session?.user?.name || 'User'}
                 </div>
-                <div className="text-xs text-capas-ocean-dark/70">
-                  {(session?.user as ExtendedUser)?.program || 'Student'}
+                <div className="text-xs text-capas-ocean-dark/70 flex items-center space-x-2">
+                  <span>{(session?.user as ExtendedUser)?.program || 'Student'}</span>
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
+                    (session?.user as ExtendedUser)?.role === 'admin' ? 'bg-capas-coral/10 text-capas-coral' :
+                    (session?.user as ExtendedUser)?.role === 'instructor' ? 'bg-capas-turquoise/10 text-capas-turquoise' :
+                    'bg-capas-ocean/10 text-capas-ocean'
+                  }`}>
+                    {(session?.user as ExtendedUser)?.role === 'admin' ? 'Admin' :
+                     (session?.user as ExtendedUser)?.role === 'instructor' ? 'Instructor' :
+                     'Student'}
+                  </span>
                 </div>
               </div>
             </Menu.Button>
@@ -168,6 +190,22 @@ export default function DashboardHeader() {
                   </div>
                   <div className="text-sm text-capas-ocean-dark/70">
                     {session?.user?.email}
+                  </div>
+                  <div className="mt-2 flex items-center space-x-2">
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      (session?.user as ExtendedUser)?.role === 'admin' ? 'bg-capas-coral/10 text-capas-coral' :
+                      (session?.user as ExtendedUser)?.role === 'instructor' ? 'bg-capas-turquoise/10 text-capas-turquoise' :
+                      'bg-capas-ocean/10 text-capas-ocean'
+                    }`}>
+                      {(session?.user as ExtendedUser)?.role === 'admin' ? 'Administrator' :
+                       (session?.user as ExtendedUser)?.role === 'instructor' ? 'Instructor' :
+                       'Student'}
+                    </span>
+                    {(session?.user as ExtendedUser)?.island && (
+                      <span className="text-xs text-capas-ocean-dark/50">
+                        {(session?.user as ExtendedUser)?.island}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="py-2">

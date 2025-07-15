@@ -256,9 +256,9 @@ export const mockStudents: Record<string, MockStudent> = {
     ]
   },
 
-  'marcus.williams@student.capas.edu.bs': {
+  'marcus.williams@capas.edu.bs': {
     id: '2',
-    email: 'marcus.williams@student.capas.edu.bs',
+    email: 'marcus.williams@capas.edu.bs',
     name: 'Marcus Williams',
     firstName: 'Marcus',
     lastName: 'Williams',
@@ -457,6 +457,221 @@ export const mockStudents: Record<string, MockStudent> = {
         progress: 95
       }
     ],
+    grades: []
+  },
+
+  'james.roberts@capas.edu.bs': {
+    id: '4',
+    email: 'james.roberts@capas.edu.bs',
+    name: 'Dr. James Roberts',
+    firstName: 'James',
+    lastName: 'Roberts',
+    studentId: 'INSTR-001',
+    program: 'Music Theory & Composition',
+    year: null,
+    gpa: null,
+    avatar: '/images/staff/james-roberts.jpg',
+    bio: 'Associate Professor of Music Theory with expertise in Caribbean musical traditions and contemporary composition.',
+    island: 'New Providence',
+    role: 'instructor',
+    enrolledCourses: [],
+    achievements: ['PhD in Ethnomusicology', 'Caribbean Music Research Award', '15 Years Teaching Experience'],
+    emergencyContact: {
+      name: 'Emergency Services',
+      relationship: 'Professional',
+      phone: '+1-242-911'
+    },
+    preferences: {
+      timezone: 'America/Nassau',
+      language: 'English',
+      notifications: true
+    },
+    notifications: [
+      {
+        id: '1',
+        title: 'Faculty Meeting Tomorrow',
+        message: 'Monthly faculty meeting in Conference Room A at 3:00 PM.',
+        type: 'info',
+        timestamp: '2024-07-15T12:00:00-05:00',
+        read: false,
+        category: 'administrative'
+      },
+      {
+        id: '2',
+        title: 'New Student Enrollment',
+        message: '5 new students enrolled in your Caribbean Music Theory course.',
+        type: 'success',
+        timestamp: '2024-07-14T16:30:00-05:00',
+        read: true,
+        category: 'academic'
+      }
+    ],
+    upcomingEvents: [
+      {
+        id: '1',
+        title: 'Caribbean Music Theory',
+        description: 'Teach advanced harmony and rhythm patterns',
+        date: '2024-07-16',
+        time: '14:00',
+        location: 'Music Studio A',
+        type: 'class',
+        color: 'text-capas-turquoise'
+      },
+      {
+        id: '2',
+        title: 'Faculty Meeting',
+        description: 'Monthly departmental meeting',
+        date: '2024-07-16',
+        time: '15:00',
+        location: 'Conference Room A',
+        type: 'event',
+        color: 'text-capas-coral'
+      }
+    ] as StudentEvent[],
+    recentActivity: [
+      {
+        id: '1',
+        action: 'Graded assignments',
+        subject: 'Music Theory Midterm (15 students)',
+        time: '3 hours ago',
+        status: 'completed'
+      },
+      {
+        id: '2',
+        action: 'Posted announcement',
+        subject: 'Caribbean Music Theory Class',
+        time: '1 day ago',
+        status: 'completed'
+      }
+    ],
+    courses: [
+      {
+        id: 'MUS-150',
+        name: 'Music Theory & Composition',
+        code: 'MUS-150',
+        instructor: 'Dr. James Roberts',
+        credits: 4,
+        semester: 'Summer 2024',
+        room: 'Music Studio A',
+        schedule: 'Tue/Thu 10:00-11:30 AM',
+        description: 'Advanced music theory with focus on Caribbean harmonic structures',
+        progress: 100
+      }
+    ],
+    grades: []
+  },
+
+  'sarah.mckenzie@capas.edu.bs': {
+    id: '5',
+    email: 'sarah.mckenzie@capas.edu.bs',
+    name: 'Ms. Sarah McKenzie',
+    firstName: 'Sarah',
+    lastName: 'McKenzie',
+    studentId: 'ADMIN-001',
+    program: 'School Administration',
+    year: null,
+    gpa: null,
+    avatar: '/images/staff/sarah-mckenzie.jpg',
+    bio: 'Registrar and Student Affairs Administrator with 12 years of experience in Caribbean higher education.',
+    island: 'New Providence',
+    role: 'admin',
+    enrolledCourses: [],
+    achievements: ['Master of Education Administration', 'Student Services Excellence Award', 'Caribbean Education Leadership Certificate'],
+    emergencyContact: {
+      name: 'Emergency Services',
+      relationship: 'Professional',
+      phone: '+1-242-911'
+    },
+    preferences: {
+      timezone: 'America/Nassau',
+      language: 'English',
+      notifications: true
+    },
+    notifications: [
+      {
+        id: '1',
+        title: '15 Pending Registration Forms',
+        message: 'Multiple students awaiting registration approval for Fall 2024.',
+        type: 'urgent',
+        timestamp: '2024-07-15T09:00:00-05:00',
+        read: false,
+        category: 'administrative'
+      },
+      {
+        id: '2',
+        title: 'Hurricane Preparedness Meeting',
+        message: 'Emergency planning session scheduled for Thursday.',
+        type: 'warning',
+        timestamp: '2024-07-15T11:00:00-05:00',
+        read: false,
+        category: 'administrative'
+      },
+      {
+        id: '3',
+        title: 'Graduation Applications Due',
+        message: 'Reminder: Senior students must submit applications by July 25th.',
+        type: 'info',
+        timestamp: '2024-07-14T10:00:00-05:00',
+        read: true,
+        category: 'academic'
+      }
+    ],
+    upcomingEvents: [
+      {
+        id: '1',
+        title: 'Registration Review Session',
+        description: 'Process pending student registrations',
+        date: '2024-07-16',
+        time: '09:00',
+        location: 'Admin Office',
+        type: 'event',
+        color: 'text-capas-coral'
+      },
+      {
+        id: '2',
+        title: 'Hurricane Preparedness Meeting',
+        description: 'Emergency response planning',
+        date: '2024-07-18',
+        time: '14:00',
+        location: 'Conference Room B',
+        type: 'event',
+        color: 'text-capas-ocean'
+      },
+      {
+        id: '3',
+        title: 'Parent Information Session',
+        description: 'Virtual Q&A for prospective families',
+        date: '2024-07-20',
+        time: '16:00',
+        location: 'Virtual/Zoom',
+        type: 'event',
+        color: 'text-capas-turquoise'
+      }
+    ] as StudentEvent[],
+    recentActivity: [
+      {
+        id: '1',
+        action: 'Approved registration',
+        subject: '8 new student enrollments',
+        time: '2 hours ago',
+        status: 'completed'
+      },
+      {
+        id: '2',
+        action: 'Updated policies',
+        subject: 'Hurricane Response Protocol',
+        time: '1 day ago',
+        status: 'completed'
+      },
+      {
+        id: '3',
+        action: 'Generated report',
+        subject: 'Q3 Enrollment Statistics',
+        time: '2 days ago',
+        status: 'completed'
+      }
+    ],
+    courses: [],
     grades: []
   }
 };
