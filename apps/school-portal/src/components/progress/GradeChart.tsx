@@ -115,7 +115,7 @@ export default function GradeChart({ semesterData, selectedSemester, onSemesterC
           </div>
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-capas-coral rounded"></div>
-            <span className="text-capas-ocean-dark/70"><2.5</span>
+            <span className="text-capas-ocean-dark/70">&lt;2.5</span>
           </div>
         </div>
       </motion.div>
