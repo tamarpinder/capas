@@ -1,0 +1,233 @@
+{
+  "creativeCourses": [
+    {
+      "id": "ART301",
+      "title": "3D Digital Sculpture",
+      "instructor": "Prof. Antonius Roberts",
+      "department": "Visual Arts",
+      "description": "Master the art of digital sculpture using industry-standard tools and Bahamian cultural motifs.",
+      "level": "Advanced",
+      "credits": 4,
+      "duration": "16 weeks",
+      "format": "Hybrid",
+      "coverImage": "/courses/3d-sculpture.jpg",
+      "preview3D": "/models/sculpture-preview.glb",
+      "color": "#FF8B87",
+      "progress": 65,
+      "enrolled": true,
+      "totalLessons": 24,
+      "completedLessons": 16,
+      "nextDeadline": "2024-08-15",
+      "tags": ["3D Modeling", "Sculpture", "Cultural Heritage", "Blender"],
+      "skills": ["Digital Sculpting", "Texture Mapping", "3D Printing", "Cultural Research"],
+      "tools": ["Blender", "ZBrush", "Substance Painter"],
+      "assignments": [
+        {
+          "id": "A301_1",
+          "title": "Conch Shell Digital Recreation",
+          "dueDate": "2024-08-10",
+          "status": "completed",
+          "grade": "A-",
+          "submissionType": "3D Model"
+        },
+        {
+          "id": "A301_2", 
+          "title": "Junkanoo Mask Sculpture",
+          "dueDate": "2024-08-15",
+          "status": "in_progress",
+          "submissionType": "3D Model + AR View"
+        }
+      ]
+    },
+    {
+      "id": "MUS201",
+      "title": "Caribbean Music Production",
+      "instructor": "Dr. Marcus Williams",
+      "department": "Music Technology",
+      "description": "Create modern interpretations of traditional Bahamian music using digital audio workstations.",
+      "level": "Intermediate",
+      "credits": 3,
+      "duration": "12 weeks",
+      "format": "Studio-based",
+      "coverImage": "/courses/music-production.jpg",
+      "preview3D": "/models/studio-preview.glb",
+      "color": "#FFCE00",
+      "progress": 45,
+      "enrolled": true,
+      "totalLessons": 18,
+      "completedLessons": 8,
+      "nextDeadline": "2024-08-12",
+      "tags": ["Music Production", "Audio Engineering", "Cultural Heritage", "DAW"],
+      "skills": ["Audio Recording", "Mixing", "Mastering", "Junkanoo Rhythms"],
+      "tools": ["Pro Tools", "Logic Pro", "Ableton Live"],
+      "assignments": [
+        {
+          "id": "M201_1",
+          "title": "Rake and Scrape Modern Mix",
+          "dueDate": "2024-08-12",
+          "status": "pending",
+          "submissionType": "Audio File"
+        }
+      ]
+    },
+    {
+      "id": "DES101",
+      "title": "Graphic Design Fundamentals",
+      "instructor": "Prof. Sarah Mitchell",
+      "department": "Design",
+      "description": "Learn design principles through the lens of Bahamian visual culture and tourism.",
+      "level": "Foundation",
+      "credits": 3,
+      "duration": "14 weeks",
+      "format": "Hybrid",
+      "coverImage": "/courses/graphic-design.jpg",
+      "preview3D": "/models/design-studio.glb",
+      "color": "#7FA900",
+      "progress": 80,
+      "enrolled": true,
+      "totalLessons": 20,
+      "completedLessons": 16,
+      "nextDeadline": "2024-08-08",
+      "tags": ["Graphic Design", "Typography", "Branding", "Cultural Design"],
+      "skills": ["Adobe Creative Suite", "Brand Identity", "Print Design", "Digital Design"],
+      "tools": ["Illustrator", "Photoshop", "InDesign", "Figma"],
+      "assignments": [
+        {
+          "id": "D101_1",
+          "title": "Tourism Poster Series",
+          "dueDate": "2024-08-08",
+          "status": "submitted",
+          "grade": "B+",
+          "submissionType": "Digital Portfolio"
+        }
+      ]
+    },
+    {
+      "id": "FILM401",
+      "title": "Documentary Filmmaking",
+      "instructor": "Dr. Elena Rodriguez",
+      "department": "Media Arts",
+      "description": "Tell powerful stories about Bahamian marine life and environmental conservation.",
+      "level": "Advanced",
+      "credits": 4,
+      "duration": "16 weeks",
+      "format": "Field-based",
+      "coverImage": "/courses/documentary.jpg",
+      "preview3D": "/models/film-equipment.glb",
+      "color": "#0A8A98",
+      "progress": 30,
+      "enrolled": true,
+      "totalLessons": 22,
+      "completedLessons": 7,
+      "nextDeadline": "2024-08-20",
+      "tags": ["Filmmaking", "Documentary", "Marine Life", "Storytelling"],
+      "skills": ["Camera Operation", "Video Editing", "Sound Recording", "Environmental Storytelling"],
+      "tools": ["Final Cut Pro", "DaVinci Resolve", "Canon Cinema Cameras"],
+      "assignments": [
+        {
+          "id": "F401_1",
+          "title": "Coral Reef Short Documentary",
+          "dueDate": "2024-08-20",
+          "status": "planning",
+          "submissionType": "Video + Production Notes"
+        }
+      ]
+    },
+    {
+      "id": "PHOTO201",
+      "title": "Marine Photography",
+      "instructor": "Prof. James McCartney",
+      "department": "Photography",
+      "description": "Capture the beauty of Bahamian marine ecosystems through professional underwater photography.",
+      "level": "Intermediate",
+      "credits": 3,
+      "duration": "12 weeks",
+      "format": "Field-based",
+      "coverImage": "/courses/marine-photo.jpg",
+      "preview3D": "/models/underwater-camera.glb",
+      "color": "#A8D5E2",
+      "progress": 55,
+      "enrolled": false,
+      "totalLessons": 16,
+      "completedLessons": 0,
+      "nextDeadline": null,
+      "tags": ["Photography", "Marine Life", "Underwater", "Conservation"],
+      "skills": ["Underwater Photography", "Marine Safety", "Color Correction", "Wildlife Ethics"],
+      "tools": ["Underwater Housings", "Strobes", "Adobe Lightroom"],
+      "assignments": []
+    },
+    {
+      "id": "GAME301",
+      "title": "Interactive Media & Games",
+      "instructor": "Dr. Kiana Williams",
+      "department": "Interactive Media",
+      "description": "Create immersive games and experiences featuring Bahamian culture and history.",
+      "level": "Advanced",
+      "credits": 4,
+      "duration": "16 weeks",
+      "format": "Lab-based",
+      "coverImage": "/courses/game-dev.jpg",
+      "preview3D": "/models/vr-headset.glb",
+      "color": "#FF8B87",
+      "progress": 70,
+      "enrolled": true,
+      "totalLessons": 26,
+      "completedLessons": 18,
+      "nextDeadline": "2024-08-25",
+      "tags": ["Game Development", "Unity", "VR/AR", "Cultural Heritage"],
+      "skills": ["Unity Development", "C# Programming", "3D Animation", "UX Design"],
+      "tools": ["Unity", "Unreal Engine", "Oculus SDK", "Maya"],
+      "assignments": [
+        {
+          "id": "G301_1",
+          "title": "Virtual Junkanoo Experience",
+          "dueDate": "2024-08-25",
+          "status": "in_progress",
+          "submissionType": "VR Application"
+        }
+      ]
+    }
+  ],
+  "courseCategories": [
+    {
+      "id": "visual_arts",
+      "name": "Visual Arts",
+      "description": "Traditional and digital art forms",
+      "color": "#FF8B87",
+      "icon": "🎨",
+      "courseCount": 8
+    },
+    {
+      "id": "music_tech",
+      "name": "Music Technology",
+      "description": "Audio production and music creation",
+      "color": "#FFCE00",
+      "icon": "🎵",
+      "courseCount": 6
+    },
+    {
+      "id": "design",
+      "name": "Design",
+      "description": "Graphic and user experience design",
+      "color": "#7FA900",
+      "icon": "📐",
+      "courseCount": 7
+    },
+    {
+      "id": "media_arts",
+      "name": "Media Arts",
+      "description": "Film, video, and multimedia production",
+      "color": "#0A8A98",
+      "icon": "🎬",
+      "courseCount": 5
+    },
+    {
+      "id": "interactive",
+      "name": "Interactive Media",
+      "description": "Games, VR/AR, and interactive experiences",
+      "color": "#A8D5E2",
+      "icon": "🎮",
+      "courseCount": 4
+    }
+  ]
+}

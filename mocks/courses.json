@@ -1,0 +1,114 @@
+{
+  "courses": [
+    {
+      "id": "cs101",
+      "title": "Introduction to Computer Science",
+      "department": "Technology",
+      "credits": 3,
+      "level": "Foundation",
+      "description": "Fundamental concepts of programming and computational thinking",
+      "instructor": "Dr. Sarah Thompson",
+      "schedule": "Mon/Wed/Fri 9:00-10:00 AM",
+      "capacity": 30,
+      "enrolled": 24,
+      "tags": ["Programming", "Python", "Problem Solving"]
+    },
+    {
+      "id": "art201",
+      "title": "Digital Arts and Design",
+      "department": "Creative Arts",
+      "credits": 4,
+      "level": "Intermediate",
+      "description": "Explore digital media, graphic design, and creative technologies",
+      "instructor": "Prof. Marcus Williams",
+      "schedule": "Tue/Thu 2:00-4:00 PM",
+      "capacity": 20,
+      "enrolled": 18,
+      "tags": ["Design", "Adobe Creative Suite", "Digital Media"]
+    },
+    {
+      "id": "mus301",
+      "title": "Caribbean Music Production",
+      "department": "Performing Arts",
+      "credits": 3,
+      "level": "Advanced",
+      "description": "Study and produce authentic Caribbean music genres including Junkanoo, Rake and Scrape",
+      "instructor": "Dr. Antonius Roberts",
+      "schedule": "Mon/Wed 3:00-4:30 PM",
+      "capacity": 15,
+      "enrolled": 12,
+      "tags": ["Music Production", "Caribbean Culture", "Audio Engineering"]
+    },
+    {
+      "id": "mar102",
+      "title": "Marine Biology of The Bahamas",
+      "department": "Environmental Sciences",
+      "credits": 4,
+      "level": "Foundation",
+      "description": "Study the unique marine ecosystems of the Bahamian archipelago",
+      "instructor": "Dr. Elena Rodriguez",
+      "schedule": "Tue/Thu 10:00 AM-12:00 PM",
+      "capacity": 25,
+      "enrolled": 22,
+      "tags": ["Marine Life", "Conservation", "Field Work"]
+    },
+    {
+      "id": "bus401",
+      "title": "Tourism and Hospitality Management",
+      "department": "Business Studies",
+      "credits": 3,
+      "level": "Advanced",
+      "description": "Strategic management in the tourism sector with focus on sustainable practices",
+      "instructor": "Prof. James McCartney",
+      "schedule": "Wed/Fri 1:00-2:30 PM",
+      "capacity": 35,
+      "enrolled": 28,
+      "tags": ["Tourism", "Business Strategy", "Sustainability"]
+    },
+    {
+      "id": "eng201",
+      "title": "Bahamian Literature and Storytelling",
+      "department": "Language Arts",
+      "credits": 3,
+      "level": "Intermediate",
+      "description": "Explore Bahamian oral traditions, folklore, and contemporary literature",
+      "instructor": "Dr. Patricia Glinton-Meicholas",
+      "schedule": "Mon/Wed 11:00 AM-12:30 PM",
+      "capacity": 30,
+      "enrolled": 26,
+      "tags": ["Literature", "Culture", "Creative Writing"]
+    }
+  ],
+  "departments": [
+    {
+      "id": "tech",
+      "name": "Technology",
+      "head": "Dr. Sarah Thompson",
+      "courses": 12
+    },
+    {
+      "id": "arts",
+      "name": "Creative Arts",
+      "head": "Prof. Marcus Williams",
+      "courses": 8
+    },
+    {
+      "id": "perf",
+      "name": "Performing Arts",
+      "head": "Dr. Antonius Roberts",
+      "courses": 10
+    },
+    {
+      "id": "env",
+      "name": "Environmental Sciences",
+      "head": "Dr. Elena Rodriguez",
+      "courses": 6
+    },
+    {
+      "id": "bus",
+      "name": "Business Studies",
+      "head": "Prof. James McCartney",
+      "courses": 15
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "courseContent": {
+    "ART301": {
+      "modules": [
+        {
+          "id": "M1",
+          "title": "Introduction to Digital Sculpture",
+          "description": "Learn the fundamentals of 3D digital sculpting and its applications in cultural preservation.",
+          "duration": "2 weeks",
+          "progress": 100,
+          "lessons": [
+            {
+              "id": "L1_1",
+              "title": "Digital Sculpture History & Cultural Context",
+              "type": "video",
+              "duration": "45 min",
+              "completed": true,
+              "content": {
+                "videoUrl": "/videos/digital-sculpture-intro.mp4",
+                "resources": [
+                  "/pdfs/sculpture-history.pdf",
+                  "/models/example-sculptures.glb"
+                ]
+              }
+            },
+            {
+              "id": "L1_2", 
+              "title": "Blender Interface & Basic Tools",
+              "type": "interactive",
+              "duration": "90 min",
+              "completed": true,
+              "content": {
+                "interactiveUrl": "/interactive/blender-basics",
+                "downloadables": ["/software/blender-setup.zip"]
+              }
+            },
+            {
+              "id": "L1_3",
+              "title": "First Sculpture: Simple Conch Shell",
+              "type": "hands-on",
+              "duration": "120 min", 
+              "completed": true,
+              "content": {
+                "instructions": "/guides/conch-shell-tutorial.pdf",
+                "referenceImages": ["/refs/conch1.jpg", "/refs/conch2.jpg"],
+                "startingFile": "/models/conch-base.blend"
+              }
+            }
+          ]
+        },
+        {
+          "id": "M2",
+          "title": "Advanced Sculpting Techniques",
+          "description": "Master complex sculpting tools and workflows for creating detailed Bahamian cultural artifacts.",
+          "duration": "3 weeks",
+          "progress": 65,
+          "lessons": [
+            {
+              "id": "L2_1",
+              "title": "Dynamic Topology & Subdivision",
+              "type": "video",
+              "duration": "60 min",
+              "completed": true,
+              "content": {
+                "videoUrl": "/videos/dynamic-topology.mp4",
+                "practice_files": ["/models/practice-mesh.blend"]
+              }
+            },
+            {
+              "id": "L2_2",
+              "title": "Junkanoo Mask Creation",
+              "type": "project",
+              "duration": "180 min",
+              "completed": false,
+              "content": {
+                "brief": "/projects/junkanoo-mask-brief.pdf",
+                "references": ["/culture/junkanoo-gallery/"],
+                "templateFile": "/models/mask-template.blend"
+              }
+            }
+          ]
+        },
+        {
+          "id": "M3",
+          "title": "Texturing & Materials",
+          "description": "Apply realistic textures and materials inspired by Bahamian natural elements.",
+          "duration": "2 weeks",
+          "progress": 0,
+          "lessons": [
+            {
+              "id": "L3_1",
+              "title": "Substance Painter Integration",
+              "type": "video",
+              "duration": "75 min",
+              "completed": false,
+              "content": {
+                "videoUrl": "/videos/substance-painter.mp4"
+              }
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "id": "R1",
+          "title": "Bahamian Cultural Reference Library",
+          "type": "3d_gallery",
+          "description": "Interactive 3D models of traditional Bahamian artifacts",
+          "content": {
+            "models": [
+              {
+                "name": "Traditional Conch Shell",
+                "file": "/models/culture/conch-traditional.glb",
+                "description": "Authentic conch shell with historical significance"
+              },
+              {
+                "name": "Junkanoo Costume Elements",
+                "file": "/models/culture/junkanoo-elements.glb",
+                "description": "Traditional costume pieces and decorative elements"
+              }
+            ]
+          }
+        },
+        {
+          "id": "R2",
+          "title": "Software Installation Guides",
+          "type": "document_collection",
+          "description": "Step-by-step guides for installing and configuring software",
+          "content": {
+            "documents": [
+              "/guides/blender-install.pdf",
+              "/guides/substance-painter-setup.pdf",
+              "/guides/zbrush-configuration.pdf"
+            ]
+          }
+        }
+      ],
+      "assignments": [
+        {
+          "id": "A1",
+          "title": "Cultural Artifact Recreation",
+          "description": "Recreate a traditional Bahamian artifact using digital sculpture techniques",
+          "dueDate": "2024-08-15",
+          "submissionFormat": ".blend file + rendered images",
+          "rubric": "/rubrics/cultural-artifact.pdf",
+          "maxPoints": 100
+        }
+      ]
+    },
+    "MUS201": {
+      "modules": [
+        {
+          "id": "M1",
+          "title": "Caribbean Music Foundations",
+          "description": "Understanding the roots and evolution of Bahamian musical traditions.",
+          "duration": "3 weeks",
+          "progress": 100,
+          "lessons": [
+            {
+              "id": "L1_1",
+              "title": "History of Junkanoo Music",
+              "type": "multimedia",
+              "duration": "60 min",
+              "completed": true,
+              "content": {
+                "videoUrl": "/videos/junkanoo-history.mp4",
+                "audioSamples": [
+                  "/audio/traditional-junkanoo.wav",
+                  "/audio/modern-junkanoo.wav"
+                ],
+                "sheet_music": ["/scores/junkanoo-basic-rhythm.pdf"]
+              }
+            },
+            {
+              "id": "L1_2",
+              "title": "Rake and Scrape Fundamentals", 
+              "type": "audio",
+              "duration": "45 min",
+              "completed": true,
+              "content": {
+                "audioUrl": "/audio/rake-scrape-lesson.mp3",
+                "practice_tracks": ["/audio/backing-tracks/rake-scrape-basic.wav"]
+              }
+            }
+          ]
+        },
+        {
+          "id": "M2",
+          "title": "Digital Audio Workstation",
+          "description": "Master Pro Tools for recording and producing Caribbean music.",
+          "duration": "4 weeks",
+          "progress": 25,
+          "lessons": [
+            {
+              "id": "L2_1",
+              "title": "Pro Tools Interface & Setup",
+              "type": "screen_recording",
+              "duration": "90 min",
+              "completed": true,
+              "content": {
+                "videoUrl": "/videos/protools-setup.mp4",
+                "project_templates": ["/protools/caribbean-template.ptx"]
+              }
+            },
+            {
+              "id": "L2_2",
+              "title": "Recording Traditional Instruments",
+              "type": "hands-on",
+              "duration": "120 min",
+              "completed": false,
+              "content": {
+                "instructions": "/guides/recording-techniques.pdf",
+                "equipment_list": "/docs/studio-equipment.pdf"
+              }
+            }
+          ]
+        }
+      ],
+      "resources": [
+        {
+          "id": "R1",
+          "title": "Audio Sample Library",
+          "type": "audio_collection",
+          "description": "Curated collection of traditional Bahamian music samples",
+          "content": {
+            "samples": [
+              {
+                "name": "Junkanoo Cowbell Loops",
+                "files": ["/samples/cowbell-1.wav", "/samples/cowbell-2.wav"],
+                "bpm": 120,
+                "key": "C Major"
+              },
+              {
+                "name": "Rake and Scrape Guitar",
+                "files": ["/samples/rake-guitar-1.wav"],
+                "bpm": 90,
+                "key": "G Major"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "learningPaths": [
+    {
+      "id": "path_3d_artist",
+      "title": "3D Artist Specialization",
+      "description": "Become a professional 3D artist specializing in cultural heritage preservation",
+      "duration": "12 months",
+      "difficulty": "Intermediate to Advanced",
+      "courses": ["ART301", "GAME301", "DES101"],
+      "skills": ["3D Modeling", "Texturing", "Animation", "Cultural Research"],
+      "careerOutcomes": ["3D Artist", "Cultural Heritage Specialist", "Game Asset Artist"],
+      "progress": 45
+    },
+    {
+      "id": "path_multimedia_producer",
+      "title": "Multimedia Producer",
+      "description": "Create compelling multimedia content showcasing Bahamian culture",
+      "duration": "10 months", 
+      "difficulty": "Intermediate",
+      "courses": ["MUS201", "FILM401", "DES101"],
+      "skills": ["Audio Production", "Video Editing", "Storytelling", "Brand Design"],
+      "careerOutcomes": ["Multimedia Producer", "Content Creator", "Cultural Documentarian"],
+      "progress": 20
+    }
+  ]
+}

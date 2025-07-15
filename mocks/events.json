@@ -1,0 +1,91 @@
+{
+  "events": [
+    {
+      "id": "EVT001",
+      "title": "CAPAS Tech Symposium 2024",
+      "date": "2024-03-15",
+      "time": "9:00 AM - 5:00 PM",
+      "location": "Main Auditorium",
+      "type": "Academic",
+      "description": "Annual technology symposium featuring student projects and industry speakers",
+      "attendees": 250,
+      "featured": true,
+      "image": "/events/tech-symposium.jpg"
+    },
+    {
+      "id": "EVT002",
+      "title": "Junkanoo Arts Festival",
+      "date": "2024-04-20",
+      "time": "6:00 PM - 11:00 PM",
+      "location": "Creative Arts Center",
+      "type": "Cultural",
+      "description": "Celebration of Bahamian culture through music, art, and performance",
+      "attendees": 500,
+      "featured": true,
+      "image": "/events/junkanoo-festival.jpg"
+    },
+    {
+      "id": "EVT003",
+      "title": "Marine Conservation Workshop",
+      "date": "2024-02-28",
+      "time": "2:00 PM - 4:00 PM",
+      "location": "Science Building Room 301",
+      "type": "Workshop",
+      "description": "Learn about coral reef conservation and marine ecosystem protection",
+      "attendees": 40,
+      "featured": false,
+      "image": "/events/marine-workshop.jpg"
+    },
+    {
+      "id": "EVT004",
+      "title": "Student Showcase: Digital Arts",
+      "date": "2024-05-10",
+      "time": "5:00 PM - 8:00 PM",
+      "location": "Gallery Space",
+      "type": "Exhibition",
+      "description": "Annual exhibition featuring student digital art and design projects",
+      "attendees": 150,
+      "featured": true,
+      "image": "/events/art-showcase.jpg"
+    },
+    {
+      "id": "EVT005",
+      "title": "Career Fair 2024",
+      "date": "2024-03-25",
+      "time": "10:00 AM - 3:00 PM",
+      "location": "Student Center",
+      "type": "Career",
+      "description": "Connect with employers from tourism, tech, and creative industries",
+      "attendees": 300,
+      "featured": false,
+      "image": "/events/career-fair.jpg"
+    }
+  ],
+  "eventTypes": [
+    {
+      "type": "Academic",
+      "color": "#0A8A98",
+      "icon": "academic"
+    },
+    {
+      "type": "Cultural",
+      "color": "#FFCE00",
+      "icon": "cultural"
+    },
+    {
+      "type": "Workshop",
+      "color": "#7FA900",
+      "icon": "workshop"
+    },
+    {
+      "type": "Exhibition",
+      "color": "#FF8B87",
+      "icon": "exhibition"
+    },
+    {
+      "type": "Career",
+      "color": "#2C5F7C",
+      "icon": "career"
+    }
+  ]
+}

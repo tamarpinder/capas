@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="320" viewBox="0 0 1440 320">
+  <defs>
+    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A8D5E2;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#0A8A98;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Main wave -->
+  <path fill="url(#wave-gradient)" 
+        d="M0,160 C150,200 350,120 600,160 C850,200 1050,120 1200,160 L1440,180 L1440,320 L0,320 Z">
+    <animate attributeName="d" 
+             values="M0,160 C150,200 350,120 600,160 C850,200 1050,120 1200,160 L1440,180 L1440,320 L0,320 Z;
+                     M0,180 C150,140 350,220 600,180 C850,140 1050,220 1200,180 L1440,160 L1440,320 L0,320 Z;
+                     M0,160 C150,200 350,120 600,160 C850,200 1050,120 1200,160 L1440,180 L1440,320 L0,320 Z"
+             dur="8s" 
+             repeatCount="indefinite" />
+  </path>
+  <!-- Secondary wave layer -->
+  <path fill="#0A8A98" 
+        fill-opacity="0.3"
+        d="M0,200 C200,240 400,160 700,200 C1000,240 1200,160 1440,200 L1440,320 L0,320 Z">
+    <animate attributeName="d" 
+             values="M0,200 C200,240 400,160 700,200 C1000,240 1200,160 1440,200 L1440,320 L0,320 Z;
+                     M0,220 C200,180 400,260 700,220 C1000,180 1200,260 1440,220 L1440,320 L0,320 Z;
+                     M0,200 C200,240 400,160 700,200 C1000,240 1200,160 1440,200 L1440,320 L0,320 Z"
+             dur="6s" 
+             repeatCount="indefinite" />
+  </path>
+</svg>

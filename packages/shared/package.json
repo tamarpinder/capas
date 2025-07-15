@@ -1,0 +1,23 @@
+{
+  "name": "@capas/shared",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": "./index.js",
+    "./tailwind": "./tailwind.config.js",
+    "./components": "./components/index.js",
+    "./utils": "./utils/index.js",
+    "./styles": "./styles/index.css"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "tailwindcss": "^3.3.0"
+  }
+}

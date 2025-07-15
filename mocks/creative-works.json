@@ -1,0 +1,106 @@
+{
+  "creativeWorks": [
+    {
+      "id": "CW001",
+      "title": "Conch Shell Symphony",
+      "creator": "Jordan Roberts",
+      "type": "Music",
+      "medium": "Digital Audio",
+      "description": "A modern interpretation of traditional Bahamian sounds using electronic instruments",
+      "thumbnail": "/works/conch-symphony-thumb.jpg",
+      "url": "/works/conch-symphony.mp3",
+      "likes": 234,
+      "views": 1520,
+      "tags": ["Music", "Traditional", "Electronic"],
+      "featured": true,
+      "createdAt": "2024-01-15"
+    },
+    {
+      "id": "CW002",
+      "title": "Paradise Lost: Climate Change in The Bahamas",
+      "creator": "Sophia Williams",
+      "type": "Documentary",
+      "medium": "Video",
+      "description": "A short documentary exploring the impact of climate change on Bahamian coral reefs",
+      "thumbnail": "/works/paradise-lost-thumb.jpg",
+      "url": "/works/paradise-lost.mp4",
+      "likes": 456,
+      "views": 3200,
+      "tags": ["Documentary", "Environment", "Marine Life"],
+      "featured": true,
+      "createdAt": "2024-02-01"
+    },
+    {
+      "id": "CW003",
+      "title": "Digital Junkanoo",
+      "creator": "Kiana Johnson",
+      "type": "Digital Art",
+      "medium": "Mixed Media",
+      "description": "A digital art series reimagining traditional Junkanoo costumes in a cyberpunk aesthetic",
+      "thumbnail": "/works/digital-junkanoo-thumb.jpg",
+      "url": "/works/digital-junkanoo",
+      "likes": 678,
+      "views": 2100,
+      "tags": ["Digital Art", "Culture", "Junkanoo"],
+      "featured": true,
+      "createdAt": "2024-01-20"
+    },
+    {
+      "id": "CW004",
+      "title": "Island Code",
+      "creator": "Marcus Thompson",
+      "type": "Interactive",
+      "medium": "Web Application",
+      "description": "An educational game teaching programming through Bahamian folklore stories",
+      "thumbnail": "/works/island-code-thumb.jpg",
+      "url": "https://island-code.capas.edu.bs",
+      "likes": 892,
+      "views": 5600,
+      "tags": ["Game", "Education", "Programming"],
+      "featured": false,
+      "createdAt": "2023-12-10"
+    },
+    {
+      "id": "CW005",
+      "title": "Voices of Exuma",
+      "creator": "Aaliyah Davis",
+      "type": "Podcast",
+      "medium": "Audio",
+      "description": "A podcast series featuring stories from Exuma's tourism industry workers",
+      "thumbnail": "/works/voices-exuma-thumb.jpg",
+      "url": "/works/voices-exuma",
+      "likes": 345,
+      "views": 1800,
+      "tags": ["Podcast", "Tourism", "Stories"],
+      "featured": false,
+      "createdAt": "2024-01-28"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Music",
+      "count": 24,
+      "icon": "music"
+    },
+    {
+      "name": "Digital Art",
+      "count": 56,
+      "icon": "palette"
+    },
+    {
+      "name": "Video",
+      "count": 32,
+      "icon": "video"
+    },
+    {
+      "name": "Interactive",
+      "count": 18,
+      "icon": "gamepad"
+    },
+    {
+      "name": "Podcast",
+      "count": 12,
+      "icon": "microphone"
+    }
+  ]
+}

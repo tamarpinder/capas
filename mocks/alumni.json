@@ -1,0 +1,230 @@
+{
+  "alumni": [
+    {
+      "id": "alumni-001",
+      "name": "Marcus Johnson",
+      "graduationYear": 2018,
+      "program": "Full-Time Vocal Performance",
+      "currentPosition": "International Recording Artist",
+      "company": "Universal Music Group",
+      "location": "Nashville, TN / Nassau, Bahamas",
+      "story": "From the performance halls of CAPAS to international stages, Marcus has become one of the Caribbean's most celebrated contemporary artists. His album 'Island Rhythms' reached #1 on the Caribbean charts and earned him a Grammy nomination for Best World Music Album.",
+      "achievements": [
+        "Grammy nomination for Best World Music Album (2023)",
+        "Caribbean Music Awards Artist of the Year (2022)",
+        "#1 album on Caribbean charts with 'Island Rhythms'",
+        "Performed at Carnegie Hall and Royal Albert Hall",
+        "Cultural Ambassador for The Bahamas"
+      ],
+      "quote": "CAPAS taught me that my Caribbean heritage wasn't something to hide or modify for international audiences—it was my greatest strength and what makes my music unique.",
+      "image": "/alumni/marcus-johnson.jpg",
+      "social": {
+        "instagram": "@marcusjohnsonmusic",
+        "twitter": "@mjohnsonmusic",
+        "website": "https://marcusjohnsonmusic.com"
+      },
+      "featured": true
+    },
+    {
+      "id": "alumni-002",
+      "name": "Sophia Chen-Williams",
+      "graduationYear": 2019,
+      "program": "Full-Time Dance Performance",
+      "currentPosition": "Principal Dancer & Choreographer",
+      "company": "Miami City Ballet",
+      "location": "Miami, FL",
+      "story": "Sophia has brought Caribbean movement and storytelling to one of America's premier ballet companies. She has choreographed three original works that incorporate traditional Bahamian dance with classical ballet, receiving critical acclaim for her innovative fusion approach.",
+      "achievements": [
+        "Principal Dancer at Miami City Ballet",
+        "Choreographer of 'Caribbean Dreams' ballet suite",
+        "Winner of International Dance Competition (2021)",
+        "Guest artist with National Ballet of Canada",
+        "Featured in Dance Magazine as 'Rising Star'"
+      ],
+      "quote": "The dance training at CAPAS was unlike anywhere else—we learned to honor our roots while pushing boundaries. That foundation has shaped every movement I make on stage.",
+      "image": "/alumni/sophia-chen.jpg",
+      "social": {
+        "instagram": "@sophiachendance",
+        "website": "https://sophiachenwilliams.com"
+      },
+      "featured": true
+    },
+    {
+      "id": "alumni-003",
+      "name": "David Thompson",
+      "graduationYear": 2017,
+      "program": "Computer Science & Creative Technology",
+      "currentPosition": "Senior Software Engineer",
+      "company": "Disney Imagineering",
+      "location": "Orlando, FL",
+      "story": "David combines his technical expertise with creative vision to design immersive experiences at Disney theme parks. He has led the development of several groundbreaking interactive attractions that blend storytelling with cutting-edge technology.",
+      "achievements": [
+        "Lead developer on Disney's 'Guardians of the Galaxy' attraction",
+        "Holds 5 patents in interactive entertainment technology",
+        "TEDx speaker on 'Technology and Storytelling'",
+        "Winner of Themed Entertainment Association Award",
+        "Mentors CAPAS students through tech industry program"
+      ],
+      "quote": "At CAPAS, I learned that technology isn't just about code—it's about creating experiences that move people. That philosophy guides everything I do at Disney.",
+      "image": "/alumni/david-thompson.jpg",
+      "social": {
+        "linkedin": "david-thompson-disney",
+        "twitter": "@dthompsontech"
+      },
+      "featured": false
+    },
+    {
+      "id": "alumni-004",
+      "name": "Alicia Ferguson",
+      "graduationYear": 2020,
+      "program": "Visual Arts & Cultural Studies",
+      "currentPosition": "Gallery Director & Curator",
+      "company": "Caribbean Contemporary Art Museum",
+      "location": "Barbados",
+      "story": "Alicia has become a leading voice in Caribbean contemporary art, curating exhibitions that have traveled internationally. Her work focuses on emerging Caribbean artists and preserving cultural narratives through visual art.",
+      "achievements": [
+        "Curator of 'New Caribbean Voices' international exhibition",
+        "Founded emerging artist residency program",
+        "Published author on Caribbean contemporary art",
+        "Speaker at Venice Biennale 2022",
+        "Advocate for Caribbean art in international collections"
+      ],
+      "quote": "CAPAS opened my eyes to the power of art as cultural preservation and evolution. Now I help other Caribbean artists share their stories with the world.",
+      "image": "/alumni/alicia-ferguson.jpg",
+      "social": {
+        "instagram": "@aliciafergusoncurator",
+        "website": "https://caribbeancontemporary.org"
+      },
+      "featured": false
+    },
+    {
+      "id": "alumni-005",
+      "name": "James Rodriguez",
+      "graduationYear": 2016,
+      "program": "Marine Biology & Environmental Science",
+      "currentPosition": "Marine Conservation Director",
+      "company": "Caribbean Marine Research Center",
+      "location": "Key Largo, FL",
+      "story": "James has dedicated his career to protecting Caribbean marine ecosystems. His research on coral restoration has influenced policy across the region, and he regularly collaborates with CAPAS on student research projects.",
+      "achievements": [
+        "Published 35+ peer-reviewed research papers",
+        "Developed award-winning coral restoration techniques",
+        "Policy advisor to 8 Caribbean governments",
+        "National Geographic Explorer grant recipient",
+        "Founded youth marine education program"
+      ],
+      "quote": "The marine biology program at CAPAS connected classroom learning with real-world conservation. That hands-on approach shaped my entire career in marine science.",
+      "image": "/alumni/james-rodriguez.jpg",
+      "social": {
+        "linkedin": "james-rodriguez-marine",
+        "twitter": "@jrodriguez_marine"
+      },
+      "featured": false
+    },
+    {
+      "id": "alumni-006",
+      "name": "Keisha Campbell",
+      "graduationYear": 2021,
+      "program": "Business Studies & Cultural Tourism",
+      "currentPosition": "Founder & CEO",
+      "company": "Heritage Island Tours",
+      "location": "Nassau, Bahamas",
+      "story": "Keisha founded a sustainable tourism company that employs CAPAS graduates and showcases authentic Bahamian culture. Her innovative approach to cultural tourism has been featured in international travel publications.",
+      "achievements": [
+        "Built $2M tourism business in 3 years",
+        "Employs 25+ CAPAS graduates",
+        "Featured in Travel + Leisure Magazine",
+        "Sustainable Tourism Award winner",
+        "Board member of Bahamas Tourism Board"
+      ],
+      "quote": "CAPAS taught me that business success and cultural preservation can go hand in hand. We're proving that authentic experiences are what travelers really want.",
+      "image": "/alumni/keisha-campbell.jpg",
+      "social": {
+        "instagram": "@heritageislandtours",
+        "website": "https://heritageislandtours.com"
+      },
+      "featured": true
+    }
+  ],
+  "successStories": [
+    {
+      "title": "From Student to Star",
+      "subtitle": "Marcus Johnson's Journey to International Fame",
+      "content": "When Marcus Johnson first auditioned for CAPAS in 2014, he was a shy teenager from a small island community. Four years later, he graduated as a confident performer with a deep understanding of his cultural roots and the skills to share them with the world. His story exemplifies the transformative power of arts education.",
+      "image": "/stories/marcus-journey.jpg",
+      "alumniId": "alumni-001"
+    },
+    {
+      "title": "Dancing Between Worlds",
+      "subtitle": "How Sophia Chen-Williams Brought Caribbean Movement to Classical Ballet",
+      "content": "Sophia Chen-Williams faced skepticism when she proposed incorporating Caribbean dance elements into classical ballet. Today, her innovative choreography is celebrated internationally, proving that cultural fusion can create something entirely new while honoring tradition.",
+      "image": "/stories/sophia-ballet.jpg",
+      "alumniId": "alumni-002"
+    },
+    {
+      "title": "Technology with Heart",
+      "subtitle": "David Thompson's Creative Approach to Engineering",
+      "content": "At Disney Imagineering, David Thompson doesn't just write code—he creates magic. His background in both technology and creative arts at CAPAS allows him to approach technical challenges with an artist's eye and a storyteller's heart.",
+      "image": "/stories/david-disney.jpg",
+      "alumniId": "alumni-003"
+    }
+  ],
+  "stats": {
+    "totalAlumni": 847,
+    "employmentRate": 94,
+    "averageStartingSalary": 45000,
+    "graduatesInCreativeFields": 78,
+    "internationalPlacements": 156,
+    "entrepreneurialVentures": 23,
+    "graduateSchoolAcceptance": 89
+  },
+  "industries": [
+    {
+      "name": "Entertainment & Media",
+      "percentage": 32,
+      "count": 271
+    },
+    {
+      "name": "Education",
+      "percentage": 28,
+      "count": 237
+    },
+    {
+      "name": "Technology",
+      "percentage": 18,
+      "count": 152
+    },
+    {
+      "name": "Tourism & Hospitality",
+      "percentage": 15,
+      "count": 127
+    },
+    {
+      "name": "Environmental Sciences",
+      "percentage": 7,
+      "count": 60
+    }
+  ],
+  "locations": [
+    {
+      "region": "Bahamas",
+      "percentage": 45,
+      "count": 381
+    },
+    {
+      "region": "United States",
+      "percentage": 32,
+      "count": 271
+    },
+    {
+      "region": "Other Caribbean",
+      "percentage": 15,
+      "count": 127
+    },
+    {
+      "region": "International",
+      "percentage": 8,
+      "count": 68
+    }
+  ]
+}

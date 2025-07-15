@@ -1,0 +1,101 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "firstName": "Kiana",
+      "lastName": "Johnson",
+      "email": "kiana.johnson@capas.edu.bs",
+      "program": "Digital Arts",
+      "year": 2,
+      "gpa": 3.7,
+      "avatar": "/avatars/student1.jpg",
+      "enrolledCourses": ["art201", "mus301", "eng201"],
+      "achievements": ["Dean's List 2023", "Creative Arts Award"],
+      "island": "New Providence"
+    },
+    {
+      "id": "STU002",
+      "firstName": "Marcus",
+      "lastName": "Thompson",
+      "email": "marcus.thompson@capas.edu.bs",
+      "program": "Computer Science",
+      "year": 1,
+      "gpa": 3.5,
+      "avatar": "/avatars/student2.jpg",
+      "enrolledCourses": ["cs101", "mar102"],
+      "achievements": ["Programming Competition Winner"],
+      "island": "Grand Bahama"
+    },
+    {
+      "id": "STU003",
+      "firstName": "Sophia",
+      "lastName": "Williams",
+      "email": "sophia.williams@capas.edu.bs",
+      "program": "Marine Biology",
+      "year": 3,
+      "gpa": 3.9,
+      "avatar": "/avatars/student3.jpg",
+      "enrolledCourses": ["mar102", "env401"],
+      "achievements": ["Research Publication", "Environmental Advocate"],
+      "island": "Eleuthera"
+    },
+    {
+      "id": "STU004",
+      "firstName": "Jordan",
+      "lastName": "Roberts",
+      "email": "jordan.roberts@capas.edu.bs",
+      "program": "Music Production",
+      "year": 2,
+      "gpa": 3.6,
+      "avatar": "/avatars/student4.jpg",
+      "enrolledCourses": ["mus301", "art201"],
+      "achievements": ["Junkanoo Performer", "Music Festival Winner"],
+      "island": "Abaco"
+    },
+    {
+      "id": "STU005",
+      "firstName": "Aaliyah",
+      "lastName": "Davis",
+      "email": "aaliyah.davis@capas.edu.bs",
+      "program": "Tourism Management",
+      "year": 4,
+      "gpa": 3.8,
+      "avatar": "/avatars/student5.jpg",
+      "enrolledCourses": ["bus401", "eng201"],
+      "achievements": ["Student Council President", "Internship at Atlantis"],
+      "island": "Exuma"
+    }
+  ],
+  "programs": [
+    {
+      "id": "cs",
+      "name": "Computer Science",
+      "duration": "4 years",
+      "totalStudents": 120
+    },
+    {
+      "id": "da",
+      "name": "Digital Arts",
+      "duration": "4 years",
+      "totalStudents": 85
+    },
+    {
+      "id": "mb",
+      "name": "Marine Biology",
+      "duration": "4 years",
+      "totalStudents": 65
+    },
+    {
+      "id": "mp",
+      "name": "Music Production",
+      "duration": "3 years",
+      "totalStudents": 45
+    },
+    {
+      "id": "tm",
+      "name": "Tourism Management",
+      "duration": "4 years",
+      "totalStudents": 150
+    }
+  ]
+}

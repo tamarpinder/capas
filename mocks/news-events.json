@@ -1,0 +1,168 @@
+{
+  "news": [
+    {
+      "id": "news-001",
+      "slug": "capas-wins-unesco-recognition",
+      "title": "CAPAS Receives UNESCO Recognition for Cultural Education Excellence",
+      "excerpt": "Our institution has been honored with the prestigious UNESCO Cultural Education Excellence Award for our innovative approach to preserving Caribbean heritage.",
+      "content": "CAPAS Bahamas has been awarded the UNESCO Cultural Education Excellence Award, recognizing our pioneering work in integrating Caribbean cultural heritage with contemporary education. This prestigious honor highlights our commitment to preserving and evolving Bahamian traditions while preparing students for global opportunities.\n\nThe award specifically recognizes our innovative curriculum that combines traditional arts like Junkanoo with modern digital media, creating a unique educational experience that has become a model for other Caribbean institutions.\n\nDr. Patricia Glinton-Meicholas, President and Founder, expressed her gratitude: 'This recognition validates our belief that cultural preservation and modern education can work hand in hand to create something truly special. We are honored to represent not just The Bahamas, but the entire Caribbean region in this important work.'\n\nThe award comes with a grant of $100,000 to further develop our cultural education programs and expand our outreach to other Caribbean institutions.",
+      "author": "CAPAS Communications Team",
+      "publishedAt": "2024-11-15T10:00:00Z",
+      "category": "awards",
+      "tags": ["UNESCO", "Cultural Education", "Awards", "Caribbean Heritage"],
+      "image": "/news/unesco-award.jpg",
+      "featured": true
+    },
+    {
+      "id": "news-002",
+      "slug": "new-recording-studio-opens",
+      "title": "State-of-the-Art Recording Studio Opens at CAPAS",
+      "excerpt": "Students now have access to professional-grade recording equipment and production facilities in our newly opened recording studio.",
+      "content": "CAPAS is proud to announce the opening of our new state-of-the-art recording studio, providing students with access to industry-standard equipment and facilities. The studio features the latest in digital recording technology, mixing boards, and acoustically treated rooms designed for optimal sound production.\n\nThe facility includes:\n- Main recording room with isolation booths\n- Control room with Pro Tools HDX system\n- MIDI and electronic music production suite\n- Podcast and voice-over recording capabilities\n- Equipment library including vintage and modern instruments\n\nProf. Marcus Williams, Director of Performing Arts, noted: 'This studio represents a major step forward in our ability to prepare students for careers in the modern music industry while preserving our traditional Caribbean sounds.'\n\nThe studio will be used for student projects, faculty research, and collaborations with local artists. It also features equipment specifically designed for recording traditional Bahamian instruments and Junkanoo performances.",
+      "author": "Music Department",
+      "publishedAt": "2024-11-10T14:30:00Z",
+      "category": "facilities",
+      "tags": ["Recording Studio", "Music Technology", "Student Resources"],
+      "image": "/news/recording-studio.jpg",
+      "featured": false
+    },
+    {
+      "id": "news-003",
+      "slug": "student-wins-international-art-competition",
+      "title": "CAPAS Student Wins International Caribbean Art Competition",
+      "excerpt": "Third-year visual arts student Maya Thompson takes first place in the prestigious Caribbean Contemporary Art Challenge.",
+      "content": "Maya Thompson, a third-year student in our Visual Arts program, has won first place in the Caribbean Contemporary Art Challenge, an international competition featuring emerging artists from across the region.\n\nHer winning piece, 'Tides of Heritage,' is a mixed-media installation that combines traditional Bahamian craft techniques with contemporary digital projections, creating an immersive experience that explores the relationship between cultural memory and modern identity.\n\nThe competition, judged by renowned Caribbean artists and international curators, attracted over 200 submissions from 15 Caribbean nations. Maya's victory comes with a $5,000 prize and the opportunity to exhibit her work at the Caribbean Cultural Center in New York.\n\n'Maya's work exemplifies exactly what we hope to achieve at CAPAS,' said Prof. Antonius Roberts, Director of Creative Arts. 'She has taken traditional techniques learned from our master craftspeople and transformed them into something entirely new and contemporary.'\n\nMaya will represent the Caribbean region at the International Student Art Fair in Miami next spring.",
+      "author": "Visual Arts Department",
+      "publishedAt": "2024-11-05T09:15:00Z",
+      "category": "student-achievement",
+      "tags": ["Student Achievement", "Visual Arts", "International Recognition", "Competition"],
+      "image": "/news/maya-art-win.jpg",
+      "featured": true
+    },
+    {
+      "id": "news-004",
+      "slug": "coral-restoration-project-launch",
+      "title": "CAPAS Launches Groundbreaking Coral Restoration Project",
+      "excerpt": "Our Marine Biology program partners with the Bahamas National Trust to restore damaged coral reefs using innovative techniques.",
+      "content": "CAPAS has launched an ambitious coral restoration project in partnership with the Bahamas National Trust and the University of Miami's Rosenstiel School. The three-year initiative aims to restore 100 acres of damaged coral reef using cutting-edge marine biology techniques developed by our students and faculty.\n\nThe project combines traditional conservation methods with innovative approaches, including:\n- Coral nurseries managed by student researchers\n- 3D printing technology to create artificial reef structures\n- Genetic analysis to identify climate-resilient coral species\n- Community education programs led by our students\n\nDr. Elena Rodriguez, Professor of Marine Biology, leads the project: 'This initiative represents the perfect marriage of education, research, and community service. Our students are gaining hands-on experience while making a real difference to Bahamian marine ecosystems.'\n\nThe project has already attracted international attention, with funding from the Caribbean Development Bank and technical support from marine biology programs across the region. Students from other Caribbean institutions will participate in summer research exchanges.",
+      "author": "Environmental Sciences Department",
+      "publishedAt": "2024-10-28T11:45:00Z",
+      "category": "research",
+      "tags": ["Marine Biology", "Conservation", "Research", "Community Partnership"],
+      "image": "/news/coral-restoration.jpg",
+      "featured": false
+    }
+  ],
+  "events": [
+    {
+      "id": "event-001",
+      "slug": "annual-junkanoo-showcase",
+      "title": "Annual CAPAS Junkanoo Showcase",
+      "description": "Join us for our spectacular annual Junkanoo showcase featuring student performances, traditional music, and contemporary interpretations of this beloved Bahamian art form.",
+      "longDescription": "Our Annual Junkanoo Showcase is the highlight of the CAPAS calendar, bringing together students, faculty, alumni, and the community for a celebration of Bahamian culture. This year's theme is 'Rhythms of Tomorrow' and features traditional Junkanoo groups alongside innovative contemporary interpretations created by our students.\n\nThe event includes:\n- Traditional Junkanoo parade with student-designed costumes\n- Musical performances featuring original compositions\n- Dance presentations combining traditional and modern styles\n- Art exhibition showcasing Junkanoo-inspired contemporary works\n- Community workshops on costume making and music\n- Food vendors featuring traditional Bahamian cuisine\n\nThis free community event celebrates our cultural heritage while showcasing the incredible talent of our students across all disciplines.",
+      "startDate": "2024-12-15T18:00:00Z",
+      "endDate": "2024-12-15T22:00:00Z",
+      "location": "CAPAS Performance Hall & Campus Grounds",
+      "category": "cultural",
+      "tags": ["Junkanoo", "Student Performance", "Cultural Celebration", "Community Event"],
+      "image": "/events/junkanoo-showcase.jpg",
+      "ticketPrice": "Free",
+      "capacity": 500,
+      "registrationRequired": false,
+      "featured": true
+    },
+    {
+      "id": "event-002",
+      "slug": "creative-technology-symposium",
+      "title": "Creative Technology Symposium 2024",
+      "description": "Two-day symposium exploring the intersection of technology and creative arts, featuring international speakers and hands-on workshops.",
+      "longDescription": "Join leading experts in creative technology for an inspiring two-day symposium exploring how technology is transforming the arts. This international event brings together artists, technologists, educators, and students to share ideas and showcase innovative work.\n\nKeynote speakers include:\n- Dr. Maria Santos, Director of MIT's Creative Computing Lab\n- Prof. David Chen, Pioneer in Interactive Media Art\n- Sarah Williams, Creative Director at Pixar Animation Studios\n\nWorkshop topics:\n- Virtual Reality for Artistic Expression\n- AI-Assisted Music Composition\n- Digital Storytelling Techniques\n- Interactive Installation Design\n- Blockchain and Digital Art\n\nThe symposium includes student project exhibitions, networking sessions, and collaborative workshops. All sessions will be live-streamed for international participants.",
+      "startDate": "2024-12-08T09:00:00Z",
+      "endDate": "2024-12-09T17:00:00Z",
+      "location": "CAPAS Technology Center",
+      "category": "academic",
+      "tags": ["Technology", "Creative Arts", "Symposium", "International Speakers"],
+      "image": "/events/tech-symposium.jpg",
+      "ticketPrice": "$75 (Students: $25)",
+      "capacity": 200,
+      "registrationRequired": true,
+      "featured": true
+    },
+    {
+      "id": "event-003",
+      "slug": "spring-student-recitals",
+      "title": "Spring Student Recitals",
+      "description": "Celebrate the musical achievements of our students in this series of intimate recital performances throughout the spring semester.",
+      "longDescription": "Our Spring Student Recitals showcase the incredible musical talent developed through our comprehensive music programs. These intimate performances feature students from all levels and musical disciplines, from classical voice and piano to contemporary Caribbean genres.\n\nRecital Schedule:\n- Voice Recitals: Every Friday at 7:00 PM\n- Instrumental Recitals: Every Saturday at 3:00 PM\n- Contemporary & Caribbean Music: Monthly showcase on last Saturday\n- Chamber Music Ensembles: Bi-weekly performances\n\nEach recital is approximately 90 minutes and features 6-8 student performers. These events provide students with essential performance experience while offering the community access to high-quality musical entertainment.\n\nAll recitals are free and open to the public. Light refreshments will be provided during intermission.",
+      "startDate": "2025-01-15T19:00:00Z",
+      "endDate": "2025-04-30T21:00:00Z",
+      "location": "CAPAS Recital Hall",
+      "category": "performance",
+      "tags": ["Student Performance", "Music", "Recitals", "Community Event"],
+      "image": "/events/student-recitals.jpg",
+      "ticketPrice": "Free",
+      "capacity": 150,
+      "registrationRequired": false,
+      "featured": false
+    },
+    {
+      "id": "event-004",
+      "slug": "alumni-homecoming-weekend",
+      "title": "Alumni Homecoming Weekend",
+      "description": "Welcome back CAPAS alumni for a weekend of reconnection, celebration, and inspiration featuring performances, workshops, and networking events.",
+      "longDescription": "Join us for our annual Alumni Homecoming Weekend, a celebration of the incredible achievements of CAPAS graduates and their continued connection to our community. This weekend brings together alumni from around the world for performances, networking, and shared experiences.\n\nWeekend Activities:\n- Alumni Performance Showcase featuring graduates from all programs\n- Career networking sessions across creative industries\n- Master classes led by successful alumni\n- Campus tours showcasing new facilities and programs\n- Faculty and alumni panel discussions\n- Gala dinner with awards ceremony\n- Student and alumni collaborative workshops\n\nThis year's honored alumnus is internationally acclaimed singer-songwriter Marcus Johnson (Class of 2018), who will perform and lead a songwriting workshop.\n\nThe weekend concludes with a joint performance featuring current students and alumni, symbolizing the continuing legacy of CAPAS excellence.",
+      "startDate": "2025-03-28T17:00:00Z",
+      "endDate": "2025-03-30T15:00:00Z",
+      "location": "CAPAS Campus",
+      "category": "alumni",
+      "tags": ["Alumni", "Homecoming", "Networking", "Performance", "Community"],
+      "image": "/events/alumni-homecoming.jpg",
+      "ticketPrice": "$50 (Alumni), $25 (Students), $100 (Gala Dinner)",
+      "capacity": 300,
+      "registrationRequired": true,
+      "featured": false
+    }
+  ],
+  "categories": [
+    {
+      "id": "awards",
+      "name": "Awards & Recognition",
+      "description": "Honors and achievements"
+    },
+    {
+      "id": "facilities",
+      "name": "Facilities & Resources",
+      "description": "Campus improvements and new resources"
+    },
+    {
+      "id": "student-achievement",
+      "name": "Student Achievements",
+      "description": "Student accomplishments and recognition"
+    },
+    {
+      "id": "research",
+      "name": "Research & Innovation",
+      "description": "Academic research and innovative projects"
+    },
+    {
+      "id": "cultural",
+      "name": "Cultural Events",
+      "description": "Cultural celebrations and heritage events"
+    },
+    {
+      "id": "academic",
+      "name": "Academic Events",
+      "description": "Conferences, symposiums, and academic gatherings"
+    },
+    {
+      "id": "performance",
+      "name": "Performances",
+      "description": "Student and faculty performances"
+    },
+    {
+      "id": "alumni",
+      "name": "Alumni Events",
+      "description": "Alumni gatherings and networking"
+    }
+  ]
+}

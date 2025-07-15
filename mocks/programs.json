@@ -1,0 +1,264 @@
+{
+  "programs": [
+    {
+      "id": "full-time-singing",
+      "slug": "full-time-singing",
+      "title": "Full-Time Vocal Performance",
+      "category": "full-time",
+      "type": "Singing",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Master the art of vocal performance with comprehensive training in classical, contemporary, and Caribbean musical traditions.",
+      "longDescription": "Our Full-Time Vocal Performance program combines rigorous technical training with cultural immersion, preparing students for professional careers in music. Students study voice technique, music theory, performance practice, and Caribbean musical heritage.",
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Vocal audition (live or recorded)",
+        "Music theory placement test",
+        "Personal statement of purpose",
+        "Two letters of recommendation"
+      ],
+      "curriculum": [
+        {
+          "year": 1,
+          "courses": ["Voice Technique I", "Music Theory I", "Caribbean Music History", "Performance Workshop I"]
+        },
+        {
+          "year": 2,
+          "courses": ["Voice Technique II", "Music Theory II", "Junkanoo Performance", "Stage Presence"]
+        },
+        {
+          "year": 3,
+          "courses": ["Advanced Vocal Techniques", "Opera Performance", "Contemporary Styles", "Music Business"]
+        },
+        {
+          "year": 4,
+          "courses": ["Senior Recital Preparation", "Professional Development", "Teaching Methods", "Capstone Project"]
+        }
+      ],
+      "careerOutcomes": [
+        "Professional Vocalist",
+        "Music Educator",
+        "Recording Artist",
+        "Performance Coach",
+        "Cultural Ambassador"
+      ],
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "image": "/programs/singing.jpg",
+      "featured": true
+    },
+    {
+      "id": "full-time-dancing",
+      "slug": "full-time-dancing",
+      "title": "Full-Time Dance Performance",
+      "category": "full-time",
+      "type": "Dancing",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Develop exceptional dance skills across multiple genres while preserving and innovating Caribbean dance traditions.",
+      "longDescription": "Our dance program emphasizes technical excellence, creative expression, and cultural preservation. Students train in classical ballet, modern dance, jazz, and traditional Caribbean forms including Junkanoo and folk dances.",
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Dance audition (live or recorded)",
+        "Physical fitness assessment",
+        "Personal statement of purpose",
+        "Two letters of recommendation"
+      ],
+      "curriculum": [
+        {
+          "year": 1,
+          "courses": ["Ballet Technique I", "Modern Dance I", "Caribbean Folk Dance", "Anatomy for Dancers"]
+        },
+        {
+          "year": 2,
+          "courses": ["Ballet Technique II", "Jazz Dance", "Junkanoo Choreography", "Dance History"]
+        },
+        {
+          "year": 3,
+          "courses": ["Advanced Technique", "Contemporary Dance", "Choreography Workshop", "Dance Production"]
+        },
+        {
+          "year": 4,
+          "courses": ["Senior Performance", "Teaching Methodology", "Dance Therapy", "Professional Portfolio"]
+        }
+      ],
+      "careerOutcomes": [
+        "Professional Dancer",
+        "Choreographer",
+        "Dance Instructor",
+        "Performance Director",
+        "Cultural Arts Coordinator"
+      ],
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "image": "/programs/dancing.jpg",
+      "featured": true
+    },
+    {
+      "id": "full-time-acting",
+      "slug": "full-time-acting",
+      "title": "Full-Time Acting & Theatre",
+      "category": "full-time",
+      "type": "Acting",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Comprehensive actor training program integrating classical techniques with Caribbean storytelling traditions.",
+      "longDescription": "Students develop their craft through intensive study of acting methods, voice and movement, script analysis, and Caribbean theatrical traditions. The program prepares versatile performers for stage, screen, and community theatre.",
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Acting audition (monologue performance)",
+        "Interview with faculty",
+        "Personal statement of purpose",
+        "Two letters of recommendation"
+      ],
+      "curriculum": [
+        {
+          "year": 1,
+          "courses": ["Acting Fundamentals", "Voice and Speech", "Movement for Actors", "Theatre History"]
+        },
+        {
+          "year": 2,
+          "courses": ["Scene Study", "Improvisation", "Caribbean Theatre", "Stage Combat"]
+        },
+        {
+          "year": 3,
+          "courses": ["Advanced Scene Work", "Film Acting", "Directing", "Playwriting Workshop"]
+        },
+        {
+          "year": 4,
+          "courses": ["Senior Showcase", "Professional Development", "Teaching Artists", "Industry Practicum"]
+        }
+      ],
+      "careerOutcomes": [
+        "Professional Actor",
+        "Theatre Director",
+        "Drama Teacher",
+        "Arts Administrator",
+        "Community Theatre Leader"
+      ],
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "image": "/programs/acting.jpg",
+      "featured": true
+    },
+    {
+      "id": "part-time-musical-theatre",
+      "slug": "part-time-musical-theatre",
+      "title": "Part-Time Musical Theatre",
+      "category": "part-time",
+      "type": "Musical Theatre",
+      "duration": "2 years",
+      "credits": 60,
+      "description": "Flexible evening and weekend program combining singing, dancing, and acting for working professionals.",
+      "longDescription": "Designed for working adults and students seeking flexible scheduling, this program covers the fundamentals of musical theatre performance while accommodating busy lifestyles.",
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Basic audition (any discipline)",
+        "Interview",
+        "Statement of goals"
+      ],
+      "curriculum": [
+        {
+          "year": 1,
+          "courses": ["Musical Theatre Fundamentals", "Voice for Musical Theatre", "Basic Dance", "Acting for Singers"]
+        },
+        {
+          "year": 2,
+          "courses": ["Advanced Musical Theatre", "Audition Technique", "Performance Workshop", "Showcase Preparation"]
+        }
+      ],
+      "careerOutcomes": [
+        "Community Theatre Performer",
+        "Entertainment Industry Professional",
+        "Arts Educator",
+        "Cultural Event Coordinator"
+      ],
+      "tuition": "$6,000/year",
+      "scholarships": false,
+      "image": "/programs/musical-theatre.jpg",
+      "featured": false
+    },
+    {
+      "id": "part-time-acting-workshop",
+      "slug": "part-time-acting-workshop",
+      "title": "Part-Time Acting Workshop",
+      "category": "part-time",
+      "type": "Acting",
+      "duration": "1 year",
+      "credits": 30,
+      "description": "Intensive workshop series for developing fundamental acting skills in a supportive environment.",
+      "longDescription": "This condensed program focuses on essential acting techniques, scene study, and performance skills for students seeking focused training without the commitment of a full degree program.",
+      "admissionRequirements": [
+        "Age 16 or older",
+        "Brief interview",
+        "Statement of interest"
+      ],
+      "curriculum": [
+        {
+          "year": 1,
+          "courses": ["Acting Basics", "Scene Study Workshop", "Improvisation", "Performance Showcase"]
+        }
+      ],
+      "careerOutcomes": [
+        "Community Theatre Actor",
+        "Confident Public Speaker",
+        "Enhanced Communication Skills",
+        "Personal Development"
+      ],
+      "tuition": "$3,000/year",
+      "scholarships": false,
+      "image": "/programs/acting-workshop.jpg",
+      "featured": false
+    }
+  ],
+  "admissionInfo": {
+    "applicationDeadlines": {
+      "fall": "March 1",
+      "spring": "October 1"
+    },
+    "auditionDates": {
+      "fall": ["February 15", "February 22", "March 1"],
+      "spring": ["September 15", "September 22", "October 1"]
+    },
+    "requirements": {
+      "general": [
+        "Completed application form",
+        "Official transcripts",
+        "Personal statement",
+        "Letters of recommendation"
+      ],
+      "audition": [
+        "Prepared audition piece (varies by program)",
+        "Interview with faculty",
+        "Portfolio submission (if applicable)"
+      ]
+    },
+    "scholarships": {
+      "academic": "Merit-based scholarships available up to 50% tuition",
+      "need": "Financial aid available based on family income",
+      "cultural": "Special scholarships for preserving Bahamian cultural arts"
+    }
+  },
+  "facilities": [
+    {
+      "name": "Performance Hall",
+      "description": "300-seat professional theatre with full technical capabilities",
+      "image": "/facilities/performance-hall.jpg"
+    },
+    {
+      "name": "Dance Studios",
+      "description": "Three fully equipped dance studios with mirrors and professional flooring",
+      "image": "/facilities/dance-studios.jpg"
+    },
+    {
+      "name": "Recording Studio",
+      "description": "Professional-grade recording and production facility",
+      "image": "/facilities/recording-studio.jpg"
+    },
+    {
+      "name": "Practice Rooms",
+      "description": "Individual and small group practice spaces with pianos",
+      "image": "/facilities/practice-rooms.jpg"
+    }
+  ]
+}

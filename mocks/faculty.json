@@ -1,0 +1,231 @@
+{
+  "faculty": [
+    {
+      "id": "patricia-glinton",
+      "name": "Dr. Patricia Glinton-Meicholas",
+      "title": "President & Founder",
+      "department": "Administration",
+      "email": "patricia@capas.edu.bs",
+      "phone": "+1-242-555-0001",
+      "bio": "Dr. Glinton-Meicholas is a renowned Bahamian author, cultural advocate, and educational leader. With over 30 years of experience in education and cultural preservation, she founded CAPAS with a vision to bridge Caribbean heritage with contemporary creative education. She has authored numerous books on Bahamian folklore and culture.",
+      "education": [
+        "Ph.D. in Cultural Studies, University of Miami",
+        "M.A. in Education, University of The Bahamas",
+        "B.A. in English Literature, College of The Bahamas"
+      ],
+      "expertise": ["Cultural Studies", "Educational Leadership", "Creative Writing", "Folklore Preservation"],
+      "achievements": [
+        "UNESCO Cultural Heritage Award 2019",
+        "Bahamas Independence Order 2018",
+        "Author of 12 published books on Bahamian culture",
+        "Founding Director of National Arts Festival"
+      ],
+      "image": "/faculty/patricia-glinton.jpg",
+      "office": "Administration Building, Room 101",
+      "officeHours": "Monday-Friday 9:00 AM - 11:00 AM",
+      "researchInterests": ["Caribbean Literature", "Cultural Identity", "Educational Innovation"],
+      "publications": [
+        "Stories of Old Nassau (2020)",
+        "Bahamian Folk Tales and Legends (2018)",
+        "Cultural Education in the Caribbean (2017)"
+      ]
+    },
+    {
+      "id": "antonius-roberts",
+      "name": "Prof. Antonius Roberts",
+      "title": "Director of Creative Arts",
+      "department": "Visual Arts",
+      "email": "antonius@capas.edu.bs",
+      "phone": "+1-242-555-0002",
+      "bio": "Professor Roberts is an internationally acclaimed Bahamian artist and educator whose contemporary works have been exhibited in galleries across the Caribbean, United States, and Europe. He brings a unique perspective that merges traditional Bahamian artistic traditions with modern contemporary art practices.",
+      "education": [
+        "M.F.A. in Visual Arts, Virginia Commonwealth University",
+        "B.F.A. in Painting, Temple University",
+        "Certificate in Art Education, College of The Bahamas"
+      ],
+      "expertise": ["Contemporary Art", "Visual Arts Education", "Cultural Heritage Art", "Gallery Curation"],
+      "achievements": [
+        "Represented Bahamas at Venice Biennale 2019",
+        "Caribbean Contemporary Art Award 2020",
+        "Featured in Smithsonian Magazine 2021",
+        "Solo exhibitions in 15 countries"
+      ],
+      "image": "/faculty/antonius-roberts.jpg",
+      "office": "Art Building, Studio 205",
+      "officeHours": "Tuesday-Thursday 2:00 PM - 4:00 PM",
+      "researchInterests": ["Contemporary Caribbean Art", "Cultural Identity in Visual Arts", "Community Art Programs"],
+      "publications": [
+        "Contemporary Bahamian Art: A New Perspective (2021)",
+        "Art as Cultural Ambassador (2019)"
+      ]
+    },
+    {
+      "id": "sarah-thompson",
+      "name": "Dr. Sarah Thompson",
+      "title": "Head of Technology Division",
+      "department": "Computer Science",
+      "email": "sarah@capas.edu.bs",
+      "phone": "+1-242-555-0003",
+      "bio": "Dr. Thompson is a computer science pioneer in the Caribbean region, specializing in educational technology and digital innovation. She has led numerous initiatives to integrate cutting-edge technology with creative education, making CAPAS a leader in tech-enhanced learning.",
+      "education": [
+        "Ph.D. in Computer Science, MIT",
+        "M.S. in Educational Technology, Stanford University",
+        "B.S. in Computer Engineering, University of Florida"
+      ],
+      "expertise": ["Educational Technology", "Software Development", "Digital Media", "Innovation Management"],
+      "achievements": [
+        "Caribbean Technology Excellence Award 2022",
+        "Published 25+ research papers",
+        "Holder of 3 software patents",
+        "TEDx Speaker on Educational Innovation"
+      ],
+      "image": "/faculty/sarah-thompson.jpg",
+      "office": "Technology Center, Room 301",
+      "officeHours": "Monday, Wednesday, Friday 10:00 AM - 12:00 PM",
+      "researchInterests": ["AI in Education", "Creative Technology", "Digital Literacy"],
+      "publications": [
+        "Technology Integration in Creative Education (2023)",
+        "Digital Innovation in Small Island States (2022)",
+        "The Future of Educational Technology (2021)"
+      ]
+    },
+    {
+      "id": "marcus-williams",
+      "name": "Prof. Marcus Williams",
+      "title": "Director of Performing Arts",
+      "department": "Music",
+      "email": "marcus@capas.edu.bs",
+      "phone": "+1-242-555-0004",
+      "bio": "Professor Williams is a master musician, composer, and cultural preservationist who has dedicated his career to maintaining and evolving Bahamian musical traditions. His expertise in Junkanoo, rake and scrape, and contemporary music production makes him a unique voice in Caribbean music education.",
+      "education": [
+        "M.M. in Music Composition, Juilliard School",
+        "B.M. in Music Performance, Berklee College of Music",
+        "Certificate in Caribbean Music Studies, University of the West Indies"
+      ],
+      "expertise": ["Music Composition", "Caribbean Music", "Junkanoo Arts", "Music Production"],
+      "achievements": [
+        "Grammy nomination for Caribbean Music Album 2021",
+        "Bahamas Music Hall of Fame inductee",
+        "Composer of official Bahamas 50th Independence anthem",
+        "Junkanoo cultural ambassador"
+      ],
+      "image": "/faculty/marcus-williams.jpg",
+      "office": "Music Building, Room 102",
+      "officeHours": "Tuesday-Thursday 1:00 PM - 3:00 PM",
+      "researchInterests": ["Caribbean Music Preservation", "Contemporary Fusion Techniques", "Music Therapy"],
+      "publications": [
+        "The Evolution of Junkanoo Music (2022)",
+        "Caribbean Rhythms in Modern Composition (2020)"
+      ]
+    },
+    {
+      "id": "elena-rodriguez",
+      "name": "Dr. Elena Rodriguez",
+      "title": "Professor of Marine Biology",
+      "department": "Environmental Sciences",
+      "email": "elena@capas.edu.bs",
+      "phone": "+1-242-555-0005",
+      "bio": "Dr. Rodriguez is a leading marine biologist specializing in Caribbean coral reef ecosystems. Her research on sustainable marine practices and climate change adaptation has influenced policy throughout the region. She brings environmental awareness into all aspects of CAPAS education.",
+      "education": [
+        "Ph.D. in Marine Biology, University of Miami",
+        "M.S. in Environmental Science, Florida International University",
+        "B.S. in Biology, University of Puerto Rico"
+      ],
+      "expertise": ["Marine Ecosystems", "Environmental Education", "Climate Change", "Sustainable Practices"],
+      "achievements": [
+        "Caribbean Conservation Award 2023",
+        "Author of 40+ peer-reviewed publications",
+        "Environmental Policy Advisor to Bahamas Government",
+        "Featured in National Geographic documentary"
+      ],
+      "image": "/faculty/elena-rodriguez.jpg",
+      "office": "Science Building, Lab 201",
+      "officeHours": "Monday-Wednesday 9:00 AM - 11:00 AM",
+      "researchInterests": ["Coral Reef Conservation", "Marine Biodiversity", "Environmental Education"],
+      "publications": [
+        "Coral Reefs of the Bahamas: A Conservation Guide (2023)",
+        "Climate Change Impacts on Caribbean Marine Life (2022)"
+      ]
+    },
+    {
+      "id": "james-mccartney",
+      "name": "Prof. James McCartney",
+      "title": "Director of Business Studies",
+      "department": "Business",
+      "email": "james@capas.edu.bs",
+      "phone": "+1-242-555-0006",
+      "bio": "Professor McCartney brings extensive experience in tourism and hospitality management to CAPAS. His expertise in sustainable business practices and cultural tourism has helped shape the curriculum to prepare students for leadership roles in the Bahamas' primary industries.",
+      "education": [
+        "M.B.A. in Hospitality Management, Cornell University",
+        "B.S. in Business Administration, Florida State University",
+        "Certificate in Sustainable Tourism, University of the West Indies"
+      ],
+      "expertise": ["Tourism Management", "Sustainable Business", "Cultural Economics", "Hospitality Leadership"],
+      "achievements": [
+        "Caribbean Tourism Excellence Award 2021",
+        "Former General Manager of 5-star resort chain",
+        "Tourism Board Strategic Planning Committee member",
+        "Speaker at 20+ international tourism conferences"
+      ],
+      "image": "/faculty/james-mccartney.jpg",
+      "office": "Business Center, Room 105",
+      "officeHours": "Monday, Thursday 2:00 PM - 4:00 PM",
+      "researchInterests": ["Sustainable Tourism", "Cultural Heritage Tourism", "Small Island Economics"],
+      "publications": [
+        "Sustainable Tourism in Small Island States (2022)",
+        "Cultural Tourism and Economic Development (2020)"
+      ]
+    }
+  ],
+  "departments": [
+    {
+      "id": "administration",
+      "name": "Administration",
+      "head": "Dr. Patricia Glinton-Meicholas",
+      "faculty": 3,
+      "description": "Executive leadership and academic administration"
+    },
+    {
+      "id": "visual-arts",
+      "name": "Visual Arts",
+      "head": "Prof. Antonius Roberts",
+      "faculty": 4,
+      "description": "Painting, sculpture, digital arts, and cultural art forms"
+    },
+    {
+      "id": "computer-science",
+      "name": "Computer Science & Technology",
+      "head": "Dr. Sarah Thompson",
+      "faculty": 5,
+      "description": "Programming, digital media, educational technology"
+    },
+    {
+      "id": "music",
+      "name": "Performing Arts & Music",
+      "head": "Prof. Marcus Williams",
+      "faculty": 6,
+      "description": "Music performance, composition, Junkanoo arts, theatre"
+    },
+    {
+      "id": "environmental-sciences",
+      "name": "Environmental Sciences",
+      "head": "Dr. Elena Rodriguez",
+      "faculty": 3,
+      "description": "Marine biology, environmental conservation, sustainability"
+    },
+    {
+      "id": "business",
+      "name": "Business Studies",
+      "head": "Prof. James McCartney",
+      "faculty": 4,
+      "description": "Tourism management, entrepreneurship, cultural economics"
+    }
+  ],
+  "stats": {
+    "totalFaculty": 25,
+    "departments": 6,
+    "averageExperience": 15,
+    "publicationsLastYear": 45,
+    "internationalRecognitions": 12
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "submissions": [
+    {
+      "id": "SUB001",
+      "studentId": "STU001",
+      "studentName": "Kiana Johnson",
+      "courseId": "ART301",
+      "assignmentId": "A301_1",
+      "title": "Digital Conch Shell Sculpture",
+      "description": "A highly detailed 3D recreation of a traditional Bahamian conch shell, complete with natural wear patterns and cultural significance annotations.",
+      "submittedAt": "2024-08-08T23:45:00Z",
+      "type": "3d_model",
+      "status": "graded",
+      "grade": "A-",
+      "points": 92,
+      "maxPoints": 100,
+      "files": [
+        {
+          "name": "conch_shell_final.blend",
+          "type": "blender_file",
+          "size": "15.2 MB",
+          "url": "/submissions/kiana/conch_shell_final.blend"
+        },
+        {
+          "name": "conch_shell_model.glb",
+          "type": "3d_model",
+          "size": "8.4 MB",
+          "url": "/submissions/kiana/conch_shell_model.glb",
+          "preview": "/submissions/kiana/conch_preview.jpg"
+        },
+        {
+          "name": "render_angles.zip",
+          "type": "image_collection",
+          "size": "12.8 MB",
+          "url": "/submissions/kiana/render_angles.zip"
+        }
+      ],
+      "feedback": {
+        "instructor": "Prof. Antonius Roberts",
+        "comment": "Excellent attention to detail in the surface texturing and natural wear patterns. The cultural research is evident in the accuracy of the proportions. For future work, consider adding more variation in the shell's thickness to show organic growth patterns.",
+        "rubricScores": {
+          "technical_skill": 24,
+          "cultural_accuracy": 23,
+          "creativity": 22,
+          "presentation": 23
+        }
+      },
+      "tags": ["3d-sculpture", "cultural-heritage", "blender", "traditional-craft"],
+      "author": {
+        "id": "STU001",
+        "name": "Kiana Johnson",
+        "program": "Digital Arts",
+        "avatar": "/avatars/kiana.jpg"
+      },
+      "culturalElements": ["conch-shell", "bahamian-heritage", "traditional-craft"],
+      "course": {
+        "id": "ART301",
+        "title": "3D Digital Sculpture",
+        "color": "#FF8B87"
+      },
+      "featured": true,
+      "likes": 34,
+      "views": 127
+    },
+    {
+      "id": "SUB002",
+      "studentId": "STU004",
+      "studentName": "Jordan Roberts",
+      "courseId": "MUS201",
+      "assignmentId": "M201_1",
+      "title": "Rake and Scrape Modern Fusion",
+      "description": "A contemporary interpretation of traditional rake and scrape music, blending authentic instruments with modern production techniques.",
+      "submittedAt": "2024-08-12T18:30:00Z",
+      "type": "audio",
+      "status": "submitted",
+      "grade": null,
+      "points": null,
+      "maxPoints": 100,
+      "files": [
+        {
+          "name": "rake_scrape_fusion.wav",
+          "type": "audio_file",
+          "size": "47.3 MB",
+          "url": "/submissions/jordan/rake_scrape_fusion.wav",
+          "duration": "4:12"
+        },
+        {
+          "name": "production_notes.pdf",
+          "type": "document",
+          "size": "2.1 MB",
+          "url": "/submissions/jordan/production_notes.pdf"
+        },
+        {
+          "name": "protools_session.zip",
+          "type": "project_file",
+          "size": "156.7 MB",
+          "url": "/submissions/jordan/protools_session.zip"
+        }
+      ],
+      "feedback": null,
+      "tags": ["music-production", "rake-and-scrape", "fusion", "traditional-modern"],
+      "author": {
+        "id": "STU004",
+        "name": "Jordan Roberts",
+        "program": "Music Technology",
+        "avatar": "/avatars/jordan.jpg"
+      },
+      "culturalElements": ["rake-and-scrape", "traditional-music", "bahamian-fusion"],
+      "course": {
+        "id": "MUS201",
+        "title": "Caribbean Music Production",
+        "color": "#7FA900"
+      },
+      "featured": false,
+      "likes": 12,
+      "views": 45
+    },
+    {
+      "id": "SUB003",
+      "studentId": "STU003",
+      "studentName": "Sophia Williams",
+      "courseId": "DES101",
+      "assignmentId": "D101_1",
+      "title": "Bahamas Tourism Poster Series",
+      "description": "A series of modern tourism posters celebrating the natural beauty and cultural richness of different Bahamian islands.",
+      "submittedAt": "2024-08-07T21:15:00Z",
+      "type": "design_portfolio",
+      "status": "graded",
+      "grade": "B+",
+      "points": 87,
+      "maxPoints": 100,
+      "files": [
+        {
+          "name": "poster_series_final.pdf",
+          "type": "pdf_portfolio",
+          "size": "23.6 MB",
+          "url": "/submissions/sophia/poster_series_final.pdf",
+          "preview": "/submissions/sophia/poster_preview.jpg"
+        },
+        {
+          "name": "source_files.zip",
+          "type": "design_files",
+          "size": "89.4 MB",
+          "url": "/submissions/sophia/source_files.zip"
+        }
+      ],
+      "feedback": {
+        "instructor": "Prof. Sarah Mitchell",
+        "comment": "Beautiful use of color and typography that captures the essence of each island. The composition is strong and the cultural elements are well integrated. Consider exploring more dynamic layouts for future projects.",
+        "rubricScores": {
+          "concept_development": 22,
+          "visual_execution": 21,
+          "typography": 20,
+          "cultural_sensitivity": 24
+        }
+      },
+      "tags": ["graphic-design", "tourism", "poster-design", "cultural-identity"],
+      "featured": true,
+      "likes": 28,
+      "views": 89
+    },
+    {
+      "id": "SUB004",
+      "studentId": "STU002",
+      "studentName": "Marcus Thompson",
+      "courseId": "GAME301",
+      "assignmentId": "G301_1",
+      "title": "Virtual Junkanoo Experience - Prototype",
+      "description": "An interactive VR experience that allows users to participate in a traditional Junkanoo parade, complete with authentic costumes and music.",
+      "submittedAt": "2024-08-24T20:00:00Z",
+      "type": "vr_application",
+      "status": "in_review",
+      "grade": null,
+      "points": null,
+      "maxPoints": 100,
+      "files": [
+        {
+          "name": "junkanoo_vr.apk",
+          "type": "vr_app",
+          "size": "234.7 MB",
+          "url": "/submissions/marcus/junkanoo_vr.apk"
+        },
+        {
+          "name": "development_diary.pdf",
+          "type": "document",
+          "size": "5.3 MB",
+          "url": "/submissions/marcus/development_diary.pdf"
+        },
+        {
+          "name": "unity_project.zip",
+          "type": "project_files",
+          "size": "678.2 MB",
+          "url": "/submissions/marcus/unity_project.zip"
+        }
+      ],
+      "feedback": null,
+      "tags": ["vr-development", "junkanoo", "cultural-immersion", "unity"],
+      "featured": true,
+      "likes": 42,
+      "views": 156
+    },
+    {
+      "id": "SUB005",
+      "studentId": "STU005",
+      "studentName": "Aaliyah Davis",
+      "courseId": "FILM401",
+      "assignmentId": "F401_1",
+      "title": "Coral Gardens: A Conservation Story",
+      "description": "A short documentary exploring the efforts to preserve and restore coral reefs around Nassau, featuring interviews with marine biologists and local fishermen.",
+      "submittedAt": "2024-08-19T16:45:00Z",
+      "type": "video",
+      "status": "graded",
+      "grade": "A",
+      "points": 95,
+      "maxPoints": 100,
+      "files": [
+        {
+          "name": "coral_gardens_final.mp4",
+          "type": "video_file",
+          "size": "1.2 GB",
+          "url": "/submissions/aaliyah/coral_gardens_final.mp4",
+          "duration": "12:34",
+          "preview": "/submissions/aaliyah/coral_gardens_thumbnail.jpg"
+        },
+        {
+          "name": "production_package.zip",
+          "type": "production_files",
+          "size": "2.8 GB",
+          "url": "/submissions/aaliyah/production_package.zip"
+        }
+      ],
+      "feedback": {
+        "instructor": "Dr. Elena Rodriguez",
+        "comment": "Compelling storytelling with excellent cinematography. The underwater footage is particularly stunning, and the interviews are well-conducted. This work demonstrates both technical skill and environmental awareness.",
+        "rubricScores": {
+          "storytelling": 24,
+          "technical_execution": 24,
+          "environmental_message": 25,
+          "editing": 22
+        }
+      },
+      "tags": ["documentary", "marine-conservation", "underwater-filming", "environmental"],
+      "featured": true,
+      "likes": 67,
+      "views": 234
+    }
+  ],
+  "studentPortfolios": [
+    {
+      "studentId": "STU001",
+      "studentName": "Kiana Johnson",
+      "program": "Digital Arts",
+      "portfolioUrl": "/portfolios/kiana-johnson",
+      "bio": "Passionate about preserving Bahamian culture through digital art and 3D modeling. Specializing in cultural heritage documentation and interactive experiences.",
+      "featured_works": ["SUB001"],
+      "skills": ["3D Modeling", "Blender", "Cultural Research", "Digital Sculpture"],
+      "achievements": ["Dean's List 2023", "Creative Arts Award", "Cultural Heritage Project Winner"],
+      "social_links": {
+        "instagram": "@kiana_creates",
+        "artstation": "kiana-johnson-art"
+      }
+    },
+    {
+      "studentId": "STU004",
+      "studentName": "Jordan Roberts",
+      "program": "Music Production",
+      "portfolioUrl": "/portfolios/jordan-roberts",
+      "bio": "Creating bridges between traditional Bahamian music and contemporary production. Passionate about preserving and evolving our musical heritage.",
+      "featured_works": ["SUB002"],
+      "skills": ["Music Production", "Pro Tools", "Traditional Music", "Audio Engineering"],
+      "achievements": ["Junkanoo Performer", "Music Festival Winner", "Traditional Music Scholar"],
+      "social_links": {
+        "soundcloud": "jordan-roberts-music",
+        "youtube": "JordanRobertsMusic"
+      }
+    }
+  ],
+  "galleryStats": {
+    "totalSubmissions": 156,
+    "totalStudents": 89,
+    "featured_works": 12,
+    "totalViews": 15678,
+    "totalLikes": 2341,
+    "mediaTypes": {
+      "3d_models": 45,
+      "audio_files": 34,
+      "videos": 28,
+      "design_portfolios": 32,
+      "vr_applications": 8,
+      "interactive_media": 9
+    }
+  }
+}

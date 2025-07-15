@@ -1,0 +1,270 @@
+{
+  "facilities": [
+    {
+      "id": "performance-hall",
+      "name": "Patricia Glinton-Meicholas Performance Hall",
+      "category": "Performance Spaces",
+      "capacity": 300,
+      "description": "Our main performance venue featuring state-of-the-art acoustics and professional lighting systems.",
+      "longDescription": "Named after our founder, this 300-seat performance hall is the centerpiece of our campus. The hall features professional-grade acoustics designed specifically for both intimate performances and full productions. The space includes a full fly system, orchestra pit, and advanced lighting and sound equipment used by professional theaters worldwide.",
+      "features": [
+        "300-seat capacity with excellent sightlines",
+        "Professional lighting console and LED system",
+        "Full fly system for theatrical productions",
+        "Orchestra pit accommodating 20 musicians",
+        "State-of-the-art sound system",
+        "Backstage facilities with dressing rooms",
+        "Accessibility features throughout"
+      ],
+      "image": "/facilities/performance-hall.jpg",
+      "gallery": [
+        "/facilities/performance-hall-1.jpg",
+        "/facilities/performance-hall-2.jpg",
+        "/facilities/performance-hall-3.jpg"
+      ],
+      "yearBuilt": 2015,
+      "lastRenovated": 2023,
+      "usage": "Student performances, faculty concerts, community events, visiting artists"
+    },
+    {
+      "id": "dance-studios",
+      "name": "Caribbean Movement Studios",
+      "category": "Dance & Movement",
+      "capacity": 25,
+      "description": "Three professional dance studios with sprung floors, mirrors, and audio systems for all styles of dance training.",
+      "longDescription": "Our dance facility consists of three professional studios designed for different styles of movement training. Each studio features specialized flooring systems to prevent injury and enhance performance. The studios are equipped with professional audio systems, full-wall mirrors, and climate control for optimal training conditions.",
+      "features": [
+        "Three 800-square-foot studios",
+        "Professional sprung hardwood floors",
+        "Full-wall mirrors and ballet barres",
+        "Individual sound systems with wireless microphones",
+        "Storage for costumes and equipment",
+        "Changing rooms and shower facilities",
+        "Video recording capabilities for analysis"
+      ],
+      "image": "/facilities/dance-studios.jpg",
+      "gallery": [
+        "/facilities/dance-studio-1.jpg",
+        "/facilities/dance-studio-2.jpg",
+        "/facilities/dance-studio-3.jpg"
+      ],
+      "yearBuilt": 2016,
+      "lastRenovated": 2022,
+      "usage": "Dance classes, rehearsals, movement workshops, fitness programs"
+    },
+    {
+      "id": "recording-studio",
+      "name": "Marcus Williams Recording Studios",
+      "category": "Music Production",
+      "capacity": 12,
+      "description": "Professional recording and production facility with industry-standard equipment and acoustically treated rooms.",
+      "longDescription": "Our recording studio complex provides students with access to professional-grade recording equipment and production facilities. The studio is designed to accommodate everything from solo vocal recordings to full ensemble sessions, with specialized equipment for capturing traditional Caribbean instruments.",
+      "features": [
+        "Main recording room with isolation booths",
+        "Control room with Pro Tools HDX system",
+        "Collection of vintage and modern microphones",
+        "Traditional Caribbean instruments library",
+        "MIDI and electronic music production suite",
+        "Mixing and mastering capabilities",
+        "Podcast and voice-over recording setup"
+      ],
+      "image": "/facilities/recording-studio.jpg",
+      "gallery": [
+        "/facilities/recording-studio-1.jpg",
+        "/facilities/recording-studio-2.jpg",
+        "/facilities/recording-studio-3.jpg"
+      ],
+      "yearBuilt": 2024,
+      "lastRenovated": 2024,
+      "usage": "Student recordings, faculty projects, local artist collaborations"
+    },
+    {
+      "id": "art-studios",
+      "name": "Antonius Roberts Visual Arts Complex",
+      "category": "Visual Arts",
+      "capacity": 20,
+      "description": "Comprehensive visual arts facilities including painting, sculpture, digital media, and traditional craft studios.",
+      "longDescription": "Our visual arts complex provides dedicated spaces for all forms of artistic expression. The facility includes traditional art studios as well as cutting-edge digital media labs, allowing students to explore both classical techniques and contemporary digital art forms.",
+      "features": [
+        "Painting and drawing studios with natural lighting",
+        "Sculpture workshop with clay and metal working areas",
+        "Digital media lab with graphics workstations",
+        "Photography darkroom and digital processing",
+        "Traditional craft workshop for Bahamian arts",
+        "Gallery space for student exhibitions",
+        "Outdoor sculpture garden and workspace"
+      ],
+      "image": "/facilities/art-studios.jpg",
+      "gallery": [
+        "/facilities/art-studio-1.jpg",
+        "/facilities/art-studio-2.jpg",
+        "/facilities/art-studio-3.jpg"
+      ],
+      "yearBuilt": 2014,
+      "lastRenovated": 2021,
+      "usage": "Art classes, independent projects, community workshops, exhibitions"
+    },
+    {
+      "id": "technology-center",
+      "name": "Sarah Thompson Technology Center",
+      "category": "Technology & Innovation",
+      "capacity": 40,
+      "description": "Modern computer labs and innovation spaces equipped with the latest software and hardware for creative technology projects.",
+      "longDescription": "The Technology Center houses our computer science and digital media programs. The facility includes multiple computer labs, a maker space with 3D printers and electronics equipment, and collaborative spaces designed for innovative project work.",
+      "features": [
+        "Three computer labs with 40 workstations",
+        "Maker space with 3D printers and laser cutters",
+        "VR/AR development lab with headsets and sensors",
+        "Electronics prototyping workshop",
+        "Collaborative project spaces",
+        "Video production and editing suites",
+        "Network infrastructure for advanced computing"
+      ],
+      "image": "/facilities/technology-center.jpg",
+      "gallery": [
+        "/facilities/tech-center-1.jpg",
+        "/facilities/tech-center-2.jpg",
+        "/facilities/tech-center-3.jpg"
+      ],
+      "yearBuilt": 2017,
+      "lastRenovated": 2023,
+      "usage": "Computer science classes, digital media projects, innovation workshops"
+    },
+    {
+      "id": "marine-lab",
+      "name": "Elena Rodriguez Marine Research Lab",
+      "category": "Environmental Sciences",
+      "capacity": 16,
+      "description": "Specialized laboratory for marine biology research with aquarium systems and field research equipment.",
+      "longDescription": "Our marine research laboratory provides students with hands-on experience in marine biology and environmental science. The lab includes live specimen tanks, research equipment, and direct access to marine environments for field work.",
+      "features": [
+        "Saltwater aquarium systems for live specimens",
+        "Microscopy and research equipment",
+        "Water quality testing instruments",
+        "Field research boat and diving equipment",
+        "Specimen preservation and storage",
+        "Research library and documentation center",
+        "Collaboration space for research projects"
+      ],
+      "image": "/facilities/marine-lab.jpg",
+      "gallery": [
+        "/facilities/marine-lab-1.jpg",
+        "/facilities/marine-lab-2.jpg",
+        "/facilities/marine-lab-3.jpg"
+      ],
+      "yearBuilt": 2018,
+      "lastRenovated": 2023,
+      "usage": "Marine biology research, environmental studies, community education"
+    },
+    {
+      "id": "library",
+      "name": "CAPAS Cultural Heritage Library",
+      "category": "Academic Resources",
+      "capacity": 100,
+      "description": "Comprehensive library with extensive collections of Caribbean literature, music, and cultural resources.",
+      "longDescription": "Our library serves as both an academic resource and cultural repository. The collection includes rare books on Caribbean history, extensive music archives, and digital resources for research and creative projects.",
+      "features": [
+        "15,000 books and periodicals",
+        "Caribbean music and oral history archives",
+        "Digital media collection and databases",
+        "Individual and group study spaces",
+        "Computer access and printing services",
+        "Special collections reading room",
+        "Collaborative learning spaces"
+      ],
+      "image": "/facilities/library.jpg",
+      "gallery": [
+        "/facilities/library-1.jpg",
+        "/facilities/library-2.jpg",
+        "/facilities/library-3.jpg"
+      ],
+      "yearBuilt": 2013,
+      "lastRenovated": 2020,
+      "usage": "Research, study, cultural preservation, community access"
+    },
+    {
+      "id": "student-center",
+      "name": "CAPAS Student Life Center",
+      "category": "Student Services",
+      "capacity": 200,
+      "description": "Central hub for student activities including dining, recreation, and social gathering spaces.",
+      "longDescription": "The Student Life Center serves as the social heart of our campus. This facility includes dining options featuring local cuisine, recreational spaces, and areas for student organizations and informal gatherings.",
+      "features": [
+        "Cafeteria with local and international cuisine",
+        "Student lounge and recreation areas",
+        "Meeting rooms for student organizations",
+        "Game room and entertainment space",
+        "Outdoor terrace with ocean views",
+        "Student services offices",
+        "Event space for campus activities"
+      ],
+      "image": "/facilities/student-center.jpg",
+      "gallery": [
+        "/facilities/student-center-1.jpg",
+        "/facilities/student-center-2.jpg",
+        "/facilities/student-center-3.jpg"
+      ],
+      "yearBuilt": 2014,
+      "lastRenovated": 2022,
+      "usage": "Dining, socializing, student activities, campus events"
+    }
+  ],
+  "categories": [
+    {
+      "id": "performance-spaces",
+      "name": "Performance Spaces",
+      "description": "Venues for concerts, theatre, and public performances"
+    },
+    {
+      "id": "dance-movement",
+      "name": "Dance & Movement",
+      "description": "Studios and spaces for dance and physical training"
+    },
+    {
+      "id": "music-production",
+      "name": "Music Production",
+      "description": "Recording studios and music technology facilities"
+    },
+    {
+      "id": "visual-arts",
+      "name": "Visual Arts",
+      "description": "Studios and workshops for visual and digital arts"
+    },
+    {
+      "id": "technology-innovation",
+      "name": "Technology & Innovation",
+      "description": "Computer labs and maker spaces"
+    },
+    {
+      "id": "environmental-sciences",
+      "name": "Environmental Sciences",
+      "description": "Laboratories and research facilities"
+    },
+    {
+      "id": "academic-resources",
+      "name": "Academic Resources",
+      "description": "Libraries and study spaces"
+    },
+    {
+      "id": "student-services",
+      "name": "Student Services",
+      "description": "Dining, recreation, and student life facilities"
+    }
+  ],
+  "stats": {
+    "totalFacilities": 8,
+    "totalCapacity": 725,
+    "averageAge": 7,
+    "facilitiesRenovatedLastYear": 3,
+    "squareFeetage": 125000,
+    "sustainabilityRating": "LEED Gold"
+  },
+  "sustainability": {
+    "solarPanels": true,
+    "rainwaterHarvesting": true,
+    "energyEfficientLighting": true,
+    "recyclingProgram": true,
+    "greenRoof": true,
+    "naturalVentilation": true
+  }
+}
