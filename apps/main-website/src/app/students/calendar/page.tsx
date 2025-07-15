@@ -14,11 +14,9 @@ import {
   UserGroupIcon,
   ChevronRightIcon,
   ArrowRightIcon,
-  ChevronLeftIcon,
   BookOpenIcon
 } from '@heroicons/react/24/outline';
 import Footer from '@/components/Footer';
-import PlaceholderImage from '@/components/PlaceholderImage';
 import { OrganizationStructuredData } from '@/components/StructuredData';
 
 const currentYear = 2024;

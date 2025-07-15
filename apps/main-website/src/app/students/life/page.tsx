@@ -179,7 +179,7 @@ const traditions = [
     season: 'Spring'
   },
   {
-    name: 'Founder\'s Day Celebration',
+    name: 'Founder&apos;s Day Celebration',
     description: 'Annual celebration honoring CAPAS founders with performances and community gathering.',
     season: 'Fall'
   },

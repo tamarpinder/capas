@@ -7,7 +7,6 @@ import Link from 'next/link';
 import {
   MapPinIcon,
   PlayIcon,
-  PauseIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   XMarkIcon,

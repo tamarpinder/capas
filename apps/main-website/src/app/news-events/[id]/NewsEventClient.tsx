@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { HeartIcon as HeartSolidIcon, BookmarkIcon as BookmarkSolidIcon } from '@heroicons/react/24/solid';
 import PlaceholderImage from '@/components/PlaceholderImage';
-// Import all other necessary icons and components
 
 import type { NewsEvent, Comment, NewsEventPageProps } from './page'; // Adjust path if needed
 

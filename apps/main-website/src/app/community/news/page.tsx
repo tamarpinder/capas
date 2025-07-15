@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { 
   CalendarIcon,
   ClockIcon,
-  TagIcon,
   MagnifyingGlassIcon,
   FunnelIcon,
   NewspaperIcon,

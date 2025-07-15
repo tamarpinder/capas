@@ -26,6 +26,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://capas.edu.bs'),
   title: "CAPAS Bahamas | Creative Arts, Performance & Academic Studies",
   description: "Where Caribbean culture meets creative innovation. Discover world-class education in the heart of The Bahamas.",
   keywords: ["education", "bahamas", "creative arts", "academic studies", "caribbean", "music", "dance", "theatre", "visual arts"],
@@ -70,11 +71,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  }
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -85,27 +87,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${montserrat.variable}`} suppressHydrationWarning>
       <head>
-        {/* PWA Manifest */}
+        {/* Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        
-        {/* Apple PWA Meta Tags */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="CAPAS Bahamas" />
-        
-        {/* Apple Touch Icons */}
-        <link rel="apple-touch-icon" href="/icons/icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
-        
-        {/* MS Tile Icons */}
-        <meta name="msapplication-TileImage" content="/icons/icon-144x144.png" />
-        <meta name="msapplication-TileColor" content="#0891b2" />
         
         {/* Theme Colors */}
         <meta name="theme-color" content="#0891b2" />
-        <meta name="msapplication-navbutton-color" content="#0891b2" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="#0891b2" />
         
         {/* Preconnect to external resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

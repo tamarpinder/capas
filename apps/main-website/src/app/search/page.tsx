@@ -12,7 +12,6 @@ import {
   NewspaperIcon,
   CalendarIcon,
   ClockIcon,
-  TagIcon,
   UserGroupIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/outline';

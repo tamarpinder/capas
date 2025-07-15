@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { 
   AcademicCapIcon,
   CheckCircleIcon,
-  DocumentIcon,
   HomeIcon,
   MapPinIcon,
   CreditCardIcon,
@@ -244,7 +243,7 @@ export default function PreparationPage() {
                   </p>
                   <p>
                     Remember, our Student Services team is here to support you every step of the way. 
-                    Don't hesitate to reach out if you have any questions or need assistance.
+                    Don&apos;t hesitate to reach out if you have any questions or need assistance.
                   </p>
                 </div>
               </div>
