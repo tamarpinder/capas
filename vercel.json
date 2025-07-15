@@ -4,6 +4,5 @@
   "monorepo": true,
   "buildCommand": "cd ../.. && npx turbo run build --filter=$VERCEL_GIT_REPO_SLUG",
   "ignoreCommand": "cd ../.. && npx turbo-ignore $VERCEL_GIT_REPO_SLUG",
-  "installCommand": "npm install",
-  "outputDirectory": "out"
+  "installCommand": "npm install"
 }
