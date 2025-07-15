@@ -1,0 +1,214 @@
+{
+  "programs": [
+    {
+      "id": "full-time-singing",
+      "slug": "full-time-vocal-performance",
+      "title": "Full-Time Vocal Performance",
+      "category": "full-time",
+      "type": "Vocal Arts",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Comprehensive vocal training combining classical technique with Caribbean musical traditions and contemporary performance styles.",
+      "longDescription": "Our Full-Time Vocal Performance program is designed to develop exceptional singers who can excel in diverse musical styles while maintaining deep roots in Caribbean culture. Students receive intensive training in vocal technique, music theory, performance practice, and stage presence. The curriculum includes courses in classical voice, Caribbean folk music, contemporary styles, music history, and performance psychology. Students participate in regular recitals, masterclasses with visiting artists, and community performances. Graduates emerge as versatile performers ready for careers in opera, musical theatre, recording, and cultural arts leadership.",
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "featured": true,
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Audition showcasing vocal ability in multiple styles",
+        "Basic music theory knowledge",
+        "Letter of recommendation from music teacher",
+        "Personal statement outlining musical goals"
+      ],
+      "careerOutcomes": [
+        "Professional recording artist",
+        "Opera and musical theatre performer",
+        "Music educator and vocal coach",
+        "Cultural arts administrator",
+        "Community music director",
+        "Solo performer and entertainer"
+      ]
+    },
+    {
+      "id": "full-time-instrumental",
+      "slug": "full-time-instrumental-performance",
+      "title": "Full-Time Instrumental Performance",
+      "category": "full-time",
+      "type": "Instrumental Arts",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Master traditional and contemporary instruments with emphasis on Caribbean percussion, steel drums, and classical instruments.",
+      "longDescription": "The Full-Time Instrumental Performance program offers comprehensive training across a wide range of instruments, with special emphasis on Caribbean percussion traditions and steel drum artistry. Students develop technical proficiency, musical interpretation skills, and ensemble performance abilities. The curriculum covers classical technique, Caribbean rhythms, contemporary styles, music composition, and instrument maintenance. Students participate in various ensembles including steel bands, percussion groups, and chamber music. Regular performance opportunities include concerts, festivals, and community events.",
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "featured": true,
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Instrumental audition demonstrating technical proficiency",
+        "Music theory placement exam",
+        "Portfolio of musical experience",
+        "Interview with faculty"
+      ],
+      "careerOutcomes": [
+        "Professional musician and soloist",
+        "Orchestra and ensemble member",
+        "Music educator and private instructor",
+        "Studio musician and session player",
+        "Music producer and arranger",
+        "Cultural events coordinator"
+      ]
+    },
+    {
+      "id": "full-time-dance",
+      "slug": "full-time-dance-performance",
+      "title": "Full-Time Dance Performance",
+      "category": "full-time",
+      "type": "Dance Arts",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Comprehensive dance training incorporating Caribbean movement traditions, contemporary techniques, and choreographic studies.",
+      "longDescription": "Our Full-Time Dance Performance program celebrates the rich movement traditions of the Caribbean while preparing students for contemporary dance careers. The curriculum encompasses traditional Caribbean dance forms, contemporary techniques, ballet fundamentals, choreography, and dance history. Students develop physical conditioning, artistic expression, and performance skills through intensive training and regular showcase opportunities. The program emphasizes cultural preservation while encouraging creative innovation and personal artistic development.",
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "featured": false,
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Dance audition demonstrating technical ability and artistry",
+        "Physical fitness assessment",
+        "Previous dance training documentation",
+        "Personal artistic statement"
+      ],
+      "careerOutcomes": [
+        "Professional dancer and performer",
+        "Choreographer and movement director",
+        "Dance educator and studio owner",
+        "Cultural arts programmer",
+        "Dance therapist and wellness coach",
+        "Entertainment industry professional"
+      ]
+    },
+    {
+      "id": "full-time-theatre",
+      "slug": "full-time-theatre-arts",
+      "title": "Full-Time Theatre Arts",
+      "category": "full-time",
+      "type": "Dramatic Arts",
+      "duration": "4 years",
+      "credits": 120,
+      "description": "Complete theatrical training covering acting, directing, playwriting, and technical theatre with focus on Caribbean storytelling.",
+      "longDescription": "The Full-Time Theatre Arts program provides comprehensive training in all aspects of theatrical production while celebrating Caribbean storytelling traditions. Students explore acting techniques, voice and movement for the stage, script analysis, directing, playwriting, and technical theatre skills. The curriculum includes courses in Caribbean drama, classical theatre, contemporary performance, and theatre history. Students participate in multiple productions each year, from traditional plays to original works that reflect Caribbean culture and contemporary themes.",
+      "tuition": "$12,000/year",
+      "scholarships": true,
+      "featured": false,
+      "admissionRequirements": [
+        "High school diploma or equivalent",
+        "Audition with prepared monologues",
+        "Creative writing sample",
+        "Interview demonstrating commitment to theatre",
+        "Portfolio of any theatrical experience"
+      ],
+      "careerOutcomes": [
+        "Professional actor and performer",
+        "Theatre director and producer",
+        "Playwright and screenwriter",
+        "Arts educator and workshop leader",
+        "Entertainment industry professional",
+        "Cultural events coordinator"
+      ]
+    },
+    {
+      "id": "part-time-music",
+      "slug": "part-time-music-fundamentals",
+      "title": "Part-Time Music Fundamentals",
+      "category": "part-time",
+      "type": "Music Education",
+      "duration": "2 years",
+      "credits": 60,
+      "description": "Flexible evening and weekend classes covering music theory, basic instrumental skills, and Caribbean musical traditions.",
+      "longDescription": "The Part-Time Music Fundamentals program is designed for working adults and community members who want to develop musical skills and knowledge. Classes are scheduled for evenings and weekends to accommodate various schedules. The curriculum covers music theory, basic instrumental skills, ensemble participation, and appreciation of Caribbean musical heritage. Students can focus on vocal or instrumental studies while participating in community performances and cultural events.",
+      "tuition": "$6,000/year",
+      "scholarships": true,
+      "featured": false,
+      "admissionRequirements": [
+        "Interest in music and cultural learning",
+        "Basic literacy and numeracy skills",
+        "Commitment to regular attendance",
+        "Community service component"
+      ],
+      "careerOutcomes": [
+        "Community musician and performer",
+        "Church and community choir member",
+        "Music appreciation and education",
+        "Cultural preservation advocate",
+        "Amateur ensemble participant",
+        "Personal enrichment and growth"
+      ]
+    },
+    {
+      "id": "part-time-dance",
+      "slug": "part-time-dance-basics",
+      "title": "Part-Time Dance Basics",
+      "category": "part-time",
+      "type": "Movement Arts",
+      "duration": "1.5 years",
+      "credits": 45,
+      "description": "Community-focused dance classes exploring Caribbean movement traditions and contemporary styles for all skill levels.",
+      "longDescription": "Part-Time Dance Basics welcomes dancers of all levels to explore Caribbean movement traditions and contemporary dance styles. The program emphasizes cultural education, physical fitness, and artistic expression through movement. Classes include traditional Caribbean dances, basic contemporary techniques, rhythm and timing, and performance opportunities. Students participate in community showcases and cultural celebrations while developing coordination, confidence, and cultural appreciation.",
+      "tuition": "$4,500/year",
+      "scholarships": true,
+      "featured": false,
+      "admissionRequirements": [
+        "Interest in dance and movement",
+        "Physical ability to participate safely",
+        "Commitment to regular attendance",
+        "Respect for cultural traditions"
+      ],
+      "careerOutcomes": [
+        "Community dance performer",
+        "Cultural event participant",
+        "Fitness and wellness advocate",
+        "Traditional dance preservation",
+        "Personal artistic development",
+        "Community arts volunteer"
+      ]
+    },
+    {
+      "id": "part-time-theatre",
+      "slug": "part-time-theatre-workshop",
+      "title": "Part-Time Theatre Workshop",
+      "category": "part-time",
+      "type": "Community Theatre",
+      "duration": "2 years",
+      "credits": 50,
+      "description": "Evening workshops in acting, storytelling, and theatrical production designed for community members and working adults.",
+      "longDescription": "The Part-Time Theatre Workshop program brings theatrical arts to the broader community through accessible evening classes and workshops. Participants explore basic acting techniques, storytelling, voice projection, and collaborative theatrical creation. The program emphasizes Caribbean storytelling traditions while introducing participants to universal theatrical principles. Students work together to create original performances that reflect their community experiences and cultural heritage.",
+      "tuition": "$5,000/year",
+      "scholarships": true,
+      "featured": false,
+      "admissionRequirements": [
+        "Interest in storytelling and performance",
+        "Willingness to collaborate creatively",
+        "Basic communication skills",
+        "Commitment to workshop attendance"
+      ],
+      "careerOutcomes": [
+        "Community theatre participant",
+        "Storytelling and public speaking",
+        "Cultural event organizer",
+        "Youth theatre mentor",
+        "Personal confidence building",
+        "Community arts advocate"
+      ]
+    }
+  ],
+  "admissionInfo": {
+    "applicationDeadlines": {
+      "fall": "June 1st",
+      "spring": "November 1st"
+    },
+    "contactInfo": {
+      "admissions": "admissions@capas.edu.bs",
+      "phone": "(242) 123-4567"
+    }
+  }
+}

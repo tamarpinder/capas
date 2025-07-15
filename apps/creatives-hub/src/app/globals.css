@@ -1,0 +1,88 @@
+@import '@capas/shared/styles';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* 3D Canvas Styles */
+.canvas-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #E6F4F1, #A8D5E2);
+}
+
+/* 3D Book Flip Animations */
+.book-page {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.book-page.flipped {
+  transform: rotateY(-180deg);
+}
+
+/* Custom Scrollbar for 3D Areas */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(168, 213, 226, 0.1);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #0A8A98;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #066A78;
+}
+
+/* 3D Loading Animation */
+.loading-3d {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Creative Hub Specific Styles */
+.creative-card {
+  background: linear-gradient(135deg, rgba(255, 206, 0, 0.1), rgba(255, 139, 135, 0.1));
+  border: 1px solid rgba(10, 138, 152, 0.2);
+  transition: all 0.3s ease;
+}
+
+.creative-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(10, 138, 152, 0.1), 0 10px 10px -5px rgba(10, 138, 152, 0.04);
+}

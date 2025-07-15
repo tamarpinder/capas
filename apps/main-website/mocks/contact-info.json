@@ -1,0 +1,114 @@
+{
+  "contactInfo": {
+    "mainOffice": {
+      "title": "CAPAS Main Office",
+      "address": {
+        "street": "123 Creative Arts Boulevard",
+        "city": "Nassau",
+        "country": "The Bahamas",
+        "postalCode": "N-4834"
+      },
+      "phone": "+1 (242) 555-ARTS",
+      "fax": "+1 (242) 555-2787",
+      "email": "info@capas.edu.bs",
+      "coordinates": {
+        "lat": 25.0443,
+        "lng": -77.3504
+      }
+    },
+    "admissions": {
+      "title": "Admissions Office",
+      "phone": "+1 (242) 555-APPLY",
+      "email": "admissions@capas.edu.bs",
+      "director": "Ms. Patricia Williams",
+      "directEmail": "p.williams@capas.edu.bs"
+    },
+    "studentServices": {
+      "title": "Student Services",
+      "phone": "+1 (242) 555-HELP",
+      "email": "students@capas.edu.bs",
+      "coordinator": "Mr. David Johnson",
+      "directEmail": "d.johnson@capas.edu.bs"
+    },
+    "financialAid": {
+      "title": "Financial Aid & Scholarships",
+      "phone": "+1 (242) 555-FUND",
+      "email": "finaid@capas.edu.bs",
+      "officer": "Ms. Jennifer Thompson",
+      "directEmail": "j.thompson@capas.edu.bs"
+    }
+  },
+  "officeHours": {
+    "mainOffice": {
+      "monday": { "open": "8:00 AM", "close": "5:00 PM" },
+      "tuesday": { "open": "8:00 AM", "close": "5:00 PM" },
+      "wednesday": { "open": "8:00 AM", "close": "5:00 PM" },
+      "thursday": { "open": "8:00 AM", "close": "5:00 PM" },
+      "friday": { "open": "8:00 AM", "close": "4:00 PM" },
+      "saturday": { "open": "9:00 AM", "close": "1:00 PM" },
+      "sunday": "Closed"
+    },
+    "admissions": {
+      "monday": { "open": "9:00 AM", "close": "4:00 PM" },
+      "tuesday": { "open": "9:00 AM", "close": "4:00 PM" },
+      "wednesday": { "open": "9:00 AM", "close": "4:00 PM" },
+      "thursday": { "open": "9:00 AM", "close": "4:00 PM" },
+      "friday": { "open": "9:00 AM", "close": "3:00 PM" },
+      "saturday": { "open": "10:00 AM", "close": "2:00 PM", "note": "By appointment only" },
+      "sunday": "Closed"
+    },
+    "studentServices": {
+      "monday": { "open": "8:30 AM", "close": "4:30 PM" },
+      "tuesday": { "open": "8:30 AM", "close": "4:30 PM" },
+      "wednesday": { "open": "8:30 AM", "close": "4:30 PM" },
+      "thursday": { "open": "8:30 AM", "close": "4:30 PM" },
+      "friday": { "open": "8:30 AM", "close": "3:30 PM" },
+      "saturday": "Closed",
+      "sunday": "Closed"
+    },
+    "library": {
+      "monday": { "open": "7:00 AM", "close": "10:00 PM" },
+      "tuesday": { "open": "7:00 AM", "close": "10:00 PM" },
+      "wednesday": { "open": "7:00 AM", "close": "10:00 PM" },
+      "thursday": { "open": "7:00 AM", "close": "10:00 PM" },
+      "friday": { "open": "7:00 AM", "close": "8:00 PM" },
+      "saturday": { "open": "9:00 AM", "close": "6:00 PM" },
+      "sunday": { "open": "12:00 PM", "close": "8:00 PM" }
+    }
+  },
+  "emergencyContact": {
+    "security": "+1 (242) 555-SAFE",
+    "medical": "+1 (242) 555-MEDIC",
+    "afterHours": "+1 (242) 555-NIGHT"
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com/CAPASBahamas",
+    "instagram": "https://instagram.com/capasbahamas",
+    "youtube": "https://youtube.com/CAPASBahamas",
+    "linkedin": "https://linkedin.com/company/capas-bahamas",
+    "twitter": "https://twitter.com/CAPASBahamas"
+  },
+  "virtualTourBooking": {
+    "enabled": true,
+    "availableSlots": [
+      "9:00 AM", "10:30 AM", "12:00 PM", "2:00 PM", "3:30 PM"
+    ],
+    "duration": "45 minutes",
+    "maxParticipants": 8,
+    "bookingEmail": "tours@capas.edu.bs",
+    "requirements": [
+      "Valid photo ID required",
+      "Please arrive 15 minutes early",
+      "Comfortable walking shoes recommended",
+      "Photography permitted in designated areas only"
+    ]
+  },
+  "mailingAddress": {
+    "name": "CAPAS Creative and Performing Arts School",
+    "addressLine1": "123 Creative Arts Boulevard",
+    "addressLine2": "P.O. Box 4834",
+    "city": "Nassau",
+    "country": "The Bahamas",
+    "postalCode": "N-4834"
+  }
+}

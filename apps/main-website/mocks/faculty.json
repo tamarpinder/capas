@@ -1,0 +1,405 @@
+{
+  "faculty": [
+    {
+      "id": "patricia-glinton-meicholas",
+      "firstName": "Patricia",
+      "lastName": "Glinton-Meicholas",
+      "title": "Director & Professor of Cultural Studies",
+      "department": "Administration",
+      "specialization": ["Caribbean Literature", "Cultural Preservation", "Folklore Studies"],
+      "email": "p.glinton@capas.edu.bs",
+      "phone": "(242) 123-4567",
+      "bio": "Dr. Patricia Glinton-Meicholas is a renowned Bahamian author, educator, and cultural preservationist. She has dedicated her career to documenting and celebrating Caribbean cultural traditions through literature and education. Her extensive work in folklore and storytelling has helped preserve countless traditional tales and customs for future generations. As Director of CAPAS, she brings visionary leadership and deep cultural knowledge to guide the institution's mission.",
+      "education": [
+        "Ph.D. in Caribbean Literature, University of the West Indies",
+        "M.A. in English Literature, University of London",
+        "B.A. in English, College of The Bahamas"
+      ],
+      "achievements": [
+        "Author of 12 published books on Caribbean culture",
+        "Recipient of the Bahamas Independence Award",
+        "UNESCO Cultural Ambassador",
+        "Founder of the Caribbean Folklore Institute"
+      ],
+      "yearsAtCAPAS": 8,
+      "courses": ["Caribbean Cultural Studies", "Folklore and Storytelling", "Cultural Preservation Methods"],
+      "researchInterests": ["Oral traditions", "Cultural identity", "Caribbean storytelling", "Heritage preservation"],
+      "studentTestimonials": [
+        {
+          "name": "Marcus Johnson",
+          "quote": "Dr. Glinton-Meicholas opened my eyes to the rich cultural heritage of our islands. Her passion is contagious.",
+          "rating": 5,
+          "program": "Theatre Arts"
+        },
+        {
+          "name": "Sophia Williams",
+          "quote": "She doesn't just teach culture, she lives it. Every class is a journey through our heritage.",
+          "rating": 5,
+          "program": "Cultural Studies"
+        }
+      ],
+      "imageUrl": "/team/patricia-glinton-meicholas.jpg",
+      "featured": true
+    },
+    {
+      "id": "antonius-roberts",
+      "firstName": "Antonius",
+      "lastName": "Roberts",
+      "title": "Professor of Visual Arts & Cultural Expression",
+      "department": "Visual Arts",
+      "specialization": ["Contemporary Art", "Caribbean Visual Culture", "Mixed Media"],
+      "email": "a.roberts@capas.edu.bs",
+      "phone": "(242) 123-4568",
+      "bio": "Professor Antonius Roberts is a celebrated visual artist whose work bridges traditional Caribbean aesthetics with contemporary artistic expression. His paintings and installations have been exhibited internationally, bringing Bahamian art to global attention. At CAPAS, he mentors emerging artists while continuing his own creative practice, emphasizing the importance of cultural authenticity in contemporary art.",
+      "education": [
+        "M.F.A. in Visual Arts, Yale School of Art",
+        "B.F.A. in Painting, Rhode Island School of Design",
+        "Certificate in Caribbean Art History, University of the West Indies"
+      ],
+      "achievements": [
+        "International exhibitions in 15 countries",
+        "Bahamas National Gallery permanent collection",
+        "UNESCO Artist for Peace designation",
+        "Founder of the Contemporary Caribbean Art Movement"
+      ],
+      "yearsAtCAPAS": 6,
+      "courses": ["Contemporary Painting", "Caribbean Art History", "Mixed Media Techniques", "Cultural Identity in Art"],
+      "researchInterests": ["Caribbean visual identity", "Contemporary art movements", "Cultural symbolism", "Art as social commentary"],
+      "studentTestimonials": [
+        {
+          "name": "Isabella Martinez",
+          "quote": "Professor Roberts taught me to see my Caribbean heritage as a strength in my artistic voice.",
+          "rating": 5,
+          "program": "Visual Arts"
+        },
+        {
+          "name": "David Thompson",
+          "quote": "His critiques are honest but always constructive. He pushes you to find your authentic style.",
+          "rating": 4,
+          "program": "Visual Arts"
+        }
+      ],
+      "imageUrl": "/team/antonius-roberts.jpg",
+      "featured": true
+    },
+    {
+      "id": "sarah-dash",
+      "firstName": "Sarah",
+      "lastName": "Dash",
+      "title": "Head of Vocal Performance",
+      "department": "Music",
+      "specialization": ["Classical Voice", "Caribbean Vocal Traditions", "Performance Technique"],
+      "email": "s.dash@capas.edu.bs",
+      "phone": "(242) 123-4569",
+      "bio": "Professor Sarah Dash brings world-class vocal training to CAPAS with over 20 years of professional performance experience. Having performed on stages from Carnegie Hall to the Royal Opera House, she now dedicates her expertise to developing the next generation of Caribbean vocalists. Her teaching method uniquely combines classical technique with the rich vocal traditions of the Caribbean.",
+      "education": [
+        "M.M. in Vocal Performance, Juilliard School",
+        "B.M. in Voice, Oberlin Conservatory",
+        "Certificate in Caribbean Music Studies, Berklee College of Music"
+      ],
+      "achievements": [
+        "Soloist with major international orchestras",
+        "Grammy nomination for Caribbean Voices album",
+        "Metropolitan Opera House debut",
+        "Founder of the Caribbean Vocal Academy"
+      ],
+      "yearsAtCAPAS": 5,
+      "courses": ["Classical Voice Technique", "Caribbean Vocal Styles", "Performance Masterclass", "Vocal Pedagogy"],
+      "researchInterests": ["Vocal health", "Caribbean vocal traditions", "Cross-cultural vocal techniques", "Performance psychology"],
+      "studentTestimonials": [
+        {
+          "name": "Michael Brown",
+          "quote": "Professor Dash transformed my voice and my confidence. Her technique is unmatched.",
+          "rating": 5,
+          "program": "Vocal Performance"
+        },
+        {
+          "name": "Alicia Roberts",
+          "quote": "She teaches with such passion and precision. Every lesson brings new discoveries.",
+          "rating": 5,
+          "program": "Vocal Performance"
+        }
+      ],
+      "imageUrl": "/team/sarah-dash.jpg",
+      "featured": true
+    },
+    {
+      "id": "ricardo-clarke",
+      "firstName": "Ricardo",
+      "lastName": "Clarke",
+      "title": "Professor of Steel Drum & Caribbean Percussion",
+      "department": "Music",
+      "specialization": ["Steel Drum", "Caribbean Percussion", "Ensemble Direction"],
+      "email": "r.clarke@capas.edu.bs",
+      "phone": "(242) 123-4570",
+      "bio": "Master Ricardo Clarke is widely recognized as one of the Caribbean's finest steel drum artists and educators. With over 30 years of performance and teaching experience, he has helped establish steel drum programs throughout the region. His innovative arrangements and teaching methods have influenced a generation of Caribbean musicians and brought steel drum music to international prominence.",
+      "education": [
+        "Master's Certificate in Music Education, University of the West Indies",
+        "Bachelor of Music in Percussion, Berklee College of Music",
+        "Traditional Steel Drum Mastery, Trinidad Pan Masters"
+      ],
+      "achievements": [
+        "International Steel Drum Champion (5 times)",
+        "Arranger for major Carnival productions",
+        "Creator of the Clarke Steel Drum Method",
+        "Cultural Ambassador for Caribbean Music"
+      ],
+      "yearsAtCAPAS": 7,
+      "courses": ["Steel Drum Technique", "Caribbean Percussion Ensemble", "Music Arrangement", "Rhythm Studies"],
+      "researchInterests": ["Steel drum acoustics", "Caribbean rhythm patterns", "Traditional music preservation", "Ensemble pedagogy"],
+      "studentTestimonials": [
+        {
+          "name": "Jason Williams",
+          "quote": "Master Clarke is a living legend. Learning from him is like touching the soul of Caribbean music.",
+          "rating": 5,
+          "program": "Instrumental Performance"
+        },
+        {
+          "name": "Maria Santos",
+          "quote": "His passion for the steel drum is infectious. He makes every student feel like they can master this beautiful instrument.",
+          "rating": 5,
+          "program": "Part-Time Music"
+        }
+      ],
+      "imageUrl": "/team/ricardo-clarke.jpg",
+      "featured": true
+    },
+    {
+      "id": "diana-hamilton",
+      "firstName": "Diana",
+      "lastName": "Hamilton",
+      "title": "Professor of Dance & Movement",
+      "department": "Dance",
+      "specialization": ["Contemporary Dance", "Caribbean Traditional Dance", "Choreography"],
+      "email": "d.hamilton@capas.edu.bs",
+      "phone": "(242) 123-4571",
+      "bio": "Professor Diana Hamilton is a distinguished choreographer and dancer whose work celebrates the movement traditions of the Caribbean while pushing boundaries in contemporary dance. Her choreographic works have been performed by major dance companies across the Americas. At CAPAS, she leads students in discovering their unique movement voice while honoring traditional Caribbean dance forms.",
+      "education": [
+        "M.F.A. in Dance, New York University",
+        "B.F.A. in Dance Performance, The Juilliard School",
+        "Certificate in Caribbean Dance Studies, National Dance Theatre Company Jamaica"
+      ],
+      "achievements": [
+        "Choreographer for international dance festivals",
+        "Recipient of the Caribbean Arts Movement Award",
+        "Founder of Hamilton Contemporary Dance Company",
+        "Featured choreographer on BBC Arts"
+      ],
+      "yearsAtCAPAS": 4,
+      "courses": ["Contemporary Dance Technique", "Caribbean Folk Dance", "Choreographic Composition", "Movement for Actors"],
+      "researchInterests": ["Caribbean movement vocabulary", "Dance as cultural expression", "Contemporary choreographic methods", "Body awareness and technique"],
+      "studentTestimonials": [
+        {
+          "name": "Gabriella Johnson",
+          "quote": "Professor Hamilton sees movement possibilities that others miss. She's helped me find my voice as a dancer.",
+          "rating": 5,
+          "program": "Dance Performance"
+        },
+        {
+          "name": "Anthony Davis",
+          "quote": "Her classes are challenging but incredibly rewarding. She pushes you to discover your artistic limits.",
+          "rating": 4,
+          "program": "Musical Theatre"
+        }
+      ],
+      "imageUrl": "/team/diana-hamilton.jpg",
+      "featured": false
+    },
+    {
+      "id": "james-mitchell",
+      "firstName": "James",
+      "lastName": "Mitchell",
+      "title": "Associate Professor of Theatre Arts",
+      "department": "Theatre",
+      "specialization": ["Acting", "Directing", "Caribbean Theatre"],
+      "email": "j.mitchell@capas.edu.bs",
+      "phone": "(242) 123-4572",
+      "bio": "Professor James Mitchell brings extensive professional theatre experience to CAPAS, having worked as an actor and director throughout the Caribbean and North America. His passion lies in developing authentic Caribbean theatrical voices while providing students with classical training in acting techniques. He believes in theatre as a powerful tool for cultural expression and social commentary.",
+      "education": [
+        "M.F.A. in Directing, Yale School of Drama",
+        "B.F.A. in Acting, SUNY Purchase",
+        "Certificate in Caribbean Theatre Studies, University of the West Indies"
+      ],
+      "achievements": [
+        "Director of award-winning Caribbean theatre productions",
+        "Actor in major television and film productions",
+        "Founder of the Caribbean Theatre Collective",
+        "Recipient of the Regional Theatre Excellence Award"
+      ],
+      "yearsAtCAPAS": 6,
+      "courses": ["Acting Fundamentals", "Scene Study", "Directing Workshop", "Caribbean Theatre History"],
+      "researchInterests": ["Caribbean dramatic literature", "Community-based theatre", "Acting pedagogy", "Cultural identity in performance"],
+      "studentTestimonials": [
+        {
+          "name": "Samantha Green",
+          "quote": "Professor Mitchell's directing is transformative. He helps you find truth in every character you play.",
+          "rating": 5,
+          "program": "Theatre Arts"
+        },
+        {
+          "name": "Christopher Wilson",
+          "quote": "His classes are like masterclasses. Every session teaches you something new about the craft of acting.",
+          "rating": 5,
+          "program": "Theatre Arts"
+        }
+      ],
+      "imageUrl": "/team/james-mitchell.jpg",
+      "featured": false
+    },
+    {
+      "id": "maria-gonzalez",
+      "firstName": "Maria",
+      "lastName": "Gonzalez",
+      "title": "Professor of Piano & Music Theory",
+      "department": "Music",
+      "specialization": ["Classical Piano", "Jazz Piano", "Music Theory"],
+      "email": "m.gonzalez@capas.edu.bs",
+      "phone": "(242) 123-4573",
+      "bio": "Professor Maria Gonzalez is a virtuoso pianist whose performances span classical, jazz, and Caribbean music styles. Her deep understanding of music theory combined with her practical performance experience makes her an exceptional teacher. She specializes in helping students develop both technical excellence and musical expression, regardless of their starting level.",
+      "education": [
+        "D.M.A. in Piano Performance, University of Miami",
+        "M.M. in Jazz Studies, Manhattan School of Music",
+        "B.M. in Classical Piano, New England Conservatory"
+      ],
+      "achievements": [
+        "Soloist with Caribbean and international orchestras",
+        "Recording artist with 6 critically acclaimed albums",
+        "Winner of the International Caribbean Music Competition",
+        "Master class teacher at major conservatories"
+      ],
+      "yearsAtCAPAS": 3,
+      "courses": ["Classical Piano", "Jazz Piano", "Music Theory", "Piano Pedagogy"],
+      "researchInterests": ["Caribbean jazz fusion", "Piano technique development", "Music theory pedagogy", "Cross-cultural musical analysis"],
+      "studentTestimonials": [
+        {
+          "name": "Roberto Silva",
+          "quote": "Professor Gonzalez is incredibly patient and encouraging. She's helped me develop confidence at the piano.",
+          "rating": 5,
+          "program": "Instrumental Performance"
+        },
+        {
+          "name": "Nicole Thompson",
+          "quote": "Her music theory classes are challenging but so rewarding. She makes complex concepts understandable.",
+          "rating": 4,
+          "program": "Music Fundamentals"
+        }
+      ],
+      "imageUrl": "/team/maria-gonzalez.jpg",
+      "featured": false
+    },
+    {
+      "id": "kevin-smith",
+      "firstName": "Kevin",
+      "lastName": "Smith",
+      "title": "Assistant Professor of Guitar & Popular Music",
+      "department": "Music",
+      "specialization": ["Classical Guitar", "Popular Music", "Music Technology"],
+      "email": "k.smith@capas.edu.bs",
+      "phone": "(242) 123-4574",
+      "bio": "Professor Kevin Smith bridges traditional and contemporary music through his expertise in both classical guitar and modern popular music styles. As a performing musician and music producer, he brings real-world industry experience to his teaching. His innovative approach incorporates music technology and contemporary performance practices while maintaining strong foundational skills.",
+      "education": [
+        "M.M. in Guitar Performance, Peabody Institute",
+        "B.M. in Music Production, Berklee College of Music",
+        "Certificate in Music Technology, SAE Institute"
+      ],
+      "achievements": [
+        "Grammy-nominated session guitarist",
+        "Producer for major Caribbean recording artists",
+        "Founder of Caribbean Music Technology Lab",
+        "International touring musician"
+      ],
+      "yearsAtCAPAS": 2,
+      "courses": ["Classical Guitar", "Popular Music Ensemble", "Music Technology", "Recording Techniques"],
+      "researchInterests": ["Music technology in education", "Caribbean popular music evolution", "Guitar pedagogy", "Digital music production"],
+      "studentTestimonials": [
+        {
+          "name": "Ashley Miller",
+          "quote": "Professor Smith is so current with music technology. He's preparing us for the modern music industry.",
+          "rating": 5,
+          "program": "Popular Music"
+        },
+        {
+          "name": "Ryan Johnson",
+          "quote": "His guitar technique is flawless, and he's great at breaking down complex pieces into manageable parts.",
+          "rating": 4,
+          "program": "Instrumental Performance"
+        }
+      ],
+      "imageUrl": "/team/kevin-smith.jpg",
+      "featured": false
+    },
+    {
+      "id": "linda-williams",
+      "firstName": "Linda",
+      "lastName": "Williams",
+      "title": "Professor of Music Education & Community Outreach",
+      "department": "Education",
+      "specialization": ["Music Education", "Community Engagement", "Curriculum Development"],
+      "email": "l.williams@capas.edu.bs",
+      "phone": "(242) 123-4575",
+      "bio": "Dr. Linda Williams is dedicated to making music education accessible to all members of the community. Her extensive background in educational psychology and music pedagogy informs her innovative teaching methods. She leads CAPAS's community outreach programs and develops curriculum that serves learners of all ages and backgrounds.",
+      "education": [
+        "Ph.D. in Music Education, Teachers College Columbia University",
+        "M.Ed. in Educational Psychology, Harvard Graduate School of Education",
+        "B.M. in Music Education, Florida State University"
+      ],
+      "achievements": [
+        "Developer of the CAPAS Community Music Program",
+        "Recipient of the National Music Education Excellence Award",
+        "Author of curriculum used in Caribbean schools",
+        "Consultant for UNESCO music education initiatives"
+      ],
+      "yearsAtCAPAS": 9,
+      "courses": ["Music Education Methods", "Community Music Leadership", "Curriculum Development", "Educational Psychology"],
+      "researchInterests": ["Inclusive music education", "Community-based learning", "Cultural responsive pedagogy", "Adult music education"],
+      "studentTestimonials": [
+        {
+          "name": "Patricia Davis",
+          "quote": "Dr. Williams shows how music can truly transform communities. Her passion for education is inspiring.",
+          "rating": 5,
+          "program": "Music Education"
+        },
+        {
+          "name": "Marcus Thompson",
+          "quote": "She taught me that every student can learn music if you find the right approach. Life-changing perspective.",
+          "rating": 5,
+          "program": "Music Education"
+        }
+      ],
+      "imageUrl": "/team/linda-williams.jpg",
+      "featured": false
+    }
+  ],
+  "departments": [
+    {
+      "name": "Administration",
+      "head": "Patricia Glinton-Meicholas",
+      "description": "Leadership and institutional management"
+    },
+    {
+      "name": "Music",
+      "head": "Sarah Dash",
+      "description": "Vocal and instrumental performance, music theory, and composition"
+    },
+    {
+      "name": "Dance",
+      "head": "Diana Hamilton",
+      "description": "Traditional and contemporary dance, movement studies, and choreography"
+    },
+    {
+      "name": "Theatre",
+      "head": "James Mitchell",
+      "description": "Acting, directing, playwriting, and theatrical production"
+    },
+    {
+      "name": "Visual Arts",
+      "head": "Antonius Roberts",
+      "description": "Painting, sculpture, digital arts, and Caribbean visual culture"
+    },
+    {
+      "name": "Education",
+      "head": "Linda Williams",
+      "description": "Music education, community outreach, and curriculum development"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A8A98;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sandGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5DEB3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DEB887;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky -->
+  <rect width="800" height="250" fill="url(#skyGradient)"/>
+  
+  <!-- Beach -->
+  <rect y="250" width="800" height="150" fill="url(#sandGradient)"/>
+  
+  <!-- Palm Tree -->
+  <rect x="680" y="180" width="20" height="120" fill="#8B4513"/>
+  <circle cx="690" cy="180" r="30" fill="#228B22"/>
+  
+  <!-- Sun -->
+  <circle cx="700" cy="80" r="40" fill="#FFD700" opacity="0.8"/>
+  
+  <!-- Water waves -->
+  <path d="M0 240 Q200 220 400 240 T800 240 L800 250 L0 250 Z" fill="#4682B4" opacity="0.6"/>
+  
+  <!-- Text -->
+  <text x="400" y="200" text-anchor="middle" fill="#FFFFFF" font-size="24" font-weight="bold">Bahamian Beach Paradise</text>
+</svg>

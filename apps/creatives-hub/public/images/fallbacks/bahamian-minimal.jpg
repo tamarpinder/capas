@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="minimalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E6F4F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A8D5E2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#minimalGradient)"/>
+  
+  <!-- Minimal Geometric Elements -->
+  <circle cx="400" cy="200" r="80" fill="none" stroke="#0A8A98" stroke-width="3"/>
+  <circle cx="400" cy="200" r="40" fill="#0A8A98" opacity="0.3"/>
+  
+  <!-- Simple Dots Pattern -->
+  <circle cx="300" cy="150" r="8" fill="#0A8A98" opacity="0.6"/>
+  <circle cx="500" cy="150" r="8" fill="#0A8A98" opacity="0.6"/>
+  <circle cx="300" cy="250" r="8" fill="#0A8A98" opacity="0.6"/>
+  <circle cx="500" cy="250" r="8" fill="#0A8A98" opacity="0.6"/>
+  
+  <!-- Clean Typography -->
+  <text x="400" y="320" text-anchor="middle" fill="#0A8A98" font-size="24" font-weight="300">Minimal Design</text>
+  <text x="400" y="350" text-anchor="middle" fill="#0A8A98" font-size="16" opacity="0.7">Clean & Focused</text>
+</svg>

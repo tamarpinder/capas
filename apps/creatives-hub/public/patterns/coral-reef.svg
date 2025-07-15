@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <pattern id="coralPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <!-- Coral branches -->
+      <circle cx="25" cy="25" r="8" fill="none" stroke="#FF8B87" stroke-width="2" opacity="0.3"/>
+      <circle cx="75" cy="75" r="6" fill="none" stroke="#FFB6B3" stroke-width="1" opacity="0.3"/>
+      <circle cx="75" cy="25" r="5" fill="none" stroke="#FF8B87" stroke-width="1" opacity="0.2"/>
+      <circle cx="25" cy="75" r="7" fill="none" stroke="#FFB6B3" stroke-width="2" opacity="0.3"/>
+      <!-- Connecting lines -->
+      <path d="M25 25 Q50 50 75 75" stroke="#FF8B87" stroke-width="1" fill="none" opacity="0.2"/>
+      <path d="M75 25 Q50 50 25 75" stroke="#FFB6B3" stroke-width="1" fill="none" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="100" height="100" fill="url(#coralPattern)"/>
+</svg>

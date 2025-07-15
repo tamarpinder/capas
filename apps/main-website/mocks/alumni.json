@@ -1,0 +1,399 @@
+{
+  "alumni": [
+    {
+      "id": "alex-johnson",
+      "firstName": "Alex",
+      "lastName": "Johnson",
+      "graduationYear": 2019,
+      "program": "Full-Time Vocal Performance",
+      "currentPosition": "Lead Vocalist",
+      "currentOrganization": "Bahamas National Youth Orchestra",
+      "location": "Nassau, Bahamas",
+      "bio": "Alex Johnson has become a prominent voice in contemporary Caribbean music, blending traditional Bahamian folk songs with modern R&B and jazz influences. Since graduating from CAPAS, Alex has performed at major festivals across the Caribbean and has released two critically acclaimed albums that celebrate Bahamian musical heritage.",
+      "achievements": [
+        "Winner of Caribbean Music Awards 2022",
+        "Soloist with Bahamas National Symphony",
+        "Recording artist with 2 platinum albums",
+        "Featured performer at Caribbean Festival of Arts"
+      ],
+      "skills": ["Vocal Performance", "Songwriting", "Music Arrangement", "Stage Presence"],
+      "industry": "Music Performance",
+      "mentorshipAvailable": true,
+      "contactPreference": "Professional networking",
+      "socialMedia": {
+        "instagram": "@alexjohnsonmusic",
+        "linkedin": "alex-johnson-vocalist"
+      },
+      "testimonial": "CAPAS gave me the technical foundation and cultural grounding I needed to find my authentic voice as a Caribbean artist. The faculty didn't just teach me to sing—they taught me to honor my heritage through music.",
+      "careerPath": [
+        "2019: Graduated CAPAS Vocal Performance",
+        "2020: Backup vocalist for regional touring acts",
+        "2021: Solo recording contract with Caribbean Music Group",
+        "2022: Lead vocalist with Bahamas National Youth Orchestra",
+        "2023: International touring artist"
+      ],
+      "imageUrl": "/alumni/alex-johnson.jpg",
+      "featured": true
+    },
+    {
+      "id": "maria-fernandez",
+      "firstName": "Maria",
+      "lastName": "Fernandez",
+      "graduationYear": 2020,
+      "program": "Full-Time Dance Performance",
+      "currentPosition": "Principal Dancer & Choreographer",
+      "currentOrganization": "Caribbean Contemporary Dance Company",
+      "location": "Kingston, Jamaica",
+      "bio": "Maria Fernandez has emerged as one of the Caribbean's most innovative choreographers, creating works that blend traditional Caribbean movement with contemporary dance techniques. Her choreography has been featured in major dance festivals and she regularly teaches workshops throughout the region.",
+      "achievements": [
+        "Principal dancer with Caribbean Contemporary Dance Company",
+        "Choreographer for major Caribbean festivals",
+        "Recipient of Young Choreographer Award 2023",
+        "Featured in Dance Magazine Caribbean Edition"
+      ],
+      "skills": ["Contemporary Dance", "Choreography", "Traditional Caribbean Dance", "Dance Education"],
+      "industry": "Dance and Choreography",
+      "mentorshipAvailable": true,
+      "contactPreference": "Educational mentoring",
+      "socialMedia": {
+        "instagram": "@mariafernandezdance",
+        "website": "mariafernandezchoreography.com"
+      },
+      "testimonial": "The dance program at CAPAS taught me to honor traditional Caribbean movement while finding my own contemporary voice. Professor Hamilton showed me that authenticity and innovation can coexist beautifully.",
+      "careerPath": [
+        "2020: Graduated CAPAS Dance Performance",
+        "2020: Corps member, Caribbean Contemporary Dance Company",
+        "2021: Soloist and guest choreographer",
+        "2022: Principal dancer appointment",
+        "2023: Founding choreographer for new works division"
+      ],
+      "imageUrl": "/alumni/maria-fernandez.jpg",
+      "featured": true
+    },
+    {
+      "id": "david-thompson",
+      "firstName": "David",
+      "lastName": "Thompson",
+      "graduationYear": 2018,
+      "program": "Full-Time Theatre Arts",
+      "currentPosition": "Artistic Director",
+      "currentOrganization": "Nassau Community Theatre",
+      "location": "Nassau, Bahamas",
+      "bio": "David Thompson has become a leading voice in Caribbean theatre, directing productions that explore contemporary Bahamian stories while preserving traditional theatrical forms. His work focuses on community engagement and developing local theatrical talent.",
+      "achievements": [
+        "Artistic Director of Nassau Community Theatre",
+        "Director of 15+ professional productions",
+        "Founder of Young Artists Theatre Workshop",
+        "Recipient of Caribbean Theatre Excellence Award"
+      ],
+      "skills": ["Directing", "Acting", "Playwriting", "Arts Administration"],
+      "industry": "Theatre and Performing Arts",
+      "mentorshipAvailable": true,
+      "contactPreference": "Theatre mentoring",
+      "socialMedia": {
+        "linkedin": "david-thompson-theatre",
+        "email": "dthompson@nassaucommunitytheatre.bs"
+      },
+      "testimonial": "CAPAS gave me more than theatrical training—it gave me a mission. Professor Mitchell taught me that Caribbean theatre can be both deeply rooted in tradition and boldly contemporary.",
+      "careerPath": [
+        "2018: Graduated CAPAS Theatre Arts",
+        "2018: Assistant director at local theatre company",
+        "2019: Freelance director and actor",
+        "2021: Associate Artistic Director, Nassau Community Theatre",
+        "2023: Promoted to Artistic Director"
+      ],
+      "imageUrl": "/alumni/david-thompson.jpg",
+      "featured": true
+    },
+    {
+      "id": "sophia-williams",
+      "firstName": "Sophia",
+      "lastName": "Williams",
+      "graduationYear": 2021,
+      "program": "Full-Time Instrumental Performance",
+      "currentPosition": "Steel Drum Ensemble Leader",
+      "currentOrganization": "Freelance Musician & Educator",
+      "location": "Bridgetown, Barbados",
+      "bio": "Sophia Williams has become a master of Caribbean percussion, specializing in steel drum and traditional instruments. She leads her own ensemble and has developed innovative educational programs that introduce Caribbean music to students across the region.",
+      "achievements": [
+        "Leader of award-winning steel drum ensemble",
+        "Music educator in 5 Caribbean countries",
+        "Creator of 'Caribbean Rhythms' educational program",
+        "Featured performer at Crop Over Festival"
+      ],
+      "skills": ["Steel Drum", "Caribbean Percussion", "Music Education", "Ensemble Leadership"],
+      "industry": "Music Education",
+      "mentorshipAvailable": true,
+      "contactPreference": "Music education mentoring",
+      "socialMedia": {
+        "instagram": "@sophiasteeldrums",
+        "youtube": "SophiaWilliamsMusic"
+      },
+      "testimonial": "Master Clarke taught me that the steel drum is more than an instrument—it's a voice for our culture. CAPAS showed me how to share that voice with the world.",
+      "careerPath": [
+        "2021: Graduated CAPAS Instrumental Performance",
+        "2021: Touring musician with regional bands",
+        "2022: Founded Sophia Williams Steel Ensemble",
+        "2023: Developed Caribbean Rhythms education program",
+        "2024: International music education consultant"
+      ],
+      "imageUrl": "/alumni/sophia-williams.jpg",
+      "featured": false
+    },
+    {
+      "id": "michael-brown",
+      "firstName": "Michael",
+      "lastName": "Brown",
+      "graduationYear": 2017,
+      "program": "Part-Time Music Fundamentals",
+      "currentPosition": "Music Director",
+      "currentOrganization": "St. Matthew's Anglican Church",
+      "location": "Nassau, Bahamas",
+      "bio": "Michael Brown discovered his calling for music ministry through CAPAS's part-time program. While maintaining his career as an accountant, he has become a respected church musician and community choir director, bringing professional-level music to his congregation and community.",
+      "achievements": [
+        "Music Director at major Nassau church",
+        "Director of 3 community choirs",
+        "Organizer of annual Gospel Music Festival",
+        "Mentor to 20+ young musicians"
+      ],
+      "skills": ["Piano", "Organ", "Choir Direction", "Gospel Music"],
+      "industry": "Music Ministry",
+      "mentorshipAvailable": true,
+      "contactPreference": "Music ministry mentoring",
+      "socialMedia": {
+        "email": "mbrown.music@stmatthews.bs"
+      },
+      "testimonial": "The part-time program at CAPAS allowed me to pursue my passion for music while maintaining my career. The training I received has enriched my life and my entire community.",
+      "careerPath": [
+        "2017: Graduated CAPAS Part-Time Music Fundamentals",
+        "2017: Volunteer pianist at local church",
+        "2018: Assistant music director",
+        "2020: Promoted to Music Director",
+        "2022: Founded community gospel choir"
+      ],
+      "imageUrl": "/alumni/michael-brown.jpg",
+      "featured": false
+    },
+    {
+      "id": "isabella-martinez",
+      "firstName": "Isabella",
+      "lastName": "Martinez",
+      "graduationYear": 2022,
+      "program": "Full-Time Theatre Arts",
+      "currentPosition": "Theatre Arts Teacher",
+      "currentOrganization": "Queen's College",
+      "location": "Nassau, Bahamas",
+      "bio": "Isabella Martinez is passionate about bringing theatre education to young people. As a high school theatre teacher, she has developed innovative curricula that connect students with their Caribbean heritage while building confidence and creative expression skills.",
+      "achievements": [
+        "Theatre Arts Teacher at prestigious high school",
+        "Director of award-winning student productions",
+        "Developer of Caribbean Theatre Curriculum",
+        "Youth Theatre Workshop leader"
+      ],
+      "skills": ["Theatre Education", "Youth Development", "Curriculum Design", "Community Outreach"],
+      "industry": "Education",
+      "mentorshipAvailable": true,
+      "contactPreference": "Education mentoring",
+      "socialMedia": {
+        "linkedin": "isabella-martinez-theatre-education"
+      },
+      "testimonial": "CAPAS taught me that theatre is a powerful tool for education and personal growth. Now I get to share that gift with the next generation of Caribbean students.",
+      "careerPath": [
+        "2022: Graduated CAPAS Theatre Arts",
+        "2022: Student teacher placement",
+        "2023: Hired as full-time theatre teacher",
+        "2024: Developed new Caribbean theatre curriculum"
+      ],
+      "imageUrl": "/alumni/isabella-martinez.jpg",
+      "featured": false
+    },
+    {
+      "id": "jason-williams",
+      "firstName": "Jason",
+      "lastName": "Williams",
+      "graduationYear": 2016,
+      "program": "Full-Time Instrumental Performance",
+      "currentPosition": "Recording Artist & Producer",
+      "currentOrganization": "Williams Music Productions",
+      "location": "Miami, Florida",
+      "bio": "Jason Williams has built a successful music production business, working with artists across the Caribbean and North America. His steel drum and percussion expertise brings authentic Caribbean sounds to international recording projects.",
+      "achievements": [
+        "Founder of successful music production company",
+        "Producer for Grammy-nominated albums",
+        "Session musician for major recording artists",
+        "Creator of Caribbean Music Sample Library"
+      ],
+      "skills": ["Music Production", "Steel Drum", "Business Development", "Audio Engineering"],
+      "industry": "Music Production",
+      "mentorshipAvailable": false,
+      "contactPreference": "Professional collaboration",
+      "socialMedia": {
+        "website": "williamsmusicproductions.com",
+        "instagram": "@jasonwilliamsmusic"
+      },
+      "testimonial": "CAPAS gave me world-class training in Caribbean music traditions. That authentic foundation has been the key to my success in the international music industry.",
+      "careerPath": [
+        "2016: Graduated CAPAS Instrumental Performance",
+        "2016: Session musician in Nassau",
+        "2018: Moved to Miami, freelance producer",
+        "2020: Founded Williams Music Productions",
+        "2023: Expanded to international markets"
+      ],
+      "imageUrl": "/alumni/jason-williams.jpg",
+      "featured": false
+    },
+    {
+      "id": "alicia-roberts",
+      "firstName": "Alicia",
+      "lastName": "Roberts",
+      "graduationYear": 2020,
+      "program": "Full-Time Vocal Performance",
+      "currentPosition": "Opera Singer",
+      "currentOrganization": "Caribbean Opera Company",
+      "location": "Port of Spain, Trinidad",
+      "bio": "Alicia Roberts has achieved international recognition as an operatic soprano, performing leading roles with opera companies throughout the Caribbean and North America. She is known for bringing Caribbean musical elements into classical opera performances.",
+      "achievements": [
+        "Principal soprano with Caribbean Opera Company",
+        "Guest artist with international opera houses",
+        "Winner of International Vocal Competition 2023",
+        "Advocate for Caribbean representation in classical music"
+      ],
+      "skills": ["Opera Performance", "Classical Voice", "Multiple Languages", "Stage Presence"],
+      "industry": "Classical Music",
+      "mentorshipAvailable": true,
+      "contactPreference": "Classical music mentoring",
+      "socialMedia": {
+        "website": "aliciarobertsopera.com",
+        "instagram": "@aliciarobertsopera"
+      },
+      "testimonial": "Professor Dash taught me that my Caribbean heritage is a strength in classical music, not something to hide. CAPAS gave me the confidence to be authentically myself on the world's great stages.",
+      "careerPath": [
+        "2020: Graduated CAPAS Vocal Performance",
+        "2020: Young Artist Program, Caribbean Opera",
+        "2021: Debut in supporting roles",
+        "2022: Principal artist appointment",
+        "2024: International guest artist bookings"
+      ],
+      "imageUrl": "/alumni/alicia-roberts.jpg",
+      "featured": true
+    },
+    {
+      "id": "christopher-wilson",
+      "firstName": "Christopher",
+      "lastName": "Wilson",
+      "graduationYear": 2019,
+      "program": "Full-Time Theatre Arts",
+      "currentPosition": "Film & Television Actor",
+      "currentOrganization": "Freelance Actor",
+      "location": "Atlanta, Georgia",
+      "bio": "Christopher Wilson has transitioned from theatre to screen, appearing in major television productions and films. He brings the depth and authenticity of his Caribbean theatre training to contemporary screen acting roles.",
+      "achievements": [
+        "Recurring role on major television series",
+        "Featured in 5 independent films",
+        "SAG-AFTRA member and advocate",
+        "Mentor for Caribbean actors entering film industry"
+      ],
+      "skills": ["Screen Acting", "Theatre Performance", "Voice Work", "Character Development"],
+      "industry": "Film and Television",
+      "mentorshipAvailable": true,
+      "contactPreference": "Acting career mentoring",
+      "socialMedia": {
+        "imdb": "christopher-wilson-actor",
+        "instagram": "@chriswilsonactor"
+      },
+      "testimonial": "The character development and authenticity I learned at CAPAS has been invaluable in my screen career. Professor Mitchell taught me to find truth in every role.",
+      "careerPath": [
+        "2019: Graduated CAPAS Theatre Arts",
+        "2019: Local theatre productions",
+        "2020: Moved to Atlanta for film opportunities",
+        "2021: First television appearances",
+        "2023: Recurring role on major series"
+      ],
+      "imageUrl": "/alumni/christopher-wilson.jpg",
+      "featured": false
+    },
+    {
+      "id": "gabriella-johnson",
+      "firstName": "Gabriella",
+      "lastName": "Johnson",
+      "graduationYear": 2021,
+      "program": "Full-Time Dance Performance",
+      "currentPosition": "Dance Studio Owner",
+      "currentOrganization": "Island Motion Dance Academy",
+      "location": "Freeport, Bahamas",
+      "bio": "Gabriella Johnson has created a thriving dance academy that serves students from ages 3 to adult. Her studio specializes in Caribbean dance forms while also offering contemporary and classical training, making dance accessible to the entire Freeport community.",
+      "achievements": [
+        "Founder and owner of successful dance academy",
+        "Teacher to 150+ students annually",
+        "Organizer of annual community dance showcase",
+        "Youth dance competition judge"
+      ],
+      "skills": ["Dance Education", "Business Management", "Choreography", "Community Engagement"],
+      "industry": "Dance Education",
+      "mentorshipAvailable": true,
+      "contactPreference": "Dance education and business mentoring",
+      "socialMedia": {
+        "facebook": "Island Motion Dance Academy",
+        "instagram": "@islandmotiondance"
+      },
+      "testimonial": "Professor Hamilton taught me that dance can transform communities. My studio is my way of sharing that transformation with young people throughout Grand Bahama.",
+      "careerPath": [
+        "2021: Graduated CAPAS Dance Performance",
+        "2021: Dance instructor at local studios",
+        "2022: Opened Island Motion Dance Academy",
+        "2023: Expanded to second location",
+        "2024: Added adult education programs"
+      ],
+      "imageUrl": "/alumni/gabriella-johnson.jpg",
+      "featured": false
+    }
+  ],
+  "statistics": {
+    "totalAlumni": 247,
+    "graduateEmploymentRate": 94,
+    "continuingEducationRate": 23,
+    "entrepreneurshipRate": 18,
+    "averageStartingSalary": "$35,000",
+    "mentorsAvailable": 28
+  },
+  "industries": [
+    {
+      "name": "Music Performance",
+      "percentage": 35,
+      "alumniCount": 86
+    },
+    {
+      "name": "Education",
+      "percentage": 28,
+      "alumniCount": 69
+    },
+    {
+      "name": "Theatre and Film",
+      "percentage": 15,
+      "alumniCount": 37
+    },
+    {
+      "name": "Dance and Choreography",
+      "percentage": 12,
+      "alumniCount": 30
+    },
+    {
+      "name": "Arts Administration",
+      "percentage": 6,
+      "alumniCount": 15
+    },
+    {
+      "name": "Music Production",
+      "percentage": 4,
+      "alumniCount": 10
+    }
+  ],
+  "successMetrics": {
+    "professionalPerformers": 89,
+    "educators": 69,
+    "businessOwners": 44,
+    "communityLeaders": 67,
+    "internationalCareers": 52,
+    "mentorsActive": 28
+  }
+}

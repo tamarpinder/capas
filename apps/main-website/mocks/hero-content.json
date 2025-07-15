@@ -1,0 +1,149 @@
+{
+  "heroContent": [
+    {
+      "id": "main-hero",
+      "type": "spotlight",
+      "title": "CAPAS Bahamas",
+      "subtitle": "Where Creativity Meets Excellence",
+      "description": "Discover world-class education in creative arts, performance, and academic studies in the heart of The Bahamas. Join our vibrant community where Caribbean culture meets innovative learning.",
+      "primaryCTA": {
+        "text": "Apply Now",
+        "href": "/how-to-apply",
+        "icon": "AcademicCapIcon"
+      },
+      "secondaryCTA": {
+        "text": "Explore Programs",
+        "href": "/programs",
+        "icon": "StarIcon"
+      },
+      "backgroundMedia": {
+        "type": "video",
+        "src": "/videos/capas-hero-main.mp4",
+        "fallbackImage": "/images/hero/capas-main-hero.jpg",
+        "alt": "CAPAS Bahamas campus and students performing"
+      },
+      "featured": true
+    },
+    {
+      "id": "musical-theatre-program",
+      "type": "program",
+      "title": "Musical Theatre Excellence",
+      "subtitle": "Fall 2025 Applications Open",
+      "description": "Join our prestigious full-time Musical Theatre program. Develop your triple-threat skills in singing, dancing, and acting with Caribbean cultural immersion and world-class instruction.",
+      "primaryCTA": {
+        "text": "Apply to Program",
+        "href": "/programs/musical-theatre",
+        "icon": "AcademicCapIcon"
+      },
+      "secondaryCTA": {
+        "text": "View Requirements",
+        "href": "/programs/admissions",
+        "icon": "UserGroupIcon"
+      },
+      "backgroundMedia": {
+        "type": "video",
+        "src": "/videos/musical-theatre-performance.mp4",
+        "fallbackImage": "/images/hero/musical-theatre-hero.jpg",
+        "alt": "Students performing in CAPAS musical theatre production"
+      },
+      "featured": true
+    },
+    {
+      "id": "spring-showcase",
+      "type": "event",
+      "title": "Spring Arts Showcase",
+      "subtitle": "March 15-17, 2025",
+      "description": "Experience the culmination of our students' creative journey at our annual Spring Arts Showcase. Three nights of extraordinary performances celebrating Bahamian culture and artistic excellence.",
+      "primaryCTA": {
+        "text": "Get Tickets",
+        "href": "/events/spring-showcase-2025",
+        "icon": "StarIcon"
+      },
+      "secondaryCTA": {
+        "text": "Event Details",
+        "href": "/news-events",
+        "icon": "UserGroupIcon"
+      },
+      "backgroundMedia": {
+        "type": "video",
+        "src": "/videos/spring-showcase-preview.mp4",
+        "fallbackImage": "/images/hero/spring-showcase-hero.jpg",
+        "alt": "Previous Spring Arts Showcase performance"
+      },
+      "featured": false
+    },
+    {
+      "id": "student-success",
+      "type": "spotlight",
+      "title": "Alumni Success Stories",
+      "subtitle": "CAPAS Graduates Making Waves",
+      "description": "Our alumni are performing on international stages, directing award-winning productions, and preserving Bahamian culture worldwide. Discover how CAPAS launched their creative careers.",
+      "primaryCTA": {
+        "text": "Read Stories",
+        "href": "/community/alumni",
+        "icon": "UserGroupIcon"
+      },
+      "secondaryCTA": {
+        "text": "Join Alumni Network",
+        "href": "/community/alumni/network",
+        "icon": "StarIcon"
+      },
+      "backgroundMedia": {
+        "type": "video",
+        "src": "/videos/alumni-success.mp4",
+        "fallbackImage": "/images/hero/alumni-success-hero.jpg",
+        "alt": "CAPAS alumni performing and achieving success"
+      },
+      "featured": false
+    },
+    {
+      "id": "audition-workshop",
+      "type": "event",
+      "title": "Free Audition Workshop",
+      "subtitle": "January 20, 2025",
+      "description": "Prepare for your CAPAS audition with our expert faculty. Learn audition techniques, get personalized feedback, and discover what our admissions team looks for in prospective students.",
+      "primaryCTA": {
+        "text": "Register Now",
+        "href": "/events/audition-workshop",
+        "icon": "AcademicCapIcon"
+      },
+      "secondaryCTA": {
+        "text": "Audition Info",
+        "href": "/programs/admissions",
+        "icon": "UserGroupIcon"
+      },
+      "backgroundMedia": {
+        "type": "image",
+        "src": "/images/hero/audition-workshop-hero.jpg",
+        "fallbackImage": "/images/hero/audition-workshop-hero.jpg",
+        "alt": "Students participating in audition workshop"
+      },
+      "featured": true
+    }
+  ],
+  "heroSettings": {
+    "autoRotate": true,
+    "rotationInterval": 8000,
+    "showVideoControls": true,
+    "enableKeyboardNavigation": true,
+    "pauseOnHover": true
+  },
+  "fallbackContent": {
+    "id": "fallback",
+    "type": "spotlight",
+    "title": "CAPAS Bahamas",
+    "subtitle": "Where Creativity Meets Excellence",
+    "description": "Discover world-class education in creative arts, performance, and academic studies in the heart of The Bahamas.",
+    "primaryCTA": {
+      "text": "Learn More",
+      "href": "/about",
+      "icon": "AcademicCapIcon"
+    },
+    "backgroundMedia": {
+      "type": "image",
+      "src": "/images/hero/capas-fallback-hero.jpg",
+      "fallbackImage": "/images/hero/capas-fallback-hero.jpg",
+      "alt": "CAPAS Bahamas campus"
+    }
+  }
+}

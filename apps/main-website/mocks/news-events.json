@@ -1,0 +1,98 @@
+{
+  "newsArticles": [
+    {
+      "id": "spring-showcase-2024",
+      "title": "Spring Arts Showcase Returns with Record Attendance",
+      "excerpt": "CAPAS students dazzled audiences with performances celebrating Caribbean culture and contemporary artistry.",
+      "content": "The annual Spring Arts Showcase returned to CAPAS with unprecedented enthusiasm, drawing over 800 community members to witness the exceptional talents of our students. The evening featured performances spanning traditional Junkanoo rhythms, contemporary dance interpretations, vocal solos, and original theatrical pieces. Highlights included a steel drum ensemble performance of classical pieces with Caribbean arrangements and a powerful dramatic reading of works by local playwrights.",
+      "author": "Dr. Patricia Glinton-Meicholas",
+      "publishDate": "2024-04-15",
+      "category": "performances",
+      "featured": true,
+      "imageUrl": "/news/spring-showcase-2024.jpg"
+    },
+    {
+      "id": "unesco-partnership",
+      "title": "CAPAS Announces Partnership with UNESCO for Cultural Preservation",
+      "excerpt": "New collaboration will support documentation and teaching of traditional Caribbean arts.",
+      "content": "CAPAS Bahamas proudly announces a groundbreaking partnership with UNESCO to support the preservation and transmission of traditional Caribbean cultural arts. This collaboration will establish a digital archive of traditional songs, dances, and stories while developing curriculum that ensures these cultural treasures are passed to future generations. The partnership includes funding for equipment, training for faculty, and opportunities for international cultural exchange.",
+      "author": "Prof. Antonius Roberts",
+      "publishDate": "2024-03-22",
+      "category": "partnerships",
+      "featured": true,
+      "imageUrl": "/news/unesco-partnership.jpg"
+    },
+    {
+      "id": "new-facility-opening",
+      "title": "State-of-the-Art Performance Hall Opens Its Doors",
+      "excerpt": "The new 300-seat auditorium features advanced acoustics and lighting systems for exceptional performances.",
+      "content": "CAPAS celebrates the opening of the Patricia Glinton-Meicholas Performance Hall, a stunning new facility that will serve as the centerpiece for student and community performances. The hall features state-of-the-art acoustics designed specifically for both amplified and acoustic performances, professional lighting systems, and flexible seating arrangements. The facility also includes practice rooms, dressing areas, and technical booths for hands-on learning in theatre production.",
+      "author": "Marcus Williams",
+      "publishDate": "2024-02-10",
+      "category": "facilities",
+      "featured": false,
+      "imageUrl": "/news/performance-hall.jpg"
+    },
+    {
+      "id": "scholarship-recipients-2024",
+      "title": "15 Students Awarded Full Scholarships for Fall 2024",
+      "excerpt": "Merit-based scholarships recognize outstanding talent and academic achievement among incoming students.",
+      "content": "CAPAS is proud to announce that 15 exceptional students have been awarded full scholarships for the Fall 2024 semester. These merit-based awards recognize outstanding artistic talent, academic achievement, and commitment to community service. Recipients represent diverse backgrounds from across The Bahamas and demonstrate the high caliber of students choosing CAPAS for their creative and academic development. The scholarship program is made possible through generous community support and institutional commitment to accessibility.",
+      "author": "Sarah Thompson",
+      "publishDate": "2024-01-28",
+      "category": "scholarships",
+      "featured": false,
+      "imageUrl": "/news/scholarship-recipients.jpg"
+    }
+  ],
+  "upcomingEvents": [
+    {
+      "id": "fall-auditions-2024",
+      "title": "Fall 2024 Program Auditions",
+      "description": "Open auditions for all full-time and part-time programs. Walk-ins welcome.",
+      "date": "2024-08-15",
+      "time": "9:00 AM - 4:00 PM",
+      "location": "CAPAS Main Campus",
+      "category": "auditions",
+      "featured": true,
+      "registrationRequired": true,
+      "contactInfo": "admissions@capas.edu.bs"
+    },
+    {
+      "id": "community-steel-drum-workshop",
+      "title": "Community Steel Drum Workshop",
+      "description": "Free workshop for community members interested in learning traditional steel drum techniques.",
+      "date": "2024-07-20",
+      "time": "2:00 PM - 5:00 PM",
+      "location": "CAPAS Music Studios",
+      "category": "workshops",
+      "featured": true,
+      "registrationRequired": true,
+      "contactInfo": "community@capas.edu.bs"
+    },
+    {
+      "id": "faculty-recital-series",
+      "title": "Faculty Recital Series: Caribbean Voices",
+      "description": "Monthly concert series featuring CAPAS faculty performing traditional and contemporary Caribbean music.",
+      "date": "2024-07-12",
+      "time": "7:30 PM",
+      "location": "Patricia Glinton-Meicholas Performance Hall",
+      "category": "performances",
+      "featured": false,
+      "registrationRequired": false,
+      "contactInfo": "events@capas.edu.bs"
+    },
+    {
+      "id": "summer-camp-registration",
+      "title": "Summer Arts Camp Registration Opens",
+      "description": "Two-week intensive programs for ages 12-18 in music, dance, theatre, and visual arts.",
+      "date": "2024-06-03",
+      "time": "Online registration begins at 8:00 AM",
+      "location": "CAPAS Website",
+      "category": "programs",
+      "featured": false,
+      "registrationRequired": true,
+      "contactInfo": "summercamp@capas.edu.bs"
+    }
+  ]
+}
