@@ -20,5 +20,9 @@ const config: Config = {
       },
     },
   },
+  plugins: [
+    ...(capasConfig.plugins || []),
+    require('@tailwindcss/line-clamp'),
+  ],
 };
 export default config;

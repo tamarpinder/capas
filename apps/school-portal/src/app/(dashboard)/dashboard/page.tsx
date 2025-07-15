@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import StudentQRCode from '@/components/dashboard/StudentQRCode';
+import { getStudentByEmail, generateGreeting } from '@/lib/mock-data';
 import {
   AcademicCapIcon,
   CalendarIcon,
@@ -11,6 +12,7 @@ import {
   BookOpenIcon,
   ChartBarIcon,
   ClockIcon,
+  BellIcon,
 } from '@heroicons/react/24/outline';
 
 interface QuickStat {
@@ -24,15 +26,29 @@ interface QuickStat {
 export default function Dashboard() {
   const { data: session } = useSession();
   const [greeting, setGreeting] = useState('');
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) setGreeting('Good Morning');
-    else if (hour < 17) setGreeting('Good Afternoon');
-    else setGreeting('Good Evening');
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    if (session?.user?.email) {
+      const student = getStudentByEmail(session.user.email);
+      if (student) {
+        const hour = new Date().getHours();
+        const aiGreeting = generateGreeting(hour, student.firstName, student.upcomingEvents);
+        setGreeting(aiGreeting);
+      }
+    }
+  }, [session]);
+
   const studentData = session?.user as any;
+  const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
   const quickStats: QuickStat[] = [
     {
@@ -65,60 +81,22 @@ export default function Dashboard() {
     }
   ];
 
-  const upcomingEvents = [
-    {
-      id: 1,
-      title: 'Digital Arts Project Due',
-      date: 'Today, 11:59 PM',
-      type: 'Assignment',
-      color: 'text-capas-coral'
-    },
-    {
-      id: 2,
-      title: 'Computer Science Lab',
-      date: 'Tomorrow, 2:00 PM',
-      type: 'Class',
-      color: 'text-capas-turquoise'
-    },
-    {
-      id: 3,
-      title: 'Junkanoo Arts Festival',
-      date: 'Friday, 6:00 PM',
-      type: 'Event',
-      color: 'text-capas-gold'
-    },
-    {
-      id: 4,
-      title: 'Marine Biology Field Trip',
-      date: 'Next Monday, 9:00 AM',
-      type: 'Excursion',
-      color: 'text-capas-palm'
-    }
-  ];
+  // Use real data from mock student profiles
+  const upcomingEvents = mockStudent?.upcomingEvents.slice(0, 4).map(event => ({
+    id: event.id,
+    title: event.title,
+    date: new Date(event.date + 'T' + event.time).toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit'
+    }),
+    type: event.type.charAt(0).toUpperCase() + event.type.slice(1),
+    color: event.color
+  })) || [];
 
-  const recentActivity = [
-    {
-      id: 1,
-      action: 'Submitted assignment',
-      subject: 'Caribbean Music Production',
-      time: '2 hours ago',
-      status: 'completed'
-    },
-    {
-      id: 2,
-      action: 'Grade received',
-      subject: 'Digital Arts Midterm',
-      time: '1 day ago',
-      status: 'graded'
-    },
-    {
-      id: 3,
-      action: 'Enrolled in course',
-      subject: 'Marine Conservation Workshop',
-      time: '3 days ago',
-      status: 'enrolled'
-    }
-  ];
+  const recentActivity = mockStudent?.recentActivity || [];
 
   return (
     <div className="space-y-8">
@@ -138,20 +116,43 @@ export default function Dashboard() {
         
         <div className="relative">
           <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">
-            {greeting}, {studentData?.firstName || 'Student'}! 👋
+            {greeting || `Hello, ${studentData?.firstName || 'Student'}! 👋`}
           </h1>
           <p className="text-white/90 text-lg mb-4">
             Welcome back to your CAPAS portal. Here's what's happening today.
           </p>
-          <div className="flex items-center space-x-6 text-white/80">
+          <div className="flex flex-wrap items-center gap-4 text-white/80">
             <div className="flex items-center space-x-2">
               <CalendarIcon className="h-5 w-5" />
-              <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span>
+              <span>{currentTime.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric',
+                timeZone: 'America/Nassau'
+              })}</span>
             </div>
             <div className="flex items-center space-x-2">
               <ClockIcon className="h-5 w-5" />
+              <span>
+                {currentTime.toLocaleTimeString('en-US', { 
+                  hour: 'numeric',
+                  minute: '2-digit',
+                  timeZone: 'America/Nassau'
+                })} BST
+              </span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <AcademicCapIcon className="h-5 w-5" />
               <span>{studentData?.program || 'Program'} • Year {studentData?.year || 2}</span>
             </div>
+            {mockStudent?.notifications.filter(n => !n.read).length > 0 && (
+              <div className="flex items-center space-x-2 bg-white/20 px-3 py-1 rounded-full">
+                <BellIcon className="h-4 w-4" />
+                <span className="text-sm font-medium">
+                  {mockStudent.notifications.filter(n => !n.read).length} unread
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </motion.div>

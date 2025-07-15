@@ -46,16 +46,27 @@ export default function Home() {
           Access your academic information and resources
         </p>
 
-        {/* Sign In Button */}
-        <Link
-          href="/auth/signin"
-          className="btn-capas-primary bg-white text-capas-turquoise hover:bg-white/90 text-lg px-8 py-4 rounded-xl font-semibold shadow-lg inline-flex items-center space-x-2"
-        >
-          <span>Sign In to Portal</span>
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </Link>
+        {/* Demo Button */}
+        <div className="space-y-4">
+          <Link
+            href="/demo"
+            className="btn-capas-primary bg-white text-capas-turquoise hover:bg-white/90 text-lg px-8 py-4 rounded-xl font-semibold shadow-lg inline-flex items-center space-x-2"
+          >
+            <span>Explore Demo Portal</span>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Link>
+          
+          <div className="text-center">
+            <Link
+              href="/auth/signin"
+              className="text-white/80 hover:text-white text-sm underline"
+            >
+              Direct Sign In →
+            </Link>
+          </div>
+        </div>
 
         {/* Back to Main Site */}
         <div className="mt-8">
