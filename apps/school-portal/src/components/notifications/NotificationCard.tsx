@@ -12,8 +12,22 @@ import {
   TrashIcon
 } from '@heroicons/react/24/outline';
 
+interface NotificationData {
+  id: string;
+  type: string;
+  title: string;
+  message: string;
+  time: string;
+  read: boolean;
+  priority: string;
+  icon: string;
+  color: string;
+  bgColor: string;
+  category: string;
+}
+
 interface NotificationCardProps {
-  notification: Notification;
+  notification: NotificationData;
   isSelected: boolean;
   onToggleSelection: () => void;
   onMarkAsRead: () => void;

@@ -12,15 +12,14 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface ProgressOverviewProps {
-  gpa: number;
-  credits: number;
-  completedCourses: number;
-  totalCourses: number;
+  data: any;
+  getGradeColor: (grade: string) => string;
+  getStatusIcon: (status: string) => JSX.Element;
 }
 
-export default function ProgressOverview({ gpa, credits, completedCourses, totalCourses }: ProgressOverviewProps) {
+export default function ProgressOverview({ data, getGradeColor, getStatusIcon }: ProgressOverviewProps) {
   const calculateTrend = () => {
-    const recent = data.semesterGrades.slice(-2);
+    const recent = data?.semesterGrades?.slice(-2) || [];
     if (recent.length < 2) return null;
     
     const diff = recent[1].gpa - recent[0].gpa;
@@ -47,14 +46,14 @@ export default function ProgressOverview({ gpa, credits, completedCourses, total
           <div className="flex items-center justify-between mb-6">
             <div>
               <div className="text-3xl font-bold text-capas-ocean-dark mb-1">
-                {data.currentGPA}
+                {data?.currentGPA || '0.0'}
               </div>
               <div className="text-sm text-capas-ocean-dark/70">Current Semester</div>
             </div>
             
             <div className="text-right">
               <div className="text-2xl font-bold text-capas-ocean-dark mb-1">
-                {data.cumulativeGPA}
+                {data?.cumulativeGPA || '0.0'}
               </div>
               <div className="text-sm text-capas-ocean-dark/70">Cumulative</div>
             </div>
@@ -95,33 +94,33 @@ export default function ProgressOverview({ gpa, credits, completedCourses, total
           <div className="mb-4">
             <div className="flex justify-between items-baseline mb-2">
               <span className="text-3xl font-bold text-capas-ocean-dark">
-                {data.totalCredits}
+                {data?.totalCredits || 0}
               </span>
               <span className="text-lg text-capas-ocean-dark/70">
-                / {data.creditsNeeded} credits
+                / {data?.creditsNeeded || 120} credits
               </span>
             </div>
             
             <div className="w-full bg-white rounded-full h-3 mb-2">
               <div 
                 className="bg-gradient-to-r from-capas-gold to-capas-coral h-3 rounded-full transition-all duration-1000"
-                style={{ width: `${(data.totalCredits / data.creditsNeeded) * 100}%` }}
+                style={{ width: `${((data?.totalCredits || 0) / (data?.creditsNeeded || 120)) * 100}%` }}
               ></div>
             </div>
             
             <div className="text-sm text-capas-ocean-dark/70">
-              {((data.totalCredits / data.creditsNeeded) * 100).toFixed(0)}% Complete
+              {(((data?.totalCredits || 0) / (data?.creditsNeeded || 120)) * 100).toFixed(0)}% Complete
             </div>
           </div>
 
           <div className="bg-white rounded-lg p-3">
             <div className="flex items-center justify-between text-sm">
               <span className="text-capas-ocean-dark/70">This Semester</span>
-              <span className="font-medium text-capas-ocean-dark">{data.creditsThisSemester} credits</span>
+              <span className="font-medium text-capas-ocean-dark">{data?.creditsThisSemester || 0} credits</span>
             </div>
             <div className="flex items-center justify-between text-sm mt-2">
               <span className="text-capas-ocean-dark/70">Expected Graduation</span>
-              <span className="font-medium text-capas-ocean-dark">{data.expectedGraduation}</span>
+              <span className="font-medium text-capas-ocean-dark">{data?.expectedGraduation || 'TBD'}</span>
             </div>
           </div>
         </motion.div>
@@ -139,7 +138,7 @@ export default function ProgressOverview({ gpa, credits, completedCourses, total
         </h3>
         
         <div className="space-y-4">
-          {data.studyGoals.map((goal: any, index: number) => (
+          {(data?.studyGoals || []).map((goal: any, index: number) => (
             <motion.div
               key={goal.id}
               initial={{ opacity: 0, x: -20 }}
