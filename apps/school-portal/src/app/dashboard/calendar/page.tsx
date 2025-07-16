@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useSession } from 'next-auth/react';
 import { getStudentByEmail, type MockStudent, type StudentEvent } from '@/lib/mock-data';
+import { generateCalendarEvents, getEventsForDate, getUpcomingEvents, type CalendarEvent as CalendarEventType } from '@/lib/calendar-events';
 import CalendarView from '@/components/calendar/CalendarView';
 import EventDetails from '@/components/calendar/EventDetails';
 import { CalendarEvent } from '@/components/calendar/CalendarView';
@@ -26,12 +27,17 @@ type ExtendedUser = {
 export default function CalendarPage() {
   const { data: session } = useSession();
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | CalendarEventType | null>(null);
   const [viewMode, setViewMode] = useState<'month' | 'week' | 'day'>('month');
   const [currentTime, setCurrentTime] = useState(new Date());
 
   const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent: MockStudent | null = studentData?.email ? getStudentByEmail(studentData.email) : null;
+  
+  // Get calendar events from our new calendar system
+  const allCalendarEvents = generateCalendarEvents();
+  const todaysCalendarEvents = getEventsForDate(allCalendarEvents, new Date());
+  const upcomingCalendarEvents = getUpcomingEvents(allCalendarEvents, 14); // Next 2 weeks
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -93,15 +99,36 @@ export default function CalendarPage() {
     }
   ];
 
-  const todaysEvents = mockStudent?.upcomingEvents.filter((event: StudentEvent) => {
+  // Combine student events with calendar events for today
+  const studentTodaysEvents = mockStudent?.upcomingEvents.filter((event: StudentEvent) => {
     const eventDate = new Date(event.date);
     const today = new Date();
     return eventDate.toDateString() === today.toDateString();
   }) || [];
+  
+  const todaysEvents = [...studentTodaysEvents, ...todaysCalendarEvents];
 
-  const upcomingEventsFiltered = [...(mockStudent?.upcomingEvents || []), ...culturalEvents as CalendarEvent[]]
+  // Convert calendar events to match the CalendarEvent interface for the calendar component
+  const convertedCalendarEvents: CalendarEvent[] = upcomingCalendarEvents.map(event => ({
+    id: event.id,
+    title: event.title,
+    date: event.start.toISOString().split('T')[0],
+    time: event.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }),
+    duration: event.isAllDay ? 'All Day' : `${Math.round((event.end.getTime() - event.start.getTime()) / (1000 * 60 * 60))} hours`,
+    type: event.type,
+    location: event.location || 'TBA',
+    description: event.description || '',
+    instructor: event.instructor,
+    capacity: event.capacity,
+    registered: event.enrolled,
+    color: getEventTypeColor(event.type),
+    bgColor: getEventTypeBgColor(event.type),
+    borderColor: getEventTypeBorderColor(event.type)
+  }));
+  
+  const upcomingEventsFiltered = [...(mockStudent?.upcomingEvents || []), ...convertedCalendarEvents, ...culturalEvents as CalendarEvent[]]
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    .slice(0, 5);
+    .slice(0, 8);
 
   const getGreeting = () => {
     const hour = currentTime.getHours();
@@ -114,6 +141,49 @@ export default function CalendarPage() {
     } else {
       return `Good evening, ${firstName}! 🌙`;
     }
+  };
+
+  // Helper functions for event type styling
+  const getEventTypeColor = (type: CalendarEventType['type']) => {
+    const colorMap = {
+      academic: 'text-capas-turquoise',
+      cultural: 'text-capas-coral',
+      exam: 'text-red-600',
+      assignment: 'text-capas-gold',
+      holiday: 'text-capas-coral',
+      weather: 'text-orange-600',
+      emergency: 'text-red-700',
+      personal: 'text-capas-ocean'
+    };
+    return colorMap[type] || 'text-capas-ocean';
+  };
+  
+  const getEventTypeBgColor = (type: CalendarEventType['type']) => {
+    const bgMap = {
+      academic: 'bg-capas-turquoise/10',
+      cultural: 'bg-capas-coral/10',
+      exam: 'bg-red-50',
+      assignment: 'bg-capas-gold/10',
+      holiday: 'bg-capas-coral/10',
+      weather: 'bg-orange-50',
+      emergency: 'bg-red-50',
+      personal: 'bg-capas-ocean/10'
+    };
+    return bgMap[type] || 'bg-capas-ocean/10';
+  };
+  
+  const getEventTypeBorderColor = (type: CalendarEventType['type']) => {
+    const borderMap = {
+      academic: 'border-capas-turquoise/20',
+      cultural: 'border-capas-coral/20',
+      exam: 'border-red-200',
+      assignment: 'border-capas-gold/20',
+      holiday: 'border-capas-coral/20',
+      weather: 'border-orange-200',
+      emergency: 'border-red-200',
+      personal: 'border-capas-ocean/20'
+    };
+    return borderMap[type] || 'border-capas-ocean/20';
   };
 
   const getWeatherInfo = () => {
@@ -186,6 +256,10 @@ export default function CalendarPage() {
               <UserGroupIcon className="h-5 w-5" />
               <span>{todaysEvents.length} events today</span>
             </div>
+            <div className="flex items-center space-x-2">
+              <CalendarIcon className="h-5 w-5" />
+              <span>{upcomingCalendarEvents.length} upcoming events</span>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -204,30 +278,53 @@ export default function CalendarPage() {
           
           {todaysEvents.length > 0 ? (
             <div className="space-y-4">
-              {todaysEvents.map((event) => (
-                <div key={event.id} className="flex items-center justify-between p-4 bg-capas-sand-light rounded-lg hover:bg-capas-sand transition-colors cursor-pointer"
-                     onClick={() => setSelectedEvent(event)}>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-3 h-3 rounded-full bg-capas-turquoise"></div>
-                    <div>
-                      <h4 className="font-medium text-capas-ocean-dark">{event.title}</h4>
-                      <div className="flex items-center space-x-3 text-sm text-capas-ocean-dark/70">
-                        <span className="flex items-center space-x-1">
-                          <ClockIcon className="h-4 w-4" />
-                          <span>{event.time}</span>
-                        </span>
-                        <span className="flex items-center space-x-1">
-                          <MapPinIcon className="h-4 w-4" />
-                          <span>{event.location}</span>
-                        </span>
+              {todaysEvents.map((event) => {
+                // Handle both student events and calendar events
+                const isCalendarEvent = 'start' in event;
+                const displayTime = isCalendarEvent 
+                  ? (event as CalendarEventType).start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
+                  : (event as any).time;
+                const displayLocation = isCalendarEvent 
+                  ? (event as CalendarEventType).location || 'TBA'
+                  : (event as any).location;
+                const displayType = isCalendarEvent 
+                  ? (event as CalendarEventType).type
+                  : (event as any).type;
+                const displayColor = isCalendarEvent 
+                  ? getEventTypeColor((event as CalendarEventType).type)
+                  : (event as any).color;
+                  
+                return (
+                  <div key={event.id} className="flex items-center justify-between p-4 bg-capas-sand-light rounded-lg hover:bg-capas-sand transition-colors cursor-pointer"
+                       onClick={() => setSelectedEvent(event)}>
+                    <div className="flex items-center space-x-4">
+                      <div className={`w-3 h-3 rounded-full ${
+                        isCalendarEvent && (event as CalendarEventType).priority === 'urgent' 
+                          ? 'bg-red-500' 
+                          : isCalendarEvent && (event as CalendarEventType).priority === 'high'
+                          ? 'bg-capas-coral'
+                          : 'bg-capas-turquoise'
+                      }`}></div>
+                      <div>
+                        <h4 className="font-medium text-capas-ocean-dark">{event.title}</h4>
+                        <div className="flex items-center space-x-3 text-sm text-capas-ocean-dark/70">
+                          <span className="flex items-center space-x-1">
+                            <ClockIcon className="h-4 w-4" />
+                            <span>{displayTime}</span>
+                          </span>
+                          <span className="flex items-center space-x-1">
+                            <MapPinIcon className="h-4 w-4" />
+                            <span>{displayLocation}</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
+                    <span className={`text-xs font-medium px-2 py-1 rounded-full bg-white ${displayColor}`}>
+                      {displayType.charAt(0).toUpperCase() + displayType.slice(1)}
+                    </span>
                   </div>
-                  <span className={`text-xs font-medium px-2 py-1 rounded-full bg-white ${event.color}`}>
-                    {event.type.charAt(0).toUpperCase() + event.type.slice(1)}
-                  </span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-8">
@@ -271,15 +368,28 @@ export default function CalendarPage() {
               Cultural Events
             </h3>
             <div className="space-y-3">
-              {culturalEvents.slice(0, 3).map((event) => (
-                <div key={event.id} className={`p-3 rounded-lg border ${event.bgColor} ${event.borderColor} cursor-pointer hover:shadow-sm transition-shadow`}
-                     onClick={() => setSelectedEvent(event)}>
-                  <h4 className="font-medium text-capas-ocean-dark text-sm">{event.title}</h4>
-                  <p className="text-xs text-capas-ocean-dark/70 mt-1">
-                    {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} • {event.time}
-                  </p>
-                </div>
-              ))}
+              {upcomingCalendarEvents
+                .filter(event => event.type === 'cultural' || event.type === 'holiday')
+                .slice(0, 3)
+                .map((event) => (
+                  <div key={event.id} className={`p-3 rounded-lg border ${getEventTypeBgColor(event.type)} ${getEventTypeBorderColor(event.type)} cursor-pointer hover:shadow-sm transition-shadow`}
+                       onClick={() => setSelectedEvent(event)}>
+                    <h4 className="font-medium text-capas-ocean-dark text-sm">{event.title}</h4>
+                    <p className="text-xs text-capas-ocean-dark/70 mt-1">
+                      {event.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} • 
+                      {event.isAllDay ? 'All Day' : event.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}
+                    </p>
+                    {event.weatherDependent && (
+                      <span className="inline-flex items-center text-xs text-orange-600 mt-1">
+                        ⛅ Weather dependent
+                      </span>
+                    )}
+                  </div>
+                ))
+              }
+              {upcomingCalendarEvents.filter(event => event.type === 'cultural' || event.type === 'holiday').length === 0 && (
+                <p className="text-sm text-capas-ocean-dark/60 italic">No upcoming cultural events</p>
+              )}
             </div>
           </div>
         </motion.div>
@@ -322,6 +432,34 @@ export default function CalendarPage() {
           events={upcomingEventsFiltered}
           onEventClick={(event: CalendarEvent) => setSelectedEvent(event)}
         />
+        
+        {/* Quick Stats */}
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="bg-capas-turquoise/10 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-capas-turquoise">
+              {upcomingCalendarEvents.filter(e => e.type === 'academic').length}
+            </div>
+            <div className="text-sm text-capas-ocean-dark/70">Academic Events</div>
+          </div>
+          <div className="bg-capas-coral/10 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-capas-coral">
+              {upcomingCalendarEvents.filter(e => e.type === 'cultural' || e.type === 'holiday').length}
+            </div>
+            <div className="text-sm text-capas-ocean-dark/70">Cultural Events</div>
+          </div>
+          <div className="bg-red-50 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-red-600">
+              {upcomingCalendarEvents.filter(e => e.type === 'exam').length}
+            </div>
+            <div className="text-sm text-capas-ocean-dark/70">Exams</div>
+          </div>
+          <div className="bg-capas-gold/10 rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-capas-gold">
+              {upcomingCalendarEvents.filter(e => e.type === 'assignment').length}
+            </div>
+            <div className="text-sm text-capas-ocean-dark/70">Assignments</div>
+          </div>
+        </div>
       </motion.div>
 
       {/* Event Details Modal */}

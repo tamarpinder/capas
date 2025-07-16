@@ -16,9 +16,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 import type { CalendarEvent } from './CalendarView';
+import type { CalendarEvent as CalendarEventType } from '@/lib/calendar-events';
 
 interface EventDetailsProps {
-  event: CalendarEvent;
+  event: CalendarEvent | CalendarEventType;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -39,8 +40,8 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
     }, 1500);
   };
 
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
+  const formatDate = (dateInput: string | Date) => {
+    const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
       year: 'numeric',
@@ -49,15 +50,25 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
     });
   };
 
-  const formatTime = (timeStr: string) => {
-    const [hours, minutes] = timeStr.split(':');
-    const date = new Date();
-    date.setHours(parseInt(hours), parseInt(minutes));
-    return date.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-      hour12: true
-    });
+  const formatTime = (timeInput: string | Date) => {
+    if (typeof timeInput === 'string') {
+      // Handle time strings like "10:00 AM" or "14:00"
+      const [hours, minutes] = timeInput.includes(':') ? timeInput.split(':') : [timeInput, '00'];
+      const date = new Date();
+      date.setHours(parseInt(hours), parseInt(minutes.replace(/[^0-9]/g, '')));
+      return date.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+    } else {
+      // Handle Date objects
+      return timeInput.toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true
+      });
+    }
   };
 
   const getEventTypeColor = (type: string) => {
@@ -67,15 +78,23 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
       'workshop': 'bg-capas-gold text-white',
       'social': 'bg-capas-palm text-white',
       'exam': 'bg-red-500 text-white',
-      'assignment': 'bg-orange-500 text-white'
+      'assignment': 'bg-orange-500 text-white',
+      'holiday': 'bg-capas-coral text-white',
+      'weather': 'bg-orange-500 text-white',
+      'emergency': 'bg-red-600 text-white',
+      'personal': 'bg-capas-ocean text-white'
     };
     return colors[type as keyof typeof colors] || 'bg-capas-ocean text-white';
   };
 
   const getCapacityInfo = () => {
-    if (!event.capacity) return null;
+    // Handle both CalendarEvent and CalendarEventType formats
+    const capacity = 'capacity' in event ? event.capacity : undefined;
+    const registered = 'registered' in event ? event.registered : 'enrolled' in event ? event.enrolled : 0;
     
-    const percentFull = (event.registered / event.capacity) * 100;
+    if (!capacity) return null;
+    
+    const percentFull = (registered / capacity) * 100;
     let statusColor = 'text-capas-palm';
     let statusText = 'Available';
     
@@ -91,7 +110,7 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
       percentFull,
       statusColor,
       statusText,
-      spotsLeft: event.capacity - event.registered
+      spotsLeft: capacity - registered
     };
   };
 
@@ -142,12 +161,20 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
                   <div className="flex items-center space-x-2">
                     <CalendarIcon className="h-5 w-5" />
-                    <span>{formatDate(event.date)}</span>
+                    <span>{
+                      'start' in event 
+                        ? formatDate(event.start) 
+                        : formatDate(event.date)
+                    }</span>
                   </div>
                   
                   <div className="flex items-center space-x-2">
                     <ClockIcon className="h-5 w-5" />
-                    <span>{formatTime(event.time)} {event.duration && `(${event.duration})`}</span>
+                    <span>{
+                      'start' in event 
+                        ? (event.isAllDay ? 'All Day' : `${formatTime(event.start)} - ${formatTime(event.end)}`)
+                        : `${formatTime(event.time)} ${event.duration && `(${event.duration})`}`
+                    }</span>
                   </div>
                   
                   {event.location && (
@@ -161,6 +188,13 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
                     <div className="flex items-center space-x-2">
                       <UserIcon className="h-5 w-5" />
                       <span>{event.instructor}</span>
+                    </div>
+                  )}
+                  
+                  {'course' in event && event.course && (
+                    <div className="flex items-center space-x-2">
+                      <TagIcon className="h-5 w-5" />
+                      <span>{event.course}</span>
                     </div>
                   )}
                 </div>
@@ -186,7 +220,7 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
                       <div className="flex items-center space-x-2">
                         <UserGroupIcon className="h-5 w-5 text-capas-ocean-dark" />
                         <span className="font-medium text-capas-ocean-dark">
-                          {event.registered} of {event.capacity} registered
+                          {'registered' in event ? event.registered : 'enrolled' in event ? event.enrolled : 0} of {event.capacity} registered
                         </span>
                       </div>
                       <span className={`text-sm font-medium ${capacityInfo.statusColor}`}>
@@ -216,6 +250,47 @@ export default function EventDetails({ event, isOpen, onClose }: EventDetailsPro
                     This event is part of our Caribbean Cultural Arts program, celebrating the rich heritage 
                     and traditions of the Bahamas and the wider Caribbean region.
                   </p>
+                </div>
+              )}
+              
+              {/* Weather Dependent Warning */}
+              {'weatherDependent' in event && event.weatherDependent && (
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                  <h4 className="font-medium text-orange-700 mb-2 flex items-center space-x-2">
+                    <ExclamationTriangleIcon className="h-4 w-4" />
+                    <span>Weather Dependent Event</span>
+                  </h4>
+                  <p className="text-orange-600 text-sm">
+                    This event may be cancelled or moved online due to weather conditions. 
+                    Please check your email for updates before attending.
+                  </p>
+                </div>
+              )}
+              
+              {/* Priority Badge */}
+              {'priority' in event && event.priority === 'urgent' && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <h4 className="font-medium text-red-700 mb-2 flex items-center space-x-2">
+                    <ExclamationTriangleIcon className="h-4 w-4" />
+                    <span>Urgent - Immediate Attention Required</span>
+                  </h4>
+                  <p className="text-red-600 text-sm">
+                    This is a high-priority event that requires immediate attention.
+                  </p>
+                </div>
+              )}
+              
+              {/* Tags Display */}
+              {'tags' in event && event.tags && event.tags.length > 0 && (
+                <div>
+                  <h3 className="font-semibold text-capas-ocean-dark mb-3">Tags</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {event.tags.map((tag, index) => (
+                      <span key={index} className="px-3 py-1 bg-capas-sand-light text-capas-ocean-dark text-sm rounded-full">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )}
 

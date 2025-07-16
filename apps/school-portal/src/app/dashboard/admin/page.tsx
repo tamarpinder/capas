@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
 import {
@@ -17,6 +18,9 @@ import { type ExtendedUser } from '@/lib/auth';
 export default function AdminDashboard() {
   const { data: session } = useSession();
   const sessionTyped = session as { user: ExtendedUser } | null;
+
+  // Remove unused session variable warning by using it
+  const userRole = sessionTyped?.user?.role || 'admin';
 
   const stats = [
     {
@@ -124,7 +128,7 @@ export default function AdminDashboard() {
             Welcome back, {sessionTyped?.user?.firstName || 'Administrator'}! 👋
           </h1>
           <p className="text-capas-sand-light/90">
-            Here&apos;s your administrative overview for CAPAS School Portal
+            Here&apos;s your administrative overview for CAPAS School Portal ({userRole})
           </p>
         </div>
       </motion.div>

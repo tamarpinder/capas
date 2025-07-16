@@ -15,6 +15,7 @@ import {
   HomeIcon
 } from '@heroicons/react/24/outline';
 import { MockStudent } from '@/lib/mock-data';
+import { courseCatalog, getAvailableCourses, departments, timeSlots, creditOptions, Course } from '@/lib/course-catalog';
 
 interface RegistrationWizardProps {
   type: 'courses' | 'events' | 'forms' | 'housing';
@@ -31,6 +32,14 @@ interface WizardStep {
 export default function RegistrationWizard({ type, student }: RegistrationWizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<Set<string>>(new Set());
+  
+  // Course registration state
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedDepartment, setSelectedDepartment] = useState('All Departments');
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState('All Times');
+  const [selectedCredits, setSelectedCredits] = useState('All Credits');
+  const [selectedCourses, setSelectedCourses] = useState<Course[]>([]);
+  const [cartCourses, setCartCourses] = useState<Course[]>([]);
 
   const stepConfigs = {
     courses: [
@@ -63,6 +72,41 @@ export default function RegistrationWizard({ type, student }: RegistrationWizard
     ...step,
     completed: completedSteps.has(step.id)
   }));
+
+  // Get filtered courses
+  const filteredCourses = getAvailableCourses({
+    department: selectedDepartment,
+    timeSlot: selectedTimeSlot,
+    credits: selectedCredits,
+    searchTerm: searchTerm
+  });
+
+  // Course management functions
+  const addToCart = (course: Course) => {
+    if (!cartCourses.find(c => c.id === course.id)) {
+      setCartCourses([...cartCourses, course]);
+    }
+  };
+
+  const removeFromCart = (courseId: string) => {
+    setCartCourses(cartCourses.filter(c => c.id !== courseId));
+  };
+
+  const getTotalCredits = () => {
+    return cartCourses.reduce((total, course) => total + course.credits, 0);
+  };
+
+  const hasTimeConflict = (newCourse: Course) => {
+    return cartCourses.some(course => {
+      const hasCommonDay = course.schedule.days.some(day => 
+        newCourse.schedule.days.includes(day)
+      );
+      if (!hasCommonDay) return false;
+      
+      // Simple time conflict check (would need more sophisticated logic in real app)
+      return course.schedule.time === newCourse.schedule.time;
+    });
+  };
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
@@ -153,51 +197,173 @@ export default function RegistrationWizard({ type, student }: RegistrationWizard
               <p className="text-capas-ocean-dark/70">Search for available courses for Fall 2024 semester</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-capas-ocean-dark mb-2">
-                  Course Subject
-                </label>
-                <select className="input-capas">
-                  <option value="">All Subjects</option>
-                  <option value="MUS">Music</option>
-                  <option value="ART">Visual Arts</option>
-                  <option value="THE">Theatre</option>
-                  <option value="DAN">Dance</option>
-                  <option value="ENG">English</option>
-                  <option value="MAT">Mathematics</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-capas-ocean-dark mb-2">
-                  Course Level
-                </label>
-                <select className="input-capas">
-                  <option value="">All Levels</option>
-                  <option value="100">100-level (Introductory)</option>
-                  <option value="200">200-level (Intermediate)</option>
-                  <option value="300">300-level (Advanced)</option>
-                  <option value="400">400-level (Senior)</option>
-                </select>
+            {/* Search and Filters */}
+            <div className="bg-white rounded-lg border border-capas-sand-light p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div>
+                  <label className="block text-sm font-medium text-capas-ocean-dark mb-2">
+                    Search Courses
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Course title, code, or instructor..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="input-capas"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-capas-ocean-dark mb-2">
+                    Department
+                  </label>
+                  <select 
+                    value={selectedDepartment}
+                    onChange={(e) => setSelectedDepartment(e.target.value)}
+                    className="input-capas"
+                  >
+                    {departments.map(dept => (
+                      <option key={dept} value={dept}>{dept}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-capas-ocean-dark mb-2">
+                    Time Preference
+                  </label>
+                  <select 
+                    value={selectedTimeSlot}
+                    onChange={(e) => setSelectedTimeSlot(e.target.value)}
+                    className="input-capas"
+                  >
+                    {timeSlots.map(slot => (
+                      <option key={slot} value={slot}>{slot}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-capas-ocean-dark mb-2">
+                    Credits
+                  </label>
+                  <select 
+                    value={selectedCredits}
+                    onChange={(e) => setSelectedCredits(e.target.value)}
+                    className="input-capas"
+                  >
+                    {creditOptions.map(option => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
 
-            <div className="bg-capas-sand-light rounded-lg p-4">
-              <h4 className="font-medium text-capas-ocean-dark mb-3">Recommended Courses for {student?.program}</h4>
-              <div className="space-y-2">
-                {[
-                  'MUS 201 - Music Theory II',
-                  'MUS 245 - Digital Audio Production',
-                  'ENG 201 - Creative Writing',
-                  'THE 180 - Stage Performance'
-                ].map((course, index) => (
-                  <div key={index} className="flex items-center justify-between bg-white rounded p-3">
-                    <span className="text-sm text-capas-ocean-dark">{course}</span>
-                    <button className="text-capas-turquoise text-sm font-medium hover:underline">
-                      View Details
-                    </button>
-                  </div>
-                ))}
+            {/* Course Results */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h4 className="font-medium text-capas-ocean-dark">
+                  Available Courses ({filteredCourses.length})
+                </h4>
+                <div className="text-sm text-capas-ocean-dark/70">
+                  Selected: {cartCourses.length} courses ({getTotalCredits()} credits)
+                </div>
+              </div>
+
+              <div className="grid gap-4 max-h-96 overflow-y-auto">
+                {filteredCourses.map((course) => {
+                  const isInCart = cartCourses.find(c => c.id === course.id);
+                  const hasConflict = hasTimeConflict(course);
+                  const isPrereqMet = course.prerequisites.length === 0; // Simplified for demo
+                  
+                  return (
+                    <div 
+                      key={course.id} 
+                      className={`border rounded-lg p-4 ${
+                        isInCart ? 'border-capas-turquoise bg-capas-turquoise/5' :
+                        hasConflict ? 'border-capas-coral bg-capas-coral/5' :
+                        'border-capas-sand-light bg-white'
+                      }`}
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <h5 className="font-semibold text-capas-ocean-dark">
+                              {course.code} - {course.title}
+                            </h5>
+                            <span className={`px-2 py-1 text-xs rounded-full ${
+                              course.status === 'open' ? 'bg-green-100 text-green-800' :
+                              course.status === 'waitlist' ? 'bg-yellow-100 text-yellow-800' :
+                              'bg-red-100 text-red-800'
+                            }`}>
+                              {course.status}
+                            </span>
+                          </div>
+                          
+                          <p className="text-sm text-capas-ocean-dark/70 mb-3">
+                            {course.description}
+                          </p>
+
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-capas-ocean-dark/70">
+                            <div className="flex items-center space-x-1">
+                              <span className="font-medium">{course.credits}</span>
+                              <span>credits</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <ClockIcon className="h-4 w-4" />
+                              <span>{course.schedule.time}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <CalendarIcon className="h-4 w-4" />
+                              <span>{course.schedule.days.join(', ')}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <UserIcon className="h-4 w-4" />
+                              <span>{course.instructor}</span>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center justify-between mt-3">
+                            <div className="text-xs text-capas-ocean-dark/60">
+                              {course.enrolled}/{course.capacity} enrolled
+                              {course.waitlist > 0 && ` • ${course.waitlist} waitlisted`}
+                            </div>
+                            <div className="flex space-x-1">
+                              {course.tags.slice(0, 2).map((tag, idx) => (
+                                <span key={idx} className="px-2 py-1 text-xs bg-capas-sand-light text-capas-ocean-dark rounded">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="ml-4 flex flex-col space-y-2">
+                          {isInCart ? (
+                            <button
+                              onClick={() => removeFromCart(course.id)}
+                              className="btn-capas-secondary text-sm px-4 py-2"
+                            >
+                              Remove
+                            </button>
+                          ) : (
+                            <button
+                              onClick={() => addToCart(course)}
+                              disabled={hasConflict || course.status === 'closed'}
+                              className={`text-sm px-4 py-2 rounded-lg font-medium transition-colors ${
+                                hasConflict || course.status === 'closed' 
+                                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                  : 'btn-capas-primary'
+                              }`}
+                            >
+                              {hasConflict ? 'Time Conflict' : 
+                               course.status === 'closed' ? 'Closed' :
+                               course.status === 'waitlist' ? 'Join Waitlist' : 'Add Course'}
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -208,48 +374,133 @@ export default function RegistrationWizard({ type, student }: RegistrationWizard
           <div className="space-y-6">
             <div className="text-center mb-8">
               <CheckIcon className="h-16 w-16 text-capas-turquoise mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-capas-ocean-dark mb-2">Select Your Courses</h3>
-              <p className="text-capas-ocean-dark/70">Choose courses and sections that fit your schedule</p>
+              <h3 className="text-xl font-semibold text-capas-ocean-dark mb-2">Review Your Selection</h3>
+              <p className="text-capas-ocean-dark/70">Review and confirm your course selection</p>
             </div>
 
-            <div className="grid gap-4">
-              {[
-                { code: 'MUS 201', name: 'Music Theory II', credits: 3, time: 'MW 10:00-11:30 AM', instructor: 'Prof. Johnson' },
-                { code: 'MUS 245', name: 'Digital Audio Production', credits: 3, time: 'TTh 2:00-3:30 PM', instructor: 'Prof. Williams' },
-                { code: 'ENG 201', name: 'Creative Writing', credits: 3, time: 'MWF 9:00-10:00 AM', instructor: 'Prof. Davis' }
-              ].map((course, index) => (
-                <div key={index} className="border border-capas-sand-light rounded-lg p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h4 className="font-medium text-capas-ocean-dark">{course.code} - {course.name}</h4>
-                      <div className="flex items-center space-x-4 text-sm text-capas-ocean-dark/70 mt-1">
-                        <span>{course.credits} credits</span>
-                        <span className="flex items-center space-x-1">
-                          <ClockIcon className="h-4 w-4" />
-                          <span>{course.time}</span>
-                        </span>
-                        <span className="flex items-center space-x-1">
-                          <UserIcon className="h-4 w-4" />
-                          <span>{course.instructor}</span>
-                        </span>
+            {cartCourses.length === 0 ? (
+              <div className="text-center py-12 bg-capas-sand-light/30 rounded-lg">
+                <BookOpenIcon className="h-12 w-12 text-capas-ocean-dark/40 mx-auto mb-4" />
+                <h4 className="text-lg font-medium text-capas-ocean-dark mb-2">No Courses Selected</h4>
+                <p className="text-capas-ocean-dark/70 mb-4">Go back to the search step to add courses to your cart.</p>
+                <button
+                  onClick={() => setCurrentStep(0)}
+                  className="btn-capas-primary"
+                >
+                  Search Courses
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* Selected Courses */}
+                <div className="space-y-4">
+                  <h4 className="font-medium text-capas-ocean-dark">
+                    Selected Courses ({cartCourses.length})
+                  </h4>
+                  
+                  {cartCourses.map((course) => (
+                    <div key={course.id} className="border border-capas-turquoise bg-capas-turquoise/5 rounded-lg p-4">
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h5 className="font-semibold text-capas-ocean-dark mb-1">
+                            {course.code} - {course.title}
+                          </h5>
+                          <p className="text-sm text-capas-ocean-dark/70 mb-2">
+                            {course.description}
+                          </p>
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-capas-ocean-dark/70">
+                            <div className="flex items-center space-x-1">
+                              <span className="font-medium">{course.credits}</span>
+                              <span>credits</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <ClockIcon className="h-4 w-4" />
+                              <span>{course.schedule.time}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <CalendarIcon className="h-4 w-4" />
+                              <span>{course.schedule.days.join(', ')}</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <UserIcon className="h-4 w-4" />
+                              <span>{course.instructor}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => removeFromCart(course.id)}
+                          className="btn-capas-secondary text-sm px-4 py-2 ml-4"
+                        >
+                          Remove
+                        </button>
                       </div>
                     </div>
-                    <button className="btn-capas-primary text-sm px-4 py-2">
-                      Add Course
-                    </button>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            <div className="bg-capas-turquoise/5 border border-capas-turquoise/20 rounded-lg p-4">
-              <h4 className="font-medium text-capas-turquoise mb-2">Selected Courses (9 credits)</h4>
-              <div className="text-sm text-capas-ocean-dark/80">
-                • MUS 201 - Music Theory II (3 credits)<br />
-                • MUS 245 - Digital Audio Production (3 credits)<br />
-                • ENG 201 - Creative Writing (3 credits)
-              </div>
-            </div>
+                {/* Schedule Summary */}
+                <div className="bg-white border border-capas-sand-light rounded-lg p-6">
+                  <h4 className="font-medium text-capas-ocean-dark mb-4">Registration Summary</h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h5 className="font-medium text-capas-ocean-dark mb-2">Credit Hours</h5>
+                      <div className="text-2xl font-bold text-capas-turquoise">
+                        {getTotalCredits()} Credits
+                      </div>
+                      <p className="text-sm text-capas-ocean-dark/70">
+                        {getTotalCredits() < 12 ? 'Part-time status' : 
+                         getTotalCredits() <= 18 ? 'Full-time status' : 
+                         'Overload - requires approval'}
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-medium text-capas-ocean-dark mb-2">Estimated Cost</h5>
+                      <div className="text-2xl font-bold text-capas-ocean">
+                        ${(getTotalCredits() * 850).toLocaleString()}
+                      </div>
+                      <p className="text-sm text-capas-ocean-dark/70">
+                        $850 per credit hour
+                      </p>
+                    </div>
+                  </div>
+
+                  {getTotalCredits() > 18 && (
+                    <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                      <div className="flex items-center space-x-2">
+                        <svg className="h-5 w-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                        </svg>
+                        <span className="text-sm font-medium text-yellow-800">
+                          Course Overload - Academic Advisor Approval Required
+                        </span>
+                      </div>
+                      <p className="text-sm text-yellow-700 mt-1">
+                        You have selected more than 18 credits. Please contact your academic advisor for approval.
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Quick Actions */}
+                <div className="flex justify-between">
+                  <button
+                    onClick={() => setCurrentStep(0)}
+                    className="btn-capas-secondary"
+                  >
+                    ← Add More Courses
+                  </button>
+                  <button
+                    onClick={() => handleNext()}
+                    disabled={cartCourses.length === 0}
+                    className="btn-capas-primary"
+                  >
+                    Continue to Review →
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         );
 
