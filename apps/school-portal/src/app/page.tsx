@@ -70,12 +70,12 @@ export default function Home() {
 
         {/* Back to Main Site */}
         <div className="mt-8">
-          <Link
-            href="/"
+          <a
+            href="https://capas.edu.bs"
             className="text-white/80 hover:text-white text-sm underline"
           >
             ← Back to Main CAPAS Site
-          </Link>
+          </a>
         </div>
 
         {/* Demo Info */}

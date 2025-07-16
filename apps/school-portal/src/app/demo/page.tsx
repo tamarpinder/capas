@@ -115,12 +115,12 @@ export default function DemoSelectionPage() {
                 </p>
               </div>
             </div>
-            <Link
-              href="/"
+            <a
+              href="https://capas.edu.bs"
               className="text-capas-ocean-dark/70 hover:text-capas-turquoise transition-colors text-sm flex items-center space-x-1"
             >
               <span>← Back to Main Site</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
