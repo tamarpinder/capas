@@ -60,12 +60,14 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <span className="text-capas-ocean-dark font-medium font-montserrat">Quick Access:</span>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link 
-                href="/school-portal"
+              <a 
+                href="https://capas-school-portal.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-capas-turquoise hover:text-capas-turquoise-dark font-medium underline underline-offset-4 transition-colors duration-200 font-montserrat"
               >
                 School Portal →
-              </Link>
+              </a>
               <Link 
                 href="/creatives-hub"
                 className="text-capas-coral hover:text-capas-coral-dark font-medium underline underline-offset-4 transition-colors duration-200 font-montserrat"

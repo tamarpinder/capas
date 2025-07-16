@@ -16,7 +16,7 @@ const footerLinks = {
     { name: 'Support CAPAS', href: '/support' },
   ],
   resources: [
-    { name: 'School Portal', href: '/school-portal' },
+    { name: 'School Portal', href: 'https://capas-school-portal.netlify.app/' },
     { name: 'Creatives Hub', href: '/creatives-hub' },
     { name: 'Library', href: '#' },
     { name: 'Student Services', href: '#' },

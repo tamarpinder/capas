@@ -75,7 +75,7 @@ export default function StudentsPage() {
     {
       title: 'Student Portal',
       description: 'Access grades, schedules, and academic records',
-      href: '/school-portal',
+      href: 'https://capas-school-portal.netlify.app/',
       color: 'bg-capas-turquoise hover:bg-capas-turquoise-dark'
     },
     {
