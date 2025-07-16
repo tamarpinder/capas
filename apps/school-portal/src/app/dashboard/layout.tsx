@@ -42,7 +42,7 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen bg-capas-sand-light">
       <DashboardHeader />
-      <div className="flex">
+      <div className="flex pt-16 md:pt-20"> {/* Add responsive top padding to account for fixed header */}
         <DashboardSidebar />
         <main className="flex-1 lg:ml-64">
           <div className="p-4 lg:p-8">

@@ -12,6 +12,7 @@ import { type ExtendedUser } from '@/lib/auth';
 export default function DashboardHeader() {
   const { data: session } = useSession();
   const [currentTime, setCurrentTime] = useState('');
+  const [scrolled, setScrolled] = useState(false);
   const [notifications, setNotifications] = useState([
     { id: 1, title: 'New assignment posted', message: 'Digital Arts Project due Friday', time: '10 mins ago', unread: true },
     { id: 2, title: 'Grade updated', message: 'Computer Science midterm graded', time: '2 hours ago', unread: true },
@@ -30,6 +31,17 @@ export default function DashboardHeader() {
     return () => clearInterval(interval);
   }, []);
 
+  // Scroll detection for header transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const unreadCount = notifications.filter(n => n.unread).length;
 
   const markAsRead = (id: number) => {
@@ -45,7 +57,11 @@ export default function DashboardHeader() {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-capas-ocean-light/20 sticky top-0 z-40">
+    <header className={`sticky top-0 z-40 transition-all duration-300 border-b border-capas-ocean-light/20 ${
+      scrolled 
+        ? 'bg-white/80 backdrop-blur-md shadow-lg' 
+        : 'bg-white shadow-sm'
+    }`}>
       <div className="flex items-center justify-between px-4 lg:px-8 py-4">
         {/* Mobile menu button */}
         <button className="lg:hidden p-2 rounded-md text-capas-ocean-dark hover:text-capas-turquoise">
