@@ -77,7 +77,7 @@ export default function DashboardHeader() {
         ? 'bg-white/95 backdrop-blur-md shadow-lg' 
         : 'bg-white shadow-sm'
     }`}>
-      <div className="flex items-center justify-between px-4 lg:px-8 py-4 h-20"> {/* Fixed height for consistent layout */}
+      <div className="flex items-center justify-between px-4 lg:px-8 py-3 min-h-[72px]"> {/* More precise height measurement */}
         {/* Mobile menu button */}
         <button className="lg:hidden p-2 rounded-md text-capas-ocean-dark hover:text-capas-turquoise">
           <Bars3Icon className="h-6 w-6" />

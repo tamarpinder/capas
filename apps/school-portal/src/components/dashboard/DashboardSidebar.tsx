@@ -82,7 +82,7 @@ export default function DashboardSidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className={`hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 ${collapsed ? 'lg:w-16' : 'lg:w-64'} transition-all duration-300`}>
+      <div className={`hidden lg:flex lg:flex-col lg:fixed lg:top-[72px] lg:bottom-0 ${collapsed ? 'lg:w-16' : 'lg:w-64'} transition-all duration-300`}>
         <div className="flex flex-col flex-grow bg-white border-r border-capas-ocean-light/20 shadow-sm">
           {/* Collapse Button */}
           <div className="flex items-center justify-end p-4">
