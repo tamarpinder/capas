@@ -17,42 +17,23 @@ import alumniData from '../../../../mocks/alumni.json';
 
 interface Alumni {
   id: string;
-  firstName: string;
-  lastName: string;
+  name: string;
   graduationYear: number;
   program: string;
   currentPosition: string;
-  currentOrganization: string;
+  company: string;
   location: string;
-  bio: string;
+  story: string;
   achievements: string[];
-  projects: {
-    title: string;
-    type: string;
-    year: number;
-    description: string;
-    awards?: string[];
-  }[];
-  socialMedia: {
+  quote: string;
+  image: string;
+  social: {
     linkedin?: string;
     instagram?: string;
     website?: string;
     twitter?: string;
   };
-  profileImage: string;
   featured: boolean;
-  testimonial: {
-    quote: string;
-    context: string;
-  };
-  careerPath: {
-    position: string;
-    organization: string;
-    years: string;
-  }[];
-  mentorshipAvailable: boolean;
-  industry: string;
-  skills: string[];
 }
 
 interface FilterState {
@@ -112,9 +93,9 @@ export default function Alumni() {
     // Apply search
     if (searchTerm) {
       filtered = filtered.filter(alum =>
-        `${alum.firstName} ${alum.lastName}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        alum.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         alum.currentPosition.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        alum.currentOrganization.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        alum.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
         alum.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
@@ -379,7 +360,7 @@ export default function Alumni() {
                               <PlaceholderImage
                                 width={600}
                                 height={600}
-                                text={`${filteredAlumni[currentSlide].firstName} ${filteredAlumni[currentSlide].lastName}`}
+                                text={filteredAlumni[currentSlide].name}
                                 variant="portrait"
                                 colorScheme="turquoise"
                                 className="w-full h-full object-cover"
@@ -416,13 +397,13 @@ export default function Alumni() {
                                 {/* Header */}
                                 <div>
                                   <h3 className="font-montserrat text-3xl lg:text-4xl font-bold text-capas-turquoise mb-3">
-                                    {filteredAlumni[currentSlide].firstName} {filteredAlumni[currentSlide].lastName}
+                                    {filteredAlumni[currentSlide].name}
                                   </h3>
                                   <p className="text-xl text-capas-gold font-semibold mb-2">
                                     {filteredAlumni[currentSlide].currentPosition}
                                   </p>
                                   <p className="text-lg text-capas-ocean-dark">
-                                    {filteredAlumni[currentSlide].currentOrganization}
+                                    {filteredAlumni[currentSlide].company}
                                   </p>
                                   <p className="text-capas-ocean-dark/70 flex items-center mt-2">
                                     <GlobeAltIcon className="w-5 h-5 mr-2" />
@@ -439,9 +420,9 @@ export default function Alumni() {
 
                                 {/* Testimonial */}
                                 <blockquote className="border-l-4 border-capas-turquoise pl-6 italic text-lg text-capas-ocean-dark">
-                                  &quot;{filteredAlumni[currentSlide].testimonial.quote}&quot;
+                                  &quot;{filteredAlumni[currentSlide].quote}&quot;
                                   <footer className="text-sm text-capas-ocean-dark/70 mt-2">
-                                    — {filteredAlumni[currentSlide].testimonial.context}
+                                    — {filteredAlumni[currentSlide].name}
                                   </footer>
                                 </blockquote>
 
@@ -467,9 +448,9 @@ export default function Alumni() {
                                     Read Full Story
                                   </button>
                                   
-                                  {filteredAlumni[currentSlide].socialMedia.linkedin && (
+                                  {filteredAlumni[currentSlide].social.linkedin && (
                                     <a
-                                      href={filteredAlumni[currentSlide].socialMedia.linkedin}
+                                      href={filteredAlumni[currentSlide].social.linkedin}
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       className="border-2 border-capas-turquoise text-capas-turquoise hover:bg-capas-turquoise hover:text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 font-montserrat"
@@ -582,7 +563,7 @@ export default function Alumni() {
                           <PlaceholderImage
                             width={300}
                             height={192}
-                            text={`${alum.firstName} ${alum.lastName}`}
+                            text={alum.name}
                             variant="portrait"
                             colorScheme={alum.industry === 'Entertainment' ? 'coral' : 
                                         alum.industry === 'Education' ? 'turquoise' : 
@@ -615,10 +596,10 @@ export default function Alumni() {
 
                       <div className="p-4">
                         <h3 className="font-montserrat text-lg font-bold text-capas-turquoise mb-1 group-hover:text-capas-turquoise-dark transition-colors">
-                          {alum.firstName} {alum.lastName}
+                          {alum.name}
                         </h3>
                         <p className="text-capas-gold font-medium text-sm mb-1">{alum.currentPosition}</p>
-                        <p className="text-capas-ocean-dark text-sm mb-2 line-clamp-1">{alum.currentOrganization}</p>
+                        <p className="text-capas-ocean-dark text-sm mb-2 line-clamp-1">{alum.company}</p>
                         
                         {/* Location and Program */}
                         <div className="flex items-center justify-between text-xs text-capas-ocean-dark/70 mb-3">
@@ -647,8 +628,8 @@ export default function Alumni() {
                               {alum.achievements.length} achievement{alum.achievements.length !== 1 ? 's' : ''}
                             </span>
                             <div className="flex space-x-1">
-                              {alum.socialMedia.linkedin && <GlobeAltIcon className="w-4 h-4 text-capas-turquoise" />}
-                              {alum.socialMedia.website && <GlobeAltIcon className="w-4 h-4 text-capas-coral" />}
+                              {alum.social.linkedin && <GlobeAltIcon className="w-4 h-4 text-capas-turquoise" />}
+                              {alum.social.website && <GlobeAltIcon className="w-4 h-4 text-capas-coral" />}
                             </div>
                           </div>
                         </div>
@@ -713,7 +694,7 @@ export default function Alumni() {
                 <div className="p-8">
                   <div className="flex justify-between items-start mb-6">
                     <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
-                      {selectedAlumni.firstName} {selectedAlumni.lastName}
+                      {selectedAlumni.name}
                     </h2>
                     <button
                       onClick={() => setSelectedAlumni(null)}
@@ -726,7 +707,7 @@ export default function Alumni() {
                   <div className="grid lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2">
                       <p className="text-capas-ocean-dark leading-relaxed mb-6">
-                        {selectedAlumni.bio}
+                        {selectedAlumni.story}
                       </p>
                       
                       {/* More detailed content would be here */}
@@ -736,7 +717,7 @@ export default function Alumni() {
                       <div className="bg-capas-sand-light rounded-lg p-6">
                         <h3 className="font-bold text-capas-turquoise mb-4">Current Position</h3>
                         <p className="text-capas-gold font-semibold">{selectedAlumni.currentPosition}</p>
-                        <p className="text-capas-ocean-dark">{selectedAlumni.currentOrganization}</p>
+                        <p className="text-capas-ocean-dark">{selectedAlumni.company}</p>
                         <p className="text-capas-ocean-dark/70 text-sm mt-2">{selectedAlumni.location}</p>
                       </div>
                     </div>
