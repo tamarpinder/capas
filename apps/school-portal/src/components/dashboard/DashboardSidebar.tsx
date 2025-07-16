@@ -121,13 +121,13 @@ export default function DashboardSidebar() {
           {/* Back to Main Site */}
           {!collapsed && (
             <div className="p-4 border-t border-capas-ocean-light/20">
-              <Link
-                href="/"
+              <a
+                href="https://capas.netlify.app/"
                 className="flex items-center px-3 py-2 text-sm text-capas-ocean-dark hover:text-capas-turquoise transition-colors"
               >
                 <ArrowLeftIcon className="h-4 w-4 mr-2" />
                 Back to Main Site
-              </Link>
+              </a>
             </div>
           )}
         </div>

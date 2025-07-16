@@ -23,7 +23,7 @@ export default function SignIn() {
     });
 
     if (result?.error) {
-      setError('Invalid credentials. Try: kiana.johnson@capas.edu.bs / capas123');
+      setError('Invalid credentials. Please check your email and password.');
     } else {
       router.push('/dashboard');
     }
@@ -111,19 +111,16 @@ export default function SignIn() {
             </button>
           </form>
 
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-capas-sand-light rounded-lg">
-            <h4 className="font-medium text-capas-ocean-dark text-sm mb-2">Demo Credentials:</h4>
-            <div className="text-xs text-capas-ocean-dark space-y-1">
-              <p><strong>Student:</strong> kiana.johnson@capas.edu.bs / capas123</p>
-              <p><strong>Admin:</strong> admin@capas.edu.bs / capas123</p>
-            </div>
-          </div>
-
-          <div className="mt-6 text-center">
-            <Link href="/" className="text-capas-turquoise hover:text-capas-turquoise-dark text-sm">
-              ← Back to Main Site
+          <div className="mt-6 flex items-center justify-between">
+            <Link
+              href="/demo"
+              className="text-capas-turquoise hover:text-capas-turquoise-dark text-sm font-medium"
+            >
+              Explore Demo →
             </Link>
+            <a href="https://capas.netlify.app/" className="text-capas-turquoise hover:text-capas-turquoise-dark text-sm">
+              ← Back to Main Site
+            </a>
           </div>
         </div>
       </div>

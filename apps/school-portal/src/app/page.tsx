@@ -71,20 +71,13 @@ export default function Home() {
         {/* Back to Main Site */}
         <div className="mt-8">
           <a
-            href="https://capas.edu.bs"
+            href="https://capas.netlify.app/"
             className="text-white/80 hover:text-white text-sm underline"
           >
             ← Back to Main CAPAS Site
           </a>
         </div>
 
-        {/* Demo Info */}
-        <div className="mt-12 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-          <h3 className="text-white font-semibold text-sm mb-2">Demo Access</h3>
-          <p className="text-white/80 text-xs">
-            Use: kiana.johnson@capas.edu.bs / capas123
-          </p>
-        </div>
       </div>
     </div>
   );

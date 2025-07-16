@@ -116,7 +116,7 @@ export default function DemoSelectionPage() {
               </div>
             </div>
             <a
-              href="https://capas.edu.bs"
+              href="https://capas.netlify.app/"
               className="text-capas-ocean-dark/70 hover:text-capas-turquoise transition-colors text-sm flex items-center space-x-1"
             >
               <span>← Back to Main Site</span>
