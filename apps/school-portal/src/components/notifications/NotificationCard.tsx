@@ -14,12 +14,12 @@ import {
 
 interface NotificationData {
   id: string;
-  type: string;
+  type: 'info' | 'warning' | 'success' | 'urgent';
   title: string;
   message: string;
   time: string;
   read: boolean;
-  priority: string;
+  priority?: string;
   icon: string;
   color: string;
   bgColor: string;
@@ -43,25 +43,29 @@ export default function NotificationCard({
 }: NotificationCardProps) {
   const [showActions, setShowActions] = useState(false);
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
+  const getPriorityColor = (type: string) => {
+    switch (type) {
       case 'urgent':
         return 'border-l-capas-coral bg-capas-coral/5';
-      case 'high':
+      case 'warning':
         return 'border-l-capas-gold bg-capas-gold/5';
-      case 'medium':
+      case 'success':
         return 'border-l-capas-turquoise bg-capas-turquoise/5';
+      case 'info':
       default:
         return 'border-l-capas-sand-light bg-white';
     }
   };
 
-  const getPriorityIcon = (priority: string) => {
-    switch (priority) {
+  const getPriorityIcon = (type: string) => {
+    switch (type) {
       case 'urgent':
         return <ExclamationTriangleIcon className="h-5 w-5 text-capas-coral" />;
-      case 'high':
+      case 'warning':
         return <ExclamationTriangleIcon className="h-5 w-5 text-capas-gold" />;
+      case 'success':
+        return <CheckIcon className="h-5 w-5 text-capas-palm" />;
+      case 'info':
       default:
         return <InformationCircleIcon className="h-5 w-5 text-capas-turquoise" />;
     }
@@ -75,7 +79,7 @@ export default function NotificationCard({
   return (
     <motion.div
       whileHover={{ scale: 1.01 }}
-      className={`relative border-l-4 ${getPriorityColor(notification.priority)} rounded-lg p-6 shadow-sm hover:shadow-md transition-all cursor-pointer ${
+      className={`relative border-l-4 ${getPriorityColor(notification.type)} rounded-lg p-6 shadow-sm hover:shadow-md transition-all cursor-pointer ${
         isSelected ? 'ring-2 ring-capas-turquoise' : ''
       } ${!notification.read ? 'bg-opacity-100' : 'opacity-75'}`}
     >
@@ -116,7 +120,7 @@ export default function NotificationCard({
             </div>
           </div>
           
-          {getPriorityIcon(notification.priority)}
+          {getPriorityIcon(notification.type)}
         </div>
 
         {/* Metadata */}
@@ -133,11 +137,12 @@ export default function NotificationCard({
           
           <div className="flex items-center space-x-2">
             <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-              notification.priority === 'urgent' ? 'bg-capas-coral/20 text-capas-coral' :
-              notification.priority === 'high' ? 'bg-capas-gold/20 text-capas-gold' :
+              notification.type === 'urgent' ? 'bg-capas-coral/20 text-capas-coral' :
+              notification.type === 'warning' ? 'bg-capas-gold/20 text-capas-gold' :
+              notification.type === 'success' ? 'bg-capas-palm/20 text-capas-palm' :
               'bg-capas-turquoise/20 text-capas-turquoise'
             }`}>
-              {notification.priority.charAt(0).toUpperCase() + notification.priority.slice(1)}
+              {notification.type.charAt(0).toUpperCase() + notification.type.slice(1)}
             </span>
           </div>
         </div>

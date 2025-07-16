@@ -135,7 +135,7 @@ export default function NoticesPage() {
     const matchesFilter = filter === 'all' || 
       (filter === 'unread' && !notification.read) ||
       (filter === 'read' && notification.read) ||
-      notification.priority === filter ||
+      notification.type === filter ||
       notification.category === filter;
     
     const matchesSearch = searchTerm === '' || 
@@ -184,7 +184,7 @@ export default function NoticesPage() {
   };
 
   const unreadCount = notifications.filter(n => !n.read).length;
-  const urgentCount = notifications.filter(n => n.priority === 'urgent' && !n.read).length;
+  const urgentCount = notifications.filter(n => n.type === 'urgent' && !n.read).length;
 
   const filterOptions = [
     { value: 'all', label: 'All Notifications', count: notifications.length },
