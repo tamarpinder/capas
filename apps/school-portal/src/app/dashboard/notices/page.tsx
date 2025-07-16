@@ -27,83 +27,108 @@ export default function NoticesPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSettings, setShowSettings] = useState(false);
   const [selectedNotifications, setSelectedNotifications] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
 
-  useEffect(() => {
-    // Initialize with student notifications plus system notifications
-    const systemNotifications = [
-      {
-        id: 'system-1',
-        type: 'announcement',
-        title: 'Junkanoo Festival Registration Open',
-        message: 'Join the annual Junkanoo Festival celebration! Registration is now open for performers and volunteers.',
-        time: '2 hours ago',
-        read: false,
-        priority: 'high',
-        icon: '🎭',
-        color: 'text-capas-coral',
-        bgColor: 'bg-capas-coral/10',
-        category: 'Cultural Events'
-      },
-      {
-        id: 'system-2',
-        type: 'academic',
-        title: 'Midterm Grades Posted',
-        message: 'Your midterm grades are now available in the academic portal. Check your progress and schedule advising if needed.',
-        time: '1 day ago',
-        read: false,
-        priority: 'high',
-        icon: '📊',
-        color: 'text-capas-turquoise',
-        bgColor: 'bg-capas-turquoise/10',
-        category: 'Academic'
-      },
-      {
-        id: 'system-3',
-        type: 'weather',
-        title: 'Tropical Storm Watch',
-        message: 'A tropical storm watch has been issued for the Bahamas. Campus operations may be affected. Stay tuned for updates.',
-        time: '3 hours ago',
-        read: true,
-        priority: 'urgent',
-        icon: '🌊',
-        color: 'text-capas-ocean',
-        bgColor: 'bg-capas-ocean/10',
-        category: 'Safety'
-      },
-      {
-        id: 'system-4',
-        type: 'social',
-        title: 'Beach Cleanup Volunteer Event',
-        message: 'Join us for a community beach cleanup at Cable Beach this Saturday. Contribute to keeping our islands beautiful!',
-        time: '1 day ago',
-        read: true,
-        priority: 'medium',
-        icon: '🏖️',
-        color: 'text-capas-palm',
-        bgColor: 'bg-capas-palm/10',
-        category: 'Community'
-      },
-      {
-        id: 'system-5',
-        type: 'deadline',
-        title: 'Financial Aid Applications Due',
-        message: 'Reminder: Financial aid applications for the Spring semester are due by October 15th.',
-        time: '2 days ago',
-        read: false,
-        priority: 'medium',
-        icon: '💰',
-        color: 'text-capas-gold',
-        bgColor: 'bg-capas-gold/10',
-        category: 'Financial'
-      }
-    ];
+  // Add error boundary for component failures
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <ExclamationTriangleIcon className="h-12 w-12 text-capas-coral mx-auto mb-4" />
+          <h2 className="text-xl font-semibold text-capas-ocean-dark mb-2">Notices Temporarily Unavailable</h2>
+          <p className="text-capas-ocean-dark/70 mb-4">We're working to fix this issue. Please try again later.</p>
+          <button 
+            onClick={() => setError(null)}
+            className="bg-capas-turquoise text-white px-4 py-2 rounded-lg hover:bg-capas-turquoise-dark transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
 
-    const studentNotifications = mockStudent?.notifications || [];
-    const allNotifications = [...systemNotifications, ...studentNotifications];
-    setNotifications(allNotifications);
+  useEffect(() => {
+    try {
+      // Initialize with student notifications plus system notifications
+      const systemNotifications = [
+        {
+          id: 'system-1',
+          type: 'announcement',
+          title: 'Junkanoo Festival Registration Open',
+          message: 'Join the annual Junkanoo Festival celebration! Registration is now open for performers and volunteers.',
+          time: '2 hours ago',
+          read: false,
+          priority: 'high',
+          icon: '🎭',
+          color: 'text-capas-coral',
+          bgColor: 'bg-capas-coral/10',
+          category: 'Cultural Events'
+        },
+        {
+          id: 'system-2',
+          type: 'academic',
+          title: 'Midterm Grades Posted',
+          message: 'Your midterm grades are now available in the academic portal. Check your progress and schedule advising if needed.',
+          time: '1 day ago',
+          read: false,
+          priority: 'high',
+          icon: '📊',
+          color: 'text-capas-turquoise',
+          bgColor: 'bg-capas-turquoise/10',
+          category: 'Academic'
+        },
+        {
+          id: 'system-3',
+          type: 'weather',
+          title: 'Tropical Storm Watch',
+          message: 'A tropical storm watch has been issued for the Bahamas. Campus operations may be affected. Stay tuned for updates.',
+          time: '3 hours ago',
+          read: true,
+          priority: 'urgent',
+          icon: '🌊',
+          color: 'text-capas-ocean',
+          bgColor: 'bg-capas-ocean/10',
+          category: 'Safety'
+        },
+        {
+          id: 'system-4',
+          type: 'social',
+          title: 'Beach Cleanup Volunteer Event',
+          message: 'Join us for a community beach cleanup at Cable Beach this Saturday. Contribute to keeping our islands beautiful!',
+          time: '1 day ago',
+          read: true,
+          priority: 'medium',
+          icon: '🏖️',
+          color: 'text-capas-palm',
+          bgColor: 'bg-capas-palm/10',
+          category: 'Community'
+        },
+        {
+          id: 'system-5',
+          type: 'deadline',
+          title: 'Financial Aid Applications Due',
+          message: 'Reminder: Financial aid applications for the Spring semester are due by October 15th.',
+          time: '2 days ago',
+          read: false,
+          priority: 'medium',
+          icon: '💰',
+          color: 'text-capas-gold',
+          bgColor: 'bg-capas-gold/10',
+          category: 'Financial'
+        }
+      ];
+
+      const studentNotifications = mockStudent?.notifications || [];
+      const allNotifications = [...systemNotifications, ...studentNotifications];
+      setNotifications(allNotifications);
+    } catch (err) {
+      console.error('Error loading notifications:', err);
+      setError('Failed to load notifications');
+    }
   }, [mockStudent]);
 
   const filteredNotifications = notifications.filter(notification => {
@@ -305,22 +330,33 @@ export default function NoticesPage() {
       {/* Notifications List */}
       <div className="space-y-4">
         {filteredNotifications.length > 0 ? (
-          filteredNotifications.map((notification, index) => (
-            <motion.div
-              key={notification.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-            >
-              <NotificationCard
-                notification={notification}
-                isSelected={selectedNotifications.includes(notification.id)}
-                onToggleSelection={() => toggleNotificationSelection(notification.id)}
-                onMarkAsRead={() => markAsRead(notification.id)}
-                onDelete={() => deleteNotification(notification.id)}
-              />
-            </motion.div>
-          ))
+          filteredNotifications.map((notification, index) => {
+            try {
+              return (
+                <motion.div
+                  key={notification.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                >
+                  <NotificationCard
+                    notification={notification}
+                    isSelected={selectedNotifications.includes(notification.id)}
+                    onToggleSelection={() => toggleNotificationSelection(notification.id)}
+                    onMarkAsRead={() => markAsRead(notification.id)}
+                    onDelete={() => deleteNotification(notification.id)}
+                  />
+                </motion.div>
+              );
+            } catch (err) {
+              console.error('Error rendering notification:', notification.id, err);
+              return (
+                <div key={notification.id} className="p-4 bg-capas-coral/10 rounded-lg border border-capas-coral/20">
+                  <p className="text-capas-coral text-sm">Failed to load notification</p>
+                </div>
+              );
+            }
+          })
         ) : (
           <div className="text-center py-12">
             <BellIcon className="h-16 w-16 text-capas-ocean-dark/40 mx-auto mb-4" />

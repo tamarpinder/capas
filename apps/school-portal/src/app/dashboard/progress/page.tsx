@@ -24,9 +24,72 @@ export default function ProgressPage() {
   const { data: session } = useSession();
   const [selectedSemester, setSelectedSemester] = useState('Fall 2024');
   const [viewType, setViewType] = useState<'overview' | 'courses' | 'grades' | 'achievements'>('overview');
+  const [error, setError] = useState<string | null>(null);
 
   const studentData = session?.user as ExtendedUser | undefined;
   const mockStudent = studentData?.email ? getStudentByEmail(studentData.email) : null;
+
+  // Add error boundary for component failures
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <ExclamationTriangleIcon className="h-12 w-12 text-capas-coral mx-auto mb-4" />
+          <h2 className="text-xl font-semibold text-capas-ocean-dark mb-2">Progress Temporarily Unavailable</h2>
+          <p className="text-capas-ocean-dark/70 mb-4">We're working to fix this issue. Please try again later.</p>
+          <button 
+            onClick={() => setError(null)}
+            className="bg-capas-turquoise text-white px-4 py-2 rounded-lg hover:bg-capas-turquoise-dark transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Wrap component rendering in try-catch
+  const renderTabContent = () => {
+    try {
+      switch (viewType) {
+        case 'overview':
+          return (
+            <ProgressOverview 
+              data={academicData}
+              getGradeColor={getGradeColor}
+              getStatusIcon={getStatusIcon}
+            />
+          );
+        case 'courses':
+          return (
+            <CourseProgress 
+              courses={academicData.courseProgress}
+              getGradeColor={getGradeColor}
+            />
+          );
+        case 'grades':
+          return (
+            <GradeChart 
+              semesterData={academicData.semesterGrades}
+              selectedSemester={selectedSemester}
+              onSemesterChange={setSelectedSemester}
+            />
+          );
+        case 'achievements':
+          return (
+            <AchievementBadges 
+              achievements={academicData.achievements}
+            />
+          );
+        default:
+          return <div className="text-center text-capas-ocean-dark/70">Select a tab to view content</div>;
+      }
+    } catch (err) {
+      console.error('Progress tab error:', err);
+      setError('Failed to load progress data');
+      return null;
+    }
+  };
 
   // Generate mock academic data
   const academicData = {
@@ -307,34 +370,7 @@ export default function ProgressPage() {
 
         {/* Tab Content */}
         <div className="min-h-[500px]">
-          {viewType === 'overview' && (
-            <ProgressOverview 
-              data={academicData}
-              getGradeColor={getGradeColor}
-              getStatusIcon={getStatusIcon}
-            />
-          )}
-          
-          {viewType === 'courses' && (
-            <CourseProgress 
-              courses={academicData.courseProgress}
-              getGradeColor={getGradeColor}
-            />
-          )}
-          
-          {viewType === 'grades' && (
-            <GradeChart 
-              semesterData={academicData.semesterGrades}
-              selectedSemester={selectedSemester}
-              onSemesterChange={setSelectedSemester}
-            />
-          )}
-          
-          {viewType === 'achievements' && (
-            <AchievementBadges 
-              achievements={academicData.achievements}
-            />
-          )}
+          {renderTabContent()}
         </div>
       </motion.div>
 
