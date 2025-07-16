@@ -5,8 +5,6 @@
 [build.environment]
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
-  NEXTAUTH_SECRET = "a77b4fb05ec83c52c3fe377ffdf93356"
-  NEXTAUTH_URL = "https://capas-school-portal.netlify.app"
 
 # Use Essential Next.js plugin for Netlify
 [[plugins]]

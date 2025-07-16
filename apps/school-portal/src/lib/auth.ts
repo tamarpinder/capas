@@ -2,6 +2,13 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { getStudentByEmail } from "./mock-data";
 
+// Debug environment variables
+console.log('[NextAuth] Environment check:', {
+  NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+  NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET ? '***SET***' : 'NOT SET',
+  NODE_ENV: process.env.NODE_ENV
+});
+
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -11,29 +18,39 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        // Demo authentication - in production, this would connect to your database
-        if (credentials?.email && credentials?.password === "capas123") {
-          const student = getStudentByEmail(credentials.email);
-          if (student) {
-            return {
-              id: student.id,
-              email: student.email,
-              name: student.name,
-              firstName: student.firstName,
-              lastName: student.lastName,
-              program: student.program,
-              year: student.year,
-              gpa: student.gpa,
-              avatar: student.avatar,
-              studentId: student.studentId,
-              island: student.island,
-              enrolledCourses: student.enrolledCourses,
-              achievements: student.achievements,
-              role: student.role
-            };
+        try {
+          console.log('[NextAuth] Authorize attempt:', { email: credentials?.email });
+          
+          // Demo authentication - in production, this would connect to your database
+          if (credentials?.email && credentials?.password === "capas123") {
+            const student = getStudentByEmail(credentials.email);
+            console.log('[NextAuth] Student found:', !!student);
+            
+            if (student) {
+              return {
+                id: student.id,
+                email: student.email,
+                name: student.name,
+                firstName: student.firstName,
+                lastName: student.lastName,
+                program: student.program,
+                year: student.year,
+                gpa: student.gpa,
+                avatar: student.avatar,
+                studentId: student.studentId,
+                island: student.island,
+                enrolledCourses: student.enrolledCourses,
+                achievements: student.achievements,
+                role: student.role
+              };
+            }
           }
+          console.log('[NextAuth] Authorization failed');
+          return null;
+        } catch (error) {
+          console.error('[NextAuth] Authorization error:', error);
+          return null;
         }
-        return null;
       }
     })
   ],
@@ -49,20 +66,26 @@ export const authOptions: NextAuthOptions = {
       return baseUrl
     },
     async jwt({ token, user }) {
-      if (user) {
-        token.firstName = user.firstName;
-        token.lastName = user.lastName;
-        token.program = user.program;
-        token.year = user.year;
-        token.gpa = user.gpa;
-        token.avatar = user.avatar;
-        token.studentId = user.studentId;
-        token.island = user.island;
-        token.enrolledCourses = user.enrolledCourses;
-        token.achievements = user.achievements;
-        token.role = user.role;
+      try {
+        if (user) {
+          console.log('[NextAuth] JWT callback - user data present');
+          token.firstName = user.firstName;
+          token.lastName = user.lastName;
+          token.program = user.program;
+          token.year = user.year;
+          token.gpa = user.gpa;
+          token.avatar = user.avatar;
+          token.studentId = user.studentId;
+          token.island = user.island;
+          token.enrolledCourses = user.enrolledCourses;
+          token.achievements = user.achievements;
+          token.role = user.role;
+        }
+        return token;
+      } catch (error) {
+        console.error('[NextAuth] JWT callback error:', error);
+        return token;
       }
-      return token;
     },
     async session({ session, token }) {
       if (token) {
@@ -87,7 +110,8 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: '/auth/signin',
   },
-  secret: process.env.NEXTAUTH_SECRET || "capas-development-secret",
+  secret: process.env.NEXTAUTH_SECRET || "capas-development-secret-fallback-for-local",
+  debug: process.env.NODE_ENV === "development",
 };
 
 export interface ExtendedUser {
