@@ -40,11 +40,14 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-capas-sand-light">
+    <div className="h-screen bg-capas-sand-light flex flex-col">
+      {/* Fixed Header - No overlapping */}
       <DashboardHeader />
-      <div className="flex pt-16 md:pt-20"> {/* Add responsive top padding to account for fixed header */}
+      
+      {/* Main Content Area - Takes remaining height */}
+      <div className="flex flex-1 overflow-hidden">
         <DashboardSidebar />
-        <main className="flex-1 lg:ml-64">
+        <main className="flex-1 lg:ml-64 overflow-y-auto">
           <div className="p-4 lg:p-8">
             {children}
           </div>

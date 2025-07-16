@@ -34,12 +34,27 @@ export default function DashboardHeader() {
   // Scroll detection for header transparency
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setScrolled(scrollTop > 10);
+      // Look for the main content area to detect scroll
+      const mainContent = document.querySelector('main[class*="overflow-y-auto"]');
+      if (mainContent) {
+        const scrollTop = mainContent.scrollTop;
+        setScrolled(scrollTop > 10);
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Add scroll listener to main content area
+    const mainContent = document.querySelector('main[class*="overflow-y-auto"]');
+    if (mainContent) {
+      mainContent.addEventListener('scroll', handleScroll);
+      return () => mainContent.removeEventListener('scroll', handleScroll);
+    }
+
+    // Fallback to window scroll if main content not found
+    const fallbackHandler = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', fallbackHandler);
+    return () => window.removeEventListener('scroll', fallbackHandler);
   }, []);
 
   const unreadCount = notifications.filter(n => n.unread).length;
@@ -57,12 +72,12 @@ export default function DashboardHeader() {
   };
 
   return (
-    <header className={`sticky top-0 z-40 transition-all duration-300 border-b border-capas-ocean-light/20 ${
+    <header className={`flex-shrink-0 z-40 transition-all duration-300 border-b border-capas-ocean-light/20 ${
       scrolled 
-        ? 'bg-white/80 backdrop-blur-md shadow-lg' 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
         : 'bg-white shadow-sm'
     }`}>
-      <div className="flex items-center justify-between px-4 lg:px-8 py-4">
+      <div className="flex items-center justify-between px-4 lg:px-8 py-4 h-20"> {/* Fixed height for consistent layout */}
         {/* Mobile menu button */}
         <button className="lg:hidden p-2 rounded-md text-capas-ocean-dark hover:text-capas-turquoise">
           <Bars3Icon className="h-6 w-6" />
