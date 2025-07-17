@@ -1,6 +1,6 @@
 [build]
-  command = "npm install && npx turbo run build --filter=school-portal"
-  publish = "apps/school-portal/.next"
+  command = "npm install && npx turbo run build --filter=main-website"
+  publish = "apps/main-website/.next"
   
 [build.environment]
   NODE_VERSION = "18"

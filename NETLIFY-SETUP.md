@@ -1,49 +1,138 @@
-# Netlify Deployment Setup for CAPAS School Portal
+# Netlify Multi-Deployment Setup for CAPAS Monorepo
 
-## Environment Variables Required
+This monorepo contains three Next.js applications that deploy to separate Netlify sites:
 
-### In Netlify Dashboard (Site Settings > Environment Variables):
+## 🌐 Live Deployments
+
+- **Main Website**: [capas.netlify.app](https://capas.netlify.app)
+- **School Portal**: [capas-school-portal.netlify.app](https://capas-school-portal.netlify.app)  
+- **Creatives Hub**: [capas-creatives-hub.netlify.app](https://capas-creatives-hub.netlify.app) *(coming soon)*
+
+## 📁 Configuration Files
+
+Each application has its own Netlify configuration:
+
+```
+netlify-main-website.toml     → Main Website deployment
+netlify-school-portal.toml    → School Portal deployment  
+netlify-creatives-hub.toml    → Creatives Hub deployment
+netlify.toml                  → Documentation/Template only
+```
+
+## 🚀 Deployment Setup
+
+### For Each Application:
+
+#### 1. Create Netlify Site
+- Go to [Netlify Dashboard](https://app.netlify.com)
+- Click "Add new site" → "Import an existing project"
+- Connect to GitHub repository: `tamarpinder/capas`
+
+#### 2. Configure Build Settings
+**Site Settings → Build & Deploy → Build settings:**
+
+**For Main Website (capas.netlify.app):**
+- **Build command**: `npm install && npx turbo run build --filter=main-website`
+- **Publish directory**: `apps/main-website/.next`
+- **Base directory**: *(leave empty)*
+
+**For School Portal (capas-school-portal.netlify.app):**
+- **Build command**: `npm install && npx turbo run build --filter=school-portal`  
+- **Publish directory**: `apps/school-portal/.next`
+- **Base directory**: *(leave empty)*
+
+**For Creatives Hub (capas-creatives-hub.netlify.app):**
+- **Build command**: `npm install && npx turbo run build --filter=creatives-hub`
+- **Publish directory**: `apps/creatives-hub/.next`  
+- **Base directory**: *(leave empty)*
+
+#### 3. Alternative: Use Config Files
+Instead of manually setting build commands, you can reference the config files:
+
+**Site Settings → Environment Variables:**
+```
+NETLIFY_CONFIG_PATH = netlify-main-website.toml     # For main website
+NETLIFY_CONFIG_PATH = netlify-school-portal.toml    # For school portal
+NETLIFY_CONFIG_PATH = netlify-creatives-hub.toml    # For creatives hub
+```
+
+## 🔐 Environment Variables
+
+### School Portal Only
+The School Portal requires authentication environment variables:
+
+**Site Settings → Environment Variables:**
 
 1. **NEXTAUTH_URL**
-   - Set to your Netlify site URL
-   - Example: `https://your-site-name.netlify.app`
-   - **IMPORTANT**: Replace `your-site-name` with your actual Netlify site name
+   - Value: `https://capas-school-portal.netlify.app`
+   - ⚠️ No trailing slash, must match exact domain
 
 2. **NEXTAUTH_SECRET**
-   - Generate a secure random string for production
-   - You can generate one at: https://generate-secret.vercel.app/32
-   - **IMPORTANT**: Replace the placeholder in `netlify.toml` or set in Netlify UI
+   - Generate at: https://generate-secret.vercel.app/32
+   - Keep secure, don't commit to repository
 
-## Setup Steps:
+### Main Website & Creatives Hub
+No additional environment variables required.
 
-### 1. Update netlify.toml
-- Update the `NEXTAUTH_URL` in `netlify.toml` to match your actual Netlify domain
-- Update the `NEXTAUTH_SECRET` to a secure production value
+## 🔗 Cross-Application Navigation
 
-### 2. Alternative: Set via Netlify UI
-Instead of storing secrets in `netlify.toml`, you can set them securely in Netlify:
-- Go to Site Settings > Environment Variables
-- Add `NEXTAUTH_URL` with your site URL
-- Add `NEXTAUTH_SECRET` with a secure random string
-- Remove these from `netlify.toml` if set in UI
+The applications are configured to link to each other:
 
-### 3. Demo Accounts
-The following demo accounts are available:
-- **Email**: Use any email from the demo user selection page
+**Main Website links to:**
+- School Portal: `https://capas-school-portal.netlify.app/`
+- Creatives Hub: `https://capas-creatives-hub.netlify.app/`
+
+**School Portal links to:**
+- Main Website: `https://capas.netlify.app/`
+
+**Creatives Hub links to:**
+- Main Website: `https://capas.netlify.app/`
+- School Portal: `https://capas-school-portal.netlify.app/`
+
+## 🧪 Testing Deployments
+
+### Local Testing
+```bash
+# Test specific app builds
+npm run build --filter=main-website
+npm run build --filter=school-portal  
+npm run build --filter=creatives-hub
+
+# Test with Netlify CLI
+netlify build --config=netlify-main-website.toml
+netlify build --config=netlify-school-portal.toml
+```
+
+### Demo Accounts (School Portal)
+- **Email**: Use any email from the demo selection page
 - **Password**: `capas123` (for all demo accounts)
 
-## Troubleshooting
+## 🚨 Troubleshooting
 
-### If demo login doesn't work:
-1. Check browser console for errors
-2. Verify `NEXTAUTH_URL` matches exactly (no trailing slash)
-3. Ensure `NEXTAUTH_SECRET` is set and not the placeholder value
-4. Try clearing browser cookies and local storage
+### Build Fails
+1. Check Node.js version is 18+ in build environment
+2. Verify Turborepo filter names match package.json names
+3. Ensure all dependencies are properly installed
 
-### If "Back to Main Site" gives 404:
-This has been fixed to point to `https://capas.edu.bs` instead of relative paths.
+### School Portal Auth Issues
+1. Verify `NEXTAUTH_URL` matches exactly (no trailing slash)
+2. Ensure `NEXTAUTH_SECRET` is set and not placeholder
+3. Clear browser cookies and local storage
+4. Check browser console for errors
 
-### Build fails:
-- Ensure all environment variables are properly set
-- Check that the build command targets `school-portal` filter
-- Verify Node.js version is 18 or higher
+### Wrong App Deploying
+1. Verify correct config file is referenced
+2. Check build command filter matches intended app
+3. Ensure publish directory points to correct app
+
+### Cross-App Navigation 404s
+1. Verify target URLs are correct in code
+2. Check that external links use full URLs, not relative paths
+3. Ensure target sites are deployed and accessible
+
+## 📞 Support
+
+For deployment issues:
+- Check Netlify build logs for detailed error messages
+- Verify environment variables are set correctly
+- Test build commands locally before deploying

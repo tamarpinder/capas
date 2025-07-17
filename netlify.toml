@@ -1,20 +1,35 @@
-[build]
-  command = "npm install && npx turbo run build --filter=school-portal"
-  publish = "apps/school-portal/.next"
-  
-[build.environment]
-  NODE_VERSION = "18"
-  NEXT_TELEMETRY_DISABLED = "1"
+# ================================
+# NETLIFY MULTI-DEPLOYMENT CONFIG
+# ================================
+# 
+# This monorepo deploys multiple apps to separate Netlify sites.
+# Use the app-specific configuration files below:
+#
+# Main Website (capas.netlify.app):
+#   → netlify-main-website.toml
+#
+# School Portal (capas-school-portal.netlify.app):
+#   → netlify-school-portal.toml
+#
+# Creatives Hub (capas-creatives-hub.netlify.app):
+#   → netlify-creatives-hub.toml
+#
+# ================================
+# DEPLOYMENT INSTRUCTIONS:
+# ================================
+#
+# For each Netlify site:
+# 1. Create site in Netlify dashboard
+# 2. Connect to this GitHub repository
+# 3. Set Base Directory: (leave empty - use repository root)
+# 4. In Site Settings → Environment Variables, add:
+#    NETLIFY_CONFIG_PATH = netlify-[app-name].toml
+# 5. Or use Build command override:
+#    netlify build --config=netlify-[app-name].toml
+#
+# See NETLIFY-SETUP.md for detailed instructions.
+#
+# ================================
 
-# Use Essential Next.js plugin for Netlify
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-# Security headers
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+# This file serves as documentation only.
+# The actual deployment configurations are in the app-specific files.
