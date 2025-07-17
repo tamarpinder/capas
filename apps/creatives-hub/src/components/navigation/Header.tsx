@@ -7,13 +7,13 @@ import useUserStore from '@/stores/userStore';
 import DropdownMenu from './DropdownMenu';
 import SearchBar from './SearchBar';
 import ProgressIndicator from './ProgressIndicator';
+import StartLearningButton from './StartLearningButton';
 import {
   AcademicCapIcon,
   BookOpenIcon,
   ChatBubbleLeftRightIcon,
   PhotoIcon,
   DocumentTextIcon,
-  ArrowTopRightOnSquareIcon,
   ChevronDownIcon,
   UserCircleIcon,
   ArrowRightOnRectangleIcon,
@@ -21,7 +21,9 @@ import {
   XMarkIcon,
   BellIcon,
   CogIcon,
-  ChartBarIcon
+  ChartBarIcon,
+  HomeIcon,
+  PaintBrushIcon
 } from '@heroicons/react/24/outline';
 
 // Modern navigation structure with logical grouping
@@ -59,15 +61,38 @@ const secondaryActions = [
   { name: 'Join Community', href: '/forums', type: 'secondary' },
 ];
 
-// External portal access
-const portalAccess = {
-  name: 'School Portal',
-  href: process.env.NEXT_PUBLIC_SCHOOL_PORTAL_URL || 'https://capas-school-portal.netlify.app',
-  isExternal: true,
-  description: 'Access school portal for administrative tasks',
-  icon: ArrowTopRightOnSquareIcon,
-  color: 'text-capas-palm'
-};
+// CAPAS Apps for app switcher in profile dropdown
+const capasApps = [
+  {
+    id: 'main-website',
+    name: 'Main Website',
+    description: 'CAPAS homepage and information',
+    url: process.env.NEXT_PUBLIC_MAIN_WEBSITE_URL || 'https://capas.netlify.app',
+    icon: HomeIcon,
+    color: 'text-capas-turquoise',
+    isExternal: true
+  },
+  {
+    id: 'school-portal',
+    name: 'School Portal',
+    description: 'Administrative tools and student management',
+    url: process.env.NEXT_PUBLIC_SCHOOL_PORTAL_URL || 'https://capas-school-portal.netlify.app',
+    icon: AcademicCapIcon,
+    color: 'text-capas-palm',
+    isExternal: true
+  },
+  {
+    id: 'creatives-hub',
+    name: 'Creatives Hub',
+    description: 'Learning platform for creative arts',
+    url: '#',
+    icon: PaintBrushIcon,
+    color: 'text-capas-coral',
+    isExternal: false,
+    isCurrent: true
+  }
+];
+
 
 export default function Header() {
   const { user, logout } = useUserStore();
@@ -81,6 +106,13 @@ export default function Header() {
 
   const closeMenu = useCallback(() => setIsMobileMenuOpen(false), []);
   const toggleMenu = useCallback(() => setIsMobileMenuOpen(prev => !prev), []);
+
+  const handleAppSelect = (app: typeof capasApps[0]) => {
+    setIsProfileOpen(false);
+    if (app.isExternal) {
+      window.open(app.url, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -106,8 +138,9 @@ export default function Header() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group flex-shrink-0">
+          {/* Logo & Breadcrumb */}
+          <div className="flex items-center space-x-4 flex-shrink-0">
+            <Link href="/" className="flex items-center space-x-3 group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="w-12 h-12 bg-gradient-to-br from-capas-turquoise to-capas-ocean rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
@@ -120,7 +153,8 @@ export default function Header() {
               </h1>
               <p className="text-sm text-capas-ocean-dark">Creatives Hub</p>
             </div>
-          </Link>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-3">
@@ -137,13 +171,12 @@ export default function Header() {
             {/* Primary CTA Button */}
             <div className="ml-4">
               {primaryActions.map((action) => (
-                <Link
+                <StartLearningButton
                   key={action.name}
-                  href={action.href}
                   className="bg-capas-gold hover:bg-capas-gold-dark text-capas-ocean-dark font-semibold px-4 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg whitespace-nowrap text-sm xl:text-base"
                 >
                   {action.name}
-                </Link>
+                </StartLearningButton>
               ))}
             </div>
           </nav>
@@ -167,16 +200,6 @@ export default function Header() {
               </Link>
             ))}
             
-            {/* School Portal Access */}
-            <Link
-              href={portalAccess.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-capas-ocean-light text-capas-turquoise hover:bg-capas-palm hover:text-white transition-all duration-200 text-sm font-medium"
-            >
-              <span>School Portal</span>
-              <portalAccess.icon className="w-4 h-4" />
-            </Link>
             
             {/* User Profile */}
             {user && (
@@ -205,13 +228,60 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.15, ease: 'easeOut' }}
-                      className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50"
+                      className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-200 py-2 z-50"
                       style={{ 
                         background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.95) 100%)',
                         backdropFilter: 'blur(12px)',
                         WebkitBackdropFilter: 'blur(12px)'
                       }}
                     >
+                      {/* CAPAS Apps Section */}
+                      <div className="px-4 py-3 border-b border-gray-100">
+                        <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">CAPAS Applications</h3>
+                        <div className="space-y-1">
+                          {capasApps.map((app) => {
+                            const IconComponent = app.icon;
+                            return (
+                              <button
+                                key={app.id}
+                                onClick={() => handleAppSelect(app)}
+                                disabled={app.isCurrent}
+                                className={`w-full flex items-start px-3 py-3 text-sm rounded-md transition-colors ${
+                                  app.isCurrent 
+                                    ? 'bg-capas-ocean-light/30 text-capas-turquoise cursor-default' 
+                                    : 'text-gray-700 hover:bg-gray-100 cursor-pointer'
+                                }`}
+                              >
+                                <div className={`w-8 h-8 rounded-lg flex items-center justify-center mr-3 ${
+                                  app.isCurrent ? 'bg-capas-turquoise' : 'bg-gray-100'
+                                }`}>
+                                  <IconComponent className={`w-4 h-4 ${
+                                    app.isCurrent ? 'text-white' : app.color
+                                  }`} />
+                                </div>
+                                <div className="flex-1 text-left">
+                                  <div className="flex items-center">
+                                    <span className="font-medium">{app.name}</span>
+                                    {app.isCurrent && (
+                                      <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium bg-capas-turquoise text-white">
+                                        Current
+                                      </span>
+                                    )}
+                                  </div>
+                                  <p className="text-xs text-gray-500 leading-relaxed">{app.description}</p>
+                                </div>
+                                {app.isExternal && !app.isCurrent && (
+                                  <svg className="w-3 h-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                  </svg>
+                                )}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      {/* User Profile Section */}
                       <div className="px-4 py-3 border-b border-gray-100">
                         <p className="text-sm font-medium text-gray-900">{user.fullname}</p>
                         <p className="text-sm text-gray-500">{user.email}</p>
@@ -316,14 +386,12 @@ export default function Header() {
                   {/* Primary Action Button for Mobile */}
                   <div className="border-t border-capas-ocean-light/30 pt-4">
                     {primaryActions.map((action) => (
-                      <Link
+                      <StartLearningButton
                         key={action.name}
-                        href={action.href}
                         className="block bg-capas-gold hover:bg-capas-gold-dark text-capas-ocean-dark font-semibold px-4 py-3 rounded-lg text-center shadow-md mb-4"
-                        onClick={closeMenu}
                       >
-                        {action.name}
-                      </Link>
+                        <span onClick={closeMenu}>{action.name}</span>
+                      </StartLearningButton>
                     ))}
                   </div>
                 </div>
@@ -343,17 +411,6 @@ export default function Header() {
                       </Link>
                     ))}
                     
-                    {/* School Portal Link */}
-                    <Link
-                      href={portalAccess.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center space-x-2 bg-capas-ocean-light text-capas-turquoise px-4 py-3 rounded-lg font-medium"
-                      onClick={closeMenu}
-                    >
-                      <span>School Portal</span>
-                      <portalAccess.icon className="w-4 h-4" />
-                    </Link>
                   </div>
                 </div>
               </div>

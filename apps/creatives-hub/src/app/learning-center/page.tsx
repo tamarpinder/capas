@@ -188,6 +188,22 @@ export default function LearningCenter() {
   const { courses, fetchEnrolledCourses } = useCourseStore();
   const { user, isAuthenticated } = useUserStore();
 
+  // Authentication guard - redirect to login if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-capas-sand-light flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-6xl mb-4">🔒</div>
+          <h1 className="font-display text-2xl font-bold text-capas-turquoise mb-2">Login Required</h1>
+          <p className="text-capas-ocean-dark mb-6">Please log in to access the learning center.</p>
+          <Link href="/" className="inline-flex items-center px-6 py-3 bg-capas-turquoise text-white font-semibold rounded-lg hover:bg-capas-turquoise-dark transition-colors">
+            Back to Login
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   useEffect(() => {
     if (isAuthenticated) {
       fetchEnrolledCourses('inprogress');

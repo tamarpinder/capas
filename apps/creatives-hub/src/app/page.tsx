@@ -104,13 +104,23 @@ export default function Home() {
                   "Creatives Hub - Where Culture Meets Innovation"
                 }
               </p>
-              <Link 
-                href="/my-courses" 
-                className="inline-flex items-center px-8 py-4 bg-white text-capas-turquoise font-semibold rounded-lg hover:bg-capas-gold hover:text-white transition-colors shadow-lg text-lg"
-              >
-                <AcademicCapIcon className="w-6 h-6 mr-2" />
-                {user ? "View My Courses" : "Start Learning"}
-              </Link>
+              {user ? (
+                <Link 
+                  href="/my-courses" 
+                  className="inline-flex items-center px-8 py-4 bg-white text-capas-turquoise font-semibold rounded-lg hover:bg-capas-gold hover:text-white transition-colors shadow-lg text-lg"
+                >
+                  <AcademicCapIcon className="w-6 h-6 mr-2" />
+                  View My Courses
+                </Link>
+              ) : (
+                <button 
+                  onClick={() => setShowLogin(true)}
+                  className="inline-flex items-center px-8 py-4 bg-white text-capas-turquoise font-semibold rounded-lg hover:bg-capas-gold hover:text-white transition-colors shadow-lg text-lg"
+                >
+                  <AcademicCapIcon className="w-6 h-6 mr-2" />
+                  Start Learning
+                </button>
+              )}
             </motion.div>
           </div>
         </div>
