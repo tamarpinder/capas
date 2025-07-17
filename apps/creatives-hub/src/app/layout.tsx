@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-capas-sand-light via-white to-capas-ocean-light min-h-screen`}
       >
         <Header />
-        <main>
+        <main className="pt-20">
           {children}
         </main>
       </body>
