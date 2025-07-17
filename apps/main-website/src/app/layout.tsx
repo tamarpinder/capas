@@ -97,24 +97,26 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         
-        {/* Service Worker Registration */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js')
-                    .then(function(registration) {
-                      console.log('🎯 SW registered: ', registration);
-                    })
-                    .catch(function(registrationError) {
-                      console.log('❌ SW registration failed: ', registrationError);
-                    });
-                });
-              }
-            `,
-          }}
-        />
+        {/* Service Worker Registration - Disabled in development */}
+        {process.env.NODE_ENV === 'production' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if ('serviceWorker' in navigator) {
+                  window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/sw.js')
+                      .then(function(registration) {
+                        console.log('🎯 SW registered: ', registration);
+                      })
+                      .catch(function(registrationError) {
+                        console.log('❌ SW registration failed: ', registrationError);
+                      });
+                  });
+                }
+              `,
+            }}
+          />
+        )}
       </head>
       <body className="font-body antialiased bg-capas-ocean-light dark:bg-gray-900 text-capas-ocean-dark dark:text-gray-100 transition-colors duration-300">
         {/* Skip to main content link for screen readers */}

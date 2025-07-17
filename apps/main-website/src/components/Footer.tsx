@@ -47,11 +47,11 @@ export default function Footer() {
         </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <div className="relative mobile-safe-container py-12">
+        <div className="mobile-grid-auto lg:grid-cols-5">
           {/* CAPAS Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-4">
+          <div className="lg:col-span-1 mobile-footer-center">
+            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
               <div className="w-12 h-12 bg-capas-turquoise rounded-full flex items-center justify-center">
                 <span className="text-white font-display font-bold text-xl">C</span>
               </div>
@@ -60,10 +60,10 @@ export default function Footer() {
                 <p className="text-capas-ocean-light text-sm">Bahamas</p>
               </div>
             </div>
-            <p className="text-capas-ocean-light text-sm leading-relaxed">
+            <p className="text-capas-ocean-light text-sm leading-relaxed mb-6">
               Creative Arts, Performance & Academic Studies - Where Caribbean culture meets creative innovation.
             </p>
-            <div className="mt-6 space-y-2">
+            <div className="space-y-2">
               <p className="text-capas-ocean-light text-sm">Nassau, The Bahamas</p>
               <p className="text-capas-ocean-light text-sm">info@capas.edu.bs</p>
               <p className="text-capas-ocean-light text-sm">+1 (242) 123-4567</p>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Academic Links */}
-          <div>
+          <div className="mobile-footer-center">
             <h4 className="font-montserrat text-lg font-semibold text-capas-gold mb-4">Academic</h4>
             <nav aria-label="Academic navigation">
               <ul className="space-y-2">
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
 
           {/* Community Links */}
-          <div>
+          <div className="mobile-footer-center">
             <h4 className="font-montserrat text-lg font-semibold text-capas-gold mb-4">Community</h4>
             <nav aria-label="Community navigation">
               <ul className="space-y-2">
@@ -109,7 +109,7 @@ export default function Footer() {
           </div>
 
           {/* Resources Links */}
-          <div>
+          <div className="mobile-footer-center">
             <h4 className="font-montserrat text-lg font-semibold text-capas-gold mb-4">Resources</h4>
             <nav aria-label="Resources navigation">
               <ul className="space-y-2">
@@ -128,7 +128,7 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div>
+          <div className="mobile-footer-center">
             <h4 className="font-montserrat text-lg font-semibold text-capas-gold mb-4">Information</h4>
             <nav aria-label="Legal and support navigation">
               <ul className="space-y-2">
@@ -149,13 +149,13 @@ export default function Footer() {
 
         {/* Bottom section */}
         <div className="mt-12 pt-8 border-t border-capas-ocean-light/30">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-capas-ocean-light text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center mobile-center md:mobile-footer-center">
+            <p className="text-capas-ocean-light text-sm mb-4 md:mb-0">
               © 2024 CAPAS Bahamas. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex space-x-6">
               <nav aria-label="Social media">
-                <div className="flex space-x-4">
+                <div className="flex space-x-4 justify-center">
                   <a 
                     href="#" 
                     className="text-capas-ocean-light hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-capas-gold focus:ring-offset-2 focus:ring-offset-capas-ocean-dark rounded-sm p-1"

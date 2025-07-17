@@ -178,7 +178,7 @@ export default function PreparationPage() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-8">
               <ol className="flex items-center space-x-2 text-sm">
@@ -217,8 +217,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Welcome Message */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -263,8 +263,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Pre-Arrival Checklist */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -280,7 +280,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="mobile-grid-auto">
               {checklist.map((category, index) => (
                 <motion.div
                   key={category.category}
@@ -322,8 +322,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Important Dates */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -344,7 +344,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {importantDates.map((date, index) => (
                 <motion.div
                   key={date.event}
@@ -382,8 +382,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Essential Information */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -399,7 +399,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-4">
               {essentialInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
@@ -407,7 +407,7 @@ export default function PreparationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-capas-sand-light rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="mobile-card-enhanced bg-capas-sand-light hover:bg-white hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-capas-turquoise rounded-full flex items-center justify-center mr-3">
@@ -432,8 +432,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Campus Resources */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -454,7 +454,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-4">
               {resources.map((resource, index) => (
                 <motion.div
                   key={resource.title}
@@ -462,7 +462,7 @@ export default function PreparationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                  className="mobile-card-enhanced bg-white hover:shadow-lg transition-shadow duration-300"
                 >
                   <h3 className="font-montserrat text-lg font-bold text-capas-turquoise mb-4">
                     {resource.title}
@@ -483,8 +483,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Next Steps */}
-        <section className="py-20 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -522,8 +522,8 @@ export default function PreparationPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <div className="bg-capas-sand-light rounded-2xl shadow-xl p-8 md:p-12 text-center">
               <h3 className="font-montserrat text-2xl font-bold text-capas-turquoise mb-4">
                 Need Help Getting Started?

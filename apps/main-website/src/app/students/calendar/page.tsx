@@ -135,7 +135,7 @@ export default function AcademicCalendarPage() {
       <OrganizationStructuredData />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-palm py-24">
+        <section className="relative bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-palm mobile-section-padding">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -145,7 +145,7 @@ export default function AcademicCalendarPage() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-8">
               <ol className="flex items-center space-x-2 text-sm">
@@ -184,9 +184,9 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Calendar Controls */}
-        <section className="py-8 bg-capas-sand-light border-b border-capas-ocean-light/20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <section className="mobile-section-padding bg-capas-sand-light border-b border-capas-ocean-light/20">
+          <div className="mobile-safe-container">
+            <div className="mobile-center md:flex-row gap-4 md:items-center md:justify-between">
               {/* Semester Selector */}
               <div className="flex items-center space-x-4">
                 <label className="font-semibold text-capas-ocean-dark">Semester:</label>
@@ -233,8 +233,8 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Calendar Events */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -263,7 +263,7 @@ export default function AcademicCalendarPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.05 }}
                     viewport={{ once: true }}
-                    className="bg-white border-l-4 border-capas-turquoise rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6"
+                    className="mobile-card-enhanced bg-white border-l-4 border-capas-turquoise shadow-md hover:shadow-lg transition-shadow duration-300"
                     style={{ borderLeftColor: eventConfig.color.replace('bg-', '#') }}
                   >
                     <div className="flex items-start space-x-4">
@@ -311,8 +311,8 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Upcoming Events Spotlight */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -333,7 +333,7 @@ export default function AcademicCalendarPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {upcomingEvents.map((event, index) => (
                 <motion.div
                   key={event.title}
@@ -341,7 +341,7 @@ export default function AcademicCalendarPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                  className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="text-center">
                     <div className="bg-capas-turquoise text-white text-2xl font-bold py-3 px-4 rounded-lg mb-4">
@@ -374,8 +374,8 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Important Reminders */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -396,7 +396,7 @@ export default function AcademicCalendarPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="mobile-grid-auto">
               {importantReminders.map((reminder, index) => (
                 <motion.div
                   key={reminder.title}
@@ -424,8 +424,8 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Academic Resources */}
-        <section className="py-20 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -462,8 +462,8 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
               <h3 className="font-montserrat text-2xl font-bold text-capas-turquoise mb-4">
                 Need Academic Support?

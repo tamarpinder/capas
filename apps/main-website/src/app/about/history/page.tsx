@@ -131,7 +131,7 @@ export default function HistoryPage() {
       <OrganizationStructuredData />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean py-24">
+        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean mobile-section-padding">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -141,7 +141,7 @@ export default function HistoryPage() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-8">
               <ol className="flex items-center space-x-2 text-sm">
@@ -180,20 +180,20 @@ export default function HistoryPage() {
         </section>
 
         {/* Our Story */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="grid lg:grid-cols-2 gap-12 items-center"
+              className="mobile-grid-auto lg:grid-cols-2 items-center"
             >
-              <div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-6">
+              <div className="mobile-card-container">
+                <h2 className="font-montserrat text-responsive-2xl font-bold text-capas-turquoise mb-6">
                   Our Founding Story
                 </h2>
-                <div className="space-y-4 text-lg text-capas-ocean-dark leading-relaxed">
+                <div className="space-y-4 text-responsive-base text-capas-ocean-dark leading-relaxed">
                   <p>
                     CAPAS Bahamas was born from a shared vision to create an institution that would honor 
                     the rich cultural heritage of The Bahamas while preparing students for success in the 
@@ -222,14 +222,14 @@ export default function HistoryPage() {
                 </div>
               </div>
               
-              <div className="relative">
+              <div className="mobile-image-wrapper">
                 <PlaceholderImage
                   width={600}
                   height={400}
                   text="CAPAS Founding"
                   variant="gradient"
                   colorScheme="palm"
-                  className="w-full h-96 rounded-xl shadow-xl"
+                  className="w-full h-64 lg:h-96 object-cover rounded-xl shadow-xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
               </div>
@@ -238,27 +238,24 @@ export default function HistoryPage() {
         </section>
 
         {/* Timeline */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="mobile-center mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-responsive-2xl font-bold text-capas-turquoise mb-4">
                 Our Journey Through Time
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-responsive-base text-capas-ocean-dark max-w-3xl">
                 Major milestones that have shaped CAPAS into the institution it is today
               </p>
             </motion.div>
 
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-capas-ocean-light"></div>
-              
+            <div className="mobile-timeline">
               <div className="space-y-12">
                 {timeline.map((item, index) => (
                   <motion.div
@@ -267,39 +264,32 @@ export default function HistoryPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={`relative flex items-center ${
-                      index % 2 === 0 ? 'lg:flex-row-reverse' : ''
-                    }`}
+                    className="relative mobile-content-wrapper"
                   >
-                    <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'}`}>
-                      <div className="bg-white border-2 border-capas-ocean-light/20 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <div className="flex items-center mb-4">
-                          <div className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center mr-4`}>
-                            <item.icon className="w-6 h-6 text-white" />
-                          </div>
-                          <div>
-                            <span className="text-2xl font-bold text-capas-turquoise">{item.year}</span>
-                            <h3 className="font-montserrat text-xl font-bold text-capas-ocean-dark">
-                              {item.title}
-                            </h3>
-                          </div>
+                    <div className="mobile-card-enhanced bg-white border-2 border-capas-ocean-light/20 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <div className="flex items-center mb-4">
+                        <div className={`w-12 h-12 ${item.color} rounded-full flex items-center justify-center mr-4 flex-shrink-0`}>
+                          <item.icon className="w-6 h-6 text-white" />
                         </div>
-                        <p className="text-capas-ocean-dark mb-4">
-                          {item.description}
-                        </p>
-                        <ul className="space-y-2">
-                          {item.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start text-sm text-capas-ocean-dark">
-                              <SparklesIcon className="w-4 h-4 text-capas-gold mt-0.5 mr-2 flex-shrink-0" />
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
+                        <div>
+                          <span className="text-responsive-xl font-bold text-capas-turquoise">{item.year}</span>
+                          <h3 className="font-montserrat text-responsive-lg font-bold text-capas-ocean-dark">
+                            {item.title}
+                          </h3>
+                        </div>
                       </div>
+                      <p className="text-capas-ocean-dark mb-4 text-responsive-sm">
+                        {item.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {item.achievements.map((achievement, idx) => (
+                          <li key={idx} className="flex items-start text-responsive-xs text-capas-ocean-dark">
+                            <SparklesIcon className="w-4 h-4 text-capas-gold mt-0.5 mr-2 flex-shrink-0" />
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    
-                    {/* Timeline dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-capas-turquoise rounded-full border-4 border-white shadow-lg"></div>
                   </motion.div>
                 ))}
               </div>
@@ -308,8 +298,8 @@ export default function HistoryPage() {
         </section>
 
         {/* Cultural Heritage */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -325,7 +315,7 @@ export default function HistoryPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="mobile-grid-auto">
               {culturalHeritage.map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -353,8 +343,8 @@ export default function HistoryPage() {
         </section>
 
         {/* Key Milestones */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -370,7 +360,7 @@ export default function HistoryPage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-4">
               {milestones.map((milestone, index) => (
                 <motion.div
                   key={milestone.year}
@@ -396,8 +386,8 @@ export default function HistoryPage() {
         </section>
 
         {/* Future Vision */}
-        <section className="py-20 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -423,8 +413,8 @@ export default function HistoryPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
               <h3 className="font-montserrat text-2xl font-bold text-capas-turquoise mb-4">
                 Be Part of Our Story

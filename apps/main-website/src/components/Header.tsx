@@ -210,25 +210,25 @@ function Header() {
               transition={{ duration: 0.2, ease: 'easeInOut' }}
               className="lg:hidden border-t border-capas-ocean-light/30 dark:border-gray-700 max-h-[calc(100vh-80px)] overflow-y-auto"
             >
-              <div className="py-6 space-y-6">
+              <div className="mobile-nav-center py-6 space-y-6">
                 {/* Mobile Search */}
-                <div className="px-2">
+                <div className="w-full">
                   <CollapsibleSearchBar />
                 </div>
                 
                 {/* Mobile Navigation Items */}
-                <div className="space-y-4">
+                <div className="space-y-4 w-full">
                   {navigation.map((section) => (
-                    <div key={section.name} className="space-y-2">
-                      <h3 className="font-montserrat font-semibold text-capas-turquoise dark:text-capas-turquoise px-2">
+                    <div key={section.name} className="space-y-2 w-full">
+                      <h3 className="font-montserrat font-semibold text-capas-turquoise dark:text-capas-turquoise text-center">
                         {section.name}
                       </h3>
-                      <div className="pl-4 space-y-2">
+                      <div className="space-y-2 w-full">
                         {section.items.map((item) => (
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="block text-capas-ocean-dark dark:text-gray-200 hover:text-capas-turquoise dark:hover:text-capas-turquoise transition-colors duration-200 font-montserrat py-1 focus:outline-none focus:ring-2 focus:ring-capas-turquoise focus:ring-inset rounded-md px-2"
+                            className="mobile-nav-item block text-capas-ocean-dark dark:text-gray-200 hover:text-capas-turquoise dark:hover:text-capas-turquoise transition-colors duration-200 font-montserrat py-2 focus:outline-none focus:ring-2 focus:ring-capas-turquoise focus:ring-inset rounded-md px-4"
                             onClick={closeMenu}
                           >
                             {item.name}
@@ -239,12 +239,12 @@ function Header() {
                   ))}
                   
                   {/* Primary Action Button for Mobile */}
-                  <div className="border-t border-capas-ocean-light/30 dark:border-gray-700 pt-4">
+                  <div className="border-t border-capas-ocean-light/30 dark:border-gray-700 pt-4 w-full">
                     {primaryActions.map((action) => (
                       <Link
                         key={action.name}
                         href={action.href}
-                        className="block bg-capas-gold hover:bg-capas-gold-dark text-capas-ocean-dark font-semibold px-4 py-3 rounded-lg text-center shadow-md font-montserrat mb-4"
+                        className="block bg-capas-gold hover:bg-capas-gold-dark text-capas-ocean-dark font-semibold px-4 py-3 rounded-lg text-center shadow-md font-montserrat mb-4 mx-auto max-w-xs"
                         onClick={closeMenu}
                       >
                         {action.name}
@@ -254,9 +254,9 @@ function Header() {
                 </div>
                 
                 {/* Mobile Actions */}
-                <div className="border-t border-capas-ocean-light/30 dark:border-gray-700 pt-6 space-y-4">
-                  <div className="flex items-center justify-between px-2">
-                    <span className="font-montserrat font-medium text-capas-ocean-dark dark:text-gray-200">
+                <div className="border-t border-capas-ocean-light/30 dark:border-gray-700 pt-6 space-y-4 w-full">
+                  <div className="flex items-center justify-center px-2">
+                    <span className="font-montserrat font-medium text-capas-ocean-dark dark:text-gray-200 mr-4">
                       Theme
                     </span>
                     {mounted && (
@@ -275,13 +275,13 @@ function Header() {
                     )}
                   </div>
                   
-                  <div className="space-y-3 max-w-full">
+                  <div className="space-y-3 w-full flex flex-col items-center">
                     {/* Secondary Action */}
                     {secondaryActions.map((action) => (
                       <Link
                         key={action.name}
                         href={action.href}
-                        className="block bg-capas-coral hover:bg-capas-coral-dark text-white px-4 py-3 rounded-lg font-semibold font-montserrat text-center shadow-md"
+                        className="block bg-capas-coral hover:bg-capas-coral-dark text-white px-4 py-3 rounded-lg font-semibold font-montserrat text-center shadow-md max-w-xs w-full"
                         onClick={closeMenu}
                       >
                         {action.name}
@@ -289,19 +289,19 @@ function Header() {
                     ))}
                     
                     {/* Portal Links */}
-                    <div className="pt-2 border-t border-capas-ocean-light/20 dark:border-gray-600">
-                      <h4 className="text-sm font-semibold text-capas-ocean-dark dark:text-gray-200 mb-2 px-2">
+                    <div className="pt-2 border-t border-capas-ocean-light/20 dark:border-gray-600 w-full">
+                      <h4 className="text-sm font-semibold text-capas-ocean-dark dark:text-gray-200 mb-2 text-center">
                         Quick Access
                       </h4>
                       {portalAccess.items.map((portal) => (
                         <Link
                           key={portal.name}
                           href={portal.href}
-                          className="block text-capas-ocean-dark dark:text-gray-200 hover:text-capas-turquoise dark:hover:text-capas-turquoise transition-colors duration-200 font-montserrat py-2 px-2 rounded-md"
+                          className="mobile-nav-item block text-capas-ocean-dark dark:text-gray-200 hover:text-capas-turquoise dark:hover:text-capas-turquoise transition-colors duration-200 font-montserrat py-2 px-4 rounded-md max-w-xs mx-auto"
                           onClick={closeMenu}
                         >
-                          <span className={portal.color}>{portal.name}</span>
-                          <span className="text-sm text-capas-ocean-dark/60 dark:text-gray-400 block">
+                          <span className={`${portal.color} block text-center`}>{portal.name}</span>
+                          <span className="text-sm text-capas-ocean-dark/60 dark:text-gray-400 block text-center">
                             {portal.description}
                           </span>
                         </Link>

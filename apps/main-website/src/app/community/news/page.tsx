@@ -72,7 +72,7 @@ export default function NewsEventsHub() {
     <>
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-coral via-capas-gold to-capas-turquoise py-20 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-capas-coral via-capas-gold to-capas-turquoise mobile-section-padding overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -88,7 +88,7 @@ export default function NewsEventsHub() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -107,8 +107,8 @@ export default function NewsEventsHub() {
         </section>
 
         {/* Featured News Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function NewsEventsHub() {
               </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {featuredNews.map((article, index) => (
                 <motion.div
                   key={article.id}
@@ -135,8 +135,8 @@ export default function NewsEventsHub() {
                   className={index === 0 ? 'lg:col-span-2' : ''}
                 >
                   <Link href={`/news-events/${article.id}`} className="block group h-full">
-                    <article className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
-                      <div className={`relative overflow-hidden ${index === 0 ? 'h-64' : 'h-48'}`}>
+                    <article className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col">
+                      <div className={`mobile-image-wrapper ${index === 0 ? 'h-64' : 'h-48'}`}>
                         <PlaceholderImage
                           width={index === 0 ? 800 : 400}
                           height={index === 0 ? 256 : 192}
@@ -190,8 +190,8 @@ export default function NewsEventsHub() {
         </section>
 
         {/* Filters and Search */}
-        <section className="py-12 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -272,8 +272,8 @@ export default function NewsEventsHub() {
         </section>
 
         {/* News & Events Grid */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             {filteredItems.length === 0 ? (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -287,7 +287,7 @@ export default function NewsEventsHub() {
                 <p className="text-capas-ocean-dark/70">Try adjusting your search or filter criteria</p>
               </motion.div>
             ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="mobile-grid-auto lg:grid-cols-3">
                 {filteredItems.map((item, index) => (
                   <motion.div
                     key={`${item.type}-${item.id}`}
@@ -297,8 +297,8 @@ export default function NewsEventsHub() {
                     viewport={{ once: true }}
                   >
                     <Link href={`/news-events/${item.id}`} className="block group h-full">
-                      <article className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
-                        <div className="h-48 relative overflow-hidden">
+                      <article className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col">
+                        <div className="mobile-image-wrapper h-48">
                           <PlaceholderImage
                             width={400}
                             height={192}
@@ -337,7 +337,7 @@ export default function NewsEventsHub() {
                             </div>
                           )}
                         </div>
-                        <div className="p-6 flex-grow flex flex-col">
+                        <div className="mobile-card-container flex-grow flex flex-col">
                           <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors line-clamp-2">
                             {item.title}
                           </h3>
@@ -366,8 +366,8 @@ export default function NewsEventsHub() {
         </section>
 
         {/* Newsletter Signup */}
-        <section className="py-20 bg-gradient-to-r from-capas-turquoise to-capas-ocean">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="mobile-section-padding bg-gradient-to-r from-capas-turquoise to-capas-ocean">
+          <div className="mobile-safe-container mobile-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -44,7 +44,7 @@ export default function PartTimePrograms() {
     <>
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark py-20 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark mobile-section-padding overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -60,7 +60,7 @@ export default function PartTimePrograms() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -93,8 +93,8 @@ export default function PartTimePrograms() {
         </section>
 
         {/* Benefits Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -110,7 +110,7 @@ export default function PartTimePrograms() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="mobile-grid-auto lg:grid-cols-4">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={benefit.title}
@@ -136,8 +136,8 @@ export default function PartTimePrograms() {
         </section>
 
         {/* Programs Grid */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -153,7 +153,7 @@ export default function PartTimePrograms() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {partTimePrograms.map((program, index) => (
                 <motion.div
                   key={program.id}
@@ -163,15 +163,15 @@ export default function PartTimePrograms() {
                   viewport={{ once: true }}
                 >
                   <Link href={`/programs/${program.slug}`} className="block group h-full">
-                    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
-                      <div className="h-48 relative overflow-hidden flex-shrink-0">
+                    <div className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col">
+                      <div className="mobile-image-wrapper h-48 flex-shrink-0">
                         <PlaceholderImage
                           width={400}
                           height={192}
                           text={program.type}
                           variant="gradient"
                           colorScheme="coral"
-                          className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                         <div className="absolute top-4 right-4">
@@ -180,7 +180,7 @@ export default function PartTimePrograms() {
                           </span>
                         </div>
                       </div>
-                      <div className="p-6 flex-grow flex flex-col">
+                      <div className="mobile-card-container flex-grow flex flex-col">
                         <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors">
                           {program.title}
                         </h3>
@@ -213,9 +213,9 @@ export default function PartTimePrograms() {
         </section>
 
         {/* Class Schedule Information */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
+            <div className="mobile-grid-auto lg:grid-cols-2 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -269,21 +269,21 @@ export default function PartTimePrograms() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative mobile-content-wrapper"
               >
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <div className="mobile-image-wrapper aspect-square rounded-2xl shadow-2xl">
                   <PlaceholderImage
                     width={500}
                     height={500}
                     text="Community Arts Classes"
                     variant="gradient"
                     colorScheme="palm"
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border-l-4 border-capas-gold">
-                  <div className="text-2xl font-bold text-capas-turquoise">150+</div>
-                  <div className="text-capas-ocean-dark">Community Members</div>
+                <div className="absolute -bottom-6 -left-6 bg-white p-4 lg:p-6 rounded-xl shadow-lg border-l-4 border-capas-gold max-w-max">
+                  <div className="text-responsive-xl font-bold text-capas-turquoise">150+</div>
+                  <div className="text-capas-ocean-dark text-responsive-sm">Community Members</div>
                 </div>
               </motion.div>
             </div>
@@ -291,8 +291,8 @@ export default function PartTimePrograms() {
         </section>
 
         {/* Application CTA */}
-        <section className="py-20 bg-gradient-to-r from-capas-turquoise to-capas-ocean">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="mobile-section-padding bg-gradient-to-r from-capas-turquoise to-capas-ocean">
+          <div className="mobile-safe-container mobile-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}

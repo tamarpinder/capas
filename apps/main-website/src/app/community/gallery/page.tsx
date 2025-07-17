@@ -205,7 +205,7 @@ export default function Gallery() {
     <>
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean py-20 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean mobile-section-padding overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -221,7 +221,7 @@ export default function Gallery() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -254,8 +254,8 @@ export default function Gallery() {
         </section>
 
         {/* Featured Gallery */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -271,7 +271,7 @@ export default function Gallery() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {featuredItems.map((item, index) => (
                 <motion.div
                   key={item.id}
@@ -283,7 +283,7 @@ export default function Gallery() {
                 >
                   <div
                     onClick={() => openLightbox(item)}
-                    className="relative group cursor-pointer rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="mobile-card-enhanced relative group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     <div className={`relative ${index === 0 ? 'h-96' : 'h-64'} overflow-hidden`}>
                       <PlaceholderImage
@@ -349,8 +349,8 @@ export default function Gallery() {
         </section>
 
         {/* Category Filter */}
-        <section className="py-12 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -385,9 +385,9 @@ export default function Gallery() {
         </section>
 
         {/* Gallery Grid */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
+            <div className="mobile-grid-auto lg:grid-cols-3 xl:grid-cols-4">
               {filteredItems.map((item, index) => (
                 <motion.div
                   key={item.id}
@@ -398,7 +398,7 @@ export default function Gallery() {
                 >
                   <div
                     onClick={() => openLightbox(item)}
-                    className="group cursor-pointer rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
+                    className="mobile-card-enhanced group cursor-pointer shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     <div className="relative h-48 overflow-hidden">
                       <PlaceholderImage

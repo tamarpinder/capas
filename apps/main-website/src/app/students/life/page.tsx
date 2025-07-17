@@ -214,7 +214,7 @@ export default function StudentLifePage() {
       <OrganizationStructuredData />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-gold via-capas-coral to-capas-palm py-24">
+        <section className="relative bg-gradient-to-br from-capas-gold via-capas-coral to-capas-palm mobile-section-padding">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -224,7 +224,7 @@ export default function StudentLifePage() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb" className="mb-8">
               <ol className="flex items-center space-x-2 text-sm">
@@ -263,8 +263,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Campus Culture Overview */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -309,8 +309,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Student Organizations */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -326,7 +326,7 @@ export default function StudentLifePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {studentOrganizations.map((org, index) => (
                 <motion.div
                   key={org.name}
@@ -334,7 +334,7 @@ export default function StudentLifePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white border-2 border-capas-ocean-light/20 rounded-xl p-6 hover:shadow-lg transition-all duration-300"
+                  className="mobile-card-enhanced bg-white border-2 border-capas-ocean-light/20 hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-center mb-4">
                     <div className={`w-12 h-12 ${org.color} rounded-full flex items-center justify-center mr-4`}>
@@ -376,8 +376,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Campus Events */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -398,7 +398,7 @@ export default function StudentLifePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {campusEvents.map((event, index) => (
                 <motion.div
                   key={event.title}
@@ -406,7 +406,7 @@ export default function StudentLifePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                  className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="font-montserrat text-lg font-bold text-capas-turquoise">
@@ -445,8 +445,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Campus Life Features */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -462,7 +462,7 @@ export default function StudentLifePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="mobile-grid-auto lg:grid-cols-4">
               {campusLife.map((category, index) => (
                 <motion.div
                   key={category.category}
@@ -470,7 +470,7 @@ export default function StudentLifePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-capas-sand-light rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="mobile-card-enhanced bg-capas-sand-light hover:bg-white hover:shadow-lg transition-all duration-300"
                 >
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-capas-turquoise rounded-full flex items-center justify-center mr-3">
@@ -496,8 +496,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Traditions */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -518,7 +518,7 @@ export default function StudentLifePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="mobile-grid-auto">
               {traditions.map((tradition, index) => (
                 <motion.div
                   key={tradition.name}
@@ -526,7 +526,7 @@ export default function StudentLifePage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                  className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
                   <div className="flex justify-between items-start mb-3">
                     <h3 className="font-montserrat text-xl font-bold text-capas-turquoise">
@@ -546,8 +546,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Housing Information */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -568,7 +568,7 @@ export default function StudentLifePage() {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="mobile-grid-auto lg:grid-cols-3">
               {housingInfo.map((housing, index) => (
                 <motion.div
                   key={housing.type}
@@ -576,7 +576,7 @@ export default function StudentLifePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white border-2 border-capas-ocean-light/20 rounded-xl p-6 hover:border-capas-turquoise hover:shadow-lg transition-all duration-300"
+                  className="mobile-card-enhanced bg-white border-2 border-capas-ocean-light/20 hover:border-capas-turquoise hover:shadow-lg transition-all duration-300"
                 >
                   <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-3">
                     {housing.type}
@@ -599,8 +599,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Get Involved */}
-        <section className="py-20 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -638,8 +638,8 @@ export default function StudentLifePage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
               <h3 className="font-montserrat text-2xl font-bold text-capas-turquoise mb-4">
                 Experience CAPAS Student Life

@@ -148,7 +148,7 @@ export default function Alumni() {
     <>
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white overflow-hidden">
+        <section className="relative mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white overflow-hidden">
           <motion.div 
             style={{ y: heroY }}
             className="absolute inset-0 opacity-20"
@@ -158,22 +158,22 @@ export default function Alumni() {
             </svg>
           </motion.div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center"
+              className="mobile-center"
             >
-              <h1 className="font-montserrat text-4xl md:text-6xl font-bold mb-6">
+              <h1 className="font-montserrat text-responsive-3xl font-bold mb-6">
                 Alumni Success Stories
               </h1>
-              <p className="text-xl md:text-2xl max-w-4xl mx-auto opacity-90 font-montserrat mb-8">
+              <p className="text-responsive-lg max-w-4xl mx-auto opacity-90 font-montserrat mb-8">
                 Celebrating the achievements of CAPAS graduates who are making their mark around the world
               </p>
               
               {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="mobile-grid-auto max-w-4xl mx-auto">
                 {[
                   { label: 'Alumni Worldwide', value: '500+' },
                   { label: 'Countries', value: '25+' },
@@ -185,12 +185,12 @@ export default function Alumni() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-                    className="text-center"
+                    className="mobile-center mobile-card-container"
                   >
-                    <div className="text-3xl md:text-4xl font-bold text-capas-gold mb-2">
+                    <div className="text-responsive-2xl font-bold text-capas-gold mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm opacity-90">{stat.label}</div>
+                    <div className="text-responsive-sm opacity-90">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -199,8 +199,8 @@ export default function Alumni() {
         </section>
 
         {/* Search and Filter Section */}
-        <section className="py-12 bg-white border-b border-capas-ocean-light/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white border-b border-capas-ocean-light/30">
+          <div className="mobile-safe-container">
             
             {/* Search and View Toggle */}
             <div className="flex flex-col lg:flex-row gap-6 items-center justify-between mb-8">
@@ -243,7 +243,7 @@ export default function Alumni() {
             </div>
 
             {/* Filters */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="mobile-grid-auto">
               
               {/* Graduation Year Filter */}
               <div>
@@ -327,8 +327,8 @@ export default function Alumni() {
         {/* Main Content */}
         {viewMode === 'carousel' ? (
           /* Carousel View */
-          <section className="py-20 bg-capas-sand-light">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="mobile-section-padding bg-capas-sand-light">
+            <div className="mobile-safe-container">
               
               {/* Featured Alumni Carousel */}
               {filteredAlumni.length > 0 && (
@@ -353,17 +353,18 @@ export default function Alumni() {
                         className="bg-white shadow-xl"
                       >
                         {filteredAlumni[currentSlide] && (
-                          <div className="grid lg:grid-cols-2 min-h-[600px]">
+                          <div className="mobile-content-wrapper">
+                            <div className="grid lg:grid-cols-2 gap-6 min-h-[400px] lg:min-h-[600px]">
                             
                             {/* Image Section */}
-                            <div className="relative overflow-hidden">
+                            <div className="mobile-image-wrapper lg:relative lg:overflow-hidden">
                               <PlaceholderImage
                                 width={600}
                                 height={600}
                                 text={filteredAlumni[currentSlide].name}
                                 variant="portrait"
                                 colorScheme="turquoise"
-                                className="w-full h-full object-cover"
+                                className="w-full h-64 lg:h-full object-cover"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                               
@@ -391,7 +392,7 @@ export default function Alumni() {
                             </div>
 
                             {/* Content Section */}
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
+                            <div className="mobile-card-container lg:p-12 flex flex-col justify-center">
                               <div className="space-y-6">
                                 
                                 {/* Header */}
@@ -460,6 +461,7 @@ export default function Alumni() {
                                   )}
                                 </div>
                               </div>
+                            </div>
                             </div>
                           </div>
                         )}
@@ -537,8 +539,8 @@ export default function Alumni() {
           </section>
         ) : (
           /* Grid View */
-          <section className="py-20 bg-capas-sand-light">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <section className="mobile-section-padding bg-capas-sand-light">
+            <div className="mobile-safe-container">
               
               <AnimatePresence mode="wait">
                 <motion.div
@@ -547,7 +549,7 @@ export default function Alumni() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                  className="mobile-grid-auto"
                 >
                   {filteredAlumni.map((alum, index) => (
                     <motion.div
@@ -555,11 +557,11 @@ export default function Alumni() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
+                      className="mobile-card-enhanced bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer"
                       onClick={() => setSelectedAlumni(alum)}
                     >
                       <div className="relative">
-                        <div className="h-48 relative overflow-hidden">
+                        <div className="mobile-image-wrapper h-48">
                           <PlaceholderImage
                             width={300}
                             height={192}
@@ -568,7 +570,7 @@ export default function Alumni() {
                             colorScheme={alum.industry === 'Entertainment' ? 'coral' : 
                                         alum.industry === 'Education' ? 'turquoise' : 
                                         alum.industry === 'Technology' ? 'palm' : 'gold'}
-                            className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                         </div>
