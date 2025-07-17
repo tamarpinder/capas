@@ -8,12 +8,10 @@ import DropdownMenu from './DropdownMenu';
 import SearchBar from './SearchBar';
 import ProgressIndicator from './ProgressIndicator';
 import {
-  HomeIcon,
   AcademicCapIcon,
   BookOpenIcon,
   ChatBubbleLeftRightIcon,
   PhotoIcon,
-  SparklesIcon,
   DocumentTextIcon,
   ArrowTopRightOnSquareIcon,
   ChevronDownIcon,
@@ -23,14 +21,7 @@ import {
   XMarkIcon,
   BellIcon,
   CogIcon,
-  ChartBarIcon,
-  UserGroupIcon,
-  QuestionMarkCircleIcon,
-  ShieldCheckIcon,
-  PhoneIcon,
-  ClockIcon,
-  RocketLaunchIcon,
-  HeartIcon
+  ChartBarIcon
 } from '@heroicons/react/24/outline';
 
 // Modern navigation structure with logical grouping
@@ -48,15 +39,12 @@ const navigation = [
     items: [
       { name: 'Forums', href: '/forums', description: 'Connect with students and instructors', icon: ChatBubbleLeftRightIcon },
       { name: 'Resource Library', href: '/gallery', description: 'Access tutorials, templates, and resources', icon: PhotoIcon },
-      { name: 'Cultural Showcase', href: '/cultural-showcase', description: 'Explore Bahamian arts and culture', icon: SparklesIcon },
     ],
   },
   {
     name: 'Resources',
     items: [
       { name: 'Policies & Support', href: '/policies', description: 'Guidelines, FAQ, and help center', icon: DocumentTextIcon },
-      { name: 'Technical Support', href: '/policies#support', description: 'Get help with technical issues', icon: QuestionMarkCircleIcon },
-      { name: 'Academic Support', href: '/policies#academic', description: 'Academic policies and guidelines', icon: ShieldCheckIcon },
     ],
   },
 ];
