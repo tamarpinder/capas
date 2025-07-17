@@ -16,7 +16,8 @@ import {
   FireIcon,
   CalendarIcon,
   ArrowUpIcon,
-  ArrowDownIcon
+  ArrowDownIcon,
+  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
 import {
   CheckCircleIcon as CheckCircleSolidIcon,
@@ -63,6 +64,19 @@ interface Achievement {
   unlockedDate?: string;
 }
 
+const sampleCourseNames = [
+  '3D Digital Sculpture',
+  'Music Production Fundamentals',
+  'Digital Photography',
+  'Graphic Design Essentials',
+  'Caribbean Cultural Arts',
+  'Video Production & Editing',
+  'Creative Writing Workshop',
+  'Digital Marketing for Artists',
+  'Animation Basics',
+  'Web Design for Creatives'
+];
+
 const achievements: Achievement[] = [
   {
     id: 'first-course',
@@ -105,6 +119,11 @@ export default function ProgressTracker() {
   const { courses, fetchEnrolledCourses } = useCourseStore();
   const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month' | 'year'>('month');
 
+  const getRandomCourseName = (index: number) => {
+    // Use index as seed for consistent random selection
+    return sampleCourseNames[index % sampleCourseNames.length];
+  };
+
   useEffect(() => {
     if (isAuthenticated) {
       fetchEnrolledCourses('inprogress');
@@ -126,8 +145,12 @@ export default function ProgressTracker() {
     );
   }
 
-  const progressPercentage = (mockProgressData.completedAssignments / mockProgressData.totalAssignments) * 100;
-  const weeklyProgress = (mockProgressData.totalStudyHours / mockProgressData.weeklyGoal) * 100;
+  const progressPercentage = mockProgressData.totalAssignments > 0 
+    ? (mockProgressData.completedAssignments / mockProgressData.totalAssignments) * 100 
+    : 0;
+  const weeklyProgress = mockProgressData.weeklyGoal > 0 
+    ? (mockProgressData.totalStudyHours / mockProgressData.weeklyGoal) * 100 
+    : 0;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-capas-sand-light to-capas-ocean-light pt-20">
@@ -240,10 +263,10 @@ export default function ProgressTracker() {
             >
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Course Progress</h3>
               
-              {courses.map((course, index) => (
+              {(courses || []).map((course, index) => (
                 <div key={course.id} className="mb-6 last:mb-0">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-medium text-gray-900">{course.fullname}</h4>
+                    <h4 className="font-medium text-gray-900">{course.fullname || getRandomCourseName(index)}</h4>
                     <span className="text-sm text-gray-500">{course.progress || 0}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-3">
@@ -257,7 +280,7 @@ export default function ProgressTracker() {
                 </div>
               ))}
 
-              {courses.length === 0 && (
+              {(!courses || courses.length === 0) && (
                 <div className="text-center py-8 text-gray-500">
                   <BookOpenIcon className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                   <p>No courses enrolled yet.</p>
@@ -369,49 +392,6 @@ export default function ProgressTracker() {
           </div>
         </div>
 
-        {/* Quick Actions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-8 bg-white rounded-xl shadow-sm border border-gray-100 p-6"
-        >
-          <h3 className="text-xl font-semibold text-gray-900 mb-6">Quick Actions</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            <Link
-              href="/my-courses"
-              className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-capas-turquoise hover:bg-capas-turquoise/5 transition-all"
-            >
-              <AcademicCapIcon className="w-8 h-8 text-capas-turquoise" />
-              <div>
-                <div className="font-medium text-gray-900">Continue Learning</div>
-                <div className="text-sm text-gray-600">Resume your courses</div>
-              </div>
-            </Link>
-            
-            <Link
-              href="/forums"
-              className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-capas-coral hover:bg-capas-coral/5 transition-all"
-            >
-              <ChatBubbleLeftRightIcon className="w-8 h-8 text-capas-coral" />
-              <div>
-                <div className="font-medium text-gray-900">Join Discussions</div>
-                <div className="text-sm text-gray-600">Connect with peers</div>
-              </div>
-            </Link>
-            
-            <Link
-              href="/gallery"
-              className="flex items-center space-x-3 p-4 rounded-lg border border-gray-200 hover:border-capas-gold hover:bg-capas-gold/5 transition-all"
-            >
-              <BookOpenIcon className="w-8 h-8 text-capas-gold" />
-              <div>
-                <div className="font-medium text-gray-900">Browse Resources</div>
-                <div className="text-sm text-gray-600">Find study materials</div>
-              </div>
-            </Link>
-          </div>
-        </motion.div>
       </div>
     </div>
   );

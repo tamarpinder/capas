@@ -68,12 +68,14 @@ export default function Home() {
               >
                 School Portal →
               </a>
-              <Link 
-                href="/creatives-hub"
+              <a 
+                href="https://capas-creatives-hub.netlify.app"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-capas-coral hover:text-capas-coral-dark font-medium underline underline-offset-4 transition-colors duration-200 font-montserrat"
               >
                 Creatives Hub →
-              </Link>
+              </a>
             </div>
           </div>
         </div>

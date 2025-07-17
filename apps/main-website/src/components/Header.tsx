@@ -63,7 +63,7 @@ const portalAccess = {
   name: 'Portals',
   items: [
     { name: 'School Portal', href: 'https://capas-school-portal.netlify.app/', description: 'Student and staff access', color: 'text-capas-turquoise' },
-    { name: 'Creatives Hub', href: '/creatives-hub', description: 'Creative community platform', color: 'text-capas-coral' },
+    { name: 'Creatives Hub', href: 'https://capas-creatives-hub.netlify.app', description: 'Creative community platform', color: 'text-capas-coral' },
   ],
 };
 
