@@ -1,439 +1,548 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CulturalHeader, CulturalCard, CulturalDivider } from '@/components/cultural/BahamianPatterns';
+import Link from 'next/link';
 import {
   DocumentTextIcon,
   ShieldCheckIcon,
-  UserGroupIcon,
-  AcademicCapIcon,
+  QuestionMarkCircleIcon,
   ExclamationTriangleIcon,
-  InformationCircleIcon,
+  ChatBubbleLeftRightIcon,
+  PhoneIcon,
+  EnvelopeIcon,
   ChevronRightIcon,
   ChevronDownIcon,
+  BookOpenIcon,
+  AcademicCapIcon,
+  UserGroupIcon,
+  ComputerDesktopIcon,
+  HeartIcon,
+  LockClosedIcon,
+  ClockIcon,
+  InformationCircleIcon,
   ArrowDownTrayIcon
 } from '@heroicons/react/24/outline';
 
 interface PolicySection {
   id: string;
   title: string;
-  description: string;
   icon: React.ComponentType<any>;
-  content: {
-    overview: string;
-    sections: {
-      title: string;
-      content: string;
-    }[];
-  };
+  description: string;
+  content: string[];
   lastUpdated: string;
-  version: string;
 }
 
-export default function PoliciesPage() {
-  const [selectedPolicy, setSelectedPolicy] = useState<string | null>(null);
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
+interface FAQ {
+  id: string;
+  question: string;
+  answer: string;
+  category: string;
+}
 
-  const policies: PolicySection[] = [
+interface SupportContact {
+  id: string;
+  title: string;
+  description: string;
+  contact: string;
+  hours: string;
+  icon: React.ComponentType<any>;
+  color: string;
+}
+
+export default function PoliciesAndSupport() {
+  const [selectedPolicy, setSelectedPolicy] = useState<PolicySection | null>(null);
+  const [activeTab, setActiveTab] = useState<'policies' | 'faq' | 'support'>('policies');
+  const [expandedFAQ, setExpandedFAQ] = useState<string | null>(null);
+  const [selectedFAQCategory, setSelectedFAQCategory] = useState<string>('all');
+
+  const policyData: PolicySection[] = [
+    {
+      id: 'student-code',
+      title: 'Student Code of Conduct',
+      icon: UserGroupIcon,
+      description: 'Guidelines for respectful and professional behavior in our creative community',
+      lastUpdated: '2024-01-15',
+      content: [
+        'Students are expected to maintain the highest standards of personal and academic integrity.',
+        'Respect for fellow students, faculty, and staff is fundamental to our learning environment.',
+        'Collaborative work should acknowledge all contributors appropriately.',
+        'Creative work must be original unless properly cited and attributed.',
+        'Discrimination, harassment, or bullying of any kind will not be tolerated.',
+        'Students must respect intellectual property rights and copyright laws.',
+        'Use of CAPAS facilities and equipment requires responsible care and proper usage.',
+        'Any violations should be reported to the Academic Affairs office immediately.'
+      ]
+    },
     {
       id: 'academic-integrity',
       title: 'Academic Integrity Policy',
-      description: 'Guidelines for maintaining academic honesty and ethical standards in coursework and assessments.',
-      icon: ShieldCheckIcon,
-      lastUpdated: '2024-01-15',
-      version: '2.1',
-      content: {
-        overview: 'CAPAS Bahamas is committed to fostering an environment of academic integrity where all students can thrive while maintaining the highest ethical standards.',
-        sections: [
-          {
-            title: 'Definition of Academic Integrity',
-            content: 'Academic integrity encompasses honesty, trust, fairness, respect, and responsibility in all academic endeavors. It requires students to present their own work and properly credit the contributions of others.'
-          },
-          {
-            title: 'Prohibited Behaviors',
-            content: 'Academic dishonesty includes but is not limited to: plagiarism, cheating on examinations, unauthorized collaboration, falsification of data, and misrepresentation of academic credentials.'
-          },
-          {
-            title: 'Creative Work Guidelines',
-            content: 'For creative projects, students must clearly distinguish between original work, collaborative efforts, and use of existing resources. All inspirations, references, and collaborative contributions must be properly documented.'
-          },
-          {
-            title: 'Digital Asset Usage',
-            content: 'When using digital assets, 3D models, audio samples, or visual references, students must ensure proper licensing and provide complete attribution. Use of copyrighted material without permission is strictly prohibited.'
-          },
-          {
-            title: 'Consequences',
-            content: 'Violations may result in course failure, academic probation, or dismissal from the program. The severity of consequences depends on the nature and extent of the violation.'
-          }
-        ]
-      }
+      icon: AcademicCapIcon,
+      description: 'Maintaining honesty and ethics in all academic work and creative projects',
+      lastUpdated: '2024-01-10',
+      content: [
+        'All submitted work must be original and created by the student unless otherwise specified.',
+        'Plagiarism, including unauthorized copying of text, images, or creative works, is prohibited.',
+        'When using external resources, proper citation and attribution must be provided.',
+        'Collaboration on group projects should follow guidelines specified by the instructor.',
+        'Use of AI tools and software must be disclosed when required by the assignment.',
+        'Students may not submit the same work for multiple assignments without permission.',
+        'Academic dishonesty will result in consequences ranging from assignment failure to course dismissal.',
+        'Students are encouraged to seek help from instructors when facing academic challenges.'
+      ]
     },
     {
-      id: 'student-conduct',
-      title: 'Student Code of Conduct',
-      description: 'Behavioral expectations and guidelines for creating a respectful learning environment.',
-      icon: UserGroupIcon,
-      lastUpdated: '2024-02-01',
-      version: '1.8',
-      content: {
-        overview: 'This code outlines the behavioral standards expected of all CAPAS students to maintain a positive, inclusive, and culturally respectful learning environment.',
-        sections: [
-          {
-            title: 'Respect and Inclusion',
-            content: 'Students must treat all members of the CAPAS community with respect, regardless of race, gender, religion, sexual orientation, or cultural background. Discrimination and harassment are strictly prohibited.'
-          },
-          {
-            title: 'Cultural Sensitivity',
-            content: 'Given the rich cultural heritage of The Bahamas, students are expected to approach cultural topics with sensitivity and respect. Appropriation or misrepresentation of cultural elements is not tolerated.'
-          },
-          {
-            title: 'Digital Citizenship',
-            content: 'In online forums and digital spaces, students must maintain professional conduct, protect privacy, and engage constructively in discussions. Cyberbullying and inappropriate content sharing are prohibited.'
-          },
-          {
-            title: 'Community Engagement',
-            content: 'Students are encouraged to actively participate in the learning community while respecting diverse perspectives and contributing positively to group dynamics.'
-          }
-        ]
-      }
+      id: 'privacy-policy',
+      title: 'Privacy & Data Protection',
+      icon: LockClosedIcon,
+      description: 'How we protect and use your personal information and creative work',
+      lastUpdated: '2024-01-08',
+      content: [
+        'CAPAS is committed to protecting student privacy and personal information.',
+        'Personal data is collected only for educational and administrative purposes.',
+        'Student work and portfolios are protected and not shared without explicit consent.',
+        'Access to student records is limited to authorized personnel only.',
+        'Students have the right to review and request corrections to their personal data.',
+        'We use secure systems to protect against unauthorized access or data breaches.',
+        'Third-party services used for education comply with privacy standards.',
+        'Students will be notified of any changes to privacy policies or practices.'
+      ]
     },
     {
       id: 'technology-use',
-      title: 'Technology and Digital Resources Policy',
-      description: 'Acceptable use guidelines for digital platforms, software, and creative tools.',
-      icon: AcademicCapIcon,
-      lastUpdated: '2024-01-30',
-      version: '3.0',
-      content: {
-        overview: 'This policy governs the use of technology, software, and digital resources provided by CAPAS for educational purposes.',
-        sections: [
-          {
-            title: 'Acceptable Use',
-            content: 'Technology resources are provided for educational purposes only. Students may use software, 3D tools, and digital platforms solely for coursework and approved creative projects.'
-          },
-          {
-            title: 'Software Licensing',
-            content: 'Students must comply with all software licensing agreements. Sharing login credentials, unauthorized software installation, or license violations are prohibited.'
-          },
-          {
-            title: 'Data Security',
-            content: 'Students are responsible for maintaining the security of their accounts and protecting sensitive information. Regular password updates and secure practices are required.'
-          },
-          {
-            title: '3D Asset Management',
-            content: 'When creating or using 3D models, students must respect intellectual property rights, maintain organized file structures, and follow naming conventions for collaborative projects.'
-          },
-          {
-            title: 'Platform Etiquette',
-            content: 'In 3D environments and virtual spaces, students must maintain appropriate avatars, respectful interactions, and constructive use of immersive features.'
-          }
-        ]
-      }
+      title: 'Technology & Equipment Policy',
+      icon: ComputerDesktopIcon,
+      description: 'Guidelines for responsible use of digital tools and campus technology',
+      lastUpdated: '2024-01-12',
+      content: [
+        'Students must use CAPAS technology resources responsibly and ethically.',
+        'Personal accounts and passwords must be kept secure and not shared.',
+        'Equipment must be returned in good condition after use.',
+        'Software installations require approval from IT staff.',
+        'Internet usage should be appropriate for educational purposes.',
+        'Students are responsible for backing up their own work and files.',
+        'Report any technical issues or equipment damage immediately.',
+        'Violation of technology policies may result in loss of access privileges.'
+      ]
     },
     {
-      id: 'assessment-policy',
-      title: 'Assessment and Evaluation Policy',
-      description: 'Guidelines for grading, feedback, and evaluation of creative work and academic performance.',
-      icon: DocumentTextIcon,
+      id: 'cultural-heritage',
+      title: 'Cultural Heritage & Respect',
+      icon: HeartIcon,
+      description: 'Honoring Bahamian culture and promoting inclusive creative expression',
       lastUpdated: '2024-01-20',
-      version: '2.3',
-      content: {
-        overview: 'This policy outlines the assessment methods, grading criteria, and evaluation standards for all CAPAS courses and creative programs.',
-        sections: [
-          {
-            title: 'Assessment Methods',
-            content: 'Assessments include traditional exams, creative projects, portfolio submissions, peer evaluations, and practical demonstrations. Each method is designed to evaluate different aspects of learning.'
-          },
-          {
-            title: 'Creative Work Evaluation',
-            content: 'Creative projects are assessed on technical skill, conceptual development, cultural relevance, innovation, and presentation quality. Rubrics are provided for all major assignments.'
-          },
-          {
-            title: 'Feedback and Revision',
-            content: 'Students receive detailed feedback on all submissions and are encouraged to revise work based on instructor guidance. Multiple submission opportunities support iterative learning.'
-          },
-          {
-            title: 'Portfolio Development',
-            content: 'Students maintain digital portfolios showcasing their growth and achievements. Portfolio requirements include reflection essays and documentation of creative processes.'
-          },
-          {
-            title: 'Grading Appeals',
-            content: 'Students may appeal grades through established procedures. Appeals must be submitted within two weeks of grade posting with supporting documentation.'
-          }
-        ]
-      }
+      content: [
+        'CAPAS celebrates and honors Bahamian cultural heritage in all creative endeavors.',
+        'Students should approach cultural elements with respect and understanding.',
+        'Traditional art forms and cultural expressions should be studied and represented accurately.',
+        'Cultural appropriation is not acceptable; seek guidance when incorporating cultural elements.',
+        'Diversity and inclusion are core values that enrich our creative community.',
+        'Students are encouraged to explore their own cultural backgrounds in their work.',
+        'Guest artists and cultural practitioners should be treated with utmost respect.',
+        'Cultural events and celebrations provide learning opportunities for all students.'
+      ]
+    },
+    {
+      id: 'assessment-grading',
+      title: 'Assessment & Grading Policy',
+      icon: ClockIcon,
+      description: 'Understanding evaluation criteria and grading standards',
+      lastUpdated: '2024-01-05',
+      content: [
+        'All assessments are designed to measure learning outcomes and creative growth.',
+        'Grading criteria are clearly communicated at the beginning of each course.',
+        'Students receive regular feedback to support their creative development.',
+        'Late submission policies are specified in individual course syllabi.',
+        'Make-up opportunities may be available for excused absences.',
+        'Students may request grade reviews following established procedures.',
+        'Portfolio assessments consider both technical skill and creative expression.',
+        'Final grades reflect overall achievement of course learning objectives.'
+      ]
     }
   ];
 
-  const toggleSection = (sectionId: string) => {
-    const newExpanded = new Set(expandedSections);
-    if (newExpanded.has(sectionId)) {
-      newExpanded.delete(sectionId);
-    } else {
-      newExpanded.add(sectionId);
+  const faqData: FAQ[] = [
+    {
+      id: 'q1',
+      question: 'How do I access course materials and assignments?',
+      answer: 'Course materials are available through the Creatives Hub platform. Navigate to "My Courses" to view all enrolled courses, access assignments, download resources, and track your progress.',
+      category: 'Platform'
+    },
+    {
+      id: 'q2',
+      question: 'What software is provided for students?',
+      answer: 'CAPAS provides access to industry-standard creative software including Adobe Creative Suite, Blender, Logic Pro X, and various specialized tools. Check the Resource Library for installation guides and tutorials.',
+      category: 'Software'
+    },
+    {
+      id: 'q3',
+      question: 'How can I get technical support?',
+      answer: 'Technical support is available through multiple channels: live chat during business hours, email support, and in-person assistance at the IT Help Desk. Check our support hours and contact information below.',
+      category: 'Support'
+    },
+    {
+      id: 'q4',
+      question: 'What is the policy on using AI tools in assignments?',
+      answer: 'AI tools may be used when specifically permitted by the instructor. Always disclose AI usage and follow the guidelines provided in each course. The goal is to enhance learning while maintaining academic integrity.',
+      category: 'Academic'
+    },
+    {
+      id: 'q5',
+      question: 'How do I report a technical issue or bug?',
+      answer: 'Report technical issues through the support portal, email tech-support@capas.edu.bs, or use the chat feature. Include details about the problem, steps to reproduce it, and any error messages.',
+      category: 'Support'
+    },
+    {
+      id: 'q6',
+      question: 'Can I collaborate with students from other courses?',
+      answer: 'Cross-course collaboration is encouraged! Use the Forums to connect with students from other programs. Always ensure that collaborative work meets the requirements of your specific assignments.',
+      category: 'Academic'
+    },
+    {
+      id: 'q7',
+      question: 'How do I update my profile information?',
+      answer: 'Profile information can be updated through your account settings. Some changes may require verification through the Student Services office. Contact support if you need assistance with profile updates.',
+      category: 'Platform'
+    },
+    {
+      id: 'q8',
+      question: 'What are the system requirements for course software?',
+      answer: 'System requirements vary by software. Check the Resource Library for detailed specifications for each program. CAPAS computer labs are available if your personal device doesn\'t meet requirements.',
+      category: 'Software'
     }
-    setExpandedSections(newExpanded);
-  };
+  ];
 
-  const downloadPolicy = (policyId: string) => {
-    // In a real app, this would trigger a PDF download
-    console.log(`Downloading policy: ${policyId}`);
-  };
+  const supportContacts: SupportContact[] = [
+    {
+      id: 'tech-support',
+      title: 'Technical Support',
+      description: 'Platform issues, software problems, and general technical assistance',
+      contact: 'tech-support@capas.edu.bs',
+      hours: 'Mon-Fri: 8:00 AM - 6:00 PM',
+      icon: ComputerDesktopIcon,
+      color: 'bg-capas-turquoise'
+    },
+    {
+      id: 'academic-affairs',
+      title: 'Academic Affairs',
+      description: 'Course enrollment, academic policies, and student conduct matters',
+      contact: 'academic@capas.edu.bs',
+      hours: 'Mon-Fri: 9:00 AM - 5:00 PM',
+      icon: AcademicCapIcon,
+      color: 'bg-capas-palm'
+    },
+    {
+      id: 'student-services',
+      title: 'Student Services',
+      description: 'General support, counseling, and student life assistance',
+      contact: 'students@capas.edu.bs',
+      hours: 'Mon-Fri: 8:30 AM - 4:30 PM',
+      icon: UserGroupIcon,
+      color: 'bg-capas-gold'
+    },
+    {
+      id: 'emergency',
+      title: 'Emergency Support',
+      description: 'Urgent technical or academic issues requiring immediate attention',
+      contact: '(242) 555-HELP',
+      hours: '24/7 Emergency Line',
+      icon: ExclamationTriangleIcon,
+      color: 'bg-capas-coral'
+    }
+  ];
+
+  const faqCategories = [
+    { id: 'all', name: 'All Questions' },
+    { id: 'Platform', name: 'Platform' },
+    { id: 'Software', name: 'Software' },
+    { id: 'Academic', name: 'Academic' },
+    { id: 'Support', name: 'Support' }
+  ];
+
+  const filteredFAQs = selectedFAQCategory === 'all' 
+    ? faqData 
+    : faqData.filter(faq => faq.category === selectedFAQCategory);
 
   return (
-    <div className="min-h-screen bg-capas-sand-light">
-      {/* Cultural Hero Header */}
-      <CulturalHeader
-        title="Policies & Guidelines"
-        subtitle="Important information for students and faculty at CAPAS Bahamas"
-        pattern="waves"
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {!selectedPolicy ? (
-          /* Policy Overview Grid */
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="text-center mb-12">
-              <h2 className="font-display text-3xl font-bold text-capas-turquoise mb-4">
-                Academic Policies & Guidelines
-              </h2>
-              <p className="text-capas-ocean-dark max-w-3xl mx-auto">
-                Please review these important policies to ensure a successful and compliant academic experience at CAPAS Bahamas.
+    <div className="min-h-screen bg-gradient-to-br from-capas-sand-light to-capas-ocean-light">
+      {/* Hero Header */}
+      <div className="bg-gradient-to-r from-capas-turquoise via-capas-turquoise-dark to-capas-ocean text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+                Policies & Support
+              </h1>
+              <p className="text-xl text-capas-ocean-light max-w-2xl mx-auto mb-8">
+                Guidelines, resources, and support to help you succeed in your creative journey
               </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              {policies.map((policy, index) => (
-                <motion.div
-                  key={policy.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <div onClick={() => setSelectedPolicy(policy.id)}>
-                    <CulturalCard 
-                      pattern="coral" 
-                      className="p-6 h-full cursor-pointer hover:shadow-xl transition-shadow group"
-                    >
-                    <div className="flex items-start space-x-4 mb-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-capas-turquoise rounded-lg flex items-center justify-center">
-                        <policy.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-display text-xl font-semibold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors">
-                          {policy.title}
-                        </h3>
-                        <p className="text-capas-ocean-dark text-sm leading-relaxed">
-                          {policy.description}
-                        </p>
-                      </div>
-                      <ChevronRightIcon className="w-5 h-5 text-capas-ocean-dark/40 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    
-                    <div className="flex items-center justify-between text-xs text-capas-ocean-dark/60">
-                      <span>Version {policy.version}</span>
-                      <span>Updated {new Date(policy.lastUpdated).toLocaleDateString()}</span>
-                    </div>
-                  </CulturalCard>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Important Notice */}
-            <CulturalCard pattern="waves" className="p-6">
-              <div className="flex items-start space-x-4">
-                <InformationCircleIcon className="w-8 h-8 text-capas-coral flex-shrink-0 mt-1" />
-                <div>
-                  <h3 className="font-semibold text-capas-ocean-dark mb-2">Important Notice</h3>
-                  <p className="text-capas-ocean-dark/80 text-sm leading-relaxed">
-                    All students are required to read and acknowledge these policies. 
-                    Policies are regularly updated to reflect best practices and regulatory requirements. 
-                    Students will be notified of any significant changes via email and platform announcements.
-                  </p>
-                </div>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link href="/my-courses" className="inline-flex items-center px-6 py-3 bg-white text-capas-turquoise font-semibold rounded-lg hover:bg-capas-gold hover:text-white transition-colors shadow-lg">
+                  <BookOpenIcon className="w-5 h-5 mr-2" />
+                  Back to Courses
+                </Link>
+                <Link href="/forums" className="inline-flex items-center px-6 py-3 bg-white/20 text-white font-semibold rounded-lg hover:bg-white/30 transition-colors">
+                  <ChatBubbleLeftRightIcon className="w-5 h-5 mr-2" />
+                  Community Support
+                </Link>
               </div>
-            </CulturalCard>
-          </motion.div>
-        ) : (
-          /* Individual Policy View */
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {(() => {
-              const policy = policies.find(p => p.id === selectedPolicy)!;
-              return (
-                <>
-                  {/* Back Button */}
-                  <button
-                    onClick={() => setSelectedPolicy(null)}
-                    className="flex items-center space-x-2 text-capas-turquoise hover:text-capas-turquoise-dark transition-colors mb-8"
-                  >
-                    <ChevronRightIcon className="w-4 h-4 transform rotate-180" />
-                    <span>Back to Policies</span>
-                  </button>
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
-                  {/* Policy Header */}
-                  <CulturalCard pattern="palm" className="p-8 mb-8">
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-start space-x-4">
-                        <div className="w-16 h-16 bg-capas-turquoise rounded-lg flex items-center justify-center">
-                          <policy.icon className="w-8 h-8 text-white" />
-                        </div>
-                        <div>
-                          <h1 className="font-display text-3xl font-bold text-capas-turquoise mb-2">
-                            {policy.title}
-                          </h1>
-                          <p className="text-capas-ocean-dark leading-relaxed mb-4">
-                            {policy.description}
-                          </p>
-                          <div className="flex items-center space-x-6 text-sm text-capas-ocean-dark/70">
-                            <span>Version {policy.version}</span>
-                            <span>Last Updated: {new Date(policy.lastUpdated).toLocaleDateString()}</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <button
-                        onClick={() => downloadPolicy(policy.id)}
-                        className="flex items-center space-x-2 btn-capas-secondary text-sm"
-                      >
-                        <ArrowDownTrayIcon className="w-4 h-4" />
-                        <span>Download PDF</span>
-                      </button>
-                    </div>
-                  </CulturalCard>
-
-                  {/* Policy Overview */}
-                  <CulturalCard pattern="conch" className="p-6 mb-8">
-                    <h2 className="font-display text-xl font-semibold text-capas-turquoise mb-4">
-                      Overview
-                    </h2>
-                    <p className="text-capas-ocean-dark leading-relaxed">
-                      {policy.content.overview}
-                    </p>
-                  </CulturalCard>
-
-                  {/* Policy Sections */}
-                  <div className="space-y-4">
-                    {policy.content.sections.map((section, index) => (
-                      <CulturalCard key={index} pattern="waves" className="overflow-hidden">
-                        <button
-                          onClick={() => toggleSection(`${policy.id}-${index}`)}
-                          className="w-full p-6 text-left hover:bg-capas-sand-light/50 transition-colors"
-                        >
-                          <div className="flex items-center justify-between">
-                            <h3 className="font-display text-lg font-semibold text-capas-turquoise">
-                              {section.title}
-                            </h3>
-                            <ChevronDownIcon className={`w-5 h-5 text-capas-ocean-dark transition-transform ${
-                              expandedSections.has(`${policy.id}-${index}`) ? 'transform rotate-180' : ''
-                            }`} />
-                          </div>
-                        </button>
-                        
-                        <AnimatePresence>
-                          {expandedSections.has(`${policy.id}-${index}`) && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{ duration: 0.3 }}
-                              className="border-t border-capas-ocean-light/30"
-                            >
-                              <div className="p-6 bg-capas-sand-light/30">
-                                <p className="text-capas-ocean-dark leading-relaxed">
-                                  {section.content}
-                                </p>
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </CulturalCard>
-                    ))}
-                  </div>
-
-                  {/* Contact Information */}
-                  <CulturalCard pattern="junkanoo" className="p-6 mt-8">
-                    <div className="text-center">
-                      <h3 className="font-display text-lg font-semibold text-capas-turquoise mb-2">
-                        Questions About This Policy?
-                      </h3>
-                      <p className="text-capas-ocean-dark mb-4">
-                        Contact the Student Affairs office for clarification or additional information.
-                      </p>
-                      <div className="flex flex-wrap justify-center gap-4">
-                        <a href="mailto:studentaffairs@capas.edu.bs" className="btn-capas-primary text-sm">
-                          Email Student Affairs
-                        </a>
-                        <a href="tel:+1242-555-0123" className="btn-capas-secondary text-sm">
-                          Call (242) 555-0123
-                        </a>
-                      </div>
-                    </div>
-                  </CulturalCard>
-                </>
-              );
-            })()}
-          </motion.div>
-        )}
-
-        {/* Cultural Divider */}
-        <CulturalDivider pattern="palm" height={60} />
-
-        {/* Additional Resources */}
-        <motion.section
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Navigation Tabs */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12"
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-8"
         >
-          <h2 className="font-display text-2xl font-bold text-capas-turquoise mb-8 text-center">
-            Additional Resources
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            <CulturalCard pattern="coral" className="p-6 text-center">
-              <ExclamationTriangleIcon className="w-8 h-8 text-capas-coral mx-auto mb-4" />
-              <h3 className="font-semibold text-capas-ocean-dark mb-2">Report a Violation</h3>
-              <p className="text-sm text-capas-ocean-dark/70 mb-4">
-                Confidentially report policy violations or academic misconduct
-              </p>
-              <button className="btn-capas-primary text-sm w-full">
-                Report Issue
+          <div className="flex flex-wrap gap-2">
+            {[
+              { id: 'policies', name: 'Policies & Guidelines', icon: DocumentTextIcon },
+              { id: 'faq', name: 'Frequently Asked Questions', icon: QuestionMarkCircleIcon },
+              { id: 'support', name: 'Support & Contact', icon: ChatBubbleLeftRightIcon }
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? 'bg-capas-turquoise text-white shadow-lg'
+                    : 'bg-gray-100 text-gray-700 hover:bg-capas-ocean-light hover:text-capas-turquoise'
+                }`}
+              >
+                <tab.icon className="w-5 h-5" />
+                <span>{tab.name}</span>
               </button>
-            </CulturalCard>
-
-            <CulturalCard pattern="waves" className="p-6 text-center">
-              <UserGroupIcon className="w-8 h-8 text-capas-turquoise mx-auto mb-4" />
-              <h3 className="font-semibold text-capas-ocean-dark mb-2">Student Support</h3>
-              <p className="text-sm text-capas-ocean-dark/70 mb-4">
-                Get help understanding policies and academic requirements
-              </p>
-              <button className="btn-capas-secondary text-sm w-full">
-                Contact Support
-              </button>
-            </CulturalCard>
-
-            <CulturalCard pattern="palm" className="p-6 text-center">
-              <DocumentTextIcon className="w-8 h-8 text-capas-gold mx-auto mb-4" />
-              <h3 className="font-semibold text-capas-ocean-dark mb-2">Policy Updates</h3>
-              <p className="text-sm text-capas-ocean-dark/70 mb-4">
-                Subscribe to notifications about policy changes and updates
-              </p>
-              <button className="btn-capas-secondary text-sm w-full">
-                Subscribe
-              </button>
-            </CulturalCard>
+            ))}
           </div>
-        </motion.section>
+        </motion.div>
+
+        {/* Tab Content */}
+        <AnimatePresence mode="wait">
+          {activeTab === 'policies' && (
+            <motion.div
+              key="policies"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="grid lg:grid-cols-3 gap-8"
+            >
+              {/* Policies List */}
+              <div className="lg:col-span-1">
+                <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                  <h2 className="text-xl font-semibold text-gray-900 mb-6">Policy Documents</h2>
+                  <div className="space-y-3">
+                    {policyData.map((policy) => (
+                      <div
+                        key={policy.id}
+                        onClick={() => setSelectedPolicy(policy)}
+                        className={`p-4 rounded-lg cursor-pointer transition-all duration-300 ${
+                          selectedPolicy?.id === policy.id
+                            ? 'bg-capas-turquoise text-white shadow-lg'
+                            : 'bg-gray-50 hover:bg-gray-100'
+                        }`}
+                      >
+                        <div className="flex items-start space-x-3">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                            selectedPolicy?.id === policy.id ? 'bg-white/20' : 'bg-capas-turquoise'
+                          }`}>
+                            <policy.icon className={`w-4 h-4 ${
+                              selectedPolicy?.id === policy.id ? 'text-white' : 'text-white'
+                            }`} />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className={`font-semibold ${
+                              selectedPolicy?.id === policy.id ? 'text-white' : 'text-gray-900'
+                            }`}>
+                              {policy.title}
+                            </h3>
+                            <p className={`text-sm mt-1 ${
+                              selectedPolicy?.id === policy.id ? 'text-white/80' : 'text-gray-600'
+                            }`}>
+                              {policy.description}
+                            </p>
+                            <p className={`text-xs mt-2 ${
+                              selectedPolicy?.id === policy.id ? 'text-white/70' : 'text-gray-500'
+                            }`}>
+                              Updated: {new Date(policy.lastUpdated).toLocaleDateString()}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Policy Content */}
+              <div className="lg:col-span-2">
+                {selectedPolicy ? (
+                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                    <div className="flex items-start space-x-4 mb-6">
+                      <div className="w-12 h-12 bg-capas-turquoise rounded-xl flex items-center justify-center">
+                        <selectedPolicy.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h1 className="text-2xl font-bold text-gray-900">{selectedPolicy.title}</h1>
+                        <p className="text-gray-600 mt-1">{selectedPolicy.description}</p>
+                        <p className="text-sm text-gray-500 mt-2">
+                          Last updated: {new Date(selectedPolicy.lastUpdated).toLocaleDateString()}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="prose max-w-none">
+                      <ul className="space-y-4">
+                        {selectedPolicy.content.map((item, index) => (
+                          <li key={index} className="flex items-start space-x-3">
+                            <span className="inline-block w-2 h-2 bg-capas-turquoise rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="text-gray-700 leading-relaxed">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
+                    <DocumentTextIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      Select a Policy Document
+                    </h3>
+                    <p className="text-gray-600">
+                      Choose a policy from the left to view its details and guidelines
+                    </p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
+
+          {activeTab === 'faq' && (
+            <motion.div
+              key="faq"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+            >
+              {/* FAQ Categories */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {faqCategories.map((category) => (
+                  <button
+                    key={category.id}
+                    onClick={() => setSelectedFAQCategory(category.id)}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                      selectedFAQCategory === category.id
+                        ? 'bg-capas-turquoise text-white shadow-lg'
+                        : 'bg-white text-gray-700 hover:bg-capas-ocean-light border border-gray-200'
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+
+              {/* FAQ List */}
+              <div className="space-y-4">
+                {filteredFAQs.map((faq) => (
+                  <div key={faq.id} className="bg-white rounded-xl shadow-sm border border-gray-100">
+                    <button
+                      onClick={() => setExpandedFAQ(expandedFAQ === faq.id ? null : faq.id)}
+                      className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors rounded-xl"
+                    >
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                          {faq.question}
+                        </h3>
+                        <span className="inline-block px-2 py-1 bg-capas-ocean-light text-capas-ocean-dark text-xs rounded-full">
+                          {faq.category}
+                        </span>
+                      </div>
+                      <ChevronDownIcon 
+                        className={`w-5 h-5 text-gray-400 transition-transform ${
+                          expandedFAQ === faq.id ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
+                    <AnimatePresence>
+                      {expandedFAQ === faq.id && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-6 pb-6 pt-0">
+                            <div className="border-t border-gray-200 pt-4">
+                              <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {activeTab === 'support' && (
+            <motion.div
+              key="support"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="grid md:grid-cols-2 gap-6"
+            >
+              {supportContacts.map((contact) => (
+                <div key={contact.id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className={`w-12 h-12 ${contact.color} rounded-xl flex items-center justify-center`}>
+                      <contact.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                        {contact.title}
+                      </h3>
+                      <p className="text-gray-600 mb-4">
+                        {contact.description}
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center space-x-2">
+                          {contact.contact.includes('@') ? (
+                            <EnvelopeIcon className="w-4 h-4 text-gray-400" />
+                          ) : (
+                            <PhoneIcon className="w-4 h-4 text-gray-400" />
+                          )}
+                          <span className="text-sm font-medium text-gray-900">
+                            {contact.contact}
+                          </span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <ClockIcon className="w-4 h-4 text-gray-400" />
+                          <span className="text-sm text-gray-600">
+                            {contact.hours}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
