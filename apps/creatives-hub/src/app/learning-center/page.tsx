@@ -6,17 +6,13 @@ import Link from 'next/link';
 import useCourseStore from '@/stores/courseStore';
 import useUserStore from '@/stores/userStore';
 import {
-  AcademicCapIcon,
   BookOpenIcon,
   ClockIcon,
-  UserIcon,
   ChevronLeftIcon,
-  PlayIcon,
   DocumentTextIcon,
   CheckCircleIcon,
   LockClosedIcon,
   ChevronRightIcon,
-  StarIcon,
   ChartBarIcon,
   CalendarIcon,
   VideoCameraIcon,

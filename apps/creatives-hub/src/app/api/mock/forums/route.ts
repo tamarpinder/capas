@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { MoodleApiResponse } from '@/types/moodle';
+import { MoodleApiResponse, MoodleForum, MoodleDiscussion } from '@/types/moodle';
 
 // Mock implementation of mod_forum_get_forums_by_courses
 export async function GET(request: NextRequest) {
@@ -62,12 +62,12 @@ export async function GET(request: NextRequest) {
       istracked: true
     }));
 
-    const response: MoodleApiResponse<any[]> = {
+    const response: MoodleApiResponse<MoodleForum[]> = {
       data: moodleForums
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       exception: {
         message: 'Failed to load forums',
@@ -80,7 +80,7 @@ export async function GET(request: NextRequest) {
 // Mock implementation of mod_forum_get_forum_discussions
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { wstoken, forumid, sortby, sortdirection, page, perpage } = body;
+  const { wstoken, forumid, page, perpage } = body;
   
   if (!wstoken) {
     return NextResponse.json({
@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
       message: thread.content,
       messageformat: 1,
       messagetrust: 0,
-      attachment: (thread as any).attachments ? '1' : '0',
+      attachment: '0',
       totalscore: 0,
       mailnow: 0,
       userfullname: thread.author.name,
@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
       usermodifiedpictureurl: thread.author.avatar,
       numreplies: thread.replies,
       numunread: 0,
-      pinned: (thread as any).pinned || false,
+      pinned: false,
       locked: false,
       starred: false,
       canreply: true,
@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
     const endIndex = startIndex + (perpage || 10);
     const paginatedDiscussions = discussions.slice(startIndex, endIndex);
 
-    const response: MoodleApiResponse<any> = {
+    const response: MoodleApiResponse<{ discussions: MoodleDiscussion[]; warnings: unknown[] }> = {
       data: {
         discussions: paginatedDiscussions,
         warnings: []
@@ -156,7 +156,7 @@ export async function POST(request: NextRequest) {
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       exception: {
         message: 'Failed to load discussions',

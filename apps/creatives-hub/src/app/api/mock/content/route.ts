@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { MoodleApiResponse } from '@/types/moodle';
+import { MoodleApiResponse, CourseContentData } from '@/types/moodle';
 
 // Mock implementation for course content
 export async function GET(request: NextRequest) {
@@ -38,12 +38,12 @@ export async function GET(request: NextRequest) {
       }, { status: 404 });
     }
 
-    const response: MoodleApiResponse<any> = {
+    const response: MoodleApiResponse<CourseContentData> = {
       data: content
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       exception: {
         message: 'Failed to load course content',

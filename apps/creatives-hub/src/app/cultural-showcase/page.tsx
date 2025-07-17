@@ -1,14 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import BahamianCulturalScene from '@/components/cultural/BahamianCulturalScene';
 import BahamianPatterns, { CulturalHeader, CulturalCard, CulturalDivider } from '@/components/cultural/BahamianPatterns';
 import {
   HeartIcon,
   SparklesIcon,
   SunIcon,
-  BeakerIcon,
   PaintBrushIcon,
   MusicalNoteIcon
 } from '@heroicons/react/24/outline';
@@ -71,7 +70,7 @@ export default function CulturalShowcase() {
             </h2>
             <p className="text-capas-ocean-dark max-w-3xl mx-auto">
               Explore different aspects of Bahamian culture through immersive 3D environments. 
-              Each scene tells a unique story about the islands' heritage, natural beauty, and vibrant celebrations.
+              Each scene tells a unique story about the islands&apos; heritage, natural beauty, and vibrant celebrations.
             </p>
           </div>
 

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Sphere, Float } from '@react-three/drei';
-import { CreativeCourse } from '@/types/moodle';
+import { CreativeCourse, CourseContentData, CourseContentModule } from '@/types/moodle';
 import moodleApi from '@/services/moodleApi';
 import ResourceLibrary3D from '@/components/resources/ResourceLibrary3D';
 import ProgressTracker from '@/components/ui/ProgressTracker';
@@ -24,7 +24,7 @@ import Link from 'next/link';
 
 export default function CourseDetail({ params }: { params: { courseId: string } }) {
   const [course, setCourse] = useState<CreativeCourse | null>(null);
-  const [courseContent, setCourseContent] = useState<any>(null);
+  const [courseContent, setCourseContent] = useState<CourseContentData | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedTab, setSelectedTab] = useState<'overview' | 'modules' | 'resources' | 'assignments'>('overview');
   const [expandedModule, setExpandedModule] = useState<string | null>(null);
@@ -64,9 +64,9 @@ export default function CourseDetail({ params }: { params: { courseId: string } 
     </Canvas>
   );
 
-  const getModuleProgress = (module: any) => {
+  const getModuleProgress = (module: CourseContentModule) => {
     if (!module.lessons) return 0;
-    const completedLessons = module.lessons.filter((lesson: any) => lesson.completed).length;
+    const completedLessons = module.lessons.filter((lesson) => lesson.completed).length;
     return Math.round((completedLessons / module.lessons.length) * 100);
   };
 
@@ -97,7 +97,7 @@ export default function CourseDetail({ params }: { params: { courseId: string } 
         <div className="text-center">
           <div className="text-6xl mb-4">🔍</div>
           <h1 className="font-display text-2xl font-bold text-capas-turquoise mb-2">Course Not Found</h1>
-          <p className="text-capas-ocean-dark mb-6">The course you're looking for doesn't exist or isn't available.</p>
+          <p className="text-capas-ocean-dark mb-6">The course you&apos;re looking for doesn&apos;t exist or isn&apos;t available.</p>
           <Link href="/my-courses" className="btn-capas-primary">
             Back to My Courses
           </Link>
@@ -215,7 +215,7 @@ export default function CourseDetail({ params }: { params: { courseId: string } 
               ].map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setSelectedTab(tab.id as any)}
+                  onClick={() => setSelectedTab(tab.id as 'overview' | 'modules' | 'resources' | 'assignments')}
                   className={`flex items-center space-x-2 py-4 border-b-2 font-medium transition-colors ${
                     selectedTab === tab.id
                       ? 'border-capas-turquoise text-capas-turquoise'
@@ -253,7 +253,7 @@ export default function CourseDetail({ params }: { params: { courseId: string } 
                         This course is designed to provide you with hands-on experience in {course.department.toLowerCase()}, 
                         combining traditional Bahamian cultural elements with modern creative techniques. 
                         Through interactive lessons, practical projects, and collaborative discussions, 
-                        you'll develop both technical skills and cultural appreciation.
+                        you&apos;ll develop both technical skills and cultural appreciation.
                       </p>
                     </div>
                   </div>
@@ -261,7 +261,7 @@ export default function CourseDetail({ params }: { params: { courseId: string } 
                   {/* Skills & Tags */}
                   <div>
                     <h3 className="font-display text-xl font-semibold text-capas-turquoise mb-4">
-                      Skills You'll Learn
+                      Skills You&apos;ll Learn
                     </h3>
                     <div className="flex flex-wrap gap-2">
                       {course.tags?.map((tag) => (

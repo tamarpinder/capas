@@ -13,11 +13,7 @@ import {
   UserGroupIcon,
   EyeIcon,
   ChevronRightIcon,
-  MagnifyingGlassIcon,
-  FunnelIcon,
-  UsersIcon,
-  SparklesIcon,
-  AcademicCapIcon
+  MagnifyingGlassIcon
 } from '@heroicons/react/24/outline';
 
 interface ForumThread {

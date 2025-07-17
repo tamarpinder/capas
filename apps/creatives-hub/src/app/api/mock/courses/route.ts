@@ -5,7 +5,6 @@ import { MoodleApiResponse, CreativeCourse } from '@/types/moodle';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const wstoken = searchParams.get('wstoken');
-  const wsfunction = searchParams.get('wsfunction');
   
   // Simulate token validation
   if (!wstoken || wstoken === 'invalid') {
@@ -60,7 +59,7 @@ export async function GET(request: NextRequest) {
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       exception: {
         message: 'Failed to load courses',
@@ -97,7 +96,7 @@ export async function POST(request: NextRequest) {
       filteredCourses = filteredCourses.filter(course => course.progress === 100);
     }
 
-    const response: MoodleApiResponse<any> = {
+    const response: MoodleApiResponse<{ courses: typeof filteredCourses; nextoffset: number }> = {
       data: {
         courses: filteredCourses,
         nextoffset: 0
@@ -105,7 +104,7 @@ export async function POST(request: NextRequest) {
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       exception: {
         message: 'Failed to load courses',

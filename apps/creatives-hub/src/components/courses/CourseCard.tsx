@@ -11,7 +11,6 @@ import ProgressTracker from '@/components/ui/ProgressTracker';
 import {
   ClockIcon,
   UserIcon,
-  CalendarIcon,
   PlayIcon,
   BookOpenIcon,
   ArrowTopRightOnSquareIcon

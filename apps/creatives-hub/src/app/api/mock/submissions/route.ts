@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { MoodleApiResponse } from '@/types/moodle';
+import { MoodleApiResponse, StudentSubmission } from '@/types/moodle';
 
 // Mock implementation for student submissions
 export async function GET(request: NextRequest) {
@@ -25,12 +25,12 @@ export async function GET(request: NextRequest) {
       submissions = submissions.filter(sub => sub.courseId === courseId);
     }
 
-    const response: MoodleApiResponse<any[]> = {
+    const response: MoodleApiResponse<StudentSubmission[]> = {
       data: submissions
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json({
       exception: {
         message: 'Failed to load submissions',

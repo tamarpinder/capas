@@ -303,6 +303,58 @@ export interface MoodleApiResponse<T> {
   };
 }
 
+// Course content structure for our custom implementation
+export interface CourseContentLesson {
+  id: string;
+  title: string;
+  type: 'video' | 'text' | 'quiz' | 'assignment';
+  duration: string;
+  completed: boolean;
+  content: {
+    videoUrl?: string;
+    resources?: Array<{
+      name: string;
+      url: string;
+      type: string;
+    }>;
+    text?: string;
+    quiz?: unknown;
+    assignment?: unknown;
+  };
+}
+
+export interface CourseContentModule {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  progress: number;
+  lessons: CourseContentLesson[];
+}
+
+export interface CourseContentData {
+  modules: CourseContentModule[];
+}
+
+// Student submission interface
+export interface StudentSubmission {
+  id: string;
+  courseId: string;
+  assignmentId: string;
+  studentId: string;
+  title: string;
+  description: string;
+  submissionDate: string;
+  status: 'submitted' | 'graded' | 'late' | 'pending';
+  grade?: number;
+  feedback?: string;
+  attachments: Array<{
+    name: string;
+    url: string;
+    type: string;
+  }>;
+}
+
 export interface PaginatedResponse<T> {
   data: T[];
   total: number;

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import useCourseStore from '@/stores/courseStore';
 import useUserStore from '@/stores/userStore';
 import {
@@ -10,21 +9,16 @@ import {
   PlayIcon,
   DocumentIcon,
   CubeIcon,
-  HeartIcon,
   EyeIcon,
   ShareIcon,
   ArrowDownTrayIcon,
-  FunnelIcon,
   MagnifyingGlassIcon,
   StarIcon,
-  CalendarIcon,
-  UserIcon,
   AcademicCapIcon,
   FolderIcon,
   CloudArrowUpIcon,
   BookOpenIcon
 } from '@heroicons/react/24/outline';
-import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
 
 interface Resource {
   id: string;
