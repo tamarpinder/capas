@@ -1,0 +1,263 @@
+{
+  "assignments": [
+    {
+      "id": 1,
+      "cmid": 201,
+      "course": 301,
+      "name": "Conch Shell Digital Recreation",
+      "intro": "<p>Create a photorealistic 3D model of a Bahamian conch shell, incorporating traditional cultural significance and modern digital sculpting techniques.</p><p><strong>Requirements:</strong></p><ul><li>High-poly base mesh with proper topology</li><li>Detailed surface texturing reflecting natural shell patterns</li><li>Cultural research component documenting the conch's significance in Bahamian heritage</li><li>Final render showcasing the model in a Caribbean beach environment</li></ul><p><strong>Submission Format:</strong> .blend file, rendered images (4K resolution), and 500-word cultural research document</p>",
+      "introformat": 1,
+      "alwaysshowdescription": 1,
+      "nosubmissions": 0,
+      "submissiondrafts": 1,
+      "sendnotifications": 1,
+      "sendlatenotifications": 1,
+      "sendstudentnotifications": 1,
+      "duedate": 1708128000,
+      "allowsubmissionsfromdate": 1703097600,
+      "grade": 100,
+      "timemodified": 1703097600,
+      "completionsubmit": 1,
+      "cutoffdate": 1708214400,
+      "gradingduedate": 1708300800,
+      "teamsubmission": 0,
+      "requireallteammemberssubmit": 0,
+      "teamsubmissiongroupingid": 0,
+      "blindmarking": 0,
+      "hidegrader": 0,
+      "revealidentities": 0,
+      "attemptreopenmethod": "none",
+      "maxattempts": -1,
+      "markingworkflow": 0,
+      "markingallocation": 0,
+      "requiresubmissionstatement": 0,
+      "preventsubmissionnotingroup": 0,
+      "configs": [
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission",
+          "name": "enabled",
+          "value": "1"
+        },
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission", 
+          "name": "maxfilesubmissions",
+          "value": "5"
+        },
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission",
+          "name": "maxsubmissionsizebytes",
+          "value": "104857600"
+        }
+      ],
+      "submissions": [
+        {
+          "id": 1,
+          "userid": 15,
+          "attemptnumber": 0,
+          "timecreated": 1707955200,
+          "timemodified": 1707955200,
+          "status": "submitted",
+          "groupid": 0,
+          "plugins": [
+            {
+              "type": "file",
+              "name": "File submissions",
+              "fileareas": [
+                {
+                  "area": "submission_files",
+                  "files": [
+                    {
+                      "filename": "conch_shell_final.blend",
+                      "filepath": "/",
+                      "filesize": 15728640,
+                      "fileurl": "/mock/submissions/conch_shell_final.blend",
+                      "timemodified": 1707955200,
+                      "mimetype": "application/octet-stream"
+                    },
+                    {
+                      "filename": "conch_render_4k.png",
+                      "filepath": "/renders/",
+                      "filesize": 8388608,
+                      "fileurl": "/mock/submissions/conch_render_4k.png",
+                      "timemodified": 1707955200,
+                      "mimetype": "image/png"
+                    },
+                    {
+                      "filename": "cultural_research.pdf",
+                      "filepath": "/docs/",
+                      "filesize": 524288,
+                      "fileurl": "/mock/submissions/cultural_research.pdf",
+                      "timemodified": 1707955200,
+                      "mimetype": "application/pdf"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "gradingstatus": "graded"
+        }
+      ],
+      "grades": [
+        {
+          "id": 1,
+          "userid": 15,
+          "attemptnumber": 0,
+          "timecreated": 1708041600,
+          "timemodified": 1708041600,
+          "grader": 2,
+          "grade": "92.00",
+          "gradefordisplay": "A-"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "cmid": 202,
+      "course": 301,
+      "name": "Junkanoo Mask Digital Sculpture",
+      "intro": "<p>Design and sculpt a traditional Junkanoo mask using advanced digital sculpting techniques, incorporating authentic Bahamian cultural elements and modern artistic interpretation.</p><p><strong>Objectives:</strong></p><ul><li>Research traditional Junkanoo mask designs and their cultural significance</li><li>Create a unique mask design that honors tradition while expressing personal artistic vision</li><li>Master advanced ZBrush/Blender sculpting techniques for organic forms</li><li>Develop skills in digital texturing and material creation</li></ul><p><strong>Deliverables:</strong></p><ul><li>Concept sketches and mood board</li><li>High-resolution 3D sculpted mask</li><li>Textured and lit final presentation</li><li>Cultural significance documentation (750 words)</li><li>Process video showing key sculpting stages</li></ul>",
+      "introformat": 1,
+      "alwaysshowdescription": 1,
+      "nosubmissions": 0,
+      "submissiondrafts": 1,
+      "sendnotifications": 1,
+      "sendlatenotifications": 1,
+      "sendstudentnotifications": 1,
+      "duedate": 1708732800,
+      "allowsubmissionsfromdate": 1707523200,
+      "grade": 100,
+      "timemodified": 1707523200,
+      "completionsubmit": 1,
+      "cutoffdate": 1708819200,
+      "gradingduedate": 1708905600,
+      "teamsubmission": 0,
+      "requireallteammemberssubmit": 0,
+      "teamsubmissiongroupingid": 0,
+      "blindmarking": 0,
+      "hidegrader": 0,
+      "revealidentities": 0,
+      "attemptreopenmethod": "none",
+      "maxattempts": -1,
+      "markingworkflow": 0,
+      "markingallocation": 0,
+      "requiresubmissionstatement": 0,
+      "preventsubmissionnotingroup": 0,
+      "configs": [
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission",
+          "name": "enabled",
+          "value": "1"
+        },
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission",
+          "name": "maxfilesubmissions",
+          "value": "10"
+        }
+      ],
+      "submissions": [
+        {
+          "id": 2,
+          "userid": 15,
+          "attemptnumber": 0,
+          "timecreated": 1708560000,
+          "timemodified": 1708646400,
+          "status": "submitted",
+          "groupid": 0,
+          "plugins": [
+            {
+              "type": "file",
+              "name": "File submissions",
+              "fileareas": [
+                {
+                  "area": "submission_files",
+                  "files": [
+                    {
+                      "filename": "junkanoo_mask_concept.jpg",
+                      "filepath": "/concept/",
+                      "filesize": 2097152,
+                      "fileurl": "/mock/submissions/junkanoo_mask_concept.jpg",
+                      "timemodified": 1708560000,
+                      "mimetype": "image/jpeg"
+                    },
+                    {
+                      "filename": "mask_sculpt_final.ztl",
+                      "filepath": "/",
+                      "filesize": 52428800,
+                      "fileurl": "/mock/submissions/mask_sculpt_final.ztl",
+                      "timemodified": 1708646400,
+                      "mimetype": "application/octet-stream"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "gradingstatus": "submitted"
+        }
+      ],
+      "grades": []
+    },
+    {
+      "id": 3,
+      "cmid": 203,
+      "course": 201,
+      "name": "Traditional Bahamian Rhythm Sequence",
+      "intro": "<p>Compose and produce a 3-minute musical piece that authentically incorporates traditional Bahamian rhythms with contemporary production techniques.</p><p><strong>Focus Areas:</strong></p><ul><li>Junkanoo percussion patterns and their modern interpretation</li><li>Rake 'n' scrape traditional instrumentation</li><li>Calypso and soca rhythm integration</li><li>Modern DAW production techniques</li><li>Cultural authenticity and respectful innovation</li></ul><p><strong>Technical Requirements:</strong></p><ul><li>Minimum 3-minute duration</li><li>Include at least 3 traditional Bahamian rhythm elements</li><li>Professional mixing and mastering quality</li><li>Accompanying liner notes explaining cultural elements used</li></ul>",
+      "introformat": 1,
+      "alwaysshowdescription": 1,
+      "nosubmissions": 0,
+      "submissiondrafts": 1,
+      "sendnotifications": 1,
+      "sendlatenotifications": 1,
+      "sendstudentnotifications": 1,
+      "duedate": 1709337600,
+      "allowsubmissionsfromdate": 1707782400,
+      "grade": 100,
+      "timemodified": 1707782400,
+      "completionsubmit": 1,
+      "cutoffdate": 1709424000,
+      "gradingduedate": 1709510400,
+      "teamsubmission": 0,
+      "requireallteammemberssubmit": 0,
+      "teamsubmissiongroupingid": 0,
+      "blindmarking": 0,
+      "hidegrader": 0,
+      "revealidentities": 0,
+      "attemptreopenmethod": "none",
+      "maxattempts": 2,
+      "markingworkflow": 0,
+      "markingallocation": 0,
+      "requiresubmissionstatement": 0,
+      "preventsubmissionnotingroup": 0,
+      "configs": [
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission",
+          "name": "enabled",
+          "value": "1"
+        },
+        {
+          "plugin": "file",
+          "subtype": "assignsubmission",
+          "name": "maxfilesubmissions",
+          "value": "5"
+        },
+        {
+          "plugin": "file", 
+          "subtype": "assignsubmission",
+          "name": "maxsubmissionsizebytes",
+          "value": "157286400"
+        }
+      ],
+      "submissions": [],
+      "grades": []
+    }
+  ],
+  "warnings": []
+}

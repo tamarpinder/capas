@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { MoodleApiResponse, CreativeCourse, PaginatedResponse } from '@/types/moodle';
+import { CreativeCourse } from '@/types/moodle';
 
 // Configuration
 const MOCK_API_BASE = '/api/mock';
@@ -63,6 +63,9 @@ class MoodleApiService {
   async getCourses(): Promise<CreativeCourse[]> {
     try {
       if (USE_MOCK_API) {
+        // Simulate realistic API delay
+        await this.simulateDelay(300, 800);
+        
         const response = await this.axios.get('/courses', {
           params: {
             wstoken: this.config.token,
@@ -286,6 +289,232 @@ class MoodleApiService {
     } catch (error) {
       console.error('Connection test failed:', error);
       return false;
+    }
+  }
+
+  // Utility methods
+  private async simulateDelay(minMs: number = 200, maxMs: number = 600): Promise<void> {
+    if (USE_MOCK_API) {
+      const delay = Math.random() * (maxMs - minMs) + minMs;
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+  }
+
+  // Assignment-related methods
+  async getAssignments(courseId?: string): Promise<unknown[]> {
+    try {
+      if (USE_MOCK_API) {
+        await this.simulateDelay(300, 700);
+        const assignmentsData = await import('../../../../mocks/moodle-api-responses/assignments.json');
+        let assignments = assignmentsData.assignments;
+        
+        if (courseId) {
+          assignments = assignments.filter((assignment: { course: number }) => assignment.course.toString() === courseId);
+        }
+        
+        return assignments;
+      } else {
+        const response = await this.axios.get('', {
+          params: {
+            wstoken: this.config.token,
+            wsfunction: 'mod_assign_get_assignments',
+            moodlewsrestformat: 'json',
+            courseids: courseId ? [courseId] : []
+          }
+        });
+        return response.data.courses?.[0]?.assignments || [];
+      }
+    } catch (error) {
+      console.error('Failed to fetch assignments:', error);
+      throw error;
+    }
+  }
+
+  async getDetailedCourseContent(courseId: string): Promise<unknown> {
+    try {
+      if (USE_MOCK_API) {
+        await this.simulateDelay(400, 900);
+        const courseContentData = await import('../../../../mocks/moodle-api-responses/course-content.json');
+        return courseContentData.courseContent;
+      } else {
+        const response = await this.axios.get('', {
+          params: {
+            wstoken: this.config.token,
+            wsfunction: 'core_course_get_contents',
+            moodlewsrestformat: 'json',
+            courseid: courseId
+          }
+        });
+        return response.data;
+      }
+    } catch (error) {
+      console.error('Failed to fetch detailed course content:', error);
+      throw error;
+    }
+  }
+
+  async getDetailedForums(courseIds?: string[]): Promise<unknown[]> {
+    try {
+      if (USE_MOCK_API) {
+        await this.simulateDelay(350, 750);
+        const forumsData = await import('../../../../mocks/moodle-api-responses/forums.json');
+        let forums = forumsData.forums;
+        
+        if (courseIds && courseIds.length > 0) {
+          forums = forums.filter((forum: { course: number }) => 
+            courseIds.includes(forum.course.toString())
+          );
+        }
+        
+        return forums;
+      } else {
+        const response = await this.axios.get('', {
+          params: {
+            wstoken: this.config.token,
+            wsfunction: 'mod_forum_get_forums_by_courses',
+            moodlewsrestformat: 'json',
+            ...courseIds?.reduce((acc, id, index) => ({
+              ...acc,
+              [`courseids[${index}]`]: id
+            }), {})
+          }
+        });
+        return response.data;
+      }
+    } catch (error) {
+      console.error('Failed to fetch detailed forums:', error);
+      throw error;
+    }
+  }
+
+  // User and enrollment methods
+  async getCurrentUser(): Promise<unknown> {
+    try {
+      if (USE_MOCK_API) {
+        await this.simulateDelay(200, 400);
+        return {
+          id: 15,
+          username: 'sophia.chen',
+          firstname: 'Sophia',
+          lastname: 'Chen',
+          fullname: 'Sophia Chen',
+          email: 'sophia.chen@capas.edu.bs',
+          department: 'Music Performance',
+          profileimageurlsmall: '/user/sophia-chen-small.jpg',
+          profileimageurl: '/user/sophia-chen.jpg',
+          preferences: [
+            { name: 'auth_forcepasswordchange', value: '0' },
+            { name: 'email_bounce_count', value: '0' },
+            { name: 'email_send_count', value: '0' }
+          ]
+        };
+      } else {
+        const response = await this.axios.get('', {
+          params: {
+            wstoken: this.config.token,
+            wsfunction: 'core_webservice_get_site_info',
+            moodlewsrestformat: 'json'
+          }
+        });
+        return response.data;
+      }
+    } catch (error) {
+      console.error('Failed to fetch current user:', error);
+      throw error;
+    }
+  }
+
+  async getGrades(courseId?: string): Promise<unknown[]> {
+    try {
+      if (USE_MOCK_API) {
+        await this.simulateDelay(400, 800);
+        return [
+          {
+            courseid: 301,
+            coursename: '3D Digital Sculpture',
+            grades: [
+              {
+                itemname: 'Conch Shell Digital Recreation',
+                grade: '92.00',
+                gradeformatted: 'A-',
+                feedback: 'Excellent attention to cultural detail and technical execution.',
+                dategraded: 1708041600
+              },
+              {
+                itemname: 'Junkanoo Mask Digital Sculpture',
+                grade: null,
+                gradeformatted: '-',
+                feedback: null,
+                dategraded: null
+              }
+            ]
+          }
+        ];
+      } else {
+        const response = await this.axios.get('', {
+          params: {
+            wstoken: this.config.token,
+            wsfunction: 'gradereport_user_get_grade_items',
+            moodlewsrestformat: 'json',
+            courseid: courseId
+          }
+        });
+        return response.data.usergrades;
+      }
+    } catch (error) {
+      console.error('Failed to fetch grades:', error);
+      throw error;
+    }
+  }
+
+  // Resource and content methods
+  async getResources(courseId?: string): Promise<unknown[]> {
+    try {
+      if (USE_MOCK_API) {
+        await this.simulateDelay(300, 600);
+        return [
+          {
+            id: 1,
+            name: 'Course Introduction and Syllabus',
+            type: 'resource',
+            url: '/mock/content/ART301_Syllabus_Fall2024.pdf',
+            description: 'Complete course overview including projects, expectations, and cultural focus.',
+            timemodified: 1703097600,
+            course: courseId || '301'
+          },
+          {
+            id: 2,
+            name: 'Sculpting Brush Reference Guide',
+            type: 'resource', 
+            url: '/mock/content/Sculpting_Brush_Reference_Guide.pdf',
+            description: 'Comprehensive reference guide covering all essential sculpting brushes.',
+            timemodified: 1703184000,
+            course: courseId || '301'
+          },
+          {
+            id: 3,
+            name: 'Cultural Heritage Video Lecture',
+            type: 'url',
+            url: '/mock/videos/bahamian_heritage_intro.mp4',
+            description: 'Explore the rich artistic traditions of the Bahamas.',
+            timemodified: 1703097600,
+            course: courseId || '301'
+          }
+        ];
+      } else {
+        const response = await this.axios.get('', {
+          params: {
+            wstoken: this.config.token,
+            wsfunction: 'core_course_get_contents',
+            moodlewsrestformat: 'json',
+            courseid: courseId
+          }
+        });
+        return response.data;
+      }
+    } catch (error) {
+      console.error('Failed to fetch resources:', error);
+      throw error;
     }
   }
 

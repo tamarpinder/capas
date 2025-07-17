@@ -1,0 +1,335 @@
+{
+  "courseContent": [
+    {
+      "id": 1,
+      "name": "Week 1: Introduction to Digital Sculpture",
+      "visible": true,
+      "summary": "Welcome to the world of digital sculpture! This week we'll explore the fundamentals of 3D modeling and introduce the cultural heritage project that will guide our semester.",
+      "summaryformat": 1,
+      "section": 1,
+      "hiddenbynumsections": false,
+      "uservisible": true,
+      "modules": [
+        {
+          "id": 101,
+          "url": "https://capas-hub.local/mod/lesson/view.php?id=101",
+          "name": "Course Introduction and Syllabus",
+          "instance": 1,
+          "description": "Welcome video from Prof. Roberts and complete course overview including projects, expectations, and cultural focus.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/pdf-24",
+          "modname": "resource",
+          "modplural": "Files",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "file",
+              "filename": "ART301_Syllabus_Fall2024.pdf",
+              "filepath": "/",
+              "filesize": 524288,
+              "fileurl": "https://capas-hub.local/mock/content/ART301_Syllabus_Fall2024.pdf",
+              "timecreated": 1703097600,
+              "timemodified": 1703097600,
+              "sortorder": 1,
+              "mimetype": "application/pdf",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        },
+        {
+          "id": 102,
+          "url": "https://capas-hub.local/mod/lesson/view.php?id=102",
+          "name": "Introduction to Bahamian Cultural Heritage in Art",
+          "instance": 2,
+          "description": "Explore the rich artistic traditions of the Bahamas and how they influence contemporary digital art. Video lecture with Prof. Roberts.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/video-24",
+          "modname": "url",
+          "modplural": "URLs",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "url",
+              "filename": "Cultural Heritage Video Lecture",
+              "filepath": "/",
+              "filesize": 0,
+              "fileurl": "https://capas-hub.local/mock/videos/bahamian_heritage_intro.mp4",
+              "timecreated": 1703097600,
+              "timemodified": 1703097600,
+              "sortorder": 1,
+              "mimetype": "video/mp4",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        },
+        {
+          "id": 103,
+          "url": "https://capas-hub.local/mod/assign/view.php?id=103",
+          "name": "Software Setup and First Sculpt",
+          "instance": 1,
+          "description": "Install Blender or ZBrush, complete the basic interface tutorial, and create your first simple sculpture following the provided guide.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/assign/1703097600/icon",
+          "modname": "assign",
+          "modplural": "Assignments",
+          "availability": null,
+          "indent": 0,
+          "contents": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Week 2: Digital Sculpting Fundamentals",
+      "visible": true,
+      "summary": "Master the essential tools and techniques of digital sculpting. Learn about mesh topology, subdivision surfaces, and basic sculpting brushes.",
+      "summaryformat": 1,
+      "section": 2,
+      "hiddenbynumsections": false,
+      "uservisible": true,
+      "modules": [
+        {
+          "id": 104,
+          "url": "https://capas-hub.local/mod/lesson/view.php?id=104",
+          "name": "Mesh Topology and Base Forms",
+          "instance": 3,
+          "description": "Understanding the importance of clean topology in digital sculpture and how to create efficient base meshes.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/video-24",
+          "modname": "url",
+          "modplural": "URLs",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "url",
+              "filename": "Topology Fundamentals",
+              "filepath": "/",
+              "filesize": 0,
+              "fileurl": "https://capas-hub.local/mock/videos/topology_fundamentals.mp4",
+              "timecreated": 1703184000,
+              "timemodified": 1703184000,
+              "sortorder": 1,
+              "mimetype": "video/mp4",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        },
+        {
+          "id": 105,
+          "url": "https://capas-hub.local/mod/resource/view.php?id=105",
+          "name": "Sculpting Brush Reference Guide",
+          "instance": 4,
+          "description": "Comprehensive reference guide covering all essential sculpting brushes and their applications in organic modeling.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/pdf-24",
+          "modname": "resource",
+          "modplural": "Files",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "file",
+              "filename": "Sculpting_Brush_Reference_Guide.pdf",
+              "filepath": "/guides/",
+              "filesize": 2097152,
+              "fileurl": "https://capas-hub.local/mock/content/Sculpting_Brush_Reference_Guide.pdf",
+              "timecreated": 1703184000,
+              "timemodified": 1703184000,
+              "sortorder": 1,
+              "mimetype": "application/pdf",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        },
+        {
+          "id": 106,
+          "url": "https://capas-hub.local/mod/forum/view.php?id=106",
+          "name": "Week 2 Discussion: Share Your Progress",
+          "instance": 1,
+          "description": "Share screenshots of your sculpting practice and discuss any challenges you're facing with the tools.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/forum/1703097600/icon",
+          "modname": "forum",
+          "modplural": "Forums",
+          "availability": null,
+          "indent": 0,
+          "contents": []
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Week 3: Cultural Research and Reference Gathering",
+      "visible": true,
+      "summary": "Deep dive into Bahamian cultural artifacts. Research traditional conch shells, their cultural significance, and gather visual references for our first major project.",
+      "summaryformat": 1,
+      "section": 3,
+      "hiddenbynumsections": false,
+      "uservisible": true,
+      "modules": [
+        {
+          "id": 107,
+          "url": "https://capas-hub.local/mod/resource/view.php?id=107",
+          "name": "The Cultural Significance of Conch Shells in Bahamian Heritage",
+          "instance": 5,
+          "description": "Academic paper exploring the historical and contemporary cultural importance of conch shells in Bahamian society.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/pdf-24",
+          "modname": "resource",
+          "modplural": "Files",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "file",
+              "filename": "Conch_Shells_Cultural_Significance.pdf",
+              "filepath": "/research/",
+              "filesize": 1572864,
+              "fileurl": "https://capas-hub.local/mock/content/Conch_Shells_Cultural_Significance.pdf",
+              "timecreated": 1703270400,
+              "timemodified": 1703270400,
+              "sortorder": 1,
+              "mimetype": "application/pdf",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        },
+        {
+          "id": 108,
+          "url": "https://capas-hub.local/mod/url/view.php?id=108",
+          "name": "Virtual Tour: Nassau Straw Market Shell Collection",
+          "instance": 6,
+          "description": "360-degree virtual tour of traditional shell artifacts at Nassau's famous Straw Market, showcasing various conch shell preparations and uses.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/interactive-24",
+          "modname": "url",
+          "modplural": "URLs",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "url",
+              "filename": "Nassau Straw Market VR Tour",
+              "filepath": "/",
+              "filesize": 0,
+              "fileurl": "https://capas-hub.local/mock/vr/nassau_straw_market_shells.html",
+              "timecreated": 1703270400,
+              "timemodified": 1703270400,
+              "sortorder": 1,
+              "mimetype": "text/html",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        },
+        {
+          "id": 109,
+          "url": "https://capas-hub.local/mod/assign/view.php?id=109",
+          "name": "Assignment: Conch Shell Digital Recreation",
+          "instance": 1,
+          "description": "Create a photorealistic 3D model of a Bahamian conch shell, incorporating traditional cultural significance and modern digital sculpting techniques.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/assign/1703097600/icon",
+          "modname": "assign",
+          "modplural": "Assignments",
+          "availability": null,
+          "indent": 0,
+          "contents": []
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Week 4: Advanced Organic Modeling Techniques",
+      "visible": true,
+      "summary": "Master advanced techniques for creating complex organic forms. Focus on surface details, natural imperfections, and realistic texture development.",
+      "summaryformat": 1,
+      "section": 4,
+      "hiddenbynumsections": false,
+      "uservisible": true,
+      "modules": [
+        {
+          "id": 110,
+          "url": "https://capas-hub.local/mod/lesson/view.php?id=110",
+          "name": "Surface Detail and Micro-geometry",
+          "instance": 7,
+          "description": "Advanced techniques for adding realistic surface details that bring your digital sculptures to life.",
+          "visible": true,
+          "uservisible": true,
+          "availabilityinfo": null,
+          "visibleoncoursepage": true,
+          "modicon": "https://capas-hub.local/theme/image.php/boost/core/1703097600/f/video-24",
+          "modname": "url",
+          "modplural": "URLs",
+          "availability": null,
+          "indent": 0,
+          "contents": [
+            {
+              "type": "url",
+              "filename": "Surface Detail Techniques",
+              "filepath": "/",
+              "filesize": 0,
+              "fileurl": "https://capas-hub.local/mock/videos/surface_detail_techniques.mp4",
+              "timecreated": 1703356800,
+              "timemodified": 1703356800,
+              "sortorder": 1,
+              "mimetype": "video/mp4",
+              "isexternalfile": false,
+              "userid": 2,
+              "author": "Prof. Antonius Roberts",
+              "license": "allrightsreserved"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}
