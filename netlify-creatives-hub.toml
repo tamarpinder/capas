@@ -5,6 +5,12 @@
 [build.environment]
   NODE_VERSION = "18"
   NEXT_TELEMETRY_DISABLED = "1"
+  NEXT_PUBLIC_APP_URL = "https://capas-creatives-hub.netlify.app"
+  NEXT_PUBLIC_API_URL = "https://capas-creatives-hub.netlify.app/api"
+  NEXT_PUBLIC_SCHOOL_PORTAL_URL = "https://capas-school-portal.netlify.app"
+  NEXT_PUBLIC_MAIN_WEBSITE_URL = "https://capas.netlify.app"
+  USE_MOCK_API = "true"
+  ENABLE_3D_FEATURES = "false"
 
 # Use Essential Next.js plugin for Netlify
 [[plugins]]
@@ -30,3 +36,20 @@
   for = "/_next/static/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirects for better UX
+[[redirects]]
+  from = "/creatives-hub"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/hub"
+  to = "/"
+  status = 301
+
+# Handle SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -74,7 +74,7 @@ const secondaryActions = [
 // External portal access
 const portalAccess = {
   name: 'School Portal',
-  href: 'http://localhost:4000',
+  href: process.env.NEXT_PUBLIC_SCHOOL_PORTAL_URL || 'https://capas-school-portal.netlify.app',
   isExternal: true,
   description: 'Access school portal for administrative tasks',
   icon: ArrowTopRightOnSquareIcon,
