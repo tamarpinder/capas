@@ -252,10 +252,10 @@ export default function StudentLifePage() {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6 px-4">
                 Student Life at CAPAS
               </h1>
-              <p className="text-sm sm:text-base lg:text-lg xl:text-xl max-w-3xl mx-auto text-white/90 px-4">
+              <p className="text-base sm:text-lg lg:text-xl max-w-3xl mx-auto text-white/90 px-4">
                 Experience vibrant campus culture where creativity thrives, friendships flourish, and Caribbean heritage comes alive
               </p>
             </motion.div>
@@ -273,10 +273,10 @@ export default function StudentLifePage() {
               className="grid lg:grid-cols-2 gap-12 items-center"
             >
               <div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-6">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-6 text-center lg:text-left">
                   Where Creativity Meets Community
                 </h2>
-                <div className="space-y-4 text-lg text-capas-ocean-dark leading-relaxed">
+                <div className="space-y-4 text-base sm:text-lg text-capas-ocean-dark leading-relaxed text-center lg:text-left">
                   <p>
                     At CAPAS, student life extends far beyond the classroom. Our vibrant campus 
                     community celebrates creativity, cultural heritage, and personal growth in 
@@ -318,10 +318,10 @@ export default function StudentLifePage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-4">
                 Student Organizations
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Join passionate communities that share your interests and help you grow as an artist and leader
               </p>
             </motion.div>
@@ -389,11 +389,11 @@ export default function StudentLifePage() {
                 <div className="w-12 h-12 bg-capas-coral rounded-full flex items-center justify-center mr-3">
                   <CalendarIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise">
                   Campus Events
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Year-round celebrations that bring our community together through arts and culture
               </p>
             </motion.div>
@@ -454,10 +454,10 @@ export default function StudentLifePage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-4">
                 Campus Life & Amenities
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Everything you need for a comfortable, productive, and enjoyable campus experience
               </p>
             </motion.div>
@@ -509,11 +509,11 @@ export default function StudentLifePage() {
                 <div className="w-12 h-12 bg-capas-palm rounded-full flex items-center justify-center mr-3">
                   <TrophyIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise">
                   CAPAS Traditions
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Time-honored traditions that create lasting memories and strengthen our community bonds
               </p>
             </motion.div>
@@ -559,11 +559,11 @@ export default function StudentLifePage() {
                 <div className="w-12 h-12 bg-capas-ocean rounded-full flex items-center justify-center mr-3">
                   <HomeIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise">
                   Housing Options
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Comfortable living arrangements to support your academic and personal success
               </p>
             </motion.div>
@@ -608,10 +608,10 @@ export default function StudentLifePage() {
               viewport={{ once: true }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h2 className="font-montserrat text-3xl font-bold mb-6">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold mb-6">
                 Ready to Join Our Community?
               </h2>
-              <p className="text-xl leading-relaxed mb-8 text-white/90">
+              <p className="text-lg sm:text-xl leading-relaxed mb-8 text-white/90">
                 CAPAS student life offers endless opportunities to grow, create, and connect. 
                 From the moment you arrive, you'll be part of a supportive community that 
                 celebrates your unique talents and helps you reach your full potential.

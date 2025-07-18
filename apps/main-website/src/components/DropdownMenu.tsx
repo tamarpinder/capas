@@ -16,9 +16,10 @@ interface DropdownMenuProps {
   title: string;
   items: DropdownItem[];
   className?: string;
+  isActive?: boolean;
 }
 
-export default function DropdownMenu({ title, items, className = '' }: DropdownMenuProps) {
+export default function DropdownMenu({ title, items, className = '', isActive = false }: DropdownMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const timeoutRef = useRef<NodeJS.Timeout>();
@@ -122,7 +123,11 @@ export default function DropdownMenu({ title, items, className = '' }: DropdownM
         ref={buttonRef}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        className={`flex items-center space-x-1 text-capas-ocean-dark hover:text-capas-turquoise dark:text-gray-200 dark:hover:text-capas-turquoise transition-colors duration-200 font-medium font-montserrat focus:outline-none focus:ring-2 focus:ring-capas-turquoise focus:ring-offset-2 rounded-md px-2 py-1 ${className}`}
+        className={`flex items-center space-x-1 transition-all duration-200 font-medium font-montserrat focus:outline-none focus:ring-2 focus:ring-capas-turquoise focus:ring-offset-2 rounded-md px-2 py-1 ${
+          isActive 
+            ? 'text-capas-turquoise font-semibold bg-capas-turquoise/10 border-b-2 border-capas-turquoise' 
+            : 'text-capas-ocean-dark hover:text-capas-turquoise dark:text-gray-200 dark:hover:text-capas-turquoise hover:bg-capas-turquoise/5'
+        } ${className}`}
         aria-expanded={isOpen}
         aria-haspopup="menu"
         aria-label={`${title} menu`}

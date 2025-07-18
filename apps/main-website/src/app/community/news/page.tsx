@@ -95,10 +95,10 @@ export default function NewsEventsHub() {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="font-montserrat text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="font-montserrat text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 px-4">
                 News & Events
               </h1>
-              <p className="text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-montserrat">
+              <p className="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-montserrat px-4">
                 Stay connected with the vibrant CAPAS community. Discover the latest news, 
                 upcoming events, and celebrate our achievements together.
               </p>
@@ -116,15 +116,15 @@ export default function NewsEventsHub() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="font-montserrat text-4xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl font-bold text-capas-turquoise mb-4">
                 Featured Stories
               </h2>
-              <p className="text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat">
+              <p className="text-base sm:text-lg lg:text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat">
                 Highlighting the most important news and achievements from our community
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto lg:grid-cols-3">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {featuredNews.map((article, index) => (
                 <motion.div
                   key={article.id}
@@ -135,8 +135,8 @@ export default function NewsEventsHub() {
                   className={index === 0 ? 'lg:col-span-2' : ''}
                 >
                   <Link href={`/news-events/${article.id}`} className="block group h-full">
-                    <article className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col">
-                      <div className={`mobile-image-wrapper ${index === 0 ? 'h-64' : 'h-48'}`}>
+                    <article className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col rounded-xl overflow-hidden">
+                      <div className={`relative overflow-hidden ${index === 0 ? 'h-64' : 'h-48'}`}>
                         <PlaceholderImage
                           width={index === 0 ? 800 : 400}
                           height={index === 0 ? 256 : 192}
@@ -231,7 +231,7 @@ export default function NewsEventsHub() {
                     placeholder="Search news & events..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="pl-10 pr-4 py-2 border border-capas-ocean-light/30 rounded-lg focus:ring-2 focus:ring-capas-turquoise focus:border-transparent transition-colors font-montserrat w-full sm:w-64"
+                    className="pl-10 pr-4 py-2 sm:py-3 border border-capas-ocean-light/30 rounded-lg focus:ring-2 focus:ring-capas-turquoise focus:border-transparent transition-colors font-montserrat w-full sm:w-64 text-sm sm:text-base"
                   />
                 </div>
 
@@ -287,7 +287,7 @@ export default function NewsEventsHub() {
                 <p className="text-capas-ocean-dark/70">Try adjusting your search or filter criteria</p>
               </motion.div>
             ) : (
-              <div className="mobile-grid-auto lg:grid-cols-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredItems.map((item, index) => (
                   <motion.div
                     key={`${item.type}-${item.id}`}
@@ -297,8 +297,8 @@ export default function NewsEventsHub() {
                     viewport={{ once: true }}
                   >
                     <Link href={`/news-events/${item.id}`} className="block group h-full">
-                      <article className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col">
-                        <div className="mobile-image-wrapper h-48">
+                      <article className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col rounded-xl overflow-hidden">
+                        <div className="relative overflow-hidden h-48">
                           <PlaceholderImage
                             width={400}
                             height={192}
@@ -337,7 +337,7 @@ export default function NewsEventsHub() {
                             </div>
                           )}
                         </div>
-                        <div className="mobile-card-container flex-grow flex flex-col">
+                        <div className="p-6 flex-grow flex flex-col">
                           <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors line-clamp-2">
                             {item.title}
                           </h3>
@@ -375,10 +375,10 @@ export default function NewsEventsHub() {
               viewport={{ once: true }}
             >
               <MegaphoneIcon className="w-16 h-16 text-white mx-auto mb-6" />
-              <h2 className="font-montserrat text-4xl font-bold text-white mb-6">
+              <h2 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6">
                 Stay in the Loop
               </h2>
-              <p className="text-xl text-white/90 mb-8 font-montserrat">
+              <p className="text-lg sm:text-xl text-white/90 mb-8 font-montserrat">
                 Subscribe to our newsletter and never miss an important update, event, or achievement from the CAPAS community.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">

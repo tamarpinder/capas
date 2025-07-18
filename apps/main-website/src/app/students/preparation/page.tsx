@@ -206,10 +206,10 @@ export default function PreparationPage() {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="font-montserrat text-5xl font-bold mb-6">
+              <h1 className="font-montserrat text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 px-4">
                 Getting Started at CAPAS
               </h1>
-              <p className="text-xl max-w-3xl mx-auto text-white/90">
+              <p className="text-lg sm:text-xl max-w-3xl mx-auto text-white/90 px-4">
                 Your comprehensive guide to preparing for an extraordinary journey in creative arts education
               </p>
             </motion.div>
@@ -227,10 +227,10 @@ export default function PreparationPage() {
               className="grid lg:grid-cols-2 gap-12 items-center"
             >
               <div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-6">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-6 text-center lg:text-left">
                   Welcome to the CAPAS Family!
                 </h2>
-                <div className="space-y-4 text-lg text-capas-ocean-dark leading-relaxed">
+                <div className="space-y-4 text-base sm:text-lg text-capas-ocean-dark leading-relaxed text-center lg:text-left">
                   <p>
                     Congratulations on your acceptance to CAPAS Bahamas! You're about to embark on 
                     an exciting journey that will transform your artistic abilities and prepare you 
@@ -272,10 +272,10 @@ export default function PreparationPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-4">
                 Pre-Arrival Checklist
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Stay organized and ensure you're fully prepared for your CAPAS experience
               </p>
             </motion.div>
@@ -335,11 +335,11 @@ export default function PreparationPage() {
                 <div className="w-12 h-12 bg-capas-gold rounded-full flex items-center justify-center mr-3">
                   <CalendarIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise">
                   Important Dates
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Mark your calendar with these essential dates for the upcoming semester
               </p>
             </motion.div>
@@ -391,10 +391,10 @@ export default function PreparationPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-4">
                 Essential Information
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Key details you'll need for your first semester at CAPAS
               </p>
             </motion.div>
@@ -445,11 +445,11 @@ export default function PreparationPage() {
                 <div className="w-12 h-12 bg-capas-palm rounded-full flex items-center justify-center mr-3">
                   <BookOpenIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise">
                   Campus Resources
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto">
                 Discover the wealth of resources available to support your academic and personal growth
               </p>
             </motion.div>
@@ -492,10 +492,10 @@ export default function PreparationPage() {
               viewport={{ once: true }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h2 className="font-montserrat text-3xl font-bold mb-6">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold mb-6">
                 Ready for Your CAPAS Journey?
               </h2>
-              <p className="text-xl leading-relaxed mb-8 text-white/90">
+              <p className="text-lg sm:text-xl leading-relaxed mb-8 text-white/90">
                 You're well on your way to joining the CAPAS community. As you prepare for your 
                 first semester, remember that this is just the beginning of an incredible journey 
                 of artistic and personal growth.

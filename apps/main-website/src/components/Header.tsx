@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect, memo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
@@ -74,6 +75,28 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
+
+  // Check if a navigation item is active
+  const isActiveSection = useCallback((sectionName: string) => {
+    switch (sectionName.toLowerCase()) {
+      case 'about':
+        return pathname.startsWith('/about');
+      case 'academics':
+        return pathname.startsWith('/programs');
+      case 'students':
+        return pathname.startsWith('/students');
+      case 'community':
+        return pathname.startsWith('/community');
+      default:
+        return false;
+    }
+  }, [pathname]);
+
+  const isActivePath = useCallback((href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href);
+  }, [pathname]);
 
   useEffect(() => {
     setMounted(true);
@@ -127,7 +150,12 @@ function Header() {
                 key={item.name}
                 title={item.name}
                 items={item.items}
-                className="text-sm xl:text-base"
+                className={`text-sm xl:text-base transition-all duration-200 ${
+                  isActiveSection(item.name) 
+                    ? 'text-capas-turquoise font-semibold' 
+                    : 'text-capas-ocean-dark hover:text-capas-turquoise'
+                }`}
+                isActive={isActiveSection(item.name)}
               />
             ))}
             
@@ -228,7 +256,11 @@ function Header() {
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="mobile-nav-item block text-capas-ocean-dark dark:text-gray-200 hover:text-capas-turquoise dark:hover:text-capas-turquoise transition-colors duration-200 font-montserrat py-2 focus:outline-none focus:ring-2 focus:ring-capas-turquoise focus:ring-inset rounded-md px-4"
+                            className={`mobile-nav-item block transition-all duration-200 font-montserrat py-2 focus:outline-none focus:ring-2 focus:ring-capas-turquoise focus:ring-inset rounded-md px-4 ${
+                              isActivePath(item.href)
+                                ? 'text-capas-turquoise font-semibold bg-capas-turquoise/10 border-l-4 border-capas-turquoise'
+                                : 'text-capas-ocean-dark dark:text-gray-200 hover:text-capas-turquoise dark:hover:text-capas-turquoise hover:bg-capas-turquoise/5'
+                            }`}
                             onClick={closeMenu}
                           >
                             {item.name}
