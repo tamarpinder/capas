@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import DashboardHeader from '@/components/dashboard/DashboardHeader';
 import DashboardSidebar from '@/components/dashboard/DashboardSidebar';
 
@@ -13,6 +13,10 @@ export default function DashboardLayout({
 }) {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   useEffect(() => {
     if (status === 'loading') return; // Still loading
@@ -42,13 +46,19 @@ export default function DashboardLayout({
   return (
     <div className="h-screen bg-capas-sand-light flex flex-col">
       {/* Fixed Header - No overlapping */}
-      <DashboardHeader />
+      <DashboardHeader 
+        onMobileMenuToggle={toggleMobileMenu}
+        isMobileMenuOpen={isMobileMenuOpen}
+      />
       
       {/* Main Content Area - Takes remaining height */}
       <div className="flex flex-1 overflow-hidden">
-        <DashboardSidebar />
+        <DashboardSidebar 
+          isMobileMenuOpen={isMobileMenuOpen}
+          onMobileMenuClose={closeMobileMenu}
+        />
         <main className="flex-1 lg:ml-64 overflow-y-auto">
-          <div className="p-4 lg:p-8">
+          <div className="p-4 lg:p-8 pb-20 lg:pb-8"> {/* Add bottom padding for mobile bottom nav */}
             {children}
           </div>
         </main>

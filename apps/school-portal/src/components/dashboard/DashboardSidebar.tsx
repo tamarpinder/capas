@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import {
   HomeIcon,
   CalendarIcon,
@@ -20,6 +20,8 @@ import {
   ClipboardDocumentListIcon,
   PencilSquareIcon,
   ChatBubbleLeftRightIcon,
+  XMarkIcon,
+  ArrowRightOnRectangleIcon,
 } from '@heroicons/react/24/outline';
 
 const studentNavigation = [
@@ -58,7 +60,12 @@ const adminNavigation = [
   { name: 'Profile', href: '/dashboard/profile', icon: UserIcon },
 ];
 
-export default function DashboardSidebar() {
+interface DashboardSidebarProps {
+  isMobileMenuOpen?: boolean;
+  onMobileMenuClose?: () => void;
+}
+
+export default function DashboardSidebar({ isMobileMenuOpen = false, onMobileMenuClose }: DashboardSidebarProps = {}) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const { data: session } = useSession();
@@ -158,10 +165,115 @@ export default function DashboardSidebar() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay (when needed) */}
-      <div className="lg:hidden">
-        {/* This would be implemented with a slide-out menu for additional nav items */}
-      </div>
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity"
+            onClick={onMobileMenuClose}
+            aria-hidden="true"
+          />
+          
+          {/* Sliding Menu */}
+          <div className="lg:hidden fixed inset-y-0 left-0 w-72 bg-white shadow-xl z-50 transform transition-transform">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-4 border-b border-capas-ocean-light/20">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-capas-turquoise rounded-full flex items-center justify-center">
+                    <span className="text-white font-display font-bold text-sm">C</span>
+                  </div>
+                  <h2 className="font-display text-lg font-bold text-capas-turquoise">CAPAS Portal</h2>
+                </div>
+                <button
+                  onClick={onMobileMenuClose}
+                  className="p-2 rounded-md text-capas-ocean-dark hover:text-capas-turquoise transition-colors"
+                  aria-label="Close mobile menu"
+                >
+                  <XMarkIcon className="h-6 w-6" />
+                </button>
+              </div>
+
+              {/* User Info */}
+              <div className="p-4 border-b border-capas-ocean-light/20">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-capas-turquoise rounded-full flex items-center justify-center text-white text-sm font-medium">
+                    {session?.user?.name ? session.user.name.split(' ').map(n => n[0]).join('').toUpperCase() : 'U'}
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-capas-ocean-dark">
+                      {session?.user?.name || 'User'}
+                    </div>
+                    <div className="text-xs text-capas-ocean-dark/70">
+                      {session?.user?.email}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Navigation */}
+              <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={onMobileMenuClose}
+                      className={`
+                        flex items-center px-3 py-3 rounded-lg text-sm font-medium transition-colors
+                        ${isActive
+                          ? 'bg-capas-turquoise text-white shadow-sm'
+                          : 'text-capas-ocean-dark hover:text-capas-turquoise hover:bg-capas-sand-light'
+                        }
+                      `}
+                    >
+                      <item.icon className="h-5 w-5 mr-3 flex-shrink-0" />
+                      <span>{item.name}</span>
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              {/* Footer Actions */}
+              <div className="p-4 border-t border-capas-ocean-light/20 space-y-2">
+                {/* Quick Links */}
+                <Link
+                  href="https://capas.netlify.app/"
+                  onClick={onMobileMenuClose}
+                  className="flex items-center px-3 py-2 text-sm text-capas-ocean-dark hover:text-capas-turquoise transition-colors"
+                >
+                  <ArrowLeftIcon className="h-4 w-4 mr-2" />
+                  Back to Main Site
+                </Link>
+                
+                <Link
+                  href="http://localhost:4001"
+                  target="_blank"
+                  onClick={onMobileMenuClose}
+                  className="flex items-center px-3 py-2 text-sm text-capas-turquoise hover:text-capas-turquoise-dark transition-colors"
+                >
+                  <span className="mr-2">🎨</span>
+                  Creatives Hub
+                </Link>
+
+                {/* Sign Out */}
+                <button
+                  onClick={() => {
+                    onMobileMenuClose?.();
+                    signOut({ callbackUrl: '/auth/signin' });
+                  }}
+                  className="flex items-center w-full px-3 py-2 text-sm text-capas-coral hover:bg-capas-coral/10 transition-colors rounded-md"
+                >
+                  <ArrowRightOnRectangleIcon className="h-4 w-4 mr-2" />
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 }

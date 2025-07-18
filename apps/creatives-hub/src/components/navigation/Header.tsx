@@ -206,8 +206,11 @@ export default function Header() {
               <div className="relative">
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-capas-ocean-light/50 transition-colors"
+                  className="flex items-center space-x-3 p-2 rounded-lg hover:bg-capas-ocean-light/50 transition-colors relative group"
+                  title="Click for user menu and sign out"
                 >
+                  {/* Visual hint for new users */}
+                  <span className="absolute -top-1 -right-1 w-3 h-3 bg-capas-gold rounded-full animate-pulse opacity-75 group-hover:opacity-0 transition-opacity"></span>
                   <img
                     src={user.profileimageurlsmall || user.profileimageurl}
                     alt={user.fullname}
@@ -396,23 +399,85 @@ export default function Header() {
                   </div>
                 </div>
                 
-                {/* Mobile Actions */}
-                <div className="border-t border-capas-ocean-light/30 pt-6 space-y-4">
-                  <div className="space-y-3">
-                    {/* Secondary Action */}
-                    {secondaryActions.map((action) => (
+                {/* Mobile User Profile & Actions */}
+                {user && (
+                  <div className="border-t border-capas-ocean-light/30 pt-6 space-y-4">
+                    {/* User Info */}
+                    <div className="px-2">
+                      <div className="flex items-center space-x-3 mb-4">
+                        <img
+                          src={user.profileimageurlsmall || user.profileimageurl}
+                          alt={user.fullname}
+                          className="w-10 h-10 rounded-full border border-gray-200"
+                        />
+                        <div>
+                          <p className="text-sm font-medium text-gray-900">{user.fullname}</p>
+                          <p className="text-xs text-gray-500">{user.department}</p>
+                        </div>
+                      </div>
+                      
+                      {/* Quick Actions */}
+                      <div className="space-y-2">
+                        <Link
+                          href="/profile"
+                          className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-capas-ocean-light/50 rounded-md transition-colors"
+                          onClick={closeMenu}
+                        >
+                          <UserCircleIcon className="w-4 h-4 mr-3" />
+                          My Profile
+                        </Link>
+                        <Link
+                          href="/settings"
+                          className="flex items-center px-3 py-2 text-sm text-gray-700 hover:bg-capas-ocean-light/50 rounded-md transition-colors"
+                          onClick={closeMenu}
+                        >
+                          <CogIcon className="w-4 h-4 mr-3" />
+                          Settings
+                        </Link>
+                        <button
+                          onClick={() => {
+                            logout();
+                            closeMenu();
+                          }}
+                          className="flex items-center w-full px-3 py-2 text-sm text-red-600 hover:bg-red-50 rounded-md transition-colors"
+                        >
+                          <ArrowRightOnRectangleIcon className="w-4 h-4 mr-3" />
+                          Sign Out
+                        </button>
+                      </div>
+                    </div>
+                    
+                    {/* Secondary Actions */}
+                    <div className="space-y-3 px-2">
+                      {secondaryActions.map((action) => (
+                        <Link
+                          key={action.name}
+                          href={action.href}
+                          className="block bg-capas-coral hover:bg-capas-coral-dark text-white px-4 py-3 rounded-lg font-semibold text-center shadow-md"
+                          onClick={closeMenu}
+                        >
+                          {action.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                {/* Show login prompt if not logged in */}
+                {!user && (
+                  <div className="border-t border-capas-ocean-light/30 pt-6 space-y-4 px-2">
+                    <div className="text-center">
+                      <p className="text-sm text-gray-600 mb-4">Sign in to access your courses and progress</p>
                       <Link
-                        key={action.name}
-                        href={action.href}
-                        className="block bg-capas-coral hover:bg-capas-coral-dark text-white px-4 py-3 rounded-lg font-semibold text-center shadow-md"
+                        href="/login"
+                        className="block bg-capas-turquoise hover:bg-capas-turquoise-dark text-white px-4 py-3 rounded-lg font-semibold text-center shadow-md"
                         onClick={closeMenu}
                       >
-                        {action.name}
+                        Sign In
                       </Link>
-                    ))}
-                    
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </motion.div>
           )}

@@ -9,7 +9,12 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 import { type ExtendedUser } from '@/lib/auth';
 
-export default function DashboardHeader() {
+interface DashboardHeaderProps {
+  onMobileMenuToggle?: () => void;
+  isMobileMenuOpen?: boolean;
+}
+
+export default function DashboardHeader({ onMobileMenuToggle, isMobileMenuOpen = false }: DashboardHeaderProps = {}) {
   const { data: session } = useSession();
   const [currentTime, setCurrentTime] = useState('');
   const [scrolled, setScrolled] = useState(false);
@@ -79,8 +84,12 @@ export default function DashboardHeader() {
     }`}>
       <div className="flex items-center justify-between px-4 lg:px-8 py-3 min-h-[72px]"> {/* More precise height measurement */}
         {/* Mobile menu button */}
-        <button className="lg:hidden p-2 rounded-md text-capas-ocean-dark hover:text-capas-turquoise">
-          <Bars3Icon className="h-6 w-6" />
+        <button 
+          onClick={onMobileMenuToggle}
+          className="lg:hidden p-2 rounded-md text-capas-ocean-dark hover:text-capas-turquoise transition-colors"
+          aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
+        >
+          <Bars3Icon className={`h-6 w-6 transition-transform ${isMobileMenuOpen ? 'rotate-90' : ''}`} />
         </button>
 
         {/* Logo and Title */}
