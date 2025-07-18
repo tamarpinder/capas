@@ -147,20 +147,20 @@ export default function AcademicCalendarPage() {
           
           <div className="relative mobile-safe-container">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex items-center space-x-2 text-sm">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
+              <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm">
                 <li>
                   <Link href="/" className="text-white/70 hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <Link href="/students" className="text-white/70 hover:text-white transition-colors">
                     Students
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <span className="text-white font-medium">Academic Calendar</span>
                 </li>
@@ -173,10 +173,10 @@ export default function AcademicCalendarPage() {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="font-montserrat text-5xl font-bold mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">
                 Academic Calendar
               </h1>
-              <p className="text-xl max-w-3xl mx-auto text-white/90">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl max-w-3xl mx-auto text-white/90 px-4">
                 Stay organized with important dates, deadlines, and events throughout the academic year
               </p>
             </motion.div>
@@ -184,16 +184,16 @@ export default function AcademicCalendarPage() {
         </section>
 
         {/* Calendar Controls */}
-        <section className="mobile-section-padding bg-capas-sand-light border-b border-capas-ocean-light/20">
-          <div className="mobile-safe-container">
-            <div className="mobile-center md:flex-row gap-4 md:items-center md:justify-between">
+        <section className="py-8 sm:py-12 lg:py-16 bg-capas-sand-light border-b border-capas-ocean-light/20">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center lg:justify-between">
               {/* Semester Selector */}
-              <div className="flex items-center space-x-4">
-                <label className="font-semibold text-capas-ocean-dark">Semester:</label>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <label className="font-semibold text-capas-ocean-dark text-sm sm:text-base">Semester:</label>
                 <select
                   value={selectedSemester}
                   onChange={(e) => setSelectedSemester(e.target.value)}
-                  className="bg-white border border-capas-ocean-light/30 rounded-lg px-4 py-2 font-semibold text-capas-turquoise focus:outline-none focus:ring-2 focus:ring-capas-turquoise"
+                  className="bg-white border border-capas-ocean-light/30 rounded-lg px-3 py-2 sm:px-4 font-semibold text-capas-turquoise focus:outline-none focus:ring-2 focus:ring-capas-turquoise text-sm sm:text-base"
                 >
                   {semesters.map(semester => (
                     <option key={semester} value={semester}>{semester}</option>
@@ -202,31 +202,33 @@ export default function AcademicCalendarPage() {
               </div>
 
               {/* Event Type Filter */}
-              <div className="flex items-center space-x-2">
-                <span className="font-semibold text-capas-ocean-dark mr-2">Filter:</span>
-                <button
-                  onClick={() => setSelectedEventType('all')}
-                  className={`px-3 py-1 rounded-full text-sm font-semibold transition-colors ${
-                    selectedEventType === 'all' 
-                      ? 'bg-capas-turquoise text-white' 
-                      : 'bg-white text-capas-turquoise border border-capas-turquoise'
-                  }`}
-                >
-                  All
-                </button>
-                {Object.entries(eventTypes).map(([type, config]) => (
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <span className="font-semibold text-capas-ocean-dark text-sm sm:text-base sm:mr-2">Filter:</span>
+                <div className="flex flex-wrap gap-2">
                   <button
-                    key={type}
-                    onClick={() => setSelectedEventType(type)}
-                    className={`px-3 py-1 rounded-full text-sm font-semibold transition-colors capitalize ${
-                      selectedEventType === type 
-                        ? `${config.color} text-white` 
-                        : `bg-white ${config.textColor} border border-current`
+                    onClick={() => setSelectedEventType('all')}
+                    className={`px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-semibold transition-colors ${
+                      selectedEventType === 'all' 
+                        ? 'bg-capas-turquoise text-white' 
+                        : 'bg-white text-capas-turquoise border border-capas-turquoise'
                     }`}
                   >
-                    {type}
+                    All
                   </button>
-                ))}
+                  {Object.entries(eventTypes).map(([type, config]) => (
+                    <button
+                      key={type}
+                      onClick={() => setSelectedEventType(type)}
+                      className={`px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-semibold transition-colors capitalize ${
+                        selectedEventType === type 
+                          ? `${config.color} text-white` 
+                          : `bg-white ${config.textColor} border border-current`
+                      }`}
+                    >
+                      {type}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

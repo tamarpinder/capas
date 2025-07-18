@@ -255,24 +255,24 @@ export default function GovernancePage() {
         </section>
 
         {/* Governance Structure */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-2xl sm:text-3xl font-bold text-capas-turquoise mb-3 sm:mb-4">
                 Governance Structure
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-base sm:text-lg text-capas-ocean-dark max-w-3xl mx-auto px-4">
                 A collaborative framework ensuring effective leadership and institutional accountability
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
               {governanceStructure.map((structure, index) => (
                 <motion.div
                   key={structure.title}
@@ -280,29 +280,29 @@ export default function GovernancePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white border-2 border-capas-ocean-light/20 rounded-xl p-6 hover:border-capas-turquoise hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-white border-2 border-capas-ocean-light/20 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:border-capas-turquoise hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-16 h-16 ${structure.color} rounded-full flex items-center justify-center mb-4`}>
-                    <structure.icon className="w-8 h-8 text-white" />
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 ${structure.color} rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto sm:mx-0`}>
+                    <structure.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-3">
+                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center sm:text-left">
                     {structure.title}
                   </h3>
-                  <p className="text-capas-ocean-dark mb-4">
+                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center sm:text-left">
                     {structure.description}
                   </p>
-                  <div className="mb-4">
+                  <div className="mb-3 sm:mb-4 text-center sm:text-left">
                     <span className="text-sm font-semibold text-capas-gold">
                       {structure.members} Members
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-capas-ocean-dark mb-2">Key Responsibilities:</h4>
-                    <ul className="space-y-1">
+                    <h4 className="font-semibold text-capas-ocean-dark mb-2 text-sm sm:text-base text-center sm:text-left">Key Responsibilities:</h4>
+                    <ul className="space-y-1 sm:space-y-2">
                       {structure.responsibilities.map((responsibility, idx) => (
-                        <li key={idx} className="flex items-start text-sm text-capas-ocean-dark">
-                          <CheckCircleIcon className="w-4 h-4 text-capas-palm mt-0.5 mr-2 flex-shrink-0" />
-                          {responsibility}
+                        <li key={idx} className="flex items-start text-xs sm:text-sm text-capas-ocean-dark">
+                          <CheckCircleIcon className="w-3 h-3 sm:w-4 sm:h-4 text-capas-palm mt-0.5 mr-2 flex-shrink-0" />
+                          <span className="leading-relaxed">{responsibility}</span>
                         </li>
                       ))}
                     </ul>
@@ -314,29 +314,29 @@ export default function GovernancePage() {
         </section>
 
         {/* Accreditation & Compliance */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 lg:py-20 bg-capas-sand-light">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-capas-palm rounded-full flex items-center justify-center mr-3">
-                  <ShieldCheckIcon className="w-6 h-6 text-white" />
+              <div className="flex flex-col sm:flex-row items-center justify-center mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-capas-palm rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-3">
+                  <ShieldCheckIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
                   Accreditation & Compliance
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-capas-ocean-dark max-w-3xl mx-auto px-4">
                 Maintaining the highest standards through recognized accreditation and regulatory compliance
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
               {accreditations.map((accreditation, index) => (
                 <motion.div
                   key={accreditation.organization}
@@ -344,17 +344,17 @@ export default function GovernancePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                  className="w-full bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-grow">
-                      <h3 className="font-montserrat text-lg font-bold text-capas-turquoise mb-1">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 sm:mb-4">
+                    <div className="flex-grow mb-3 sm:mb-0">
+                      <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-1 sm:mb-2 text-center sm:text-left leading-tight">
                         {accreditation.organization}
                       </h3>
-                      <p className="text-capas-gold font-semibold mb-2">{accreditation.type}</p>
+                      <p className="text-capas-gold font-semibold text-sm sm:text-base text-center sm:text-left">{accreditation.type}</p>
                     </div>
-                    <div className="text-right">
-                      <span className="inline-block bg-capas-palm text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="text-center sm:text-right flex-shrink-0">
+                      <span className="inline-block bg-capas-palm text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                         {accreditation.status}
                       </span>
                       <p className="text-xs text-capas-ocean-dark/70 mt-1">
@@ -362,7 +362,7 @@ export default function GovernancePage() {
                       </p>
                     </div>
                   </div>
-                  <p className="text-capas-ocean-dark text-sm">
+                  <p className="text-capas-ocean-dark text-xs sm:text-sm leading-relaxed text-center sm:text-left">
                     {accreditation.description}
                   </p>
                 </motion.div>
@@ -372,29 +372,29 @@ export default function GovernancePage() {
         </section>
 
         {/* Policies & Procedures */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-capas-coral rounded-full flex items-center justify-center mr-3">
-                  <DocumentTextIcon className="w-6 h-6 text-white" />
+              <div className="flex flex-col sm:flex-row items-center justify-center mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-capas-coral rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-3">
+                  <DocumentTextIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
                   Policies & Procedures
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-capas-ocean-dark max-w-3xl mx-auto px-4">
                 Comprehensive policies ensuring fair, consistent, and transparent operations
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {policies.map((category, index) => (
                 <motion.div
                   key={category.category}
@@ -402,16 +402,16 @@ export default function GovernancePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-capas-sand-light rounded-xl p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-capas-sand-light rounded-lg sm:rounded-xl p-4 sm:p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
                 >
-                  <h3 className="font-montserrat text-lg font-bold text-capas-turquoise mb-4">
+                  <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-3 sm:mb-4 text-center sm:text-left">
                     {category.category}
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1 sm:space-y-2">
                     {category.policies.map((policy, idx) => (
-                      <li key={idx} className="flex items-start text-sm text-capas-ocean-dark">
-                        <BookOpenIcon className="w-4 h-4 text-capas-gold mt-0.5 mr-2 flex-shrink-0" />
-                        {policy}
+                      <li key={idx} className="flex items-start text-xs sm:text-sm text-capas-ocean-dark">
+                        <BookOpenIcon className="w-3 h-3 sm:w-4 sm:h-4 text-capas-gold mt-0.5 mr-2 flex-shrink-0" />
+                        <span className="leading-relaxed">{policy}</span>
                       </li>
                     ))}
                   </ul>
@@ -447,29 +447,29 @@ export default function GovernancePage() {
         </section>
 
         {/* Committees */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 lg:py-20 bg-capas-sand-light">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-capas-gold rounded-full flex items-center justify-center mr-3">
-                  <ScaleIcon className="w-6 h-6 text-white" />
+              <div className="flex flex-col sm:flex-row items-center justify-center mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-capas-gold rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-3">
+                  <ScaleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise">
+                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
                   Standing Committees
                 </h2>
               </div>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-capas-ocean-dark max-w-3xl mx-auto px-4">
                 Collaborative bodies ensuring shared governance and institutional effectiveness
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
               {committees.map((committee, index) => (
                 <motion.div
                   key={committee.name}
@@ -477,17 +477,17 @@ export default function GovernancePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                  className="w-full bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300"
                 >
-                  <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-3">
+                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center sm:text-left">
                     {committee.name}
                   </h3>
-                  <p className="text-capas-ocean-dark mb-4">
+                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center sm:text-left">
                     {committee.purpose}
                   </p>
                   <div className="bg-capas-sand-light rounded-lg p-3">
-                    <h4 className="font-semibold text-capas-ocean-dark mb-1">Composition:</h4>
-                    <p className="text-sm text-capas-ocean-dark">
+                    <h4 className="font-semibold text-capas-ocean-dark mb-1 text-sm sm:text-base text-center sm:text-left">Composition:</h4>
+                    <p className="text-xs sm:text-sm text-capas-ocean-dark leading-relaxed text-center sm:text-left">
                       {committee.composition}
                     </p>
                   </div>

@@ -205,7 +205,7 @@ export default function Gallery() {
     <>
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean mobile-section-padding overflow-hidden">
+        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean py-12 sm:py-16 lg:py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -221,32 +221,32 @@ export default function Gallery() {
             </svg>
           </div>
           
-          <div className="relative mobile-safe-container">
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h1 className="font-montserrat text-5xl lg:text-6xl font-bold text-white mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white mb-4 sm:mb-6">
                 Gallery
               </h1>
-              <p className="text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto mb-8 font-montserrat">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-white/90 max-w-4xl mx-auto mb-6 sm:mb-8 font-montserrat px-4">
                 Explore the vibrant life at CAPAS through our collection of photos and videos. 
                 Witness the passion, creativity, and community that defines our arts education.
               </p>
-              <div className="flex justify-center space-x-6 text-white/80">
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-md mx-auto text-white/80">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">{galleryItems.length}</div>
-                  <div className="text-sm">Media Items</div>
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold">{galleryItems.length}</div>
+                  <div className="text-xs sm:text-sm">Media Items</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold">{categories.length - 1}</div>
-                  <div className="text-sm">Categories</div>
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold">{categories.length - 1}</div>
+                  <div className="text-xs sm:text-sm">Categories</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold">{galleryItems.reduce((sum, item) => sum + item.views, 0).toLocaleString()}</div>
-                  <div className="text-sm">Total Views</div>
+                  <div className="text-lg sm:text-2xl lg:text-3xl font-bold">{galleryItems.reduce((sum, item) => sum + item.views, 0).toLocaleString()}</div>
+                  <div className="text-xs sm:text-sm">Total Views</div>
                 </div>
               </div>
             </motion.div>
@@ -254,24 +254,24 @@ export default function Gallery() {
         </section>
 
         {/* Featured Gallery */}
-        <section className="mobile-section-padding bg-white">
-          <div className="mobile-safe-container">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-8 sm:mb-12 lg:mb-16"
             >
-              <h2 className="font-montserrat text-4xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-capas-turquoise mb-3 sm:mb-4">
                 Featured Highlights
               </h2>
-              <p className="text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat px-4">
                 Our most popular and memorable moments from the CAPAS community
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:gap-8">
               {featuredItems.map((item, index) => (
                 <motion.div
                   key={item.id}
@@ -279,37 +279,37 @@ export default function Gallery() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={index === 0 ? 'md:col-span-2 md:row-span-2' : ''}
+                  className="w-full"
                 >
                   <div
                     onClick={() => openLightbox(item)}
-                    className="mobile-card-enhanced relative group cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="w-full relative group cursor-pointer shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 rounded-lg sm:rounded-xl overflow-hidden"
                   >
-                    <div className={`relative ${index === 0 ? 'h-96' : 'h-64'} overflow-hidden`}>
+                    <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[21/9] overflow-hidden">
                       <PlaceholderImage
-                        width={index === 0 ? 800 : 400}
-                        height={index === 0 ? 384 : 256}
+                        width={800}
+                        height={400}
                         text={item.title}
                         variant="gradient"
                         colorScheme={item.category === 'performances' ? 'gold' : item.category === 'workshops' ? 'turquoise' : 'coral'}
-                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
                       
                       {/* Featured Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className="bg-capas-gold text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                        <span className="bg-capas-gold text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                           Featured
                         </span>
                       </div>
 
                       {/* Media Type Icon */}
-                      <div className="absolute top-4 right-4">
-                        <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
                           {item.type === 'video' ? (
-                            <PlayIcon className="w-4 h-4 text-white" />
+                            <PlayIcon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                           ) : (
-                            <PhotoIcon className="w-4 h-4 text-white" />
+                            <PhotoIcon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                           )}
                         </div>
                       </div>
@@ -317,18 +317,18 @@ export default function Gallery() {
                       {/* Hover Overlay */}
                       <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="text-center text-white">
-                          <EyeIcon className="w-8 h-8 mx-auto mb-2" />
-                          <p className="text-sm font-medium">View {item.type === 'video' ? 'Video' : 'Image'}</p>
+                          <EyeIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-1 sm:mb-2" />
+                          <p className="text-xs sm:text-sm font-medium">View {item.type === 'video' ? 'Video' : 'Image'}</p>
                         </div>
                       </div>
 
                       {/* Info Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                        <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
-                        <p className="text-white/80 text-sm line-clamp-2">{item.description}</p>
-                        <div className="flex items-center justify-between mt-2 text-white/70 text-xs">
-                          <span>{formatDate(item.date)}</span>
-                          <div className="flex items-center space-x-3">
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4">
+                        <h3 className="text-white font-semibold text-sm sm:text-base lg:text-lg mb-1">{item.title}</h3>
+                        <p className="text-white/80 text-xs sm:text-sm line-clamp-2 leading-relaxed">{item.description}</p>
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-1 sm:mt-2 text-white/70 text-xs space-y-1 sm:space-y-0">
+                          <span className="text-center sm:text-left">{formatDate(item.date)}</span>
+                          <div className="flex items-center justify-center sm:justify-end space-x-3">
                             <span className="flex items-center">
                               <EyeIcon className="w-3 h-3 mr-1" />
                               {item.views}

@@ -131,7 +131,7 @@ export default function HistoryPage() {
       <OrganizationStructuredData />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean mobile-section-padding">
+        <section className="relative bg-gradient-to-br from-capas-palm via-capas-turquoise to-capas-ocean py-12 sm:py-16 lg:py-24">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -141,22 +141,22 @@ export default function HistoryPage() {
             </svg>
           </div>
           
-          <div className="relative mobile-safe-container">
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex items-center space-x-2 text-sm">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
+              <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm">
                 <li>
                   <Link href="/" className="text-white/70 hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <Link href="/about" className="text-white/70 hover:text-white transition-colors">
                     About
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <span className="text-white font-medium">History & Heritage</span>
                 </li>
@@ -169,10 +169,10 @@ export default function HistoryPage() {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="font-montserrat text-5xl font-bold mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">
                 History & Heritage
               </h1>
-              <p className="text-xl max-w-3xl mx-auto text-white/90">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl max-w-3xl mx-auto text-white/90 px-4">
                 A journey through time, celebrating our commitment to Caribbean cultural preservation and artistic excellence
               </p>
             </motion.div>
@@ -180,58 +180,60 @@ export default function HistoryPage() {
         </section>
 
         {/* Our Story */}
-        <section className="mobile-section-padding bg-capas-sand-light">
-          <div className="mobile-safe-container">
+        <section className="py-12 sm:py-16 lg:py-20 bg-capas-sand-light">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="mobile-grid-auto lg:grid-cols-2 items-center"
+              className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 items-center"
             >
-              <div className="mobile-card-container">
-                <h2 className="font-montserrat text-responsive-2xl font-bold text-capas-turquoise mb-6">
+              <div className="w-full order-2 lg:order-1">
+                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise mb-4 sm:mb-6 text-center lg:text-left">
                   Our Founding Story
                 </h2>
-                <div className="space-y-4 text-responsive-base text-capas-ocean-dark leading-relaxed">
-                  <p>
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-capas-ocean-dark leading-relaxed">
+                  <p className="text-center lg:text-left">
                     CAPAS Bahamas was born from a shared vision to create an institution that would honor 
                     the rich cultural heritage of The Bahamas while preparing students for success in the 
                     modern creative economy.
                   </p>
-                  <p>
+                  <p className="text-center lg:text-left">
                     Founded in 2010 by a consortium of educators, artists, and cultural advocates, CAPAS 
                     emerged as a response to the need for specialized arts education in the Caribbean. 
                     Our founders recognized that traditional educational models often overlooked the unique 
                     cultural context and artistic traditions of the region.
                   </p>
-                  <p>
+                  <p className="text-center lg:text-left">
                     From our modest beginnings with 45 students and a handful of dedicated faculty, we have 
                     grown into a leading institution that serves as a bridge between Caribbean cultural 
                     traditions and contemporary artistic expression.
                   </p>
                 </div>
-                <div className="mt-8">
+                <div className="mt-6 sm:mt-8 text-center lg:text-left">
                   <Link
                     href="/about/leadership"
-                    className="inline-flex items-center text-capas-turquoise hover:text-capas-turquoise-dark font-semibold transition-colors"
+                    className="inline-flex items-center text-capas-turquoise hover:text-capas-turquoise-dark font-semibold transition-colors text-sm sm:text-base"
                   >
                     Meet Our Leadership Team
-                    <ArrowRightIcon className="w-5 h-5 ml-2" />
+                    <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                   </Link>
                 </div>
               </div>
               
-              <div className="mobile-image-wrapper">
-                <PlaceholderImage
-                  width={600}
-                  height={400}
-                  text="CAPAS Founding"
-                  variant="gradient"
-                  colorScheme="palm"
-                  className="w-full h-64 lg:h-96 object-cover rounded-xl shadow-xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
+              <div className="w-full relative order-1 lg:order-2">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-lg sm:rounded-xl shadow-lg sm:shadow-xl">
+                  <PlaceholderImage
+                    width={600}
+                    height={400}
+                    text="CAPAS Founding"
+                    variant="gradient"
+                    colorScheme="palm"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -298,24 +300,24 @@ export default function HistoryPage() {
         </section>
 
         {/* Cultural Heritage */}
-        <section className="mobile-section-padding bg-capas-sand-light">
-          <div className="mobile-safe-container">
+        <section className="py-12 sm:py-16 lg:py-20 bg-capas-sand-light">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise mb-3 sm:mb-4">
                 Preserving Cultural Heritage
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-capas-ocean-dark max-w-3xl mx-auto px-4">
                 Our commitment to documenting and teaching traditional Caribbean arts
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:gap-8">
               {culturalHeritage.map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -323,16 +325,16 @@ export default function HistoryPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+                  className="w-full bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300"
                 >
-                  <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-3">
+                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center sm:text-left">
                     {item.title}
                   </h3>
-                  <p className="text-capas-ocean-dark mb-4">
+                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center sm:text-left">
                     {item.description}
                   </p>
                   <div className="bg-capas-sand-light rounded-lg p-3">
-                    <p className="text-sm font-semibold text-capas-ocean-dark">
+                    <p className="text-xs sm:text-sm font-semibold text-capas-ocean-dark text-center sm:text-left">
                       Impact: {item.impact}
                     </p>
                   </div>

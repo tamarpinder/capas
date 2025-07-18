@@ -280,24 +280,25 @@ export default function AdmissionsPage() {
         </section>
 
         {/* Important Dates */}
-        <section id="important-dates" className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section id="important-dates" className="py-12 sm:py-16 lg:py-20 bg-white">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                className="w-full order-2 lg:order-1"
               >
-                <h2 className="font-montserrat text-4xl font-bold text-capas-turquoise mb-6">
+                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-capas-turquoise mb-4 sm:mb-6 text-center lg:text-left">
                   Important Dates
                 </h2>
-                <p className="text-lg text-capas-ocean-dark mb-8">
+                <p className="text-sm sm:text-base lg:text-lg text-capas-ocean-dark mb-6 sm:mb-8 text-center lg:text-left leading-relaxed">
                   Mark your calendar with these crucial admission deadlines and events. 
                   Early application is encouraged for the best chance of acceptance and scholarship consideration.
                 </p>
                 
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {importantDates.map((item, index) => (
                     <motion.div
                       key={item.event}
@@ -305,10 +306,10 @@ export default function AdmissionsPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.6, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex items-center justify-between p-4 bg-capas-sand-light rounded-lg"
+                      className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 sm:p-4 bg-capas-sand-light rounded-lg space-y-1 sm:space-y-0"
                     >
-                      <span className="font-medium text-capas-ocean-dark">{item.event}</span>
-                      <span className={`font-bold ${item.color}`}>{item.date}</span>
+                      <span className="font-medium text-capas-ocean-dark text-sm sm:text-base text-center sm:text-left">{item.event}</span>
+                      <span className={`font-bold text-sm sm:text-base text-center ${item.color}`}>{item.date}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -319,21 +320,21 @@ export default function AdmissionsPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="w-full relative order-1 lg:order-2"
               >
-                <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <div className="aspect-square relative overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg sm:shadow-xl lg:shadow-2xl">
                   <PlaceholderImage
                     width={500}
                     height={500}
                     text="CAPAS Auditions"
                     variant="gradient"
                     colorScheme="gold"
-                    className="w-full h-full"
+                    className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg border-l-4 border-capas-coral">
-                  <div className="text-2xl font-bold text-capas-turquoise">95%</div>
-                  <div className="text-capas-ocean-dark">Acceptance Rate</div>
+                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 lg:-bottom-6 lg:-right-6 bg-white p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl shadow-lg border-l-4 border-capas-coral">
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-capas-turquoise">95%</div>
+                  <div className="text-capas-ocean-dark text-xs sm:text-sm lg:text-base">Acceptance Rate</div>
                 </div>
               </motion.div>
             </div>

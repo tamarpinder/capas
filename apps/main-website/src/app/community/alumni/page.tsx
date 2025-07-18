@@ -148,7 +148,7 @@ export default function Alumni() {
     <>
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white overflow-hidden">
+        <section className="relative py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white overflow-hidden">
           <motion.div 
             style={{ y: heroY }}
             className="absolute inset-0 opacity-20"
@@ -158,22 +158,22 @@ export default function Alumni() {
             </svg>
           </motion.div>
           
-          <div className="relative mobile-safe-container">
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mobile-center"
+              className="text-center"
             >
-              <h1 className="font-montserrat text-responsive-3xl font-bold mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">
                 Alumni Success Stories
               </h1>
-              <p className="text-responsive-lg max-w-4xl mx-auto opacity-90 font-montserrat mb-8">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl max-w-4xl mx-auto opacity-90 font-montserrat mb-6 sm:mb-8 px-4">
                 Celebrating the achievements of CAPAS graduates who are making their mark around the world
               </p>
               
               {/* Stats */}
-              <div className="mobile-grid-auto max-w-4xl mx-auto">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 max-w-4xl mx-auto">
                 {[
                   { label: 'Alumni Worldwide', value: '500+' },
                   { label: 'Countries', value: '25+' },
@@ -185,12 +185,12 @@ export default function Alumni() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + index * 0.1, duration: 0.6 }}
-                    className="mobile-center mobile-card-container"
+                    className="text-center p-3 sm:p-4"
                   >
-                    <div className="text-responsive-2xl font-bold text-capas-gold mb-2">
+                    <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold text-capas-gold mb-1 sm:mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-responsive-sm opacity-90">{stat.label}</div>
+                    <div className="text-xs sm:text-sm lg:text-base opacity-90">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -199,29 +199,29 @@ export default function Alumni() {
         </section>
 
         {/* Search and Filter Section */}
-        <section className="mobile-section-padding bg-white border-b border-capas-ocean-light/30">
-          <div className="mobile-safe-container">
+        <section className="py-8 sm:py-12 lg:py-16 bg-white border-b border-capas-ocean-light/30">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             {/* Search and View Toggle */}
-            <div className="flex flex-col lg:flex-row gap-6 items-center justify-between mb-8">
+            <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center lg:justify-between mb-6 sm:mb-8">
               
               {/* Search Bar */}
-              <div className="relative flex-1 max-w-md">
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-capas-ocean-dark/50" />
+              <div className="relative w-full lg:flex-1 lg:max-w-md">
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-capas-ocean-dark/50" />
                 <input
                   type="text"
-                  placeholder="Search alumni by name, position, or skills..."
+                  placeholder="Search alumni..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 rounded-lg border border-capas-ocean-light/30 focus:ring-2 focus:ring-capas-turquoise focus:border-transparent transition-colors font-montserrat"
+                  className="w-full pl-9 sm:pl-10 pr-4 py-2 sm:py-3 rounded-lg border border-capas-ocean-light/30 focus:ring-2 focus:ring-capas-turquoise focus:border-transparent transition-colors font-montserrat text-sm sm:text-base"
                 />
               </div>
 
               {/* View Mode Toggle */}
-              <div className="flex bg-capas-sand-light rounded-lg p-1">
+              <div className="flex bg-capas-sand-light rounded-lg p-1 mx-auto lg:mx-0">
                 <button
                   onClick={() => setViewMode('carousel')}
-                  className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
+                  className={`px-3 py-2 sm:px-4 rounded-md font-medium transition-all duration-200 text-sm sm:text-base ${
                     viewMode === 'carousel'
                       ? 'bg-capas-turquoise text-white shadow'
                       : 'text-capas-ocean-dark hover:bg-white'
@@ -231,7 +231,7 @@ export default function Alumni() {
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`px-4 py-2 rounded-md font-medium transition-all duration-200 ${
+                  className={`px-3 py-2 sm:px-4 rounded-md font-medium transition-all duration-200 text-sm sm:text-base ${
                     viewMode === 'grid'
                       ? 'bg-capas-turquoise text-white shadow'
                       : 'text-capas-ocean-dark hover:bg-white'

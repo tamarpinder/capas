@@ -214,7 +214,7 @@ export default function StudentLifePage() {
       <OrganizationStructuredData />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-gold via-capas-coral to-capas-palm mobile-section-padding">
+        <section className="relative bg-gradient-to-br from-capas-gold via-capas-coral to-capas-palm py-12 sm:py-16 lg:py-24">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -224,22 +224,22 @@ export default function StudentLifePage() {
             </svg>
           </div>
           
-          <div className="relative mobile-safe-container">
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex items-center space-x-2 text-sm">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
+              <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm">
                 <li>
                   <Link href="/" className="text-white/70 hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <Link href="/students" className="text-white/70 hover:text-white transition-colors">
                     Students
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <span className="text-white font-medium">Student Life</span>
                 </li>
@@ -252,10 +252,10 @@ export default function StudentLifePage() {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="font-montserrat text-5xl font-bold mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">
                 Student Life at CAPAS
               </h1>
-              <p className="text-xl max-w-3xl mx-auto text-white/90">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl max-w-3xl mx-auto text-white/90 px-4">
                 Experience vibrant campus culture where creativity thrives, friendships flourish, and Caribbean heritage comes alive
               </p>
             </motion.div>
@@ -616,21 +616,21 @@ export default function StudentLifePage() {
                 From the moment you arrive, you'll be part of a supportive community that 
                 celebrates your unique talents and helps you reach your full potential.
               </p>
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="bg-white/10 rounded-lg p-6">
-                  <UserGroupIcon className="w-8 h-8 mx-auto mb-3" />
-                  <h3 className="font-bold text-lg mb-2">Connect</h3>
-                  <p className="text-white/80">Build lifelong friendships with fellow artists</p>
+              <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-3 mb-6 sm:mb-8">
+                <div className="bg-white/10 rounded-lg p-4 sm:p-6 text-center">
+                  <UserGroupIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3" />
+                  <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Connect</h3>
+                  <p className="text-white/80 text-sm sm:text-base">Build lifelong friendships with fellow artists</p>
                 </div>
-                <div className="bg-white/10 rounded-lg p-6">
-                  <SparklesIcon className="w-8 h-8 mx-auto mb-3" />
-                  <h3 className="font-bold text-lg mb-2">Create</h3>
-                  <p className="text-white/80">Express yourself in a supportive environment</p>
+                <div className="bg-white/10 rounded-lg p-4 sm:p-6 text-center">
+                  <SparklesIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3" />
+                  <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Create</h3>
+                  <p className="text-white/80 text-sm sm:text-base">Express yourself in a supportive environment</p>
                 </div>
-                <div className="bg-white/10 rounded-lg p-6">
-                  <TrophyIcon className="w-8 h-8 mx-auto mb-3" />
-                  <h3 className="font-bold text-lg mb-2">Achieve</h3>
-                  <p className="text-white/80">Reach your artistic and personal goals</p>
+                <div className="bg-white/10 rounded-lg p-4 sm:p-6 text-center">
+                  <TrophyIcon className="w-6 h-6 sm:w-8 sm:h-8 mx-auto mb-2 sm:mb-3" />
+                  <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Achieve</h3>
+                  <p className="text-white/80 text-sm sm:text-base">Reach your artistic and personal goals</p>
                 </div>
               </div>
             </motion.div>

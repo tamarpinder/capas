@@ -274,7 +274,7 @@ export default function FullTimeProgramsPage() {
       <OrganizationStructuredData />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-palm py-24">
+        <section className="relative bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-palm py-12 sm:py-16 lg:py-24">
           <div className="absolute inset-0 opacity-10">
             <svg className="w-full h-full" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path
@@ -284,22 +284,22 @@ export default function FullTimeProgramsPage() {
             </svg>
           </div>
           
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Breadcrumb */}
-            <nav aria-label="Breadcrumb" className="mb-8">
-              <ol className="flex items-center space-x-2 text-sm">
+            <nav aria-label="Breadcrumb" className="mb-6 sm:mb-8">
+              <ol className="flex items-center space-x-1 sm:space-x-2 text-xs sm:text-sm">
                 <li>
                   <Link href="/" className="text-white/70 hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <Link href="/programs" className="text-white/70 hover:text-white transition-colors">
                     Programs
                   </Link>
                 </li>
-                <ChevronRightIcon className="h-4 w-4 text-white/50" />
+                <ChevronRightIcon className="h-3 w-3 sm:h-4 sm:w-4 text-white/50" />
                 <li>
                   <span className="text-white font-medium">Full-Time Programs</span>
                 </li>
@@ -312,10 +312,10 @@ export default function FullTimeProgramsPage() {
               transition={{ duration: 0.8 }}
               className="text-center text-white"
             >
-              <h1 className="font-montserrat text-5xl font-bold mb-6">
+              <h1 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 sm:mb-6">
                 Full-Time Programs
               </h1>
-              <p className="text-xl max-w-3xl mx-auto text-white/90">
+              <p className="text-sm sm:text-base lg:text-lg xl:text-xl max-w-3xl mx-auto text-white/90 px-4">
                 Comprehensive Bachelor of Fine Arts degrees that combine rigorous artistic training with Caribbean cultural heritage
               </p>
             </motion.div>
@@ -323,24 +323,24 @@ export default function FullTimeProgramsPage() {
         </section>
 
         {/* Program Benefits */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 sm:py-16 lg:py-20 bg-capas-sand-light">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-4">
+              <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise mb-3 sm:mb-4">
                 Why Choose CAPAS Full-Time Programs?
               </h2>
-              <p className="text-lg text-capas-ocean-dark max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base lg:text-lg text-capas-ocean-dark max-w-3xl mx-auto px-4">
                 Our intensive programs provide the foundation for lifelong careers in the creative arts
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {programBenefits.map((benefit, index) => (
                 <motion.div
                   key={benefit.title}
@@ -348,18 +348,18 @@ export default function FullTimeProgramsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="w-full text-center p-4 sm:p-6 bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="w-16 h-16 bg-capas-turquoise rounded-full flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-capas-turquoise rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                    <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-capas-gold mb-2">
+                  <div className="text-lg sm:text-xl lg:text-2xl font-bold text-capas-gold mb-1 sm:mb-2">
                     {benefit.stat}
                   </div>
-                  <h3 className="font-montserrat text-lg font-bold text-capas-turquoise mb-2">
+                  <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-1 sm:mb-2">
                     {benefit.title}
                   </h3>
-                  <p className="text-capas-ocean-dark text-sm">
+                  <p className="text-capas-ocean-dark text-xs sm:text-sm leading-relaxed">
                     {benefit.description}
                   </p>
                 </motion.div>
@@ -402,9 +402,9 @@ export default function FullTimeProgramsPage() {
                   viewport={{ once: true }}
                   className="bg-white border-2 border-capas-ocean-light/20 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="lg:flex">
+                  <div className="flex flex-col">
                     {/* Program Image */}
-                    <div className="lg:w-1/3 h-64 lg:h-auto relative">
+                    <div className="w-full aspect-[4/3] sm:aspect-[16/10] relative">
                       <PlaceholderImage
                         width={400}
                         height={300}
@@ -414,9 +414,9 @@ export default function FullTimeProgramsPage() {
                         className="w-full h-full object-cover"
                       />
                       {program.featured && (
-                        <div className="absolute top-4 left-4">
-                          <span className="inline-flex items-center bg-capas-gold text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            <StarIcon className="w-4 h-4 mr-1" />
+                        <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                          <span className="inline-flex items-center bg-capas-gold text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
+                            <StarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                             Featured
                           </span>
                         </div>
@@ -424,53 +424,55 @@ export default function FullTimeProgramsPage() {
                     </div>
 
                     {/* Program Content */}
-                    <div className="lg:w-2/3 p-8">
+                    <div className="w-full p-4 sm:p-6 lg:p-8">
                       <div className="flex flex-col h-full">
                         {/* Header */}
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex-grow">
-                            <div className="flex items-center mb-2">
-                              <program.icon className="w-6 h-6 text-capas-turquoise mr-2" />
-                              <span className="text-sm font-semibold text-capas-gold">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 sm:mb-4">
+                          <div className="flex-grow mb-3 sm:mb-0">
+                            <div className="flex items-center justify-center sm:justify-start mb-2">
+                              <program.icon className="w-5 h-5 sm:w-6 sm:h-6 text-capas-turquoise mr-2" />
+                              <span className="text-xs sm:text-sm font-semibold text-capas-gold">
                                 {program.category}
                               </span>
                             </div>
-                            <h3 className="font-montserrat text-2xl font-bold text-capas-turquoise mb-1">
+                            <h3 className="font-montserrat text-lg sm:text-xl lg:text-2xl font-bold text-capas-turquoise mb-1 text-center sm:text-left">
                               {program.title}
                             </h3>
-                            <p className="text-capas-ocean-dark/70 mb-3">
+                            <p className="text-capas-ocean-dark/70 mb-3 text-sm sm:text-base text-center sm:text-left">
                               {program.subtitle}
                             </p>
                           </div>
-                          <div className="text-right text-sm text-capas-ocean-dark">
-                            <div className="flex items-center mb-1">
-                              <ClockIcon className="w-4 h-4 mr-1" />
-                              {program.duration}
-                            </div>
-                            <div className="flex items-center mb-1">
-                              <BookOpenIcon className="w-4 h-4 mr-1" />
-                              {program.credits}
-                            </div>
-                            <div className="flex items-center">
-                              <CurrencyDollarIcon className="w-4 h-4 mr-1" />
-                              {program.tuition}
+                          <div className="text-center sm:text-right text-xs sm:text-sm text-capas-ocean-dark flex-shrink-0">
+                            <div className="flex flex-col sm:items-end space-y-1">
+                              <div className="flex items-center justify-center sm:justify-end">
+                                <ClockIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                                {program.duration}
+                              </div>
+                              <div className="flex items-center justify-center sm:justify-end">
+                                <BookOpenIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                                {program.credits}
+                              </div>
+                              <div className="flex items-center justify-center sm:justify-end">
+                                <CurrencyDollarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                                {program.tuition}
+                              </div>
                             </div>
                           </div>
                         </div>
 
                         {/* Description */}
-                        <p className="text-capas-ocean-dark mb-6 leading-relaxed">
+                        <p className="text-capas-ocean-dark mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base text-center sm:text-left">
                           {program.description}
                         </p>
 
                         {/* Highlights */}
-                        <div className="mb-6">
-                          <h4 className="font-semibold text-capas-turquoise mb-3">Program Highlights:</h4>
-                          <div className="grid md:grid-cols-2 gap-2">
+                        <div className="mb-4 sm:mb-6">
+                          <h4 className="font-semibold text-capas-turquoise mb-2 sm:mb-3 text-sm sm:text-base text-center sm:text-left">Program Highlights:</h4>
+                          <div className="grid grid-cols-1 gap-1 sm:gap-2">
                             {program.highlights.map((highlight, idx) => (
-                              <div key={idx} className="flex items-start text-sm text-capas-ocean-dark">
-                                <CheckCircleIcon className="w-4 h-4 text-capas-palm mt-0.5 mr-2 flex-shrink-0" />
-                                {highlight}
+                              <div key={idx} className="flex items-start text-xs sm:text-sm text-capas-ocean-dark">
+                                <CheckCircleIcon className="w-3 h-3 sm:w-4 sm:h-4 text-capas-palm mt-0.5 mr-2 flex-shrink-0" />
+                                <span className="leading-relaxed">{highlight}</span>
                               </div>
                             ))}
                           </div>
@@ -542,17 +544,17 @@ export default function FullTimeProgramsPage() {
                           )}
 
                           {/* Action Buttons */}
-                          <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                          <div className="flex flex-col gap-2 sm:gap-3 mt-4 sm:mt-6">
                             <Link
                               href="/how-to-apply"
-                              className="bg-capas-turquoise hover:bg-capas-turquoise-dark text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md inline-flex items-center justify-center"
+                              className="bg-capas-turquoise hover:bg-capas-turquoise-dark text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md inline-flex items-center justify-center text-sm sm:text-base"
                             >
                               Apply Now
-                              <ArrowRightIcon className="w-4 h-4 ml-2" />
+                              <ArrowRightIcon className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
                             </Link>
                             <Link
                               href="/contact"
-                              className="bg-white hover:bg-capas-sand-light text-capas-turquoise border-2 border-capas-turquoise font-semibold px-6 py-3 rounded-lg transition-all duration-200 inline-flex items-center justify-center"
+                              className="bg-white hover:bg-capas-sand-light text-capas-turquoise border-2 border-capas-turquoise font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-lg transition-all duration-200 inline-flex items-center justify-center text-sm sm:text-base"
                             >
                               Learn More
                             </Link>

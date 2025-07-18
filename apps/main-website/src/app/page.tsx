@@ -82,24 +82,24 @@ export default function Home() {
       </section>
 
       {/* Featured Programs Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 bg-white">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 lg:mb-16"
           >
-            <h2 className="font-montserrat text-4xl font-bold text-capas-turquoise mb-4">
+            <h2 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl font-bold text-capas-turquoise mb-3 sm:mb-4">
               Featured Programs
             </h2>
-            <p className="text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat">
+            <p className="text-base sm:text-lg lg:text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat px-4">
               Discover our innovative programs that blend Caribbean culture with world-class education
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
             {programsData.programs.filter(program => program.featured).map((program, index) => (
               <motion.div
                 key={program.id}
@@ -109,41 +109,41 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <Link href={`/programs/${program.slug}`} className="block group h-full">
-                  <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
-                    <div className="h-48 relative overflow-hidden flex-shrink-0">
+                  <div className="bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
+                    <div className="aspect-[4/3] sm:aspect-[16/10] relative overflow-hidden flex-shrink-0">
                       <PlaceholderImage
                         width={400}
-                        height={192}
+                        height={300}
                         text={program.type}
                         variant="gradient"
                         colorScheme="turquoise"
-                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                      <div className="absolute top-4 right-4">
+                      <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
                         {program.featured && (
-                          <span className="inline-flex items-center bg-capas-gold text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            <StarIcon className="w-4 h-4 mr-1" aria-hidden="true" />
+                          <span className="inline-flex items-center bg-capas-gold text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
+                            <StarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
                             Featured
                           </span>
                         )}
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <span className="inline-block bg-white/90 text-capas-turquoise px-3 py-1 rounded-full text-sm font-semibold">
+                      <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
+                        <span className="inline-block bg-white/90 text-capas-turquoise px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
                           {program.category === 'full-time' ? 'Full-Time Program' : 'Part-Time Program'}
                         </span>
                       </div>
                     </div>
-                    <div className="p-6 flex-grow flex flex-col">
-                      <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors">
+                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors leading-tight">
                         {program.title}
                       </h3>
-                      <p className="text-capas-ocean-dark mb-4 line-clamp-3 flex-grow">
+                      <p className="text-capas-ocean-dark mb-4 line-clamp-3 flex-grow text-sm sm:text-base leading-relaxed">
                         {program.description}
                       </p>
                       <div className="flex items-center justify-between mt-auto">
-                        <span className="text-capas-gold font-semibold">{program.duration}</span>
-                        <span className="text-capas-turquoise font-medium group-hover:translate-x-1 transition-transform duration-200">
+                        <span className="text-capas-gold font-semibold text-sm sm:text-base">{program.duration}</span>
+                        <span className="text-capas-turquoise font-medium group-hover:translate-x-1 transition-transform duration-200 text-sm sm:text-base">
                           Learn More →
                         </span>
                       </div>
@@ -167,24 +167,24 @@ export default function Home() {
       </section>
       
       {/* Latest News & Events */}
-      <section className="py-20 bg-capas-sand-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 bg-capas-sand-light">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 lg:mb-16"
           >
-            <h2 className="font-montserrat text-4xl font-bold text-capas-turquoise mb-4">
+            <h2 className="font-montserrat text-2xl sm:text-3xl lg:text-4xl font-bold text-capas-turquoise mb-3 sm:mb-4">
               Latest News & Events
             </h2>
-            <p className="text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat">
+            <p className="text-base sm:text-lg lg:text-xl text-capas-ocean-dark max-w-3xl mx-auto font-montserrat px-4">
               Stay connected with the CAPAS community and discover what&apos;s happening on campus
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {newsEventsData.newsArticles.slice(0, 2).map((article, index) => (
               <motion.div
                 key={article.id}
@@ -192,36 +192,36 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="md:col-span-1"
+                className="sm:col-span-1"
               >
                 <Link href={`/news-events/${article.id}`} className="block group h-full">
-                  <article className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col">
-                    <div className="h-48 relative overflow-hidden flex-shrink-0">
+                  <article className="bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
+                    <div className="aspect-[4/3] sm:aspect-[16/10] relative overflow-hidden flex-shrink-0">
                       <PlaceholderImage
                         width={400}
                         height={192}
                         text={article.category}
                         variant="gradient"
                         colorScheme={article.category === 'performances' ? 'gold' : article.category === 'partnerships' ? 'palm' : 'coral'}
-                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-block bg-white/90 text-capas-coral px-3 py-1 rounded-full text-sm font-semibold capitalize">
+                      <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                        <span className="inline-block bg-white/90 text-capas-coral px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold capitalize">
                           {article.category}
                         </span>
                       </div>
                     </div>
-                    <div className="p-6 flex-grow flex flex-col">
-                      <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors line-clamp-2">
+                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors line-clamp-2 leading-tight">
                         {article.title}
                       </h3>
-                      <p className="text-capas-ocean-dark mb-4 line-clamp-3 flex-grow">
+                      <p className="text-capas-ocean-dark mb-4 line-clamp-3 flex-grow text-sm sm:text-base leading-relaxed">
                         {article.excerpt}
                       </p>
-                      <div className="flex items-center justify-between text-sm text-capas-ocean-dark/70 mt-auto">
-                        <span>{new Date(article.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                        <span className="text-capas-turquoise font-medium group-hover:translate-x-1 transition-transform duration-200">
+                      <div className="flex items-center justify-between text-xs sm:text-sm text-capas-ocean-dark/70 mt-auto">
+                        <span className="truncate pr-2">{new Date(article.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                        <span className="text-capas-turquoise font-medium group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0">
                           Read More →
                         </span>
                       </div>
@@ -238,42 +238,42 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="md:col-span-1"
+                className="sm:col-span-1"
               >
                 <Link href={`/news-events/${event.id}`} className="block group h-full">
-                  <article className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col">
-                    <div className="h-48 relative overflow-hidden flex-shrink-0">
+                  <article className="bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-capas-ocean-light/20 h-full flex flex-col">
+                    <div className="aspect-[4/3] sm:aspect-[16/10] relative overflow-hidden flex-shrink-0">
                       <PlaceholderImage
                         width={400}
                         height={192}
                         text={event.title}
                         variant="gradient"
                         colorScheme="palm"
-                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-block bg-white/90 text-capas-palm px-3 py-1 rounded-full text-sm font-semibold capitalize">
+                      <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                        <span className="inline-block bg-white/90 text-capas-palm px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold capitalize">
                           {event.category}
                         </span>
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <div className="flex items-center text-white text-sm">
-                          <CalendarIcon className="w-4 h-4 mr-2" />
-                          <span>{new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                      <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4">
+                        <div className="flex items-center text-white text-xs sm:text-sm">
+                          <CalendarIcon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" />
+                          <span className="truncate">{new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                         </div>
                       </div>
                     </div>
-                    <div className="p-6 flex-grow flex flex-col">
-                      <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors line-clamp-2">
+                    <div className="p-4 sm:p-6 flex-grow flex flex-col">
+                      <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors line-clamp-2 leading-tight">
                         {event.title}
                       </h3>
-                      <p className="text-capas-ocean-dark mb-4 line-clamp-3 flex-grow">
+                      <p className="text-capas-ocean-dark mb-4 line-clamp-3 flex-grow text-sm sm:text-base leading-relaxed">
                         {event.description}
                       </p>
-                      <div className="flex items-center justify-between text-sm mt-auto">
-                        <span className="text-capas-palm font-semibold">{event.time}</span>
-                        <span className="text-capas-turquoise font-medium group-hover:translate-x-1 transition-transform duration-200">
+                      <div className="flex items-center justify-between text-xs sm:text-sm mt-auto">
+                        <span className="text-capas-palm font-semibold truncate pr-2">{event.time}</span>
+                        <span className="text-capas-turquoise font-medium group-hover:translate-x-1 transition-transform duration-200 flex-shrink-0">
                           Learn More →
                         </span>
                       </div>
