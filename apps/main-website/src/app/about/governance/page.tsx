@@ -208,14 +208,14 @@ export default function GovernancePage() {
         </section>
 
         {/* Governance Overview */}
-        <section className="py-20 bg-capas-sand-light">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-capas-sand-light">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="grid lg:grid-cols-2 gap-12 items-center"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center"
             >
               <div>
                 <h2 className="font-montserrat text-3xl font-bold text-capas-turquoise mb-6">
@@ -282,22 +282,22 @@ export default function GovernancePage() {
                   viewport={{ once: true }}
                   className="w-full bg-white border-2 border-capas-ocean-light/20 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:border-capas-turquoise hover:shadow-lg transition-all duration-300"
                 >
-                  <div className={`w-12 h-12 sm:w-16 sm:h-16 ${structure.color} rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto sm:mx-0`}>
+                  <div className={`w-12 h-12 sm:w-16 sm:h-16 ${structure.color} rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto`}>
                     <structure.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center sm:text-left">
+                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center">
                     {structure.title}
                   </h3>
-                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center sm:text-left">
+                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center">
                     {structure.description}
                   </p>
-                  <div className="mb-3 sm:mb-4 text-center sm:text-left">
+                  <div className="mb-3 sm:mb-4 text-center">
                     <span className="text-sm font-semibold text-capas-gold">
                       {structure.members} Members
                     </span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-capas-ocean-dark mb-2 text-sm sm:text-base text-center sm:text-left">Key Responsibilities:</h4>
+                    <h4 className="font-semibold text-capas-ocean-dark mb-2 text-sm sm:text-base text-center">Key Responsibilities:</h4>
                     <ul className="space-y-1 sm:space-y-2">
                       {structure.responsibilities.map((responsibility, idx) => (
                         <li key={idx} className="flex items-start text-xs sm:text-sm text-capas-ocean-dark">
@@ -323,11 +323,11 @@ export default function GovernancePage() {
               viewport={{ once: true }}
               className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <div className="flex flex-col sm:flex-row items-center justify-center mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-capas-palm rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-3">
-                  <ShieldCheckIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div className="flex flex-col items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-capas-palm rounded-full flex items-center justify-center mb-3">
+                  <ShieldCheckIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
+                <h2 className="font-montserrat text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
                   Accreditation & Compliance
                 </h2>
               </div>
@@ -346,23 +346,21 @@ export default function GovernancePage() {
                   viewport={{ once: true }}
                   className="w-full bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300"
                 >
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3 sm:mb-4">
-                    <div className="flex-grow mb-3 sm:mb-0">
-                      <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-1 sm:mb-2 text-center sm:text-left leading-tight">
-                        {accreditation.organization}
-                      </h3>
-                      <p className="text-capas-gold font-semibold text-sm sm:text-base text-center sm:text-left">{accreditation.type}</p>
-                    </div>
-                    <div className="text-center sm:text-right flex-shrink-0">
-                      <span className="inline-block bg-capas-palm text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold">
+                  <div className="text-center mb-4">
+                    <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-2 leading-tight">
+                      {accreditation.organization}
+                    </h3>
+                    <p className="text-capas-gold font-semibold text-sm sm:text-base mb-3">{accreditation.type}</p>
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="inline-block bg-capas-palm text-white px-3 py-1 rounded-full text-sm font-semibold">
                         {accreditation.status}
                       </span>
-                      <p className="text-xs text-capas-ocean-dark/70 mt-1">
+                      <p className="text-xs text-capas-ocean-dark/70">
                         Valid until {accreditation.validUntil}
                       </p>
                     </div>
                   </div>
-                  <p className="text-capas-ocean-dark text-xs sm:text-sm leading-relaxed text-center sm:text-left">
+                  <p className="text-capas-ocean-dark text-xs sm:text-sm leading-relaxed text-center">
                     {accreditation.description}
                   </p>
                 </motion.div>
@@ -381,11 +379,11 @@ export default function GovernancePage() {
               viewport={{ once: true }}
               className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <div className="flex flex-col sm:flex-row items-center justify-center mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-capas-coral rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-3">
-                  <DocumentTextIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div className="flex flex-col items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-capas-coral rounded-full flex items-center justify-center mb-3">
+                  <DocumentTextIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
+                <h2 className="font-montserrat text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
                   Policies & Procedures
                 </h2>
               </div>
@@ -404,7 +402,7 @@ export default function GovernancePage() {
                   viewport={{ once: true }}
                   className="w-full bg-capas-sand-light rounded-lg sm:rounded-xl p-4 sm:p-6 hover:bg-white hover:shadow-lg transition-all duration-300"
                 >
-                  <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-3 sm:mb-4 text-center sm:text-left">
+                  <h3 className="font-montserrat text-base sm:text-lg font-bold text-capas-turquoise mb-3 sm:mb-4 text-center">
                     {category.category}
                   </h3>
                   <ul className="space-y-1 sm:space-y-2">
@@ -456,11 +454,11 @@ export default function GovernancePage() {
               viewport={{ once: true }}
               className="text-center mb-8 sm:mb-10 lg:mb-12"
             >
-              <div className="flex flex-col sm:flex-row items-center justify-center mb-3 sm:mb-4">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-capas-gold rounded-full flex items-center justify-center mb-2 sm:mb-0 sm:mr-3">
-                  <ScaleIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div className="flex flex-col items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-capas-gold rounded-full flex items-center justify-center mb-3">
+                  <ScaleIcon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="font-montserrat text-xl sm:text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
+                <h2 className="font-montserrat text-2xl lg:text-3xl font-bold text-capas-turquoise text-center">
                   Standing Committees
                 </h2>
               </div>
@@ -479,15 +477,15 @@ export default function GovernancePage() {
                   viewport={{ once: true }}
                   className="w-full bg-white rounded-lg sm:rounded-xl shadow-md sm:shadow-lg p-4 sm:p-6 hover:shadow-xl transition-shadow duration-300"
                 >
-                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center sm:text-left">
+                  <h3 className="font-montserrat text-lg sm:text-xl font-bold text-capas-turquoise mb-2 sm:mb-3 text-center">
                     {committee.name}
                   </h3>
-                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center sm:text-left">
+                  <p className="text-capas-ocean-dark mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed text-center">
                     {committee.purpose}
                   </p>
                   <div className="bg-capas-sand-light rounded-lg p-3">
-                    <h4 className="font-semibold text-capas-ocean-dark mb-1 text-sm sm:text-base text-center sm:text-left">Composition:</h4>
-                    <p className="text-xs sm:text-sm text-capas-ocean-dark leading-relaxed text-center sm:text-left">
+                    <h4 className="font-semibold text-capas-ocean-dark mb-1 text-sm sm:text-base text-center">Composition:</h4>
+                    <p className="text-xs sm:text-sm text-capas-ocean-dark leading-relaxed text-center">
                       {committee.composition}
                     </p>
                   </div>
@@ -498,8 +496,8 @@ export default function GovernancePage() {
         </section>
 
         {/* Transparency & Reporting */}
-        <section className="py-20 bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-gradient-to-br from-capas-turquoise via-capas-ocean to-capas-turquoise-dark text-white">
+          <div className="mobile-safe-container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -516,7 +514,7 @@ export default function GovernancePage() {
                 annual reports, undergo independent audits, and engage with our community to 
                 ensure accountability.
               </p>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div className="bg-white/10 rounded-lg p-6">
                   <h3 className="font-bold text-xl mb-2">Annual Reports</h3>
                   <p className="text-white/80">Comprehensive institutional reporting</p>
@@ -535,8 +533,8 @@ export default function GovernancePage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="mobile-section-padding bg-white">
+          <div className="mobile-safe-container">
             <div className="bg-capas-sand-light rounded-2xl shadow-xl p-8 md:p-12 text-center">
               <h3 className="font-montserrat text-2xl font-bold text-capas-turquoise mb-4">
                 Questions About Our Governance?

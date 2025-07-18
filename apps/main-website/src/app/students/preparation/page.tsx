@@ -280,7 +280,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {checklist.map((category, index) => (
                 <motion.div
                   key={category.category}
@@ -344,7 +344,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {importantDates.map((date, index) => (
                 <motion.div
                   key={date.event}
@@ -399,7 +399,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto lg:grid-cols-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {essentialInfo.map((info, index) => (
                 <motion.div
                   key={info.title}
@@ -407,7 +407,7 @@ export default function PreparationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="mobile-card-enhanced bg-capas-sand-light hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="bg-capas-sand-light hover:bg-white hover:shadow-lg transition-all duration-300 rounded-xl p-6"
                 >
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-capas-turquoise rounded-full flex items-center justify-center mr-3">
@@ -454,7 +454,7 @@ export default function PreparationPage() {
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto lg:grid-cols-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {resources.map((resource, index) => (
                 <motion.div
                   key={resource.title}
@@ -462,7 +462,7 @@ export default function PreparationPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="mobile-card-enhanced bg-white hover:shadow-lg transition-shadow duration-300"
+                  className="bg-white hover:shadow-lg transition-shadow duration-300 rounded-xl p-6"
                 >
                   <h3 className="font-montserrat text-lg font-bold text-capas-turquoise mb-4">
                     {resource.title}
@@ -500,7 +500,7 @@ export default function PreparationPage() {
                 first semester, remember that this is just the beginning of an incredible journey 
                 of artistic and personal growth.
               </p>
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-white/10 rounded-lg p-6">
                   <AcademicCapIcon className="w-8 h-8 mx-auto mb-3" />
                   <h3 className="font-bold text-lg mb-2">Learn</h3>

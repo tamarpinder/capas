@@ -153,7 +153,7 @@ export default function PartTimePrograms() {
               </p>
             </motion.div>
 
-            <div className="mobile-grid-auto lg:grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {partTimePrograms.map((program, index) => (
                 <motion.div
                   key={program.id}
@@ -163,8 +163,8 @@ export default function PartTimePrograms() {
                   viewport={{ once: true }}
                 >
                   <Link href={`/programs/${program.slug}`} className="block group h-full">
-                    <div className="mobile-card-enhanced bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col">
-                      <div className="mobile-image-wrapper h-48 flex-shrink-0">
+                    <div className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 border border-capas-ocean-light/20 h-full flex flex-col rounded-xl overflow-hidden">
+                      <div className="relative h-48 flex-shrink-0 overflow-hidden">
                         <PlaceholderImage
                           width={400}
                           height={192}
@@ -180,7 +180,7 @@ export default function PartTimePrograms() {
                           </span>
                         </div>
                       </div>
-                      <div className="mobile-card-container flex-grow flex flex-col">
+                      <div className="p-6 flex-grow flex flex-col">
                         <h3 className="font-montserrat text-xl font-bold text-capas-turquoise mb-2 group-hover:text-capas-turquoise-dark transition-colors">
                           {program.title}
                         </h3>
@@ -194,7 +194,7 @@ export default function PartTimePrograms() {
                           </div>
                           <div className="flex items-center text-sm text-capas-ocean-dark/70">
                             <AcademicCapIcon className="w-4 h-4 mr-2" />
-                            <span>{program.credits} credits</span>
+                          <span>{program.credits} credits</span>
                           </div>
                           <div className="flex items-center justify-between mt-4">
                             <span className="text-capas-gold font-semibold">{program.tuition}</span>
@@ -295,7 +295,7 @@ export default function PartTimePrograms() {
 
         {/* Application CTA */}
         <section className="mobile-section-padding bg-gradient-to-r from-capas-turquoise to-capas-ocean">
-          <div className="mobile-safe-container mobile-center">
+          <div className="mobile-safe-container text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
